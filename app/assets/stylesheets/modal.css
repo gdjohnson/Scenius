@@ -1,0 +1,38 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(209, 222, 209);
+  padding: 20px;
+  border: 3px solid darkslategray;
+}
+
+.sign-in-form {
+  color: black;
+  font-size: 12px;
+}
+.sign-in-form-head{
+  color: rgb(171, 136, 171);
+  text-transform: uppercase;
+}
+
+.sign-in-form-submit{
+  border: 2px solid darkslategray;
+  background: none;
+}
+
+.sign-in-form-create-button{
+  color:rgb(171, 136, 171);
+  text-transform: uppercase;
+}
