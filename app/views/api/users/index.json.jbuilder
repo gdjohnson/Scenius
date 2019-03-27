@@ -1,3 +1,3 @@
 @users.each do |user|
-    user.extract! user, :username
+    user.extract! user, :id, :username
 end

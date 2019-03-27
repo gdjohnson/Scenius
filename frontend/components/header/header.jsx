@@ -1,12 +1,18 @@
 import React from 'react';
-import UserControl from './user_control';
+import UserControlContainer from './user_control_container';
 
-const Header = () => {
-    return (
-        <div>
-            <UserControl />
-        </div>
-    )
-}
+class Header extends React.Component {
+    render (){
+        return (
+            <div className="header">
+                <div className="search">MockSearch</div>
+                <h1 className="header-title">Scenius</h1>
+                <div className="logo"></div>
+                <UserControlContainer />
+            </div>
+            
+        );
+    }
+};
 
 export default Header;

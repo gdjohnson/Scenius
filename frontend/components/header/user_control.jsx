@@ -1,28 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import UserDrop from './user_drop';
 
-const UserControl = ({ currentUser, signOut }) => {
-    const CurrentUser = () => {
+const UserControl = ({currentUser, openModal, signOut}) => {
+    const signedIn = () => {
         return (
-            <div>
-                <h3>{currentUser.username}</h3>
-                <button onClick={signOut}>Sign Out</button>
-                <UserDrop />
+            <div className="user-control">
+                <div className="user-drop">
+                    <h3>{currentUser.username}</h3>
+                    <UserDrop />
+                </div>
+                <button className="user-control-button" onClick={signOut}>Sign Out</button>
             </div>
         )
     }
 
-    const NoUser = () => {
+    const signedOut = () => {
         return (
-            <div>
-                <Link to='/signin'>Sign In</Link><br />
-                <Link to='/signup'>Sign Up</Link>
+            <div className="user-control">
+                <button className="user-control-button" onClick={() => openModal('signin')}>Sign In</button>
+                <button className="user-control-button" onClick={() => openModal('signup')}>Sign Up</button>
             </div>
         )
     }
 
-    return currentUser ? CurrentUser() : NoUser();
+    return currentUser ? signedIn() : signedOut();
 }
 
 export default UserControl;
