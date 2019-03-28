@@ -6,4 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-graham = User.new({username: "graham", password_digest: "123456", session_token: "789"})
+#Users
+graham = User.create(username: "graham", password_digest: "123456", session_token: "789")
+
+#Artists
+roxymusic = Artist.create(name: "Roxy Music")
+
+#Albums
+fleshnblood = Album.create(title: "Flesh + Blood", artist_id: 1, year: 1980)
+avalon = Album.create(title: "Avalon", artist_id: 1, year: 1982)
