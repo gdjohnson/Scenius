@@ -46,7 +46,7 @@ class NewTrackForm extends React.Component {
         this.state.artist_id = this.props.entities[searchedArtist].id;
       };
       
-      
+  
       delete this.state.artist;
 
       // const album_id = this.searchAlbums(this.state.album);
@@ -62,15 +62,14 @@ class NewTrackForm extends React.Component {
   searchArtists() {
     // this.setState({ 'artist': event.currentTarget.value });
     const artistMatches = [];
-    debugger
 
-    if (this.state.artist.length === 0) {
+    if (this.state.artist.length < 1) {
       return [];
     } else {
     Object.keys(this.props.artists).forEach(artist => {
-      let subslice = artist.slice(0, this.state.artist.length);
-      if (subslice.toLowerCase() === this.state.artist.toLowerCase()) {
-        artistMatches.push(name);
+      let subslice = artist.slice(0, this.state.artist.length); //if the first X letter of an artist match query, 
+      if (subslice.toLowerCase() === this.state.artist.toLowerCase()) { //then push them into artistMatches
+        artistMatches.push(artist);
       }
     });};
 
@@ -80,12 +79,15 @@ class NewTrackForm extends React.Component {
   selectArtist(event) {
     const name = event.currentTarget.innerText;
     this.setState({artist: name});
+    // debugger
+    const selectedArtist = event.currentTarget;
+    selectedArtist.classList.add('selected-artist-from-query');
   }
 
 
   render() {
     const artistResults = this.searchArtists().map((artist, idx) => {
-      return <li key={idx} onClick={this.selectArtist}>{artist.name}</li>;
+      return <li className="queried-artist" key={idx} onClick={this.selectArtist}>{artist}</li>;
     });
 
     return (
@@ -104,7 +106,7 @@ class NewTrackForm extends React.Component {
                   value={this.state.artist}
                   className="track-string-input"
                 />
-                <ul>
+                <ul className="queried-artists">
                   <ReactCSSTransitionGroup
                     transitionName='auto'
                     transitionEnterTimeout={500}

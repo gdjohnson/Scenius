@@ -93,3 +93,27 @@
   border: 1px solid #444;
   padding: 5px 9px;
 }
+
+.queried-artists{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.queried-artist {
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: inline-block;
+  padding: 5px;
+}
+
+.queried-artist:hover {
+  border: 2px solid red;
+  border-radius: 15px;
+}
+
+.selected-artist-from-query{
+  border: 2px solid red;
+  border-radius: 15px;
+}

@@ -11,6 +11,8 @@ graham = User.create(username: "graham", password_digest: "123456", session_toke
 
 #Artists
 roxymusic = Artist.create(name: "Roxy Music")
+robertaflack = Artist.create(name: "Roberta Flack")
+
 
 #Albums
 fleshnblood = Album.create(title: "Flesh + Blood", artist_id: 1, year: 1980)
