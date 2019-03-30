@@ -1,4 +1,5 @@
 import React from 'react';
+import { createArtist } from '../../util/artist_api_util';
 
 class NewTrackForm extends React.Component {
   constructor(props) {
@@ -8,10 +9,12 @@ class NewTrackForm extends React.Component {
       title: '',
       lyrics: '',
       // poster_id: this.props.currentUser.id,
+      artist: '',
       artist_id: '',
-      album_id: '',
-      genre_tag: '',
-      audio_link: ''
+      album: '',
+      genreTag: '',
+      audioLink: '',
+      inputVal: ''
     };
   }
 
@@ -30,8 +33,14 @@ class NewTrackForm extends React.Component {
     return (event) => {
       event.preventDefault();
 
-      // const artist_id = this.searchArtists(this.state.artist);
-      // delete this.state.artist;
+      if (this.searchArtists(this.state.artist).length === 0){
+        this.props.createArtist({name: this.state.artist})
+      } else {
+        this.state.artist_id = this.props.entities.inputVal.id;
+      };
+      
+      
+      delete this.state.artist;
 
       // const album_id = this.searchAlbums(this.state.album);
       // delete this.state.album;
@@ -43,16 +52,35 @@ class NewTrackForm extends React.Component {
     };
   }
 
-  // searchArtists(artistName){
-  //   this.props.updateBounds({name: artistName});
-  // }
+  searchArtists(event) {
+    // this.setState({ 'artist': event.currentTarget.value });
 
-  // searchAlbums(albumTitle) {
-  //   this.props.updateBounds({ name: albumName });
-  // }
+    const artistMatches = [];
+
+    if (this.state.artist.length === 0) {
+      return [];
+    } else {
+    this.props.entities.artists.forEach(artist => {
+      let subslice = artist.name.slice(0, this.state.artist.length);
+      if (subslice.toLowerCase() === this.state.artist.toLowerCase()) {
+        artistMatches.push(name);
+      }
+    });};
+
+    return artistMatches;
+  }
+
+  selectArtist(event) {
+    const name = event.currentTarget.innerText;
+    this.setState({artist: name});
+  }
+
 
   render() {
-    debugger
+    const artistResults = this.artistMatches().map((artist, idx) => {
+      return <li key={idx} onClick={this.selectArtist}>{artist.name}</li>;
+    });
+
     return (
       <div className="track-form"><h1>Add Song</h1>
 
@@ -63,20 +91,21 @@ class NewTrackForm extends React.Component {
               <div id="new-track-artist">
                 <label className="track-field-label">By*</label>
                 <br />
-                <select>
-                  {Object.values(this.props.artists).map(artist => {
-                    <option value={artist.id} onChange={this.handleUpdate('artist_id')}>
-                      {artist.name}
-                    </option>
-                  })
-                  }
-                </select>
-                {/* <input
+                <input
                   type="text"
                   onChange={this.handleUpdate('artist')}
+                  value={this.state.artist}
                   className="track-string-input"
                 />
-                <br /> */}
+                <ul>
+                  <ReactCSSTransitionGroup
+                    transitionName='auto'
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={500}>
+                    {artistResults}
+                  </ReactCSSTransitionGroup>
+                </ul>
+                <br />
               </div>
 
               <div id="new-track-title">
@@ -95,26 +124,26 @@ class NewTrackForm extends React.Component {
                 <label className="track-field-label">Primary tag</label>
                 <div className="genre-selector">
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Pop" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Pop" onChange={this.handleUpdate('genreTag')}/> 
                           Pop  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Rock" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Rock" onChange={this.handleUpdate('genreTag')}/> 
                           Rock  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Rap" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Rap" onChange={this.handleUpdate('genreTag')}/> 
                           Rap  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Electronic" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Electronic" onChange={this.handleUpdate('genreTag')}/> 
                           Electronic  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Jazz" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Jazz" onChange={this.handleUpdate('genreTag')}/> 
                           Jazz  
                   <br />
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Classical" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Classical" onChange={this.handleUpdate('genreTag')}/> 
                           Classical  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Experimental" onChange={this.handleUpdate('genre_tag')}/> 
+                          value="Experimental" onChange={this.handleUpdate('genreTag')}/> 
                           Experimental  
                 </div>
 
@@ -161,8 +190,8 @@ class NewTrackForm extends React.Component {
                 <br />
                 <input
                   type="text"
-                  onChange={this.handleUpdate('audio_link')}
-                  value={this.state.audio_link}
+                  onChange={this.handleUpdate('audioLink')}
+                  value={this.state.audioLink}
                   className="track-string-input"
                 />
                 <br />
