@@ -1,8 +1,10 @@
 import React from 'react';
-import { createArtist } from '../../util/artist_api_util';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 class NewTrackForm extends React.Component {
   constructor(props) {
+    // debugger
     super(props);
     
     this.state = {
@@ -16,9 +18,12 @@ class NewTrackForm extends React.Component {
       audioLink: '',
       inputVal: ''
     };
+
+    this.searchArtists = this.searchArtists.bind(this);
+    this.selectArtist = this.selectArtist.bind(this);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.fetchArtists();
     this.props.fetchAlbums();
   }
@@ -30,13 +35,15 @@ class NewTrackForm extends React.Component {
   }
 
   handleSubmit() {
+    // debugger
     return (event) => {
       event.preventDefault();
 
       if (this.searchArtists(this.state.artist).length === 0){
         this.props.createArtist({name: this.state.artist})
       } else {
-        this.state.artist_id = this.props.entities.inputVal.id;
+        const searchedArtist = this.state.artist;
+        this.state.artist_id = this.props.entities[searchedArtist].id;
       };
       
       
@@ -52,16 +59,16 @@ class NewTrackForm extends React.Component {
     };
   }
 
-  searchArtists(event) {
+  searchArtists() {
     // this.setState({ 'artist': event.currentTarget.value });
-
     const artistMatches = [];
+    debugger
 
     if (this.state.artist.length === 0) {
       return [];
     } else {
-    this.props.entities.artists.forEach(artist => {
-      let subslice = artist.name.slice(0, this.state.artist.length);
+    Object.keys(this.props.artists).forEach(artist => {
+      let subslice = artist.slice(0, this.state.artist.length);
       if (subslice.toLowerCase() === this.state.artist.toLowerCase()) {
         artistMatches.push(name);
       }
@@ -77,7 +84,7 @@ class NewTrackForm extends React.Component {
 
 
   render() {
-    const artistResults = this.artistMatches().map((artist, idx) => {
+    const artistResults = this.searchArtists().map((artist, idx) => {
       return <li key={idx} onClick={this.selectArtist}>{artist.name}</li>;
     });
 
