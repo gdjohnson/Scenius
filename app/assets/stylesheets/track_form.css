@@ -94,26 +94,26 @@
   padding: 5px 9px;
 }
 
-.queried-artists{
+.queried-artists, .queried-albums{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
 }
 
-.queried-artist {
+.queried-artist, .queried-album {
   cursor: pointer;
   border: 2px solid transparent;
   display: inline-block;
   padding: 5px;
 }
 
-.queried-artist:hover {
+.queried-artist:hover, .queried-album:hover {
   border: 2px solid red;
   border-radius: 15px;
 }
 
-.selected-artist-from-query{
+.selected-artist-from-query, .selected-album-from-query {
   border: 2px solid red;
   border-radius: 15px;
 }

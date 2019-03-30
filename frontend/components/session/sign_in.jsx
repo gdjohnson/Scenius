@@ -24,11 +24,11 @@ class SignIn extends React.Component {
       event.preventDefault();
       const user = Object.assign({}, this.state);
       this.props.signIn(user);
-      // if (this.props.errors.length) > 0 {
-      //   this.props.closeModal();
-      // } else {
-      //   this.renderErrors();
-      // }
+      if (this.props.errors.length > 0) {
+        this.props.closeModal();
+      } else {
+        this.renderErrors();
+      }
       
     };
   }
