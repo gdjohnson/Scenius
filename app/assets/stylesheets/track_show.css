@@ -1,3 +1,52 @@
+.track-show{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.track-header{
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 100%
+}
+
+.track-show-meta-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.track-show-track-title{
+  color: #ffff64;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.track-show-track-artist{
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.track-show-year-container, .track-show-album-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.track-show-track-year, .track-show-track-album{
+  color: #7d8fe8;
+  text-transform: uppercase;
+}
+
+
+.meta-tag{
+  color: #9a9a9a;
+  padding-right: 10px;
+}
+
 .lyrics-body{
-  
+  display: block;
+  background: white;
+  color: black;
+  white-space: pre-wrap;
 }

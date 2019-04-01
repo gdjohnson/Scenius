@@ -4,6 +4,7 @@ import TrackShow from './track_show';
 
 const mapStateToProps = (state, { match }) => {
     const id = parseInt(match.params.id);
+    debugger
     const track = state.entities.tracks[id];
     return ({
       id, 

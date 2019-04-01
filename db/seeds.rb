@@ -10,16 +10,11 @@
 graham = User.create(username: "graham", password: "123456")
 guest = User.create(username: "temerity", password: "123456")
 
-
-#Tracks
-midnighthour = Track.create(title: "Midnight Hour", lyrics: "I'm gonna wait 'till the midnight hour / That's when my love come tumbling down
-I'm gonna wait 'till the midnight hour / When there' no one else around / I'm gonna take you, girl, and hold you / And do all things I told you, in the midnight hour", album_id: 1, artist_id: 1)
-
 #Artists
 roxymusic = Artist.create(name: "Roxy Music")
 robertaflack = Artist.create(name: "Roberta Flack")
 
 
 #Albums
-fleshnblood = Album.create(title: "Flesh + Blood", artist_id: 1, year: 1980)
-avalon = Album.create(title: "Avalon", artist_id: 1, year: 1982)
+fleshnblood = Album.create(title: "Flesh + Blood", artist_id: 1, year: 1980, artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Flesh_and_Blood_album_cover.jpg/220px-Flesh_and_Blood_album_cover.jpg")
+avalon = Album.create(title: "Avalon", artist_id: 1, year: 1982, artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Avalon_album_cover.jpg/220px-Avalon_album_cover.jpg")
