@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Users
-graham = User.create(username: "graham", password_digest: "123456", session_token: "789")
-guest = User.create(username: "Guest", password_digest: "123456", session_token: "789")
+graham = User.create(username: "graham", password: "123456")
+guest = User.create(username: "temerity", password: "123456")
 
 
 #Tracks

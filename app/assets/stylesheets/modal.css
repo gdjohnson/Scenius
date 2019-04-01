@@ -9,8 +9,8 @@
 }
 
 .modal-child {
-  width: 390px;
-  height: 410px;
+  width: 300px;
+  height: 300px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -19,38 +19,43 @@
   padding: 22px;
   border: 3px solid darkslategray;
   animation: expand_in .15s cubic-bezier(.25,.46,.45,.94);
+  display: flex;
 }
 
 .sign-in-form {
   color: black;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 }
 .sign-in-form-head{
   color:#99a7ee;
+  font-size: 14px;
+  font-weight: bold;
   text-transform: uppercase;
   border-bottom: 2px solid #99a7ee;
-  margin-bottom: 10px;
   width: 100%;
   padding-bottom: .375rem;
 }
 
 .sign-in-input{
   background: #fff;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   margin-bottom: 12px;
-  padding: 5px;
+  padding: 7px;
   cursor: pointer; 
-  border-color: #000; 
   color: #000; 
-  background-color: transparent; 
   width: 100%;
+  font-size: 14px;
 }
 
 .sign-in-form-submit{
-  border: 2px solid darkslategray;
+  border: 3px solid black;
   background: none;
   font-size: 16px;
   padding: 4px 8px;
+  margin-top: 10px;
 }
 
 .sign-in-form-create-button{
@@ -62,7 +67,21 @@
 
 .addtl-sign-in-opts{
   display: flex;
-  flex-direction: column;
-  padding: 25px;
-  align-items: left;
+  flex-direction: row;
+  justify-content: left;
+  margin-top: 25px;
+}
+
+.addtl-sign-in-opt{
+  color: #949494;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #a1a1a1;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 0;
+  margin-right: 5px;
 }

@@ -32,17 +32,23 @@ class SignIn extends React.Component {
       
     };
   }
+
+  signInGuest(){
+    this.props.signIn({ username: 'temerity', password: '123456' });
+    this.props.closeModal();
+  }
   
   renderErrors() {
-    return (
-      <ul>
-        {Object.values(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (Object.values(this.props.errors).length > 0){
+      return (
+        <ul>
+          {Object.values(this.props.errors).map((error, i) => (
+              <li key={`error-${i}`}>
+                {error}
+              </li>
+          ))}
+          </ul>
+    );}
   }
 
   render() {
@@ -67,10 +73,10 @@ class SignIn extends React.Component {
                 onChange={this.handleUpdate('password')}
               />
             <br />
-              <input className="sign-in-form-submit" type="submit" value="Sign In" />
+              <input className="sign-in-form-submit" type="submit" value="Sign in" />
               <div className="addtl-sign-in-opts">
-                <input className="addtl-sign-in-opt" type="submit" value="CREATE AN ACCOUNT" onClick={() => this.props.openModal('signup')}/>
-                <input className="addtl-sign-in-opt" type="submit" value="DEMO SIGNIN" onClick={() => this.props.signIn({username: 'Guest', password: 'password'})}/>
+                <input className="addtl-sign-in-opt" type="submit" value="Create an account" onClick={() => this.props.openModal('signup')}/>
+                <input className="addtl-sign-in-opt" type="submit" value="Demo Sign-in" onClick={() => this.signInGuest()}/>
               </div>
           </div>
         </form>
