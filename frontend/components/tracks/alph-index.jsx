@@ -4,22 +4,27 @@ import { connect } from 'react-redux';
 import { fetchTracks } from '../../actions/track_actions';
 
 export class AlphIndex extends React.Component {
-    constructor (){
+    constructor (props){
         super(props)
+        this.state = {tracks: []}
     }
 
     componentWillMount(){
+        debugger
         this.props.fetchTracks()
-        this.tracks = Object.values(this.props.tracks).filter(
+        const slice = Array.from(Object.values(this.props.tracks));
+        this.state.tracks = slice.filter(
             track => {
-                return (track.title[0].toLowercase() === 
-                        this.state.start_char.toLowercase()) 
+                if (track.title[0].toLowercase() === 
+                    this.state.start_char.toLowercase()){
+                        return track;
+                    }
             });
     }
 
     render (){
-
-        const trackList = this.tracks.map(track => {
+        debugger
+        const trackList = this.state.tracks.map(track => {
             <li><Link path={`api/tracks/{track.id}`}>{track.title} by {track.artist}</Link></li>
         })
 
