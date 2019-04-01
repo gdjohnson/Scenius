@@ -11,10 +11,8 @@ export const createTrack = (track) => dispatch => {
 };
 
 export const fetchTrack = (id) => dispatch => {
-  // debugger
   return APIUtil.fetchTrack(id).then(
     (track) => {
-      // debugger
       return (dispatch({ type: RECEIVE_TRACK, track }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
     );});
 };

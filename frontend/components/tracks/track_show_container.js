@@ -3,7 +3,6 @@ import { fetchTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
 
 const mapStateToProps = (state, { match }) => {
-    // debugger
     const id = parseInt(match.params.id);
     const track = state.entities.tracks[id];
     return ({

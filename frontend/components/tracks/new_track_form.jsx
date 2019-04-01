@@ -3,7 +3,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class NewTrackForm extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
     
     this.state = {
@@ -30,6 +29,11 @@ class NewTrackForm extends React.Component {
     this.props.fetchAlbums();
   }
 
+  navigateToTrack(id) {
+    debugger
+    this.props.history.push(`/tracks/${id}`);
+  }
+
   handleUpdate(field) {
     return (event) => this.setState({
       [field]: event.currentTarget.value
@@ -38,36 +42,14 @@ class NewTrackForm extends React.Component {
 
   handleSubmit() {
     return (event) => {
-      debugger
       event.preventDefault();
       const track = Object.assign({}, this.state);
-      this.props.createTrack(track);
+      this.props.createTrack(track).then((track) => {
+        debugger
+        return this.navigateToTrack(track.id);
+      });
     };
   }
-
-    //   if (this.searchArtists(this.state.artist).length === 0){
-    //     this.props.createArtist({ name: this.state.artist }).then(
-    //       artist => {
-    //         debugger
-    //         this.setState({ artist_id: artist.id }, this.helperOne)})
-    //   } else {
-    //     const searchedArtist = this.state.artist;
-    //     debugger
-    //     this.setState({artist_id: this.props.artists[searchedArtist].id}, this.helperOne);
-    //   }
-    // };
-
-  // helperOne() {
-  //   if (this.searchAlbums(this.state.album).length === 0) {
-  //     this.props.createAlbum({ title: this.state.album, artist_id: this.state.artist_id }).then(
-  //       album => {
-  //         debugger
-  //         return this.setState({ album_id: album.id }, this.helperTwo);})
-  //   } else {
-  //     const searchedAlbum = this.state.album;
-  //     this.setState({ album_id: this.props.albums[searchedAlbum].id }, this.helperTwo);
-  //   }
-  // }
 
   searchArtists() {
     // this.setState({ 'artist': event.currentTarget.value });
@@ -89,7 +71,6 @@ class NewTrackForm extends React.Component {
   selectArtist(event) {
     const name = event.currentTarget.innerText;
     this.setState({artist: name});
-    // debugger
     const selectedArtist = event.currentTarget;
     selectedArtist.classList.add('selected-artist-from-query');
   }
@@ -113,7 +94,6 @@ class NewTrackForm extends React.Component {
   selectAlbum(event) {
     const title = event.currentTarget.innerText;
     this.setState({album: title});
-    // debugger
     const selectedAlbum = event.currentTarget;
     selectedAlbum.classList.add('selected-album-from-query');
   }

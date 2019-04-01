@@ -7,7 +7,6 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const createAlbum = (album) => dispatch => {
   return APIUtil.createAlbum(album).then(
     (album) => {
-      debugger
       return (dispatch({ type: RECEIVE_ALBUM, album }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
     )});
 };

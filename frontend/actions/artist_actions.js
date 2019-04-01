@@ -7,7 +7,6 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const createArtist = (artist) => dispatch => {
   return APIUtil.createArtist(artist).then(
     (artist) => {
-      debugger
       return (dispatch({ type: RECEIVE_ARTIST, artist }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
     )});
 };

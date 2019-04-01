@@ -101,14 +101,14 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
-  margin: 5px;
+  margin: 10px;
 }
 
 .queried-artist, .queried-album {
   cursor: pointer;
   border: 2px solid transparent;
   display: inline-block;
-  padding: 10px;
+  padding: 5px;
 }
 
 .queried-artist:hover, .queried-album:hover {

@@ -13,7 +13,6 @@ export const fetchAlbums = () => {
 };
 
 export const createAlbum = (album) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: 'api/albums',
