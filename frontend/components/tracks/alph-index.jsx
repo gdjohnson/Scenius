@@ -5,21 +5,18 @@ import { fetchTracks } from '../../actions/track_actions';
 
 export class AlphIndex extends React.Component {
     constructor (props){
-        super(props)
-        this.state = {tracks: []}
+        super(props);
+        this.state = {tracks: []};
     }
 
     componentWillMount(){
         debugger
-        this.props.fetchTracks()
-        const slice = Array.from(Object.values(this.props.tracks));
-        this.state.tracks = slice.filter(
-            track => {
-                if (track.title[0].toLowercase() === 
-                    this.state.start_char.toLowercase()){
-                        return track;
-                    }
-            });
+        this.props.fetchTracks();
+        const arr = Array.from(Object.values(this.props.tracks));
+        debugger
+        const tracks = arr.filter(
+            track => track.title[0].toLowercase() === this.props.location.start_char.toLowercase());
+        this.setState({tracks: tracks});
     }
 
     render (){

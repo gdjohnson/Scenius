@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-
 class NewTrackForm extends React.Component {
   constructor(props) {
     // debugger
@@ -19,6 +18,7 @@ class NewTrackForm extends React.Component {
       audio_link: '',
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.searchArtists = this.searchArtists.bind(this);
     this.selectArtist = this.selectArtist.bind(this);
     this.searchAlbums = this.searchAlbums.bind(this);
@@ -37,30 +37,37 @@ class NewTrackForm extends React.Component {
   }
 
   handleSubmit() {
-    debugger
     return (event) => {
+      debugger
       event.preventDefault();
-
-      if (this.searchArtists(this.state.artist).length === 0){
-        this.props.createArtist({name: this.state.artist})
-      } else {
-        const searchedArtist = this.state.artist;
-        this.state.artist_id = this.props.artists[searchedArtist].id;
-      };
-      delete this.state.artist;
-
-      if (this.searchAlbums(this.state.album).length === 0){
-        this.props.createAlbum({name: this.state.album})
-      } else {
-        const searchedAlbum = this.state.album;
-        this.state.album_id = this.props.albums[searchedAlbum].id;
-      };
-      delete this.state.album;
-
       const track = Object.assign({}, this.state);
       this.props.createTrack(track);
     };
   }
+
+    //   if (this.searchArtists(this.state.artist).length === 0){
+    //     this.props.createArtist({ name: this.state.artist }).then(
+    //       artist => {
+    //         debugger
+    //         this.setState({ artist_id: artist.id }, this.helperOne)})
+    //   } else {
+    //     const searchedArtist = this.state.artist;
+    //     debugger
+    //     this.setState({artist_id: this.props.artists[searchedArtist].id}, this.helperOne);
+    //   }
+    // };
+
+  // helperOne() {
+  //   if (this.searchAlbums(this.state.album).length === 0) {
+  //     this.props.createAlbum({ title: this.state.album, artist_id: this.state.artist_id }).then(
+  //       album => {
+  //         debugger
+  //         return this.setState({ album_id: album.id }, this.helperTwo);})
+  //   } else {
+  //     const searchedAlbum = this.state.album;
+  //     this.setState({ album_id: this.props.albums[searchedAlbum].id }, this.helperTwo);
+  //   }
+  // }
 
   searchArtists() {
     // this.setState({ 'artist': event.currentTarget.value });

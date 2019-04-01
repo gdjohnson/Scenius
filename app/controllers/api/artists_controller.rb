@@ -1,6 +1,6 @@
 class Api::ArtistsController < ApplicationController
   def show
-    @artist = Artist.find_by(params[:id])
+    @artist = Artist.find_by(id: params[:id])
   end
 
   def index
@@ -11,7 +11,8 @@ class Api::ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
 
     if @artist.save
-      render :show
+      debugger
+      render "/api/artists/show"
     else
       render json: @artist.errors.full_messages, status: 422
     end

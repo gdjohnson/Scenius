@@ -1,6 +1,6 @@
 class Api::AlbumsController < ApplicationController
   def show
-    @album = Album.find_by(params[:id])
+    @album = Album.find_by(id: params[:id])
   end
 
   def index

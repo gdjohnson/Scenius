@@ -13,6 +13,7 @@ export const fetchArtists = () => {
 };
 
 export const createArtist = (artist) => {
+  debugger
   return $.ajax({
     method: 'POST',
     url: 'api/artists',

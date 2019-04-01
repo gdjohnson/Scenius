@@ -1,6 +1,6 @@
 class Track < ApplicationRecord
 
-  validates :title, :lyrics, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true
   validates :poster_id, :album_id, :artist_id, presence: true
 
   belongs_to :poster,

@@ -10,7 +10,7 @@
 
 .modal-child {
   width: 300px;
-  height: 300px;
+  height: 275px;;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,7 +36,8 @@
   text-transform: uppercase;
   border-bottom: 2px solid #99a7ee;
   width: 100%;
-  padding-bottom: .375rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .sign-in-input{
@@ -83,5 +84,5 @@
   border-left: none;
   border-right: none;
   padding: 0;
-  margin-right: 5px;
+  margin-right: 7px;
 }

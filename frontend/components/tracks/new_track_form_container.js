@@ -5,6 +5,7 @@ import { createAlbum, fetchAlbums } from '../../actions/album_actions';
 import { updateBounds } from '../../actions/filter_actions';
 import NewTrackForm from './new_track_form';
 
+
 const mapStateToProps = state => {
   return ({
     artists: state.entities.artists,

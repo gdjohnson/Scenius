@@ -5,16 +5,26 @@ class Api::TracksController < ApplicationController
     @track = Track.find(params[:id])
   end
 
-  # def load_project
-  #   @project = Project.find_by(startChar: params[:startChar])
-  # end
-
   def index
     @tracks = Track.all
   end
 
   def create
+    artist = Artist.find_by(name: params[:track][:artist])
+    if artist.nil?
+      artist = Artist.new(name: params[:track][:artist])
+      artist.save
+    end
+
+    album = Album.find_by(title: params[:track][:album])
+    if album.nil?
+      album = Album.new(title: params[:track][:album], artist_id: artist.id)
+      album.save
+    end
+    
     @track = Track.new(track_params)
+    @track.artist_id = artist.id
+    @track.album_id = album.id
 
     if @track.save
       render :show

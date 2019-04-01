@@ -3,9 +3,9 @@ import { fetchTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
 
 const mapStateToProps = (state, { match }) => {
-    debugger
+    // debugger
     const id = parseInt(match.params.id);
-    const track = fetchTrack(id);
+    const track = state.entities.tracks[id];
     return ({
       id, 
       track
@@ -14,6 +14,7 @@ const mapStateToProps = (state, { match }) => {
   
 const mapDispatchToProps = dispatch => {
     return ({    
+      fetchTrack: (id) => dispatch(fetchTrack(id))
     });
 };
 

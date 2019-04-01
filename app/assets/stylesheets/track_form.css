@@ -10,6 +10,8 @@
 
 .form-inputs{
   padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -99,13 +101,14 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
+  margin: 5px;
 }
 
 .queried-artist, .queried-album {
   cursor: pointer;
   border: 2px solid transparent;
   display: inline-block;
-  padding: 5px;
+  padding: 10px;
 }
 
 .queried-artist:hover, .queried-album:hover {

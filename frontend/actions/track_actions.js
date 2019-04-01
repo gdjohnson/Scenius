@@ -11,10 +11,12 @@ export const createTrack = (track) => dispatch => {
 };
 
 export const fetchTrack = (id) => dispatch => {
-  debugger
+  // debugger
   return APIUtil.fetchTrack(id).then(
-    (track) => (dispatch({ type: RECEIVE_TRACK, track }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-    ));
+    (track) => {
+      // debugger
+      return (dispatch({ type: RECEIVE_TRACK, track }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+    );});
 };
 
 export const fetchTracks = () => dispatch => {

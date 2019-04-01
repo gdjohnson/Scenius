@@ -9,6 +9,7 @@
 .footer-links-1, .footer-links-2{
     display: flex;
     flex-direction: row;
+    padding-bottom: 10px;
 }
 
 .footer li{
@@ -19,13 +20,14 @@
 .copyright{
     color: white;
     font-size: 12px;
-    padding-top: 15px;
+    padding: 10px;
 }
 
 .alph-index{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 .alph-index li{
