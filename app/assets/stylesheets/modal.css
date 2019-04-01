@@ -9,13 +9,16 @@
 }
 
 .modal-child {
+  width: 390px;
+  height: 410px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(209, 222, 209);
-  padding: 20px;
+  background: #e9e9e9;
+  padding: 22px;
   border: 3px solid darkslategray;
+  animation: expand_in .15s cubic-bezier(.25,.46,.45,.94);
 }
 
 .sign-in-form {
@@ -23,16 +26,43 @@
   font-size: 12px;
 }
 .sign-in-form-head{
-  color: rgb(171, 136, 171);
+  color:#99a7ee;
   text-transform: uppercase;
+  border-bottom: 2px solid #99a7ee;
+  margin-bottom: 10px;
+  width: 100%;
+  padding-bottom: .375rem;
+}
+
+.sign-in-input{
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  padding: 5px;
+  cursor: pointer; 
+  border-color: #000; 
+  color: #000; 
+  background-color: transparent; 
+  width: 100%;
 }
 
 .sign-in-form-submit{
   border: 2px solid darkslategray;
   background: none;
+  font-size: 16px;
+  padding: 4px 8px;
 }
 
 .sign-in-form-create-button{
   color:rgb(171, 136, 171);
   text-transform: uppercase;
+  border: 2px solid darkslategray;
+  background: none;
+}
+
+.addtl-sign-in-opts{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  align-items: left;
 }

@@ -1,0 +1,34 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffff64;
+    background-color: black;
+}
+
+.footer-links-1, .footer-links-2{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer li{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.copyright{
+    color: white;
+    font-size: 12px;
+    padding-top: 15px;
+}
+
+.alph-index{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.alph-index li{
+    padding: 5px;
+    color: #99a7ee;
+}

@@ -8,6 +8,12 @@
 
 #Users
 graham = User.create(username: "graham", password_digest: "123456", session_token: "789")
+guest = User.create(username: "Guest", password_digest: "123456", session_token: "789")
+
+
+#Tracks
+midnighthour = Track.create(title: "Midnight Hour", lyrics: "I'm gonna wait 'till the midnight hour / That's when my love come tumbling down
+I'm gonna wait 'till the midnight hour / When there' no one else around / I'm gonna take you, girl, and hold you / And do all things I told you, in the midnight hour", album_id: 1, artist_id: 1)
 
 #Artists
 roxymusic = Artist.create(name: "Roxy Music")

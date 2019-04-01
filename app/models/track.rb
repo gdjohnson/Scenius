@@ -16,5 +16,4 @@ class Track < ApplicationRecord
     foreign_key: :album_id
 
 
-
 end

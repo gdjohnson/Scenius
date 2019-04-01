@@ -15,9 +15,8 @@ class NewTrackForm extends React.Component {
       artist_id: '',
       album: '',
       album_id: '',
-      genreTag: '',
-      audioLink: '',
-      inputVal: ''
+      genre_tag: '',
+      audio_link: '',
     };
 
     this.searchArtists = this.searchArtists.bind(this);
@@ -38,7 +37,7 @@ class NewTrackForm extends React.Component {
   }
 
   handleSubmit() {
-    // debugger
+    debugger
     return (event) => {
       event.preventDefault();
 
@@ -46,7 +45,7 @@ class NewTrackForm extends React.Component {
         this.props.createArtist({name: this.state.artist})
       } else {
         const searchedArtist = this.state.artist;
-        this.state.artist_id = this.props[searchedArtist].id;
+        this.state.artist_id = this.props.artists[searchedArtist].id;
       };
       delete this.state.artist;
 
@@ -54,7 +53,7 @@ class NewTrackForm extends React.Component {
         this.props.createAlbum({name: this.state.album})
       } else {
         const searchedAlbum = this.state.album;
-        this.state.album_id = this.props[searchedAlbum].id;
+        this.state.album_id = this.props.albums[searchedAlbum].id;
       };
       delete this.state.album;
 
@@ -165,26 +164,26 @@ class NewTrackForm extends React.Component {
                 <label className="track-field-label">Primary tag</label>
                 <div className="genre-selector">
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Pop" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Pop" onChange={this.handleUpdate('genre_tag')}/> 
                           Pop  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Rock" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Rock" onChange={this.handleUpdate('genre_tag')}/> 
                           Rock  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Rap" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Rap" onChange={this.handleUpdate('genre_tag')}/> 
                           Rap  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Electronic" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Electronic" onChange={this.handleUpdate('genre_tag')}/> 
                           Electronic  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Jazz" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Jazz" onChange={this.handleUpdate('genre_tag')}/> 
                           Jazz  
                   <br />
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Classical" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Classical" onChange={this.handleUpdate('genre_tag')}/> 
                           Classical  
                   <input  type="radio" name="genre" className="genre_radio" 
-                          value="Experimental" onChange={this.handleUpdate('genreTag')}/> 
+                          value="Experimental" onChange={this.handleUpdate('genre_tag')}/> 
                           Experimental  
                 </div>
 
@@ -231,8 +230,8 @@ class NewTrackForm extends React.Component {
                 <br />
                 <input
                   type="text"
-                  onChange={this.handleUpdate('audioLink')}
-                  value={this.state.audioLink}
+                  onChange={this.handleUpdate('audio_link')}
+                  value={this.state.audio_link}
                   className="track-string-input"
                 />
                 <br />

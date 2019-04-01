@@ -1,7 +1,13 @@
-class TracksController < ApplicationController
+class Api::TracksController < ApplicationController
+  before_action :ensure_signed_in, only: [:create]
+
   def show
-    @track = Track.find_by(params[:id])
+    @track = Track.find(params[:id])
   end
+
+  # def load_project
+  #   @project = Project.find_by(startChar: params[:startChar])
+  # end
 
   def index
     @tracks = Track.all

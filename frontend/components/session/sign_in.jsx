@@ -24,7 +24,7 @@ class SignIn extends React.Component {
       event.preventDefault();
       const user = Object.assign({}, this.state);
       this.props.signIn(user);
-      if (this.props.errors.length > 0) {
+      if (this.props.errors.length < 1) {
         this.props.closeModal();
       } else {
         this.renderErrors();
@@ -53,22 +53,25 @@ class SignIn extends React.Component {
           {this.renderErrors()}
           <div>
             <br />
-            <label>Username:
               <input type="text"
+                className="sign-in-input"
                 value={this.state.username}
+                placeholder="Username"
                 onChange={this.handleUpdate('username')}
               />
-            </label>
             <br />
-            <label>Password:
               <input type="password"
+                className="sign-in-input"
                 value={this.state.password}
+                placeholder="Password"
                 onChange={this.handleUpdate('password')}
               />
-            </label>
             <br />
-            <input className="sign-in-form-submit" type="submit" value="Sign In" />
-            <input className="sign-in-form-create-button" type="submit" value="CREATE AN ACCOUNT" onClick={() => this.props.openModal('signup')}/>
+              <input className="sign-in-form-submit" type="submit" value="Sign In" />
+              <div className="addtl-sign-in-opts">
+                <input className="addtl-sign-in-opt" type="submit" value="CREATE AN ACCOUNT" onClick={() => this.props.openModal('signup')}/>
+                <input className="addtl-sign-in-opt" type="submit" value="DEMO SIGNIN" onClick={() => this.props.signIn({username: 'Guest', password: 'password'})}/>
+              </div>
           </div>
         </form>
       </div>
