@@ -27,7 +27,6 @@ class Header extends React.Component {
             <div className="header">
                 <Search  />
                 <Link to="/" className="header-title">Scenius</Link>
-                <div className="logo"></div>
                 <UserControlContainer />
             </div>
             <SubHeader />

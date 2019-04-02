@@ -6,6 +6,7 @@ import NewTrackForm from './new_track_form';
 
 
 const mapStateToProps = state => {
+  debugger
   return ({
     artists: state.entities.artists,
     albums: state.entities.albums,

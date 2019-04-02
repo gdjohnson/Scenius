@@ -11,6 +11,7 @@ class Api::TracksController < ApplicationController
 
   
   def create
+
     artist = Artist.find_by(name: params[:track][:artist])
     if artist.nil?
       artist = Artist.new(name: params[:track][:artist])
@@ -25,6 +26,7 @@ class Api::TracksController < ApplicationController
     
     params[:track].delete("album")
     params[:track].delete("artist")
+    params[:track].delete("submitted")
 
     @track = Track.new(track_params)
     @track.artist_id = artist.id
