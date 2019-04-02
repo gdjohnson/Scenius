@@ -25,6 +25,13 @@ export const fetchArtists = () => dispatch => {
   );
 };
 
+export const fetchArtistsByLetter = (char) => dispatch => {
+  return APIUtil.fetchArtistsByLetter(char).then(
+    artists => dispatch({ type: RECEIVE_ARTISTS, artists }),
+    errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+  );
+};
+
 
 export const alterArtist = (artist) => dispatch => {
   return APIUtil.alterArtist(artist).then(

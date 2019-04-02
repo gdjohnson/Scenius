@@ -4,7 +4,8 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.all
+    @artists = Artist.where("name like '#{params[:char]}%'")
+    render :index
   end
 
   def create
@@ -28,6 +29,6 @@ class Api::ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :image_url)
+    params.require(:artist).permit(:name, :image_url, :char)
   end
 end

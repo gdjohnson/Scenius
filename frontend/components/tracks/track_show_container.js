@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import { fetchTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
+import { fetchAlbum } from '../../actions/album_actions';
+import { fetchArtist } from '../../actions/artist_actions';
+
 
 const mapStateToProps = (state, { match }) => {
   debugger
     const id = parseInt(match.params.id);
     const track = state.entities.tracks;
-    const album = state.entities.albums[track.album_id];
-    const artist = state.entities.artists[track.artist_id];
+    const album = state.entities.albums;
+    const artist = state.entities.artists;
     return ({
       id, 
       track,
@@ -18,7 +21,9 @@ const mapStateToProps = (state, { match }) => {
   
 const mapDispatchToProps = dispatch => {
     return ({    
-      fetchTrack: (id) => dispatch(fetchTrack(id))
+      fetchTrack: (id) => dispatch(fetchTrack(id)),
+      fetchAlbum: (id) => dispatch(fetchAlbum(id)),
+      fetchArtist: (id) => dispatch(fetchArtist(id))
     });
 };
 

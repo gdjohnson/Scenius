@@ -16,7 +16,8 @@ const Application = () => {
             <div id="main">
                 <Route exact path="/add" component={NewTrackFormContainer} />
                 <Route exact path="/tracks/:id" component={TrackShowContainer}/>
-                <Route exact path="/tracks" component={AlphIndex}/>
+                <Route exact path="/artists/:char" component={AlphIndex}/>
+                {/* <Route exact path="/artists/:char:/:id" component={ArtistShow} */}
             </div>
             <Route path="/" component={Footer}/>
             </div>

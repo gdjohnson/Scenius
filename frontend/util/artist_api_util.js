@@ -12,6 +12,14 @@ export const fetchArtists = () => {
   });
 };
 
+export const fetchArtistsByLetter = (char) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/artists`,
+    data: { char }
+  });
+};
+
 export const createArtist = (artist) => {
   return $.ajax({
     method: 'POST',

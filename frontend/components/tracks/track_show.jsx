@@ -6,18 +6,24 @@ class TrackShow extends React.Component {
         this.state = { track: '' };
     }
 
-    componentWillMount(){
+    componentDidMount(){
+        debugger
         this.props.fetchTrack(this.props.match.params.id);
     }
 
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.match.params.id !== this.props.match.params.id) {
+    //         this.props.fetchTrack(this.props.match.params.id);
+    //     }
+    // }
+
     render (){
-        if (!this.props.track){
+        if (Object.keys(this.props.track).length === 0){
             return null;
-        }
+        } 
+
+        const { track, album, artist } = this.props;
         debugger
-        const track = this.props.track;
-        const album = this.props.album;
-        const artist = this.props.artist;
         return (
             <div className="track-show">
             <div className="track-header">

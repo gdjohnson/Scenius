@@ -1,48 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchTracks } from '../../actions/track_actions';
+import { fetchArtistsByLetter } from '../../actions/artist_actions';
 
 export class AlphIndex extends React.Component {
     constructor (props){
         super(props);
-        this.state = {tracks: []};
     }
 
-    componentWillMount(){
+    componentDidMount(){
+        this.props.fetchArtistsByLetter(this.props.char);
+    }
+
+    componentDidUpdate(prevProps){
         debugger
-        this.props.fetchTracks();
-        const arr = Array.from(Object.values(this.props.tracks));
-        debugger
-        const tracks = arr.filter(
-            track => track.title[0].toLowercase() === this.props.location.start_char.toLowercase());
-        this.setState({tracks: tracks});
+
+        if (Object.keys(this.props.artists).length === 0) {
+            this.props.fetchArtistsByLetter(this.props.char);
+        }
+
+        if (prevProps.char !== this.props.char){
+            this.props.fetchArtistsByLetter(this.props.char);
+        }
+
     }
 
     render (){
         debugger
-        const trackList = this.state.tracks.map(track => {
-            <li><Link path={`api/tracks/{track.id}`}>{track.title} by {track.artist}</Link></li>
-        })
+        if (Object.keys(this.props.artists).length === 0){
+            return null;
+        }
+
+        const artistList = Object.values(this.props.artists).map(
+            artist => <li key={artist.id}><Link path={`api/artists/${this.char}/${artist.id}`}>{artist.name}</Link></li>
+        )
 
         return (
-            <div className="track-show">
-                {trackList}
+            <div className="alph-artist-index">
+                {artistList}
             </div>
             
         );
     }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, { match }) => {
+    debugger
+    const char = match.params.char
     return ({
-      tracks: state.entities.tracks
+      artists: state.entities.artists,
+      char
     });
   };
   
 const mapDispatchToProps = dispatch => {
     return ({
-        fetchTracks: () => dispatch(fetchTracks()),
+        fetchArtistsByLetter: (char) => dispatch(fetchArtistsByLetter(char)),
     });
 };
 

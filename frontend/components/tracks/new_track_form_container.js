@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { createTrack } from '../../actions/track_actions';
 import { createArtist, fetchArtists } from '../../actions/artist_actions';
 import { createAlbum, fetchAlbums } from '../../actions/album_actions';
-import { updateBounds } from '../../actions/filter_actions';
 import NewTrackForm from './new_track_form';
 
 
@@ -21,7 +20,6 @@ const mapDispatchToProps = dispatch => {
     createTrack: track => dispatch(createTrack(track)),
     createArtist: artist => dispatch(createArtist(artist)),
     createAlbum: album => dispatch(createAlbum(album)),
-    updateBounds: bounds => dispatch(updateBounds(bounds))
   });
 };
 
