@@ -6,26 +6,29 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const createTrack = (track) => dispatch => {
   return APIUtil.createTrack(track).then(
-    (track) => (dispatch({ type: RECEIVE_TRACK, track }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-    ));
+    data => dispatch({ type: RECEIVE_TRACK, data }),
+    errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+  );
 };
 
 export const fetchTrack = (id) => dispatch => {
   return APIUtil.fetchTrack(id).then(
-    (track) => {
-      debugger
-      return (dispatch({ type: RECEIVE_TRACK, track }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-    );});
+    data => dispatch({ type: RECEIVE_TRACK, data }), 
+    errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+  );
 };
 
 export const fetchTracks = () => dispatch => {
   return APIUtil.fetchTracks().then(
-    (tracks) => (dispatch({ type: RECEIVE_TRACKS, tracks }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-    ));
+    tracks => dispatch({ type: RECEIVE_TRACKS, tracks }),
+    errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+  );
 };
+
 
 export const alterTrack = (track) => dispatch => {
   return APIUtil.alterTrack(track).then(
-    (track) => (dispatch({ type: RECEIVE_TRACK, track }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-    ));
+    data => dispatch({ type: RECEIVE_TRACK, data }),
+    errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+  );
 };

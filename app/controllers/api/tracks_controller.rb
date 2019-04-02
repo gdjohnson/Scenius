@@ -23,8 +23,8 @@ class Api::TracksController < ApplicationController
       album.save
     end
     
-    params.delete(params[:track][:album])
-    params.delete(params[:track][:artist])
+    params[:track].delete("album")
+    params[:track].delete("artist")
 
     @track = Track.new(track_params)
     @track.artist_id = artist.id

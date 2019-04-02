@@ -7,18 +7,21 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const signUp = (user) => dispatch => {
     return APIUtil.signUp(user).then(
-        (user) => (dispatch({ type: RECEIVE_USER, user }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-        ));
+        user => dispatch({ type: RECEIVE_USER, user }), 
+        errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+        );
 };
 
 export const signIn = (user) => dispatch => {
     return APIUtil.signIn(user).then(
-        user => (dispatch({type: RECEIVE_USER, user}), errors => dispatch({type: RECEIVE_ERRORS, errors: errors.responseJSON})
-    ));
+        user => dispatch({type: RECEIVE_USER, user}), 
+        errors => dispatch({type: RECEIVE_ERRORS, errors: errors.responseJSON})
+    );
 };
 
 export const signOut = () => dispatch => {
     return APIUtil.signOut().then(
-        (user) => (dispatch({ type: REMOVE_USER }), errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
-    ));
+        () => dispatch({ type: REMOVE_USER }), 
+        errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
+    );
 };

@@ -14,22 +14,24 @@ class TrackShow extends React.Component {
         if (!this.props.track){
             return null;
         }
-        const track = this.props.track;
         debugger
+        const track = this.props.track;
+        const album = this.props.album;
+        const artist = this.props.artist;
         return (
             <div className="track-show">
             <div className="track-header">
-                <img className="track-show-track-art" src={this.props.track.album.artwork_url}/>
+                <img className="track-show-track-art" src={album.artwork_url}/>
                 <div className="track-show-meta-container">
                     <p className="track-show-track-title">{track.title}</p>
-                    <p className="track-show-track-artist">{track.artist.name}</p>
+                    <p className="track-show-track-artist">{artist.name}</p>
                     <div className="track-show-album-container">
                         <p className="meta-tag">Album</p>
-                        <p className="track-show-track-album"> {track.album.title}</p>
+                            <p className="track-show-track-album"> {album.title}</p>
                     </div>
                     <div className="track-show-year-container">
                         <p className="meta-tag">Year</p>
-                        <p className="track-show-track-year">{track.album.year}</p>
+                            <p className="track-show-track-year">{album.year}</p>
                     </div>
                 </div>
             </div>

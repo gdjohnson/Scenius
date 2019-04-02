@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { RECEIVE_ALBUM } from '../../actions/album_actions';
 
 class NewTrackForm extends React.Component {
   constructor(props) {
@@ -29,9 +30,8 @@ class NewTrackForm extends React.Component {
     this.props.fetchAlbums();
   }
 
-  navigateToTrack(id) {
-    debugger
-    this.props.history.push(`/tracks/${id}`);
+  navigateToTrack(action) {
+    this.props.history.push(`/tracks/${action.data.track.id}`);
   }
 
   handleUpdate(field) {
@@ -40,30 +40,25 @@ class NewTrackForm extends React.Component {
     });
   }
 
-  handleSubmit() {
-    return (event) => {
+  handleSubmit(event) {
       event.preventDefault();
       const track = Object.assign({}, this.state);
-      this.props.createTrack(track).then((track) => {
-        debugger
-        return this.navigateToTrack(track.id);
+      this.props.createTrack(track).then((action) => {
+        return this.navigateToTrack(action);
       });
-    };
-  }
+    }
 
-  searchArtists() {
-    // this.setState({ 'artist': event.currentTarget.value });
+  searchArtists(){
     const artistMatches = [];
-
     if (this.state.artist.length < 1) {
       return [];
     } else {
-    Object.keys(this.props.artists).forEach(artist => {
-      let subslice = artist.slice(0, this.state.artist.length); //if the first X letter of an artist match query, 
+    Object.values(this.props.artists).forEach(artist => {
+      let subslice = artist.name.slice(0, this.state.artist.length); //if the first X letter of an artist match query, 
       if (subslice.toLowerCase() === this.state.artist.toLowerCase()) { //then push them into artistMatches
         artistMatches.push(artist);
       }
-    });};
+    });}
 
     return artistMatches;
   }
@@ -81,12 +76,12 @@ class NewTrackForm extends React.Component {
     if (this.state.album.length < 1) {
       return [];
     } else {
-    Object.keys(this.props.albums).forEach(album => {
-      let subslice = album.slice(0, this.state.album.length); //if the first X letter of an album match query, 
+    Object.values(this.props.albums).forEach(album => {
+      let subslice = album.title.slice(0, this.state.album.length); //if the first X letter of an album match query, 
       if (subslice.toLowerCase() === this.state.album.toLowerCase()) { //then push them into albumMatches
         albumMatches.push(album);
       }
-    });};
+    });}
 
     return albumMatches;
   }
@@ -100,18 +95,18 @@ class NewTrackForm extends React.Component {
 
 
   render() {
-    const artistResults = this.searchArtists().map((artist, idx) => {
-      return <li className="queried-artist" key={idx} onClick={this.selectArtist}>{artist}</li>;
+    const artistResults = this.searchArtists().map((artist) => {
+      return <li className="queried-artist" key={artist.id} onClick={this.selectArtist}>{artist.name}</li>;
     });
 
-    const albumResults = this.searchAlbums().map((album, idx) => {
-      return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album}</li>;
+    const albumResults = this.searchAlbums().map((album) => {
+      return <li className="queried-album" key={album.id} onClick={this.selectAlbum}>{album.title}</li>;
     });
 
     return (
       <div className="track-form"><h1>Add Song</h1>
 
-        <form onSubmit={this.handleSubmit()}>
+        <form onSubmit={this.handleSubmit}>
         <div className="primary-info">
             <h3>Primary Info</h3>
             <div className="form-inputs">
