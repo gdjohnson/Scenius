@@ -15,18 +15,20 @@
   text-transform: uppercase;
   font-size: 14px;
 
-  text-align: middle;
+  text-align: center;
   margin: auto;
 }
 
 .header-title{
   order: 2;
-  font-size: 24px;
-  color: black;
-  text-align: middle;
+  font-size: 27px;
+  color: #ffff64;
+  text-align: center;
   margin: auto;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bolder;
+  text-shadow: -2px 2px 0px #000000;
+  letter-spacing: 3px;
 }
 
 .user-control-button{
@@ -43,7 +45,7 @@
   padding-right: 5px;
 
   margin: auto;
-  text-align: middle;
+  text-align: center;
 }
 
 .user-control-button:hover{
@@ -53,7 +55,7 @@
 .user-control{
   order: 3;
   margin: auto;
-  text-align: middle;
+  text-align: center;
 }
 
 .user-control{

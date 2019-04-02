@@ -31,17 +31,20 @@
   color: #ffff64;
   font-weight: bold;
   font-size: 24px;
+  padding-bottom: 5px;
 }
 
 .track-show-track-artist{
   color: white;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
+  padding-bottom: 10px;
 }
 
 .track-show-year-container, .track-show-album-container{
   display: flex;
   flex-direction: row;
+  padding: 3px;
 }
 
 .track-show-track-year, .track-show-track-album{
