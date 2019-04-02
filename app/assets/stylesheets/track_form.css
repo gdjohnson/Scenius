@@ -1,0 +1,122 @@
+.track-form{
+  background-color: black;
+  color: white;
+  padding: 3px;
+  min-width: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inputs{
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.primary-info, .additional-metadata{
+  display: flex;
+  flex-direction: column;
+}
+
+.track-form h3{
+  font-size: 18px;
+  line-height: 140%;
+  margin-bottom: 20px;
+  font-weight: 700; 
+  border-bottom: 1px solid #626262;
+}
+
+.track-form h1{
+  font-family: 'Arial Narrow Bold', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 100%;
+  padding-top: 1px;
+  margin-bottom: 5px;
+}
+
+/* lyrics */
+.track-form textarea{
+  min-height: 500px;
+  font-family: Programme,sans-serif;
+  display: block;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  border: 1px solid #BBB;
+  border-radius: 2px;
+  width: 100%
+}
+
+.track-field-label{
+  text-transform: uppercase;
+  color: #626262;
+  font-size: 12px;
+}
+
+/* input boxes for artist, title, etc */
+.track-string-input{
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 15px;
+  display: block;
+  border: 1px solid #BBB;
+  width: 100%
+}
+
+.genre_selector{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.genre_radio{
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* "note: If you're not sure which tag..." */
+.tag-note{
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: .5rem;
+  font-weight: 100;
+}
+
+.track-submit{
+  background-color: black;
+  color: #ccc;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #444;
+  padding: 5px 9px;
+}
+
+.queried-artists, .queried-albums{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+  margin: 10px;
+}
+
+.queried-artist, .queried-album {
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: inline-block;
+  padding: 5px;
+}
+
+.queried-artist:hover, .queried-album:hover {
+  border: 2px solid red;
+  border-radius: 15px;
+}
+
+.selected-artist-from-query, .selected-album-from-query {
+  border: 2px solid red;
+  border-radius: 15px;
+}

@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux';
-import usersReducer from './users_reducer';
 import sessionReducer from './session_reducer';
+import usersReducer from './users_reducer';
+import tracksReducer from './tracks_reducer';
+import albumsReducer from './albums_reducer';
+import artistsReducer from './artists_reducer';
 
 export default combineReducers({
+    session: sessionReducer,
     users: usersReducer,
-    session: sessionReducer
+    tracks: tracksReducer,
+    artists: artistsReducer,
+    albums: albumsReducer
 });

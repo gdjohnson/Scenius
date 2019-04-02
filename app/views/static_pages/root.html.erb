@@ -1,1 +1,9 @@
+<% if signed_in? %>
+  <script type="text/javascript">	
+  window.currentUser = <%= current_user.to_json.html_safe %>
+  </script>
+<% end %>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+
 <main id="root"></main>

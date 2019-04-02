@@ -1,14 +1,14 @@
 import React from 'react';
 import UserDrop from './user_drop';
+import { Link } from 'react-router-dom';
 
 const UserControl = ({currentUser, openModal, signOut}) => {
     const signedIn = () => {
         return (
             <div className="user-control">
-                <div className="user-drop">
-                    <h3>{currentUser.username}</h3>
-                    <UserDrop />
-                </div>
+                <Link to="/add" className="user-control-button">Add Track</Link>
+                <h3 className="user-control-button">{currentUser.username}</h3>
+                {/* <UserDrop /> */}
                 <button className="user-control-button" onClick={signOut}>Sign Out</button>
             </div>
         )

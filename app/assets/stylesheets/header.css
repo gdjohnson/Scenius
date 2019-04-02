@@ -1,57 +1,85 @@
 .header{
-  background-color:green;
+  background-color:#ffff64;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   height: 70px;
+  text-transform: uppercase;
 }
 
 .search{
   order: 1;
-  /* font-family: sans-serif; */
   font-weight: bold;
   color: black;
   text-transform: uppercase;
   font-size: 14px;
 
-  text-align: middle;
+  text-align: center;
   margin: auto;
 }
 
 .header-title{
   order: 2;
-  font-size: 24px;
-  color: black;
-  text-align: middle;
+  font-size: 27px;
+  color: #ffff64;
+  text-align: center;
   margin: auto;
-  /* font-family: sans-serif; */
+  text-decoration: none;
+  font-weight: bolder;
+  text-shadow: -2px 2px 0px #000000;
+  letter-spacing: 3px;
 }
 
 .user-control-button{
   border: 0;
+  border-bottom: 3px solid transparent;
   font-weight: bold;
   color: black;
   text-transform: uppercase;
   background: none;
   font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
 
   margin: auto;
-  text-align: middle;
+  text-align: center;
 }
 
 .user-control-button:hover{
-  border-bottom: 3px solid whitesmoke;
+  border-bottom: 3px solid red;
 }
 
 .user-control{
   order: 3;
   margin: auto;
-  text-align: middle;
+  text-align: center;
 }
 
 .user-control{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+/* SUBHEADER */
+
+.subheader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 34px;
+  background: black;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.subheader p{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 300;
 }

@@ -24,20 +24,31 @@ class SignIn extends React.Component {
       event.preventDefault();
       const user = Object.assign({}, this.state);
       this.props.signIn(user);
-      this.props.closeModal();
+      if (this.props.errors.length < 1) {
+        this.props.closeModal();
+      } else {
+        this.renderErrors();
+      }
+      
     };
+  }
+
+  signInGuest(){
+    this.props.signIn({ username: 'temerity', password: '123456' });
+    this.props.closeModal();
   }
   
   renderErrors() {
-    return (
-      <ul>
-        {Object.values(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (Object.values(this.props.errors).length > 0){
+      return (
+        <ul>
+          {Object.values(this.props.errors).map((error, i) => (
+              <li key={`error-${i}`}>
+                {error}
+              </li>
+          ))}
+          </ul>
+    );}
   }
 
   render() {
@@ -48,22 +59,25 @@ class SignIn extends React.Component {
           {this.renderErrors()}
           <div>
             <br />
-            <label>Username:
               <input type="text"
+                className="sign-in-input"
                 value={this.state.username}
+                placeholder="Username"
                 onChange={this.handleUpdate('username')}
               />
-            </label>
             <br />
-            <label>Password:
               <input type="password"
+                className="sign-in-input"
                 value={this.state.password}
+                placeholder="Password"
                 onChange={this.handleUpdate('password')}
               />
-            </label>
             <br />
-            <input className="sign-in-form-submit" type="submit" value="Sign In" />
-            <input className="sign-in-form-create-button" type="submit" value="CREATE AN ACCOUNT" onClick={() => this.props.openModal('signup')}/>
+              <input className="sign-in-form-submit" type="submit" value="Sign in" />
+              <div className="addtl-sign-in-opts">
+                <input className="addtl-sign-in-opt" type="submit" value="Create an account" onClick={() => this.props.openModal('signup')}/>
+                <input className="addtl-sign-in-opt" type="submit" value="Demo Sign-in" onClick={() => this.signInGuest()}/>
+              </div>
           </div>
         </form>
       </div>

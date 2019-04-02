@@ -1,14 +1,36 @@
 import React from 'react';
+import Search from './search';
 import UserControlContainer from './user_control_container';
+import { Link } from 'react-router-dom';
 
-class Header extends React.Component {
+class SubHeader extends React.Component {
     render (){
         return (
+            <div className="subheader">
+                <p>Featured</p>
+                <p>Stories</p>
+                <p>Top</p> 
+                <p>Songs</p>
+                <p>Videos</p>
+                <p>Community Shop</p>
+            </div>
+        )
+    }
+}
+
+class Header extends React.Component {
+
+    
+    render (){
+        return (
+            <div>
             <div className="header">
-                <div className="search">MockSearch</div>
-                <h1 className="header-title">Scenius</h1>
+                <Search  />
+                <Link to="/" className="header-title">Scenius</Link>
                 <div className="logo"></div>
                 <UserControlContainer />
+            </div>
+            <SubHeader />
             </div>
             
         );
