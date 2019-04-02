@@ -61,3 +61,23 @@
   flex-direction: row;
   flex-wrap: nowrap;
 }
+
+/* SUBHEADER */
+
+.subheader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 34px;
+  background: black;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.subheader p{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 300;
+}

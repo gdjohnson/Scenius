@@ -2,18 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: left;
+  background: white;
+}
+
+.track-show-track-art{
+  margin-right: 12px;
 }
 
 .track-header{
   display: flex;
   flex-direction: row;
+  justify-content: center;
   height: 300px;
-  width: 100%
+  width: 100%;
+  background: black;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .track-show-meta-container{
   display: flex;
   flex-direction: column;
+  margin-left: 12px;
 }
 
 .track-show-track-title{
@@ -49,4 +60,6 @@
   background: white;
   color: black;
   white-space: pre-wrap;
+  margin: 50px;
+  font-family: 'Raleway';
 }
