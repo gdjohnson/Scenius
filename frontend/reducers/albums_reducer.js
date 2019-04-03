@@ -7,9 +7,10 @@ const albumsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALBUM:
-      return Object.assign({}, state, action.album );
+      debugger
+    return Object.assign({}, state, action.album );
     case RECEIVE_ALBUMS:
-      return action.albums;
+    return action.albums;
     case RECEIVE_TRACK:
       return action.data.associations.album;
     default:

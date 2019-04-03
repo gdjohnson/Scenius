@@ -1,21 +1,24 @@
 .header{
-  background-color:#ffff64;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+
   height: 50px;
+  background-color:#ffff64;
   text-transform: uppercase;
 }
 
 .search{
   order: 1;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  font-size: 10.5px;
+  width: 20%;
 
-  text-align: center;
+  font-size: 10.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+  color: black;
+
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 8px;
@@ -23,31 +26,33 @@
 
 .header-title{
   order: 2;
+
   font-size: 24px;
-  color: #ffff64;
   text-align: center;
-  margin: auto;
   text-decoration: none;
   font-weight: bolder;
   text-shadow: -2px 2px 0px #000000;
   letter-spacing: 3px;
+  color: #ffff64;
+
+  margin: auto;
 }
 
 .user-control-button{
+  cursor: pointer;
+  background: none;
+  
+  font-size: 10.5px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+
   border: 0;
   border-bottom: 3px solid transparent;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  background: none;
-  font-size: 10.5px;
-  cursor: pointer;
-  text-decoration: none;
   padding-left: 5px;
   padding-right: 5px;
-
-  margin: auto;
-  text-align: center;
 }
 
 .user-control-button:hover{
@@ -55,17 +60,18 @@
 }
 
 .user-control{
-  order: 3;
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 8px;
-}
-
-.user-control{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: flex-end;
+  text-align: right;
+
+  order: 3;
+  width: 20%;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 8px;
 }
 
 /* SUBHEADER */
@@ -75,16 +81,18 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 34px;
-  background: black;
+
   color: white;
+  background: black;
+  height: 34px;
 }
 
 .subheader p{
-  text-transform: uppercase;
-  font-family: 'Raleway';
   font-size: 14px;
+  font-family: 'Raleway';
   font-weight: 300;
+  text-transform: uppercase;
+  
   padding-left: 20px;
   padding-right: 20px;
 }

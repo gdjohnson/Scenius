@@ -17,7 +17,6 @@
 #root{
   font-family: sans-serif;
   background-color: white;
-  min-height: 2000px;
   color: white;
 }
 
@@ -26,10 +25,8 @@
   padding: 0px;
   border: 0px;
   list-style: none;
-}
 
-#main{
-  margin-top: 20px;
+  font-family: 'Raleway', sans-serif;
 }
 
 ul, li{

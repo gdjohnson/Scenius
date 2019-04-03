@@ -6,38 +6,53 @@
   background: white;
 }
 
-.track-show-track-art{
-  margin-right: 12px;
-}
-
 .track-header{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  height: 300px;
+  justify-content: left;
+
+  height: 280px;
   width: 100%;
-  background: black;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  background: rgb(80, 78, 78);
+
+  font-family: 'Open Sans', sans-serif;
 }
+
+.track-show-track-art-container{
+  width: 220px;
+  margin-top: 40px;
+  margin-left: 100px;
+}
+
+.track-show-track-art{
+  display: block;
+  width: 100%;
+  height: auto;
+
+  margin-right: 12px;
+  outline: .15rem solid #9a9a9a;
+}  
 
 .track-show-meta-container{
   display: flex;
   flex-direction: column;
-  margin-left: 12px;
+
+  margin-left: 15px;
+  margin-top: 40px;
 }
 
 .track-show-track-title{
-  color: #ffff64;
+  font-size: 36px;
   font-weight: bold;
-  font-size: 24px;
+  color: #ffff64;
+
   padding-bottom: 5px;
 }
 
 .track-show-track-artist{
   color: white;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 24px;
   padding-bottom: 10px;
 }
 
@@ -48,10 +63,9 @@
 }
 
 .track-show-track-year, .track-show-track-album{
+  font-size: 16px;
   color: #7d8fe8;
-  text-transform: uppercase;
 }
-
 
 .meta-tag{
   color: #9a9a9a;
@@ -59,10 +73,24 @@
 }
 
 .lyrics-body{
-  display: block;
-  background: white;
-  color: black;
-  white-space: pre-wrap;
-  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
   font-family: 'Raleway';
+  font-size: 17px;
+  letter-spacing: 1px;
+  white-space: pre-wrap;
+  color: black;
+
+  background: white;
+  margin: 50px;
+}
+
+.lyrics-body-lyrics{
+  padding-right: 25px;
+}
+
+.lyrics-body-annotations{
+  padding-left: 25px;
 }

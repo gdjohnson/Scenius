@@ -3,8 +3,9 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import SignIn from '../session/sign_in';
 import SignUp from '../session/sign_up';
+import AddArt from '../tracks/add_art';
 
-function AuthModal({ modal, closeModal }) {
+function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
@@ -15,6 +16,9 @@ function AuthModal({ modal, closeModal }) {
       break;
     case 'signup':
       component = <SignUp />;
+      break;
+    case 'add-art':
+      component = <AddArt />;
       break;
     default:
       return null;
@@ -41,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthModal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -6,10 +6,33 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'annotator.min.css' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'annotator-full.min.js' %>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
   </head>
 
   <body>
     <%= yield %>
+
+  <script>
+    
+    
+    jQuery(function ($) {
+      $('#root').annotator();
+    });
+        <%# var app = new annotator.App();
+        app.include(annotator.ui.main);
+        app.include(annotator.storage.http);
+        app
+        .start()
+        .then(function () {
+            app.annotations.load();
+        }); %>
+
+  </script>
+
   </body>
 </html>

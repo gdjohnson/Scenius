@@ -56,7 +56,6 @@ class NewTrackForm extends React.Component {
     if (this.state.artist.length < 1) {
       return [];
     } else {
-      debugger
     Object.values(this.props.artists).forEach(artist => {
       let subslice = artist.name.slice(0, this.state.artist.length); //if the first X letter of an artist match query, 
       if (subslice.toLowerCase() === this.state.artist.toLowerCase()) { //then push them into artistMatches
@@ -80,7 +79,6 @@ class NewTrackForm extends React.Component {
     if (this.state.album.length < 1) {
       return [];
     } else {
-      debugger
     Object.values(this.props.albums).forEach(album => {
       let subslice = album.title.slice(0, this.state.album.length); //if the first X letter of an album match query, 
       if (subslice.toLowerCase() === this.state.album.toLowerCase()) { //then push them into albumMatches
@@ -141,7 +139,6 @@ class NewTrackForm extends React.Component {
                     {artistResults}
                   </ReactCSSTransitionGroup>
                 </ul>
-                <br />
               </div>
 
               <div id="new-track-title">
@@ -154,6 +151,25 @@ class NewTrackForm extends React.Component {
                   className="track-string-input"
                 />
                 <br />
+              </div>
+
+              <div id="new-track-album">
+                <label className="track-field-label">Album*</label>
+                <br />
+                <input
+                  type="text"
+                  onChange={this.handleUpdate('album')}
+                  value={this.state.album}
+                  className="track-string-input"
+                />
+                <ul className="queried-albums">
+                  <ReactCSSTransitionGroup
+                    transitionName='auto'
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={500}>
+                    {albumResults}
+                  </ReactCSSTransitionGroup>
+                </ul>
               </div>
 
               <div id="new-track-genre">
@@ -186,7 +202,7 @@ class NewTrackForm extends React.Component {
                 <p className="tag-note">Note: If you're not sure which tag to use
                       please select “Pop”— you can add secondary tags later.</p>
               </div>
-
+                <br />
               <div id="new-track-lyrics">
                 <label className="track-field-label">Lyrics*</label>
                 <br />
@@ -201,26 +217,6 @@ class NewTrackForm extends React.Component {
           <div className="additional-metadata">
             <h3>Additional Metadata</h3>
             <div className="form-inputs">
-              <div id="new-track-album">
-                <label className="track-field-label">Album</label>
-                <br />
-                <input
-                  type="text"
-                  onChange={this.handleUpdate('album')}
-                  value={this.state.album}
-                  className="track-string-input"
-                />
-                <ul className="queried-albums">
-                  <ReactCSSTransitionGroup
-                    transitionName='auto'
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}>
-                    {albumResults}
-                  </ReactCSSTransitionGroup>
-                </ul>
-                <br />
-              </div>
-
               <div id="new-track-audio">
                 <label className="track-field-label">Audio URL:</label>
                 <br />

@@ -3,6 +3,7 @@ import { fetchTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
 import { fetchAlbum } from '../../actions/album_actions';
 import { fetchArtist } from '../../actions/artist_actions';
+import { openModal } from '../../actions/modal_actions';
 
 
 const mapStateToProps = (state, { match }) => {
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => {
     return ({    
       fetchTrack: (id) => dispatch(fetchTrack(id)),
       fetchAlbum: (id) => dispatch(fetchAlbum(id)),
-      fetchArtist: (id) => dispatch(fetchArtist(id))
+      fetchArtist: (id) => dispatch(fetchArtist(id)),
+      openModal: (modal) => dispatch(openModal(modal))
     });
 };
 

@@ -9,11 +9,15 @@
 .footer-links-1, .footer-links-2{
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+
     padding-bottom: 10px;
     padding-top: 15px;
 }
 
 .footer li{
+    text-align: center;
+
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -28,6 +32,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    
     padding: 10px;
 }
 

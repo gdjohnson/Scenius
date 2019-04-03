@@ -42,13 +42,14 @@
 /* lyrics */
 .track-form textarea{
   min-height: 500px;
-  font-family: Programme,sans-serif;
+  font-size: 12px;
   display: block;
   margin-bottom: 1.5rem;
   box-sizing: border-box;
   border: 1px solid #BBB;
   border-radius: 2px;
-  width: 100%
+  width: 100%;
+  white-space: pre-wrap;
 }
 
 .track-field-label{

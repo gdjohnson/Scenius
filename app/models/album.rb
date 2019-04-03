@@ -7,4 +7,6 @@ class Album < ApplicationRecord
     class_name: :Track,
     foreign_key: :album_id
 
+  has_one_attached :artwork
+
 end
