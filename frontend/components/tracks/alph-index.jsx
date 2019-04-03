@@ -31,8 +31,20 @@ export class AlphIndex extends React.Component {
             return null;
         }
 
-        const artistList = Object.values(this.props.artists).map(
-            artist => <li key={artist.id}><Link path={`api/artists/${this.char}/${artist.id}`}>{artist.name}</Link></li>
+        const artistList = Object.values(this.props.artists).forEach(
+            artist => {
+                const tracks = Object.values(artist.tracks).map(
+                    track => <p>{track.title}</p>)
+                const albums = Object.values(artist.albums).map(
+                    album => <p>{album.title}</p>
+                )
+                return (
+                    <div>
+                        <li key={artist.id} className="alph-index-artist"><Link path={`api/artists/${this.char}/${artist.id}`}>{artist.name}</Link></li>
+                        {tracks}
+                        {albums}
+                    </div>
+            )}
         )
 
         return (
