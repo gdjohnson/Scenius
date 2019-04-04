@@ -70,7 +70,6 @@ class TrackShow extends React.Component {
 
         return (
             <div className="track-show">
-
                 <div className="track-header">
                     {/* {artistImage} */}
                     <div className="track-show-track-art-container">
@@ -83,21 +82,22 @@ class TrackShow extends React.Component {
                             <p className="meta-tag">Album</p>
                             <p className="track-show-track-album"> {album.title}</p>
                         </div>
-                        { yearContainer()}
+                        {yearContainer()}
                     </div>
                 </div>
 
-                <div className="lyrics-body">
-                    <div className="lyrics-body-lyrics">
-                        <p>{track.lyrics}</p>
+                <div className="track-lyrics-and-annot">
+                    <div className="lyrics-body">
+                        <div className="lyrics-body-lyrics">
+                            <p>{track.lyrics}</p>
+                        </div>
+                        <div className="lyrics-body-annotations">
+                            <p>annotations!</p>
+                        </div>
                     </div>
-                    <div className="lyrics-body-annotations">
-                        <p>annotations!</p>
-                    </div>
+                    
                 </div>
-                
             </div>
-            
         );
     }
 };

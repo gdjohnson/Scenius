@@ -23,6 +23,7 @@
 #main{
   display: flex;
   justify-content: center;
+  background: #222;
 }
 
 *{

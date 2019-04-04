@@ -1,10 +1,8 @@
 .track-show{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: left;
-  background: white;
+  width: 100%;
 }
+
+/* TRACK HEADER */
 
 .track-header{
   display: flex;
@@ -14,6 +12,7 @@
   height: 280px;
   width: 100%;
   background: rgb(80, 78, 78);
+  z-index: 3;
 
   font-family: 'Open Sans', sans-serif;
 }
@@ -70,6 +69,16 @@
 .meta-tag{
   color: #9a9a9a;
   padding-right: 10px;
+}
+
+/* TRACK BODY */
+
+.track-lyrics-and-annot{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  background: white;
 }
 
 .lyrics-body{

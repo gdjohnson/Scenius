@@ -1,0 +1,74 @@
+.home-track-list-container{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 100%;
+  padding: 10px;
+  margin: 16px;
+  margin-top: 30px;
+}
+
+.home-track-container{
+  color: black;
+}
+
+.home-track-list-container h3{
+    color: black;
+    font-size: 34px;
+    border-bottom: 3px solid #222;
+    padding-top: 9px;
+    padding-bottom: 25px;
+}
+
+.home-track-container a{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #222;
+  height: 57px;
+  text-decoration: none;
+}
+
+.home-track-container a:hover{
+  background: #dddddd;
+  cursor: pointer;
+}
+
+.home-track-container img{
+  height: 100%;
+  width: auto;
+  margin-right: 10px;
+}
+
+.home-track-container span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+
+  width: 37px;
+  height: 37px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  /* border: 2px solid black; */
+}
+
+.home-track-info{
+  width: 80%;
+  color: #222;
+}
+
+.home-track-title{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.home-track-artist{
+  font-size: 14px;
+  font-weight: 600;
+}

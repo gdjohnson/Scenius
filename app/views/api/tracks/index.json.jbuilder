@@ -8,6 +8,7 @@
 
       json.artist do
         json.extract! track.artist, :name
+      end
     end
 end
 

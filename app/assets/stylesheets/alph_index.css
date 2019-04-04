@@ -24,9 +24,9 @@
   margin-bottom: 15px;
 }
 
-.alph-index a {
+.alph-index li, .alph-index a {
   color:#99a7ee;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   text-decoration: none;
   border-bottom: 2px solid transparent;
 }

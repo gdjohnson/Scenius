@@ -13,15 +13,9 @@ export class AlphIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-
-        if (Object.keys(this.props.artists).length === 0) {
-            this.props.fetchArtistsByLetter(this.props.char);
-        }
-
         if (prevProps.char !== this.props.char){
             this.props.fetchArtistsByLetter(this.props.char);
         }
-
     }
 
     render (){
@@ -37,7 +31,7 @@ export class AlphIndex extends React.Component {
                             debugger
                             return (
                                 <div>
-                                    <li key={idx} className="alph-index-album"><Link to={`/artists/${album.id}`}>{album.title} ({album.year})</Link></li>
+                                    <li key={idx} className="alph-index-album"><Link to={`/albums/${album.id}`}>{album.title} ({album.year})</Link></li>
                                     {album.tracks.map((track, idx) => {
                                         return <li key={idx} className="alph-index-track"><Link to={`/tracks/${track.id}`}>{track.title}</Link></li>})}
                                 </div>)})}
