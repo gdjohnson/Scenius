@@ -102,17 +102,17 @@ class NewTrackForm extends React.Component {
           return null;
         }
     
-      let artistResults;
-      let albumResults;
-      if (this.state.submitted === false){
-        artistResults = this.searchArtists().map((artist, idx) => {
-          return <li className="queried-artist" key={idx} onClick={this.selectArtist}>{artist.name}</li>;
-        });
-  
-        albumResults = this.searchAlbums().map((album, idx) => {
-          return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album.title}</li>;
-        });
-      }
+    let artistResults;
+    let albumResults;
+    if (this.state.submitted === false){
+      artistResults = this.searchArtists().map((artist, idx) => {
+        return <li className="queried-artist" key={idx} onClick={this.selectArtist}>{artist.name}</li>;
+      });
+
+      albumResults = this.searchAlbums().map((album, idx) => {
+        return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album.title}</li>;
+      });
+    }
 
     return (
       <div className="track-form"><h1>Add Song</h1>

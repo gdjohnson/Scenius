@@ -13,24 +13,26 @@ export class HomePage extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.props.tracks).length === 0) {
+    if  (Object.keys(this.props.tracks).length === 0 ||
+        this.props.tracks.id) {
       return null;
     }
+
     const trackList = () => Object.values(this.props.tracks).map(
       (track, idx) => {
-        return (
-            <li className="home-track-container" key={idx}>
-              <Link to={`/tracks/${track.id}`}>
-                <span>{idx}</span>
-                <img src={track.album.artwork_url}/>
-                <div className="home-track-info">
-                  <p className="home-track-title">{track.title}</p>
-                  <p className="home-track-artist">{track.artist.name}</p>
-                </div>
-              </Link>
-            </li>
-        )
-      }
+          return (
+              <li className="home-track-container" key={idx}>
+                <Link to={`/tracks/${track.id}`}>
+                  <span>{idx}</span>
+                  <img src={track.album.artwork_url}/>
+                  <div className="home-track-info">
+                    <p className="home-track-title">{track.title}</p>
+                    <p className="home-track-artist">{track.artist.name}</p>
+                  </div>
+                </Link>
+              </li>
+          )
+        }
     )
     return (
       <div className="home-track-list-container" id="home-track-list-container">

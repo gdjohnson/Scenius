@@ -11,6 +11,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
 
+    white-space: nowrap;
+    overflow: hidden;
+
     padding-bottom: 10px;
     padding-top: 15px;
 }

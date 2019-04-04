@@ -19,7 +19,8 @@ export class AlphIndex extends React.Component {
     }
 
     render (){
-        if (Object.keys(this.props.artists).length === 0){
+        if (Object.keys(this.props.artists).length === 0 ||
+            typeof Object.values(this.props.artists)[0] === 'string'){
             return null;
         }
         const artistList = () => Object.values(this.props.artists).map(

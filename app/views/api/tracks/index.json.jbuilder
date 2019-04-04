@@ -7,7 +7,7 @@
       end
 
       json.artist do
-        json.extract! track.artist, :name
+        json.extract! track.artist, :name, :image_url
       end
     end
 end

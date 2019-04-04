@@ -10,7 +10,7 @@ const artistsReducer = (state = {}, action) => {
     case RECEIVE_ARTISTS:
       return action.artists;
     case RECEIVE_TRACK:
-      return action.data.associations.artist;
+      return action.data.artist;
     default:
       return state;
   }

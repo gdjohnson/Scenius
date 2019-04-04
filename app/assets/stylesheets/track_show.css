@@ -4,10 +4,10 @@
 
 /* TRACK HEADER */
 
-.track-header{
+.track-header-container{
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
 
   height: 280px;
   width: 100%;
@@ -17,10 +17,17 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.track-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  
+  width: 70%
+}
+
 .track-show-track-art-container{
   width: 220px;
   margin-top: 40px;
-  margin-left: 100px;
 }
 
 .track-show-track-art{
@@ -38,6 +45,10 @@
 
   margin-left: 15px;
   margin-top: 40px;
+}
+
+.track-show-meta-container a{
+  text-decoration: none;
 }
 
 .track-show-track-title{

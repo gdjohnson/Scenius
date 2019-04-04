@@ -38,6 +38,21 @@
   margin: auto;
 }
 
+.user-control{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  text-align: right;
+  
+  order: 3;
+  width: 20%;
+  
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 8px;
+}
+
 .user-control-button{
   cursor: pointer;
   background: none;
@@ -49,6 +64,9 @@
   text-decoration: none;
   color: black;
 
+  white-space: nowrap;
+  overflow: hidden;
+
   border: 0;
   border-bottom: 9px solid transparent;
   padding-left: 5px;
@@ -59,21 +77,6 @@
 
 .user-control-button:hover{
   border-bottom: 9px solid red;
-}
-
-.user-control{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  text-align: right;
-
-  order: 3;
-  width: 20%;
-
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 8px;
 }
 
 /* SUBHEADER */

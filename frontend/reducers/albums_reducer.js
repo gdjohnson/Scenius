@@ -1,5 +1,6 @@
 import { RECEIVE_ALBUM, RECEIVE_ALBUMS } from '../actions/album_actions';
 import { RECEIVE_TRACK } from '../actions/track_actions';
+import { RECEIVE_ARTIST } from '../actions/artist_actions';
 
 
 const albumsReducer = (state = {}, action) => {
@@ -11,7 +12,10 @@ const albumsReducer = (state = {}, action) => {
     case RECEIVE_ALBUMS:
     return action.albums;
     case RECEIVE_TRACK:
-      return action.data.associations.album;
+      return action.data.album;
+    case RECEIVE_ARTIST:
+      debugger
+      return action.data.albums;
     default:
       return state;
   }
