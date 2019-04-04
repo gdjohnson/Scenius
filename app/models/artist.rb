@@ -4,10 +4,10 @@ class Artist < ApplicationRecord
 
   has_many :albums,
     class_name: :Album,
-    foreign_key: :album_id
+    foreign_key: :artist_id
 
   has_many :tracks,
-    class_name: :Artist,
+    class_name: :Track,
     foreign_key: :artist_id
 
   has_one_attached :photo

@@ -28,7 +28,7 @@
     padding: 10px;
 }
 
-.alph-index{
+.footer-alph-index{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -37,7 +37,18 @@
     padding: 10px;
 }
 
-.alph-index li{
+.footer-alph-index li{
     padding: 5px;
     color: #99a7ee;
+}
+
+.footer-alph-index a{
+    color: #99a7ee;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.footer-alph-index a:hover{
+    border-bottom: 2px solid white;
+    font-weight: bolder;
 }

@@ -13,7 +13,6 @@ export class AlphIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
 
         if (Object.keys(this.props.artists).length === 0) {
             this.props.fetchArtistsByLetter(this.props.char);
@@ -26,32 +25,33 @@ export class AlphIndex extends React.Component {
     }
 
     render (){
-        debugger
         if (Object.keys(this.props.artists).length === 0){
             return null;
         }
-
-        const artistList = Object.values(this.props.artists).forEach(
-            artist => {
-                const tracks = Object.values(artist.tracks).map(
-                    track => <p>{track.title}</p>)
-                const albums = Object.values(artist.albums).map(
-                    album => <p>{album.title}</p>
-                )
+        const artistList = () => Object.values(this.props.artists).map(
+            (artist, i) => {
                 return (
                     <div>
-                        <li key={artist.id} className="alph-index-artist"><Link path={`api/artists/${this.char}/${artist.id}`}>{artist.name}</Link></li>
-                        {tracks}
-                        {albums}
+                        <li key={i} className="alph-index-artist"><Link to={`/artists/${this.props.char}/${artist.id}`}>{artist.name}</Link></li>
+                        {artist.albums.map((album, idx) => {
+                            debugger
+                            return (
+                                <div>
+                                    <li key={idx} className="alph-index-album"><Link to={`/artists/${album.id}`}>{album.title} ({album.year})</Link></li>
+                                    {album.tracks.map((track, idx) => {
+                                        return <li key={idx} className="alph-index-track"><Link to={`/tracks/${track.id}`}>{track.title}</Link></li>})}
+                                </div>)})}
                     </div>
-            )}
+                        )
+                    }
         )
-
         return (
-            <div className="alph-artist-index">
-                {artistList}
+            <div className="alph-index-container">
+                <div className="alph-index">
+                    <h3>Artists beginning with {this.props.char}:</h3>
+                    {artistList()}
+                </div>
             </div>
-            
         );
     }
 };

@@ -109,7 +109,8 @@
   cursor: pointer;
   border: 2px solid transparent;
   display: inline-block;
-  padding: 5px;
+  padding: 3px;
+  margin: 3px;
 }
 
 .queried-artist:hover, .queried-album:hover {

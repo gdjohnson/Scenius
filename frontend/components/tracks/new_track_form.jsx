@@ -75,11 +75,13 @@ class NewTrackForm extends React.Component {
 
   searchAlbums() {
     const albumMatches = [];
-
+    debugger
     if (this.state.album.length < 1) {
       return [];
     } else {
+      debugger
     Object.values(this.props.albums).forEach(album => {
+      debugger
       let subslice = album.title.slice(0, this.state.album.length); //if the first X letter of an album match query, 
       if (subslice.toLowerCase() === this.state.album.toLowerCase()) { //then push them into albumMatches
         albumMatches.push(album);
@@ -111,6 +113,7 @@ class NewTrackForm extends React.Component {
         });
   
         albumResults = this.searchAlbums().map((album, idx) => {
+          debugger
           return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album.title}</li>;
         });
       }

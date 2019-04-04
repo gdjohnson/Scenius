@@ -18,7 +18,7 @@ guest = User.create(username: "temerity", password: "123456")
 
 #Artists
 roxymusic = Artist.create(name: "Roxy Music")
-robertaflack = Artist.create(name: "Roberta Flack")
+# robertaflack = Artist.create(name: "Roberta Flack")
 
 #Albums
 fleshnblood = Album.create(title: "Flesh + Blood", artist_id: 1, year: 1980, artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Flesh_and_Blood_album_cover.jpg/220px-Flesh_and_Blood_album_cover.jpg")

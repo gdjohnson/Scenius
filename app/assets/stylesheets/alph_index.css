@@ -1,3 +1,49 @@
-.alph-artist-index{
-  color: black;
+.alph-index-container{
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+}
+
+.alph-index{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  
+  width: 50%;
+  background: black;
+  padding: 50px;
+}
+
+.alph-index h3{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.alph-index a {
+  color:#99a7ee;
+  margin-bottom: 2px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.alph-index a:hover {
+  border-bottom: 2px solid white;
+}
+
+.alph-index-artist a{
+  font-size: 19px;
+  font-weight: bolder;
+}
+
+.alph-index-album{
+  margin-left: 25px;
+}
+
+.alph-index-track{
+  margin-left: 50px;
 }

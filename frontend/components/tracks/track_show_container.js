@@ -7,7 +7,6 @@ import { openModal } from '../../actions/modal_actions';
 
 
 const mapStateToProps = (state, { match }) => {
-  debugger
     const id = parseInt(match.params.id);
     const track = state.entities.tracks;
     const album = state.entities.albums;

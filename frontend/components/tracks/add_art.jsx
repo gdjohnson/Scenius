@@ -6,7 +6,6 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 class AddAlbumInfo extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     const { title } = this.props.album;
     const artist_id = this.props.artist_id;
     const id = this.props.id;
@@ -37,9 +36,8 @@ class AddAlbumInfo extends React.Component {
 
   render() {
     return (
-      <div>
         <form className="album-form" onSubmit={this.handleSubmit()}>
-          <p className="album-form-head">Add album info</p>
+          <h2 className="album-form-head">Add Addtl Album Info</h2>
           <div>
             <label className="add-album-art">Artwork URL</label>
               <br />
@@ -60,13 +58,11 @@ class AddAlbumInfo extends React.Component {
             <input className="album-form-submit" type="submit" value="Submit" />
           </div>
         </form>
-      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  debugger
   return {
     album: state.entities.albums,
     id: state.entities.tracks.album_id,
