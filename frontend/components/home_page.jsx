@@ -44,7 +44,6 @@ export class HomePage extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-  debugger
   return ({
     tracks: state.entities.tracks
   });

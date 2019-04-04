@@ -28,7 +28,6 @@ export class AlphIndex extends React.Component {
                     <div>
                         <li key={i} className="alph-index-artist"><Link to={`/artists/${this.props.char}/${artist.id}`}>{artist.name}</Link></li>
                         {artist.albums.map((album, idx) => {
-                            debugger
                             return (
                                 <div>
                                     <li key={idx} className="alph-index-album"><Link to={`/albums/${album.id}`}>{album.title} ({album.year})</Link></li>
@@ -51,7 +50,6 @@ export class AlphIndex extends React.Component {
 };
 
 const mapStateToProps = (state, { match }) => {
-    debugger
     const char = match.params.char
     return ({
       artists: state.entities.artists,
