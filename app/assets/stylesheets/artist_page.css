@@ -70,6 +70,11 @@
   height: 180px;
   width: auto;
   margin-bottom: 3px;
+  border: 2px solid transparent
+}
+
+.artist-page-album img:hover{
+  border: 2px solid red;
 }
 
 /* .artist-page-album-list ul::after {
