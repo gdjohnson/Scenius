@@ -30,6 +30,17 @@
   margin-top: 40px;
 }
 
+.track-show-no-art button{
+  background: #7d8fe8;
+  height: 220px;
+  width: 220px;
+  font-size: 16px;
+}
+
+.track-show-no-art:focus{
+  outline: none;
+}
+
 .track-show-track-art{
   display: block;
   width: 100%;

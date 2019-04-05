@@ -12,10 +12,10 @@ const albumsReducer = (state = {}, action) => {
     case RECEIVE_ALBUMS:
     return action.albums;
     case RECEIVE_TRACK:
-      return action.data.album;
+      return action.data;
     case RECEIVE_ARTIST:
       debugger
-      return action.data.albums;
+      return action.data;
     default:
       return state;
   }

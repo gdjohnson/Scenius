@@ -30,11 +30,11 @@ class TrackShow extends React.Component {
                 return <img className="track-show-track-art" src={album.artwork_url} />
             } else {
                 return (
-                    <div className="track-show-no-art">
+                    <span className="track-show-no-art">
                         <button type="submit" 
                                 className="track-show-art-upload" 
                                 onClick={() => this.props.openModal('add-art')}>Add Artwork</button>
-                    </div>
+                    </span>
                 )
             }
         }

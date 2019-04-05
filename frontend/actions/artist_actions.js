@@ -12,8 +12,12 @@ export const createArtist = (artist) => dispatch => {
 };
 
 export const fetchArtist = (id) => dispatch => {
+  debugger
   return APIUtil.fetchArtist(id).then(
-    artist => dispatch({ type: RECEIVE_ARTIST, artist }),
+    artist =>{
+      debugger
+      return dispatch({ type: RECEIVE_ARTIST, artist });
+    }, 
     errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
   );
 };

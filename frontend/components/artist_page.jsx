@@ -23,7 +23,8 @@ export class ArtistPage extends React.Component {
 
     const { artist } = this.props;
 
-    if (Object.keys(artist).length === 0) {
+    if (Object.keys(artist).length === 0 ||
+        artist.albums === undefined) {
       return null;
     }
 
