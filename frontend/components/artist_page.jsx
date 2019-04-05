@@ -30,12 +30,7 @@ export class ArtistPage extends React.Component {
 
     const yearContainer = (album) => {
       if (album.year) {
-        return (
-          <div className="track-show-year-container">
-            <p className="meta-tag">Year</p>
-            <p className="track-show-track-year">{album.year}</p>
-          </div>
-        )
+        return <p className="track-show-track-year">({album.year})</p>
       } else {
         return <div></div>
       }
@@ -45,7 +40,7 @@ export class ArtistPage extends React.Component {
       (album, idx) => {
         debugger
         return (
-          <li className="" key={idx}>
+          <li className="artist-page-album" key={idx}>
             <Link to={`/albums/${album.id}`}>
               <img src={album.artwork_url} />
               <p>{album.title}</p> 
@@ -59,24 +54,29 @@ export class ArtistPage extends React.Component {
     const artistImage = () => {
         if (artist.image_url){
             return (
-                <img className="track-header-artist-image" src={artist.image_url}/>
+                <img className="artist-page-image" src={artist.image_url}/>
             )
         } else {
             return (
-                <div className="track-header-empty-artist-image">
+              <div className="artist-page-empty-artist-image">
                     <button type="submit"
-                        className="track-show-art-upload"
+                    className="artist-page-photo-upload"
                         onClick={() => this.props.openModal('add-photo')}>Add Background Photo</button>
                 </div>
             )}}
 
     return (
-      <div className="home-track-list-container" id="home-track-list-container">
-        {artistImage()}
-        <h3>Albums by {artist.name}</h3>
-        <ul>
-          {albumList()}
-        </ul>
+      <div className="artist-page-container">
+        <div className="artist-page-image-div">
+         {artistImage()}
+         <h3>{artist.name}</h3>
+        </div>
+        <div className="artist-page-album-list">
+          <ul>
+            {albumList()}
+          </ul>
+          <h4>{artist.name} Albums</h4>
+        </div>
       </div>
     );
   }

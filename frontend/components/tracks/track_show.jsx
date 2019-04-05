@@ -20,15 +20,20 @@ class TrackShow extends React.Component {
     }
 
     render (){
-        if (Object.keys(this.props.track).length === 0){
+        debugger
+        if (Object.keys(this.props.track).length === 0 ||
+            this.props.track.album === undefined ||
+            typeof Object.values(this.props.artist)[0] === 'object') {
             return null;
         } 
-        const { track, album, artist } = this.props;
+        const { artist, album, track } = this.props;
 
         const artwork = () => {
+            debugger
             if (album.artwork_url){
                 return <img className="track-show-track-art" src={album.artwork_url} />
             } else {
+                debugger
                 return (
                     <span className="track-show-no-art">
                         <button type="submit" 
@@ -57,7 +62,7 @@ class TrackShow extends React.Component {
                 return <Player  url={track.audio_link} 
                                 playing={false}
                                 width="250px" height="150px"
-                                fileConfig={{ attributes: { autoPlay: false } }}/>
+                                config={{ attributes: { autoPlay: false } }}/>
             }
         }
 

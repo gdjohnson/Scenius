@@ -6,14 +6,14 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const createTrack = (track) => dispatch => {
   return APIUtil.createTrack(track).then(
-    data => dispatch({ type: RECEIVE_TRACK, data }),
+    track => dispatch({ type: RECEIVE_TRACK, track }),
     errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
   );
 };
 
 export const fetchTrack = (id) => dispatch => {
   return APIUtil.fetchTrack(id).then(
-    data => dispatch({ type: RECEIVE_TRACK, data }), 
+    track => dispatch({ type: RECEIVE_TRACK, track }), 
     errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
   );
 };
@@ -28,7 +28,7 @@ export const fetchTracks = () => dispatch => {
 
 export const alterTrack = (track) => dispatch => {
   return APIUtil.alterTrack(track).then(
-    data => dispatch({ type: RECEIVE_TRACK, data }),
+    track => dispatch({ type: RECEIVE_TRACK, track }),
     errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })
   );
 };

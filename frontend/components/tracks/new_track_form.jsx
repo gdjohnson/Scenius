@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { RECEIVE_ALBUM } from '../../actions/album_actions';
 
 class NewTrackForm extends React.Component {
@@ -33,7 +32,7 @@ class NewTrackForm extends React.Component {
 
   navigateToTrack(action) {
     debugger
-    this.props.history.push(`/tracks/${action.data.id}`);
+    this.props.history.push(`/tracks/${action.track.id}`);
   }
 
   handleUpdate(field) {
@@ -133,12 +132,7 @@ class NewTrackForm extends React.Component {
                   className="track-string-input"
                 />
                 <ul className="queried-artists">
-                  <ReactCSSTransitionGroup
-                    transitionName='auto'
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}>
-                    {artistResults}
-                  </ReactCSSTransitionGroup>
+                  {artistResults}
                 </ul>
               </div>
 
@@ -164,12 +158,7 @@ class NewTrackForm extends React.Component {
                   className="track-string-input"
                 />
                 <ul className="queried-albums">
-                  <ReactCSSTransitionGroup
-                    transitionName='auto'
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}>
                     {albumResults}
-                  </ReactCSSTransitionGroup>
                 </ul>
               </div>
 

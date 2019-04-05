@@ -62,13 +62,50 @@ zombie = Album.create(title: "Zombie", artist_id: fela.id, year: "1976", artwork
 
 
 # # TRACKS # #
-morethanthis = Track.create(title: "More Than This", lyrics: File.read(Rails.root + 'db/lyrics/morethanthis.txt'), poster_id: guest.id, album_id: avalon.id, artist_id: roxymusic.id, genre_tag: "Pop", audio_link: "https://www.youtube.com/watch?v=kOnde5c7OG8")
+morethanthis = Track.create(title: "More Than This", 
+                            poster_id: guest.id, 
+                            album_id: avalon.id, 
+                            artist_id: roxymusic.id, 
+                            genre_tag: "Pop", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/morethanthis.txt'), 
+                            audio_link: "https://www.youtube.com/watch?v=kOnde5c7OG8")
 
-overyou = Track.create(title: "Over You", lyrics: File.read(Rails.root + 'db/lyrics/overyou.txt'), poster_id: guest.id, album_id: fleshnblood.id, artist_id: roxymusic.id, genre_tag: "Pop", audio_link: "https://www.youtube.com/watch?v=Lm84LZF66_w")
+overyou = Track.create(     title: "Over You", 
+                            poster_id: guest.id, 
+                            album_id: fleshnblood.id, 
+                            artist_id: roxymusic.id, 
+                            genre_tag: "Pop", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/overyou.txt'), 
+                            audio_link: "https://www.youtube.com/watch?v=Lm84LZF66_w")
 
-overyou = Track.create(title: "Avalon", lyrics: File.read(Rails.root + 'db/lyrics/avalon.txt'), poster_id: guest.id, album_id: avalon.id, artist_id: roxymusic.id, genre_tag: "Pop", audio_link: "https://www.youtube.com/watch?v=bpA_5a0miWk")
+avalon = Track.create(      title: "Avalon", 
+                            poster_id: guest.id, 
+                            album_id: avalon.id, 
+                            artist_id: roxymusic.id, 
+                            genre_tag: "Pop", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/avalon.txt'),
+                            audio_link: "https://www.youtube.com/watch?v=bpA_5a0miWk")
 
+midnight = Track.create(    title: "Midnight Hour",  
+                            poster_id: guest.id, 
+                            album_id: fleshnblood.id, 
+                            artist_id: roxymusic.id, 
+                            genre_tag: "Pop", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/midnight.txt'),
+                            audio_link: "https://www.youtube.com/watch?v=Gp7UlPMIgQc")
 
+backwater = Track.create(   title: "Backwater", 
+                            poster_id: guest.id, 
+                            album_id: afterscience.id, 
+                            artist_id: brianeno.id, 
+                            genre_tag: "Experimental", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/backwater.txt'), 
+                            audio_link: "https://www.youtube.com/watch?v=YitVQuOBuLc")
 
-#Brian Eno
-backwater = Track.create(title: "Backwater", lyrics: File.read(Rails.root + 'db/lyrics/backwater.txt'), poster_id: guest.id, album_id: afterscience.id, artist_id: brianeno.id, genre_tag: "Experimental", audio_link: "https://www.youtube.com/watch?v=YitVQuOBuLc")
+greylagoons = Track.create( title: "Grey Lagoons",
+                            poster_id: guest.id, 
+                            album_id: fypleasure.id, 
+                            artist_id: roxymusic.id, 
+                            genre_tag: "Pop", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/greylagoons.txt'), 
+                            audio_link: "https://www.youtube.com/watch?v=gaYfjouag7w")
