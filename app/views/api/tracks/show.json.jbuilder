@@ -5,6 +5,6 @@ json.artist do
 end
 
 json.album do
-    json.extract! @track.album, :id, :title, :year, :artwork_url
+    json.extract! @track.album, :id, :title, :year, :artwork_url, :background_photo
 end
 

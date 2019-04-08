@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Header from './header/header';
-import Modal from './header/auth_modal';
+import Modal from './header/modal';
 import NewTrackFormContainer from './tracks/new_track_form_container';
 import TrackShowContainer from './tracks/track_show_container';
 import AlphIndex from './tracks/alph_index';

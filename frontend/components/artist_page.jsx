@@ -19,8 +19,6 @@ export class ArtistPage extends React.Component {
   }
 
   render() {
-    debugger
-
     const { artist } = this.props;
 
     if (Object.keys(artist).length === 0 ||
@@ -35,10 +33,8 @@ export class ArtistPage extends React.Component {
         return <div></div>
       }
     }
-    debugger
     const albumList = () => Object.values(artist.albums).map(
       (album, idx) => {
-        debugger
         return (
           <li className="artist-page-album" key={idx}>
             <Link to={`/albums/${album.id}`}>

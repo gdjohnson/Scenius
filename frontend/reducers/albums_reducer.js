@@ -8,15 +8,12 @@ const albumsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALBUM:
-      debugger
       return Object.assign({}, action.album );
     case RECEIVE_ALBUMS:
       return action.albums;
     case RECEIVE_TRACK:
-      debugger
       return action.track.album;
     case RECEIVE_ARTIST:
-      debugger
       return action.artist.albums;
     default:
       return state;

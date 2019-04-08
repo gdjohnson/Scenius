@@ -29,17 +29,30 @@ class TrackShow extends React.Component {
         const { artist, album, track } = this.props;
 
         const artwork = () => {
-            debugger
             if (album.artwork_url){
                 return <img className="track-show-track-art" src={album.artwork_url} />
             } else {
-                debugger
                 return (
                     <span className="track-show-no-art">
                         <button type="submit" 
                                 className="track-show-art-upload" 
                                 onClick={() => this.props.openModal('add-art')}>Add Artwork</button>
                     </span>
+                )
+            }
+        }
+
+        const bgroundStyle = () => {
+            if (album.background_photo){
+                return {backgroundImage: 'url(' + album.background_photo + ')'}
+            }}
+
+        const bgroundButton = () => {
+            if (!album.background_photo){
+                return (
+                        <button type="submit"
+                                className="track-show-bground-upload"
+                                onClick={() => this.props.openModal('add-bground')}>Add Background</button>
                 )
             }
         }
@@ -68,7 +81,8 @@ class TrackShow extends React.Component {
 
         return (
             <div className="track-show">
-                <div className="track-header-container">
+                <div className="track-header-container" style={bgroundStyle()}>
+                    {bgroundButton()}
                     <div className="track-header">
                         <div className="track-show-track-art-container">
                             {artwork()}

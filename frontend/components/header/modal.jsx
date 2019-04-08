@@ -3,7 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import SignIn from '../session/sign_in';
 import SignUp from '../session/sign_up';
-import AddArt from '../tracks/add_art';
+import AddArt from '../tracks/add_album_info';
+import AddBackground from '../tracks/add_background';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -19,6 +20,9 @@ function Modal({ modal, closeModal }) {
       break;
     case 'add-art':
       component = <AddArt />;
+      break;
+    case 'add-bground':
+      component = <AddBackground />;
       break;
     default:
       return null;

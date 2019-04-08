@@ -102,7 +102,7 @@
   border-bottom: 2px solid white;
 }
 
-/* ALBUM MODAL */
+/* background-img MODAL */
 
 .album-form{
   width: 100%
@@ -141,6 +141,54 @@
 }
 
 .album-form-submit{
+  border: 1px solid black;
+  background: none;
+  font-size: 14px;
+  padding: 4px 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* BACKGROUND IMG MODAL */
+
+
+.bground-img-form{
+  width: 100%
+}
+
+.bground-img-form-head{
+  color:#99a7ee;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 3px solid #99a7ee;
+  width: 100%;
+  padding-top: 10px;
+  margin-bottom: 25px;
+}
+
+.add-bground-img{
+  color:#8c8f9b;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.bground-img-form-input-field{
+  background: #fff;
+  border: 2px solid #ccc;
+  margin-bottom: 12px;
+  padding: 4px;
+  color: #000; 
+  width: 96%;
+  font-size: 14px;
+}
+
+.bground-img-form-input-field:focus{
+    outline: none;
+    border: 2px solid rgb(172, 172, 172);
+}
+
+.bground-img-form-submit{
   border: 1px solid black;
   background: none;
   font-size: 14px;

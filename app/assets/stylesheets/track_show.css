@@ -21,13 +21,20 @@
   display: flex;
   flex-direction: row;
   justify-content: left;
+
+  background: rgba(0,0,0,.6);
   
   width: 70%
+}
+
+.track-show-bground-photo{
+  z-index: 1;
 }
 
 .track-show-track-art-container{
   width: 220px;
   margin-top: 40px;
+  z-index: 2;
 }
 
 .track-show-no-art button{
@@ -46,6 +53,9 @@
   width: 100%;
   height: auto;
 
+  position: relative;
+  left: -20px;
+
   margin-right: 12px;
   outline: .15rem solid #9a9a9a;
 }  
@@ -53,6 +63,9 @@
 .track-show-meta-container{
   display: flex;
   flex-direction: column;
+  z-index: 2;
+
+  position: relative;
 
   margin-left: 15px;
   margin-top: 40px;

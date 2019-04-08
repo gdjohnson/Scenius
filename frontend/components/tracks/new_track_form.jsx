@@ -31,7 +31,6 @@ class NewTrackForm extends React.Component {
   }
 
   navigateToTrack(action) {
-    debugger
     this.props.history.push(`/tracks/${action.track.id}`);
   }
 
@@ -42,7 +41,6 @@ class NewTrackForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
       event.preventDefault();
       this.setState({ submitted: true }, () =>{
         const track = Object.assign({}, this.state);
