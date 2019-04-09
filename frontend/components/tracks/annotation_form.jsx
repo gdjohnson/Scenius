@@ -37,17 +37,17 @@ class AnnotationForm extends React.Component {
   render() {
     return (
         <form className="annotation-form" onSubmit={this.handleSubmit}>
-          <h2 className="annotation-form-head">Add Annotation</h2>
-          <div>
-              {this.props.annotProps.ref.toString()}
-              <br />
-                <input type="text"
+              <div className="annotation-form-annotation">
+                <textarea
                   className="annotation-form-input-field"
+                  placeholder="Don't just put the lyric in your own words... drop some knowledge!"
                   onChange={this.handleUpdate()}
-                />
-              <br />
-            <input className="annotation-form-submit" type="submit" value="Submit" />
-          </div>
+                ></textarea>
+                <div className="annotation-form-sub-buttons">
+                  <input type="submit" value="Save" />
+                  <button onClick={this.props.closeModal}>Cancel</button>
+                </div>
+              </div>
         </form>
     );
   }

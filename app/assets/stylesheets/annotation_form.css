@@ -1,0 +1,63 @@
+.annotation-form {
+    border-left: 2px solid #7d8fe8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.annotation-form-annotation{
+    padding: 8px;
+    width: 90%
+}
+
+.annotation-form-input-field{
+    height: 184px;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    background-color: rgba(204,204,204,.2);
+    color: black;
+    font-size: 16px;
+    padding: 7px;
+    margin-bottom: 8px;
+}
+
+.annotation-form-input-field{
+    outline: none;
+    border: none;
+}
+
+
+
+.annotation-form-sub-buttons{
+    display: flex;
+}
+
+.annotation-form-sub-buttons > input{
+    border: 2px solid forestgreen;
+    text-align: left;
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 3px;
+}
+
+.annotation-form-sub-buttons > input:hover{
+    background-color: rgb(108, 163, 108);
+}
+
+.annotation-form-sub-buttons > button{
+    background: 0 0;
+    border-color: transparent;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    color: #9a9a9a;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.annotation-form-sub-buttons > button:hover{
+    background: #9a9a9a;
+    color: rgb(112, 112, 112);
+}
