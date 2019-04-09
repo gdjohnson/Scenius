@@ -27,7 +27,6 @@ class AddBackground extends React.Component {
   }
 
   handleSubmit(event) {
-      debugger
       event.preventDefault();
       const album = Object.assign({}, this.state);
       this.props.alterAlbum(album).then(this.props.closeModal());

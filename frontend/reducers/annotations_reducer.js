@@ -1,10 +1,11 @@
 import { RECEIVE_ANNOTATION, RECEIVE_ANNOTATIONS } from '../actions/annotation_actions';
 import { RECEIVE_TRACK } from '../actions/track_actions';
-import { RECEIVE_USER } from '../actions/user_actions';
+import { RECEIVE_USER } from '../actions/session_actions';
 
 
 const annotationsReducer = (state = {}, action) => {
   Object.freeze(state);
+  debugger
 
   switch (action.type) {
     case RECEIVE_ANNOTATION:
@@ -12,9 +13,13 @@ const annotationsReducer = (state = {}, action) => {
     case RECEIVE_ANNOTATIONS:
       return action.annotations;
     case RECEIVE_TRACK:
-      return action.track.annotations;
+      if (action.track.annotations){
+        return action.track.annotations;
+      }
     case RECEIVE_USER:
-      return action.user.annotations;
+      if (action.user.annotations){
+        return action.user.annotations;
+      }
     default:
       return state;
   }

@@ -75,7 +75,7 @@ class SignIn extends React.Component {
             <br />
               <input className="sign-in-form-submit" type="submit" value="Sign in" />
               <div className="addtl-sign-in-opts">
-                <input className="addtl-sign-in-opt" type="submit" value="Create an account" onClick={() => this.props.openModal('signup')}/>
+                <input className="addtl-sign-in-opt" type="submit" value="Create an account" onClick={() => this.props.openModal({modal: 'signup'})}/>
                 <input className="addtl-sign-in-opt" type="submit" value="Demo Sign-in" onClick={() => this.signInGuest()}/>
               </div>
           </div>

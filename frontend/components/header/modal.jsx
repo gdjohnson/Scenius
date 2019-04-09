@@ -1,17 +1,21 @@
 import React from 'react';
+
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+
 import SignIn from '../session/sign_in';
 import SignUp from '../session/sign_up';
 import AddArt from '../tracks/add_album_info';
 import AddBackground from '../tracks/add_background';
+import AddAnnotation from '../tracks/add_annotation';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  debugger
+  switch (modal.modal) {
     case 'signin':
       component = <SignIn />;
       break;
@@ -23,6 +27,10 @@ function Modal({ modal, closeModal }) {
       break;
     case 'add-bground':
       component = <AddBackground />;
+      break;
+    case 'add-annotation':
+      debugger
+      component = <AddAnnotation annotProps={modal.annotProps}/>;
       break;
     default:
       return null;

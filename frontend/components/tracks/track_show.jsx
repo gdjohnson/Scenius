@@ -24,7 +24,7 @@ class TrackShow extends React.Component {
 
     // ANNOTATIONS
     pullSelection() {
-        if (window.getSelection) {
+        if (window.getSelection && this.props.currentUser) {
             const ref = window.getSelection();
             const lyrics = document.getElementsByClassName("lyrics-body");
             
@@ -34,10 +34,15 @@ class TrackShow extends React.Component {
                 range = ref.getRangeAt(0).cloneRange();
             }
             let start_idx = range.startOffset
-            let end_idx = range.endOffset    
+            let end_idx = range.endOffset  
 
+            this.addAnnotation(ref, start_idx, end_idx)
             this.saveSelection(ref, range) 
         }
+    }
+
+    addAnnotation(ref, start, end){
+        this.props.openModal({modal: 'add-annotation', annotProps: {ref, start, end}});
     }
 
     saveSelection(ref, range) {
@@ -54,7 +59,6 @@ class TrackShow extends React.Component {
 
 
     render (){
-        debugger
         if (Object.keys(this.props.track).length === 0 ||
             this.props.track.album === undefined ||
             typeof Object.values(this.props.artist)[0] === 'object') {
@@ -70,7 +74,7 @@ class TrackShow extends React.Component {
                     <span className="track-show-no-art">
                         <button type="submit" 
                                 className="track-show-art-upload" 
-                                onClick={() => this.props.openModal('add-art')}>Add Artwork</button>
+                                onClick={() => this.props.openModal({modal: 'add-art'})}>Add Artwork</button>
                     </span>
                 )
             }
@@ -86,7 +90,7 @@ class TrackShow extends React.Component {
                 return (
                         <button type="submit"
                                 className="track-show-bground-upload"
-                                onClick={() => this.props.openModal('add-bground')}>Add Background</button>
+                                onClick={() => this.props.openModal({modal: 'add-bground'})}>Add Background</button>
                 )
             }
         }

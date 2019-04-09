@@ -56,7 +56,7 @@ export class AlbumShow extends React.Component {
             return (
                     <button type="submit"
                             className="track-show-bground-upload"
-                            onClick={() => this.props.openModal('add-bground')}>Add Background</button>
+                            onClick={() => this.props.openModal({modal: 'add-bground'})}>Add Background</button>
             )
         }
     }

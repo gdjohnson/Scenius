@@ -69,7 +69,7 @@ export class ArtistShow extends React.Component {
               <div className="artist-show-empty-artist-image">
                     <button type="submit"
                     className="artist-show-photo-upload"
-                        onClick={() => this.props.openModal('add-photo')}>Add Background Photo</button>
+                        onClick={() => this.props.openModal({modal: 'add-photo'})}>Add Background Photo</button>
                 </div>
             )}}
 
