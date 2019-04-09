@@ -19,6 +19,32 @@ class TrackShow extends React.Component {
         }
     }
 
+
+    // ANNOTATIONS
+    function getSelectedWordIndex() {
+    if (window.getSelection) {
+        const ref = window.getSelection();
+        const lyrics = document.getElementsByClassName("lyrics-body");
+        
+        //Creating and defining selection indices
+        let range
+        if (ref.rangeCount) {
+            range = ref.getRangeAt(0).cloneRange();
+        }
+        let start_idx = range.startOffset
+        let end_idx = range.endOffset
+        
+        //Creating annotation span element
+        let span = document.createElement("span")
+        span.classList.add("annotated")
+        
+        //Assigning element to selection; replacing original element with new
+        range.surroundContents(span);
+        ref.removeAllRanges();
+        ref.addRange(range);        
+    }
+}
+
     render (){
         debugger
         if (Object.keys(this.props.track).length === 0 ||
