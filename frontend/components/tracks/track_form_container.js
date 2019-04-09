@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createTrack } from '../../actions/track_actions';
 import { createArtist, fetchArtists } from '../../actions/artist_actions';
 import { createAlbum, fetchAlbums } from '../../actions/album_actions';
-import NewTrackForm from './new_track_form';
+import TrackForm from './track_form';
 
 
 const mapStateToProps = state => {
@@ -23,4 +23,4 @@ const mapDispatchToProps = dispatch => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewTrackForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TrackForm);

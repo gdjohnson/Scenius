@@ -4,7 +4,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { createAnnotation } from '../../actions/annotation_actions';
 
 
-class AddAnnotation extends React.Component {
+class AnnotationForm extends React.Component {
   constructor(props) {
     super(props);
     const { track_id, user_id, currentUser, annotProps } = this.props;
@@ -68,4 +68,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddAnnotation);
+export default connect(mapStateToProps, mapDispatchToProps)(AnnotationForm);

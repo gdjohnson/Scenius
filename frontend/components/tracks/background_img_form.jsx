@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { alterAlbum } from '../../actions/album_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-class AddBackground extends React.Component {
+class BackgroundImgForm extends React.Component {
   constructor(props) {
     super(props);
     const { title, year, artwork_url } = this.props.album;
@@ -69,4 +69,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddBackground);
+export default connect(mapStateToProps, mapDispatchToProps)(BackgroundImgForm);

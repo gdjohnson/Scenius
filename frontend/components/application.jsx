@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Header from './header/header';
 import Modal from './header/modal';
-import NewTrackFormContainer from './tracks/new_track_form_container';
+import TrackFormContainer from './tracks/track_form_container';
 import TrackShowContainer from './tracks/track_show_container';
 import AlphIndex from './tracks/alph_index';
 import ArtistShow from './artist_show';
@@ -18,7 +18,7 @@ const Application = () => {
             <Route path="/" component={Header}/>
             <div id="main">
                 <Route exact path="/" component={HomePage} />
-                <Route exact path="/add" component={NewTrackFormContainer} />
+                <Route exact path="/add" component={TrackFormContainer} />
                 <Route exact path="/tracks/:id" component={TrackShowContainer}/>
                 <Route exact path="/artists/:char" component={AlphIndex}/>
                 <Route exact path="/artists/:char/:id" component={ArtistShow}/>

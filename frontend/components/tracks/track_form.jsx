@@ -1,7 +1,7 @@
 import React from 'react';
 import { RECEIVE_ALBUM } from '../../actions/album_actions';
 
-class NewTrackForm extends React.Component {
+class TrackForm extends React.Component {
   constructor(props) {
     super(props);
     
@@ -228,4 +228,4 @@ class NewTrackForm extends React.Component {
   }
 }
 
-export default NewTrackForm;
+export default TrackForm;
