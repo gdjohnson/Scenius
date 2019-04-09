@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
+import { openModal } from '../../actions/modal_actions';
 import { fetchTrack } from '../../actions/track_actions';
-import TrackShow from './track_show';
 import { fetchAlbum } from '../../actions/album_actions';
 import { fetchArtist } from '../../actions/artist_actions';
-import { openModal } from '../../actions/modal_actions';
+import { createAnnotation } from '../../actions/annotation_actions';
+import TrackShow from './track_show';
 
 
 const mapStateToProps = (state, { match }) => {
@@ -24,6 +25,7 @@ const mapDispatchToProps = dispatch => {
       fetchTrack: (id) => dispatch(fetchTrack(id)),
       fetchAlbum: (id) => dispatch(fetchAlbum(id)),
       fetchArtist: (id) => dispatch(fetchArtist(id)),
+      createAnnotation: (annot) => dispatch(createAnnotation(annot)),
       openModal: (modal) => dispatch(openModal(modal))
     });
 };
