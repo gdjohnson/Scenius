@@ -10,6 +10,10 @@ class User < ApplicationRecord
         class_name: :Track,
         foreign_key: :poster_id
 
+    has_many :annotations,
+        class_name: :Annotation,
+        foreign_key: :user_id
+
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
         return nil unless user && user.is_password?(password)

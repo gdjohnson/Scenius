@@ -15,5 +15,8 @@ class Track < ApplicationRecord
     class_name: :Album,
     foreign_key: :album_id
 
+  has_many :annotations,
+    class_name: :Annotation,
+    foreign_key: :track_id
 
 end
