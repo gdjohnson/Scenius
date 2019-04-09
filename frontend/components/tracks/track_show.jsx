@@ -7,6 +7,8 @@ class TrackShow extends React.Component {
     constructor(props){
         super(props);
         this.state = { track: '' };
+        this.pullSelection = this.pullSelection.bind(this)
+        this.saveSelection = this.saveSelection.bind(this)
     }
 
     componentDidMount(){
@@ -21,29 +23,35 @@ class TrackShow extends React.Component {
 
 
     // ANNOTATIONS
-    function getSelectedWordIndex() {
-    if (window.getSelection) {
-        const ref = window.getSelection();
-        const lyrics = document.getElementsByClassName("lyrics-body");
-        
-        //Creating and defining selection indices
-        let range
-        if (ref.rangeCount) {
-            range = ref.getRangeAt(0).cloneRange();
+    pullSelection() {
+        if (window.getSelection) {
+            const ref = window.getSelection();
+            const lyrics = document.getElementsByClassName("lyrics-body");
+            
+            //Creating and defining selection indices
+            let range
+            if (ref.rangeCount) {
+                range = ref.getRangeAt(0).cloneRange();
+            }
+            let start_idx = range.startOffset
+            let end_idx = range.endOffset    
+
+            this.saveSelection(ref, range) 
         }
-        let start_idx = range.startOffset
-        let end_idx = range.endOffset
-        
-        //Creating annotation span element
-        let span = document.createElement("span")
-        span.classList.add("annotated")
-        
-        //Assigning element to selection; replacing original element with new
-        range.surroundContents(span);
-        ref.removeAllRanges();
-        ref.addRange(range);        
     }
-}
+
+    saveSelection(ref, range) {
+        //Creating annotation span element
+            let span = document.createElement("span")
+            span.classList.add("annotated")
+            
+            //Assigning element to selection; replacing original element with new
+            range.surroundContents(span);
+            ref.removeAllRanges();
+            ref.addRange(range);   
+    }
+
+
 
     render (){
         debugger
@@ -126,7 +134,7 @@ class TrackShow extends React.Component {
                 </div>
 
                 <div className="track-lyrics-and-annot">
-                    <div className="lyrics-body">
+                    <div className="lyrics-body" onMouseUp={this.pullSelection}>
                         <div className="lyrics-body-lyrics">
                             <p className="xsmall-track-title">{track.title} lyrics</p>
                             <p>{track.lyrics}</p>
