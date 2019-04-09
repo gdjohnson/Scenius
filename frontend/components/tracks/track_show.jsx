@@ -102,6 +102,7 @@ class TrackShow extends React.Component {
                 <div className="track-lyrics-and-annot">
                     <div className="lyrics-body">
                         <div className="lyrics-body-lyrics">
+                            <p className="xsmall-track-title">{track.title} lyrics</p>
                             <p>{track.lyrics}</p>
                         </div>
                         <div className="lyrics-body-annotations">

@@ -5,7 +5,8 @@ import Modal from './header/modal';
 import NewTrackFormContainer from './tracks/new_track_form_container';
 import TrackShowContainer from './tracks/track_show_container';
 import AlphIndex from './tracks/alph_index';
-import ArtistPage from './artist_page';
+import ArtistShow from './artist_show';
+import AlbumShow from './album_show';
 import HomePage from './home_page';
 import Footer from './footer';
 
@@ -20,7 +21,8 @@ const Application = () => {
                 <Route exact path="/add" component={NewTrackFormContainer} />
                 <Route exact path="/tracks/:id" component={TrackShowContainer}/>
                 <Route exact path="/artists/:char" component={AlphIndex}/>
-                <Route exact path="/artists/:char/:id" component={ArtistPage}/>
+                <Route exact path="/artists/:char/:id" component={ArtistShow}/>
+                <Route exact path="/albums/:id" component={AlbumShow}/>
                 {/* <Route exact path="/artists/:char:/:id" component={ArtistShow} */}
             </div>
             <Route path="/" component={Footer}/>

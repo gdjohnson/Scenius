@@ -11,6 +11,10 @@ module.exports = {
         extensions: ['.js', '.jsx', '*']
     },
     devtool: "eval-source-map",
+    target: 'node', 
+    externals: {
+        "request": "request" 
+    },
     module: {
         rules: [
             {

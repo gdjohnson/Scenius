@@ -1,4 +1,4 @@
-.artist-page-container{
+.artist-show-container{
   display: flex;
   flex-direction: row;
 
@@ -8,14 +8,14 @@
   padding: 30px;
 }
 
-.artist-page-container h3{
+.artist-show-container h3{
   font-size: 34px;
   border-bottom: 3px solid red;
   padding-top: 9px;
   padding-bottom: 5px;
 }
 
-.artist-page-container h3{
+.artist-show-container h3{
   font-size: 22px;
   text-transform: uppercase;
   border-bottom: 1px solid #222;
@@ -23,29 +23,29 @@
   padding-bottom: 5px;
 }
 
-.artist-page-container a, .artist-page-container p{
+.artist-show-container a, .artist-show-container p{
   color: #99a7ee;
   text-decoration: none;
 }
 
-.artist-page-image-div{
+.artist-show-image-div{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-right: 30px;
 }
 
-.artist-page-image{
+.artist-show-image{
   height: 350px;
   width: auto;
 }
 
-.artist-page-album-list{
+.artist-show-album-list{
   display: flex;
   flex-direction: column;
 }
 
-.artist-page-album-list ul{
+.artist-show-album-list ul{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -53,31 +53,31 @@
   width: auto;
 }
 
-.artist-page-album-list li{
+.artist-show-album-list li{
   margin: 0px 15px 15px 15px;
 }
 
-.artist-page-album-list h4{
+.artist-show-album-list h4{
   margin-left: 15px;
 }
 
-.artist-page-album a{
+.artist-show-album a{
   display: flex;
   flex-direction: column;
 }
 
-.artist-page-album img{
+.artist-show-album img{
   height: 180px;
   width: auto;
   margin-bottom: 3px;
   border: 2px solid transparent
 }
 
-.artist-page-album img:hover{
+.artist-show-album img:hover{
   border: 2px solid red;
 }
 
-/* .artist-page-album-list ul::after {
+/* .artist-show-album-list ul::after {
   content: "";
   flex: auto;
 } */

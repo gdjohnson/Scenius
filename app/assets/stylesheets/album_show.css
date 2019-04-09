@@ -1,0 +1,150 @@
+.album-show{
+    width: 100%;
+  }
+
+.album-header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  height: 280px;
+  width: 100%;
+  background: rgb(80, 78, 78);
+  z-index: 3;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+.album-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+
+  background: rgba(0,0,0,.6);
+  
+  width: 70%
+}
+
+.album-show-bground-photo{
+  z-index: 1;
+}
+
+.album-show-album-art-container{
+  width: 220px;
+  margin-top: 40px;
+  z-index: 2;
+}
+
+.album-show-album-art{
+  display: block;
+  width: 100%;
+  height: auto;
+
+  position: relative;
+  left: -20px;
+
+  margin-right: 12px;
+  outline: .15rem solid #9a9a9a;
+}  
+
+.album-show-meta-container{
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  position: relative;
+
+  margin-left: 15px;
+  margin-top: 40px;
+}
+
+.album-show-meta-container a{
+  text-decoration: none;
+  color: white;
+}
+
+.album-show-meta-container h3{
+    font-size: 36px;
+    color: white;
+    padding-bottom: 7px;
+}
+
+.album-show-meta-container h4{
+    font-size: 24px;
+    color: white;
+    padding-bottom: 7px;
+}
+
+.album-show-meta-container h5{
+    font-size: 14px;
+    color: gray;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.album-show-album-title{
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffff64;
+
+  padding-bottom: 5px;
+}
+
+.album-show-no-art button{
+  background: #7d8fe8;
+  height: 220px;
+  width: 220px;
+  font-size: 16px;
+}
+
+.album-show-track-list-container{
+    display: flex;
+    justify-content: center;
+
+    padding: 25px 0px 25px 0px;
+    background: white;
+}
+
+
+.album-show-track-list a{
+    text-decoration: none;
+    color: white;
+}
+
+.album-show-track-list a:hover{
+    color: red;
+}
+
+.album-show-track-list h3{
+    font-size: 24px;
+}
+
+.album-show-track-list h4{
+    font-size: 20px;
+}
+
+.album-show-track-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    background: white;
+    color: black;
+    
+    width: 70%;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.album-show-track-list li, .album-show-track-list a{
+    color: black;
+}
+
+.album-show-track-list ul, .album-show-track-list li{
+    list-style-type: disc;
+}
+
+.album-show-track-list ul{
+    padding-left: 20px;
+}
+

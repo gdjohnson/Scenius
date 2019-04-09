@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchArtist } from '../actions/artist_actions';
+// import rp from 'request-promise';
+// import $ from 'cheerio';
 
-export class ArtistPage extends React.Component {
+export class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -14,9 +16,19 @@ export class ArtistPage extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.props.fetchTrack(this.props.match.params.id);
+      this.props.fetchArtist(this.props.match.params.id);
     }
   }
+
+
+  // wikiParse(url){
+  //   return rp(url)
+  //     .then(function(html){
+  //       return ($('p', html).first);
+  //     })
+  //     .catch(function(err){
+  //     });
+  // }
 
   render() {
     const { artist } = this.props;
@@ -36,7 +48,7 @@ export class ArtistPage extends React.Component {
     const albumList = () => Object.values(artist.albums).map(
       (album, idx) => {
         return (
-          <li className="artist-page-album" key={idx}>
+          <li className="artist-show-album" key={idx}>
             <Link to={`/albums/${album.id}`}>
               <img src={album.artwork_url} />
               <p>{album.title}</p> 
@@ -50,24 +62,27 @@ export class ArtistPage extends React.Component {
     const artistImage = () => {
         if (artist.image_url){
             return (
-                <img className="artist-page-image" src={artist.image_url}/>
+                <img className="artist-show-image" src={artist.image_url}/>
             )
         } else {
             return (
-              <div className="artist-page-empty-artist-image">
+              <div className="artist-show-empty-artist-image">
                     <button type="submit"
-                    className="artist-page-photo-upload"
+                    className="artist-show-photo-upload"
                         onClick={() => this.props.openModal('add-photo')}>Add Background Photo</button>
                 </div>
             )}}
 
+    // const url = 'https://en.wikipedia.org/wiki/Roxy_Music';
+
     return (
-      <div className="artist-page-container">
-        <div className="artist-page-image-div">
+      <div className="artist-show-container">
+         {/* {rp(url)} */}
+        <div className="artist-show-image-div">
          {artistImage()}
          <h3>{artist.name}</h3>
         </div>
-        <div className="artist-page-album-list">
+        <div className="artist-show-album-list">
           <ul>
             {albumList()}
           </ul>
@@ -90,5 +105,5 @@ const mapDispatchToProps = dispatch => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtistPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistShow);
 

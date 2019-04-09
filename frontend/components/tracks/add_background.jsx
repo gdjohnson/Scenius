@@ -26,19 +26,17 @@ class AddBackground extends React.Component {
     });
   }
 
-  handleSubmit() {
-    debugger
-    return (event) => {
+  handleSubmit(event) {
       debugger
       event.preventDefault();
       const album = Object.assign({}, this.state);
       this.props.alterAlbum(album).then(this.props.closeModal());
     };
-  }
+  
 
   render() {
     return (
-        <form className="bground-img-form" onSubmit={this.handleSubmit()}>
+        <form className="bground-img-form" onSubmit={this.handleSubmit}>
           <h2 className="bground-img-form-head">Add Background Image</h2>
           <div>
             <label className="add-bground-img">Image URL</label>

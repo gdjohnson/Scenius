@@ -128,13 +128,23 @@
   color: black;
 
   background: white;
-  margin: 50px;
+  margin: 10px 50px 50px 50px;
+}
+
+.xsmall-track-title{
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 30px;
 }
 
 .lyrics-body-lyrics{
   padding-right: 25px;
+  padding-top: 30px;
 }
 
 .lyrics-body-annotations{
   padding-left: 25px;
+  padding-top: 40px;
 }
