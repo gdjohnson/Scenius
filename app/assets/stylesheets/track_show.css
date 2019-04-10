@@ -113,13 +113,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: left;
-  background: white;
+  background-color: #f7f7f7;
 }
 
 .lyrics-body{
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  width: 75%;
   
   font-family: 'Raleway';
   font-size: 17px;
@@ -128,7 +130,7 @@
   color: black;
 
   background: white;
-  margin: 10px 50px 50px 50px;
+  padding: 30px;
 }
 
 .xsmall-track-title{
@@ -142,11 +144,13 @@
 .lyrics-body-lyrics{
   padding-right: 25px;
   padding-top: 30px;
+  width: 50%;
 }
 
 .lyrics-body-annotations{
   padding-left: 25px;
-  padding-top: 40px;
+  padding-top: 20px;
+  width: 50%;
 }
 
 /* ANNOTATIONS */

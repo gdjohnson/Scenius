@@ -1,19 +1,16 @@
 .annotation-form {
-    border-left: 2px solid #7d8fe8;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 }
 
-
 .annotation-form-annotation{
-    padding: 8px;
-    width: 90%
+    width: 100%
 }
 
 .annotation-form-input-field{
-    height: 184px;
+    height: 90%;
     width: 100%;
     overflow-x: hidden;
     overflow-wrap: break-word;
@@ -25,14 +22,19 @@
 }
 
 .annotation-form-input-field{
+    margin: 0px 0px 7px 10px;
     outline: none;
-    border: none;
+    border: 1px solid transparent;
+    background-color: rgba(204, 204, 204, 0.2);
 }
 
-
+.annotation-form-input-field:focus{
+    border: 1px solid #99a7ee;
+}
 
 .annotation-form-sub-buttons{
     display: flex;
+    padding-left: 10px;
 }
 
 .annotation-form-sub-buttons > input{

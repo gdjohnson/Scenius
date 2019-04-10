@@ -23,11 +23,9 @@ function AnnoModal({ modal, closeModal }) {
   }
   
   return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={event => event.stopPropagation()}>
+      <div className="anno-modal-child" onClick={event => event.stopPropagation()}>
         {component}
       </div>
-    </div>
   );
 }
 

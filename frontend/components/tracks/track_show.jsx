@@ -1,6 +1,8 @@
 import React from 'react';
 import Player from 'react-player';
 import { Link } from 'react-router-dom';
+import AnnoModal from './anno_modal';
+
 
 class TrackShow extends React.Component {
 
@@ -9,7 +11,7 @@ class TrackShow extends React.Component {
         this.state = { track: '' };
         this.pullSelection = this.pullSelection.bind(this);
         this.addAnnotation = this.addAnnotation.bind(this);
-        this.renderSelection = this.renderSelection.bind(this);
+        this.renderSelections = this.renderSelections.bind(this);
     }
 
     componentDidMount(){
@@ -21,15 +23,19 @@ class TrackShow extends React.Component {
             this.props.fetchTrack(this.props.match.params.id);
         }
 
-        if (document.getElementsByClassName('lyrics-body')){
-            this.renderSelection()
+        if (document.getElementsByClassName('lyrics-body') &&
+            document.getElementsByClassName('annotated').length === 0){
+            this.renderSelections()
         }
     }
 
 
     // ANNOTATIONS
-    pullSelection() {
-        if (window.getSelection && this.props.currentUser) {
+    pullSelection(event) {
+        event.preventDefault();
+        debugger
+        if (this.props.currentUser && 
+            window.getSelection().toString().length > 0) {
             const ref = window.getSelection();
             
             //Creating and defining selection indices
@@ -40,6 +46,7 @@ class TrackShow extends React.Component {
             let start_idx = range.startOffset
             let end_idx = range.endOffset  
 
+            this.temporarySelection(ref)
             this.addAnnotation(ref, start_idx, end_idx)
         }
     }
@@ -48,7 +55,14 @@ class TrackShow extends React.Component {
         this.props.openModal({modal: 'add-annotation', annotProps: {ref, start, end}});
     }
 
-    renderSelection() {
+    temporarySelection(ref){
+        const range = ref.getRangeAt(0).cloneRange();
+        let span = document.createElement("span");
+        span.classList.add("annotated");
+        range.surroundContents(span); 
+    }
+
+    renderSelections() {
         debugger
         
         this.props.track.annotations.forEach(
@@ -60,11 +74,11 @@ class TrackShow extends React.Component {
 
                 let span = document.createElement("span")
                 span.classList.add("annotated")
-                span.id = idx
+                span.id = annotation.id
 
-                const annoLink = (id) => {
-                    this.props.openModal({modal: 'show-annotation', annotProps: {id}});}
-                span.onClick = annoLink(span.id)
+                const annoLink = () => {
+                    this.props.openModal({modal: 'show-annotation', annotProps: {id: event.target.id}});}
+                span.addEventListener('click', annoLink);
 
                 let range = document.createRange();
                 console.log(annotation)
@@ -75,8 +89,6 @@ class TrackShow extends React.Component {
                 
                 range.surroundContents(span); 
             })
-
-        
     }
 
 
@@ -136,10 +148,17 @@ class TrackShow extends React.Component {
             if (track.audio_link){
                 return <Player  url={track.audio_link} 
                                 playing={false}
-                                width="250px" height="150px"
+                                width="300px" height="200px"
                                 config={{ attributes: { autoPlay: false } }}/>
             }
         }
+
+        // document.addEventListener('click', function (event) {
+        //     event.preventDefault();
+        //     if (event.target.matches('.click-me')) return;
+        //             console.log(event.target);
+        
+        // }, false);
 
         return (
             <div className="track-show">
@@ -162,13 +181,14 @@ class TrackShow extends React.Component {
                 </div>
 
                 <div className="track-lyrics-and-annot">
-                    <div className="lyrics-body" onMouseUp={this.pullSelection}>
+                    <div className="lyrics-body">
                         <div className="lyrics-body-lyrics">
                             <p className="xsmall-track-title">{track.title} lyrics</p>
-                            <p>{track.lyrics}</p>
+                            <p onMouseUp={this.pullSelection}>{track.lyrics}</p>
                         </div>
                         <div className="lyrics-body-annotations">
                             {audioLink()}
+                            <AnnoModal />
                         </div>
                     </div>
                     
