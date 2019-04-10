@@ -4,7 +4,6 @@ export default (state = {}, action) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_USER:
-            debugger
             return {currentUser: action.user};
         case REMOVE_USER:
             return {id: null};

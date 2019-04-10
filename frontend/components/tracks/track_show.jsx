@@ -7,17 +7,22 @@ class TrackShow extends React.Component {
     constructor(props){
         super(props);
         this.state = { track: '' };
-        this.pullSelection = this.pullSelection.bind(this)
-        this.saveSelection = this.saveSelection.bind(this)
+        this.pullSelection = this.pullSelection.bind(this);
+        this.addAnnotation = this.addAnnotation.bind(this);
+        this.renderSelection = this.renderSelection.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchTrack(this.props.match.params.id);
+        this.props.fetchTrack(this.props.match.params.id)
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.fetchTrack(this.props.match.params.id);
+        }
+
+        if (document.getElementsByClassName('lyrics-body')){
+            this.renderSelection()
         }
     }
 
@@ -26,7 +31,6 @@ class TrackShow extends React.Component {
     pullSelection() {
         if (window.getSelection && this.props.currentUser) {
             const ref = window.getSelection();
-            const lyrics = document.getElementsByClassName("lyrics-body");
             
             //Creating and defining selection indices
             let range
@@ -37,7 +41,6 @@ class TrackShow extends React.Component {
             let end_idx = range.endOffset  
 
             this.addAnnotation(ref, start_idx, end_idx)
-            this.saveSelection(ref, range) 
         }
     }
 
@@ -45,15 +48,31 @@ class TrackShow extends React.Component {
         this.props.openModal({modal: 'add-annotation', annotProps: {ref, start, end}});
     }
 
-    saveSelection(ref, range) {
-        //Creating annotation span element
-            let span = document.createElement("span")
-            span.classList.add("annotated")
-            
-            //Assigning element to selection; replacing original element with new
-            range.surroundContents(span);
-            ref.removeAllRanges();
-            ref.addRange(range);   
+    renderSelection() {
+        debugger
+        
+        this.props.track.annotations.forEach(
+            (annotation, idx) => {
+                let lyrics = document.getElementsByClassName("lyrics-body-lyrics")[0];
+                console.log(lyrics)
+                console.log(lyrics.childNodes)
+                lyrics = lyrics.childNodes[1].childNodes[idx*2];
+
+                let span = document.createElement("span")
+                span.classList.add("annotated")
+                span.id = idx
+
+                let range = document.createRange();
+                console.log(annotation)
+
+                range.setStart(lyrics, annotation.start_idx);
+                range.setEnd(lyrics, annotation.end_idx);
+                console.log(range)
+                
+                range.surroundContents(span); 
+            })
+
+        
     }
 
 
@@ -64,6 +83,7 @@ class TrackShow extends React.Component {
             typeof Object.values(this.props.artist)[0] === 'object') {
             return null;
         } 
+
         const { artist, album, track } = this.props;
 
         const artwork = () => {

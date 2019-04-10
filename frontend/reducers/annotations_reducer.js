@@ -5,7 +5,6 @@ import { RECEIVE_USER } from '../actions/session_actions';
 
 const annotationsReducer = (state = {}, action) => {
   Object.freeze(state);
-  debugger
 
   switch (action.type) {
     case RECEIVE_ANNOTATION:

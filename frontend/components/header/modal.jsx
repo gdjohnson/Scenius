@@ -14,7 +14,6 @@ function Modal({ modal, closeModal }) {
     return null;
   }
   let component;
-  debugger
   switch (modal.modal) {
     case 'signin':
       component = <SignIn />;
@@ -29,7 +28,6 @@ function Modal({ modal, closeModal }) {
       component = <AddBackground />;
       break;
     case 'add-annotation':
-      debugger
       component = <AddAnnotation annotProps={modal.annotProps}/>;
       break;
     default:
