@@ -3,32 +3,20 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
-import SignIn from '../session/sign_in';
-import SignUp from '../session/sign_up';
-import AddArt from '../tracks/album_form';
-import AddBackground from '../tracks/background_img_form';
-import AddAnnotation from '../tracks/annotation_form';
+import AnnotationForm from '../tracks/annotation_form';
+import AnnotationShow from '../tracks/annotation_show';
 
-function Modal({ modal, closeModal }) {
+function AnnoModal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
   switch (modal.modal) {
-    case 'signin':
-      component = <SignIn />;
-      break;
-    case 'signup':
-      component = <SignUp />;
-      break;
-    case 'add-art':
-      component = <AddArt />;
-      break;
-    case 'add-bground':
-      component = <AddBackground />;
-      break;
     case 'add-annotation':
-      component = <AddAnnotation annotProps={modal.annotProps}/>;
+      component = <AnnotationForm annotProps={modal.annotProps}/>;
+      break;
+    case 'show-annotation':
+      component = <AnnotationShow annotProps={modal.annotProps}/>;
       break;
     default:
       return null;
@@ -55,4 +43,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(AnnoModal);

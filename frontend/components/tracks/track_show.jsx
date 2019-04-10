@@ -62,6 +62,10 @@ class TrackShow extends React.Component {
                 span.classList.add("annotated")
                 span.id = idx
 
+                const annoLink = (id) => {
+                    this.props.openModal({modal: 'show-annotation', annotProps: {id}});}
+                span.onClick = annoLink(span.id)
+
                 let range = document.createRange();
                 console.log(annotation)
 
