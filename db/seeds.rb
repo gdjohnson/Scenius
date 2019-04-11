@@ -158,7 +158,7 @@ midnight = Track.create(    title: "Midnight Hour",
 
 backwater = Track.create(   title: "Backwater", 
                             poster_id: guest.id, 
-                            album_id: afterscience.id, 
+                            album_id: aftersci.id, 
                             artist_id: brianeno.id, 
                             genre_tag: "Experimental", 
                             lyrics: File.read(Rails.root + 'db/lyrics/backwater.txt'), 
