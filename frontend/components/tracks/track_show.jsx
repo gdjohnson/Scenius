@@ -15,10 +15,12 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount(){
+        debugger
         this.props.fetchTrack(this.props.match.params.id)
     }
 
     componentDidUpdate(prevProps) {
+        debugger
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.fetchTrack(this.props.match.params.id);
         }
@@ -94,6 +96,7 @@ class TrackShow extends React.Component {
 
 
     render (){
+        debugger
         if (Object.keys(this.props.track).length === 0 ||
             this.props.track.album === undefined ||
             typeof Object.values(this.props.artist)[0] === 'object') {

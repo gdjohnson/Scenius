@@ -17,6 +17,15 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.track-header-container button{
+  width: 110px;
+  height: 20px;
+  z-index: 5;
+  position: relative;
+  right: 100px;
+  border-radius: 5px;
+}
+
 .track-header{
   display: flex;
   flex-direction: row;

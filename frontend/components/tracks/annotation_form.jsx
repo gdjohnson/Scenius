@@ -7,7 +7,7 @@ import { createAnnotation } from '../../actions/annotation_actions';
 class AnnotationForm extends React.Component {
   constructor(props) {
     super(props);
-    const { track_id, user_id, currentUser, annotProps } = this.props;
+    const { track_id, currentUser, annotProps } = this.props;
     this.state = {                   
       track_id,
       user_id: currentUser.id,
@@ -25,6 +25,7 @@ class AnnotationForm extends React.Component {
   }
 
   handleSubmit(event) {
+      debugger
       event.preventDefault();
       const annotation = Object.assign({}, this.state);
       this.props.createAnnotation(annotation);
