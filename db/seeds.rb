@@ -37,7 +37,7 @@ fleshnblood = Album.create(title: "Flesh + Blood",
                         artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Flesh_and_Blood_album_cover.jpg/220px-Flesh_and_Blood_album_cover.jpg")
 avalon = Album.create(  title: "Avalon", 
                         artist_id: roxymusic.id, 
-                        year: 1982,, 
+                        year: 1982, 
                         background_photo: "https://t2.genius.com/unsafe/1840x280/https%3A%2F%2Fimages.genius.com%2F2d86de3da03efb9016ba82c224f60598.1000x1000x1.jpg", 
                         artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Avalon_album_cover.jpg/220px-Avalon_album_cover.jpg")
 stranded = Album.create(title: "Stranded", 
@@ -62,25 +62,63 @@ fypleasure = Album.create(title: "For Your Pleasure",
                         artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Roxy_Music_-_For_Your_Pleasure.png/220px-Roxy_Music_-_For_Your_Pleasure.png")
 
 # Brian Eno
-warmjets = Album.create(title: "Here Come the Warm Jets", artist_id: brianeno.id, year: "1974", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Warmjetsvinyl.jpg/220px-Warmjetsvinyl.jpg")
-tigermountain = Album.create(title: "Taking Tiger Mountain (By Strategy)", artist_id: brianeno.id, year: "1974", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Tigermountaineno.jpg/220px-Tigermountaineno.jpg")
-agw = Album.create(title: "Another Green World", artist_id: brianeno.id, year: "1975", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Another_Green_World.jpg/220px-Another_Green_World.jpg")
-afterscience = Album.create(title: "Before and After Science", artist_id: brianeno.id, year: "1977", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Beforeandafterscience.jpg/220px-Beforeandafterscience.jpg")
-thursnoon = Album.create(title: "Thursday Afternoon", artist_id: brianeno.id, year: "", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Thursday_Afternoon.jpg/220px-Thursday_Afternoon.jpg1985")
+warmjets = Album.create(title: "Here Come the Warm Jets", 
+                        artist_id: brianeno.id, 
+                        year: "1974", 
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2Fbbfbbd9d02af2c1f36c436a831e3fda8.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Warmjetsvinyl.jpg/220px-Warmjetsvinyl.jpg")
+tigermntn = Album.create(title: "Taking Tiger Mountain (By Strategy)", 
+                        artist_id: brianeno.id, 
+                        year: "1974", 
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2Fa2a9cf0f077c3210a533ce42827a468e.1000x1000x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Tigermountaineno.jpg/220px-Tigermountaineno.jpg")
+agw = Album.create(     title: "Another Green World", 
+                        artist_id: brianeno.id, 
+                        year: "1975",  
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F975848091bcd930bf7202ecb025b1da8.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Another_Green_World.jpg/220px-Another_Green_World.jpg")
+aftersci = Album.create(title: "Before and After Science", 
+                        artist_id: brianeno.id, 
+                        year: "1977",  
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F35fb0bd273879a4c51bdd1fc7d0d9690.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Beforeandafterscience.jpg/220px-Beforeandafterscience.jpg")
+thursnoon = Album.create(title: "Thursday Afternoon", 
+                        artist_id: brianeno.id, 
+                        year: "1985", 
+                        background_photo: "https://t2.genius.com/unsafe/1170x280/https%3A%2F%2Fimages.genius.com%2Fde3527826925af98f07c54bf22bce9c8.600x592x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Thursday_Afternoon.jpg/220px-Thursday_Afternoon.jpg1985")
 
 # Bryan Ferry
-boysngirls = Album.create(title: "Boys and Girls", artist_id: bryanferry.id, year: "1985", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Boys_and_Girls_Cover.jpg/220px-Boys_and_Girls_Cover.jpg")
+boysngirls = Album.create(title: "Boys and Girls", 
+                        artist_id: bryanferry.id, 
+                        year: "1985", 
+                        background_photo: "https://t2.genius.com/unsafe/1170x280/https%3A%2F%2Fimages.genius.com%2F63f8e9b7ba81d7eec388bed5af116128.1000x1000x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Boys_and_Girls_Cover.jpg/220px-Boys_and_Girls_Cover.jpg")
 
 # Roberta Flack
-firsttake = Album.create(title: "First Take", artist_id: robertaflack.id, year: "1969", artwork_url: "https://upload.wikimedia.org/wikipedia/en/f/fe/Flack.first.take.jpg")
-killing = Album.create(title: "Killing Me Softly", artist_id: robertaflack.id, year: "1973", artwork_url: "https://upload.wikimedia.org/wikipedia/en/e/e7/Killing_me_softly_%28album_cover%29.jpg")
+firsttake = Album.create(title: "First Take", 
+                        artist_id: robertaflack.id, 
+                        year: "1969", 
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F2e96571ef10745e8dc8793852753ad63.640x640x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/f/fe/Flack.first.take.jpg")
+killing = Album.create(title: "Killing Me Softly", 
+                        artist_id: robertaflack.id, 
+                        year: "1973",  
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2Fbe53ef6a19e6db2c7ef493841c447dce.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/e/e7/Killing_me_softly_%28album_cover%29.jpg")
 
 # John Cale
-paris = Album.create(title: "Paris 1919", artist_id: johncale.id, year: "1973", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/JohnCaleParis1919.jpg/220px-JohnCaleParis1919.jpg")
-helen = Album.create(title: "Helen of Troy", artist_id: johncale.id, year: "1975", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/John_Cale_Helen_of_Troy.JPG/220px-John_Cale_Helen_of_Troy.JPG")
+paris = Album.create(   title: "Paris 1919", 
+                        artist_id: johncale.id, 
+                        year: "1973",  
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F7e578cfaee414a4028a89bf9fc883e3a.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/JohnCaleParis1919.jpg/220px-JohnCaleParis1919.jpg")
+helen = Album.create(   title: "Helen of Troy", 
+                        artist_id: johncale.id, 
+                        year: "1975",  
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F26d542b2ec21215c6bfff8faf8cae2c7.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/John_Cale_Helen_of_Troy.JPG/220px-John_Cale_Helen_of_Troy.JPG")
 
-# Fela Kuti
-zombie = Album.create(title: "Zombie", artist_id: fela.id, year: "1976", artwork_url: "https://cdn4.pitchfork.com/albums/21157/homepage_large.60263040.jpg")
 
 # Album.create(title: "", artist_id: , year: "", artwork_url: "")
 
