@@ -30,12 +30,36 @@ fela = Artist.create(name: "Fela Kuti / Africa '70", image_url: "https://bocavas
 # # ALBUMS # #
 
 # Roxy Music
-fleshnblood = Album.create(title: "Flesh + Blood", artist_id: roxymusic.id, year: 1980, artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Flesh_and_Blood_album_cover.jpg/220px-Flesh_and_Blood_album_cover.jpg")
-avalon = Album.create(title: "Avalon", artist_id: roxymusic.id, year: 1982, artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Avalon_album_cover.jpg/220px-Avalon_album_cover.jpg")
-stranded = Album.create(title: "Stranded", artist_id: roxymusic.id, year: "1973", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Roxy_Music-Stranded.jpg/220px-Roxy_Music-Stranded.jpg")
-siren = Album.create(title: "Siren", artist_id: roxymusic.id, year: "1975", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/ad/Roxysiren.jpg/220px-Roxysiren.jpg")
-manifesto = Album.create(title: "Manifesto", artist_id: roxymusic.id, year: "1979", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Roxy_music-manifesto.jpg/220px-Roxy_music-manifesto.jpg")
-fypleasure = Album.create(title: "For Your Pleasure", artist_id: roxymusic.id, year: "1973", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Roxy_Music_-_For_Your_Pleasure.png/220px-Roxy_Music_-_For_Your_Pleasure.png")
+fleshnblood = Album.create(title: "Flesh + Blood", 
+                        artist_id: roxymusic.id, 
+                        year: 1980, 
+                        background_photo: "https://t2.genius.com/unsafe/1840x280/https%3A%2F%2Fimages.genius.com%2F4dadc556a6ccb1100b6502baf84ea1c3.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Flesh_and_Blood_album_cover.jpg/220px-Flesh_and_Blood_album_cover.jpg")
+avalon = Album.create(  title: "Avalon", 
+                        artist_id: roxymusic.id, 
+                        year: 1982,, 
+                        background_photo: "https://t2.genius.com/unsafe/1840x280/https%3A%2F%2Fimages.genius.com%2F2d86de3da03efb9016ba82c224f60598.1000x1000x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Avalon_album_cover.jpg/220px-Avalon_album_cover.jpg")
+stranded = Album.create(title: "Stranded", 
+                        artist_id: roxymusic.id, 
+                        year: "1973", 
+                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F078c67b42900c6547ca5ad7281ffbf4e.1000x1000x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Roxy_Music-Stranded.jpg/220px-Roxy_Music-Stranded.jpg")
+siren = Album.create(   title: "Siren", 
+                        artist_id: roxymusic.id,
+                        year: "1975",
+                        background_photo: "https://t2.genius.com/unsafe/1270x360/https%3A%2F%2Fimages.genius.com%2F4817864a3a8f58994d9ab1e4b8e421a5.1000x1000x1.jpg", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/ad/Roxysiren.jpg/220px-Roxysiren.jpg")
+manifesto = Album.create(title: "Manifesto", 
+                        artist_id: roxymusic.id, 
+                        background_photo: "https://t2.genius.com/unsafe/1270x280/https%3A%2F%2Fimages.genius.com%2Fbe7ae4866efed32f7cc2f5113ee038ad.1000x1000x1.jpg",  
+                        year: "1979", 
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Roxy_music-manifesto.jpg/220px-Roxy_music-manifesto.jpg")
+fypleasure = Album.create(title: "For Your Pleasure", 
+                        artist_id: roxymusic.id, 
+                        year: "1973", 
+                        background_photo: "https://t2.genius.com/unsafe/1270x280/https%3A%2F%2Fimages.genius.com%2F23dc23a01ba047ff489c6c797873a9fe.1000x1000x1.jpg",
+                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/Roxy_Music_-_For_Your_Pleasure.png/220px-Roxy_Music_-_For_Your_Pleasure.png")
 
 # Brian Eno
 warmjets = Album.create(title: "Here Come the Warm Jets", artist_id: brianeno.id, year: "1974", artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Warmjetsvinyl.jpg/220px-Warmjetsvinyl.jpg")
