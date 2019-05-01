@@ -15,12 +15,9 @@ class AnnotationShow extends React.Component {
 
   render() {
     let annoId = this.props.annotProps.id;
-    debugger
     const annotation = (id) => {
         return this.props.annotations.map(anno => {
-            debugger
             if (anno.id == id){ 
-                debugger
                 return anno.content;} })}
 
     return (
@@ -35,7 +32,6 @@ class AnnotationShow extends React.Component {
 }
 
 const mapStateToProps = state => {
-    debugger
   return {
     annotations: state.entities.tracks.annotations,
     track: state.entities.tracks

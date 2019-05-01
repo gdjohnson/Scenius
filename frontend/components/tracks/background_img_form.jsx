@@ -28,7 +28,7 @@ class BackgroundImgForm extends React.Component {
 
   handleSubmit(event) {
       event.preventDefault();
-      const album = Object.assign({}, this.state);
+      const album = {... this.state};
       this.props.alterAlbum(album).then(this.props.closeModal());
     };
   

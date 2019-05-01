@@ -15,12 +15,10 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount(){
-        debugger
         this.props.fetchTrack(this.props.match.params.id)
     }
 
     componentDidUpdate(prevProps) {
-        debugger
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.props.fetchTrack(this.props.match.params.id);
         }
@@ -35,7 +33,6 @@ class TrackShow extends React.Component {
     // ANNOTATIONS
     pullSelection(event) {
         event.preventDefault();
-        debugger
         if (this.props.currentUser && 
             window.getSelection().toString().length > 0) {
             const ref = window.getSelection();
@@ -47,8 +44,7 @@ class TrackShow extends React.Component {
             }
             let start_idx = range.startOffset
             let end_idx = range.endOffset  
-
-            this.temporarySelection(ref)
+                        
             this.addAnnotation(ref, start_idx, end_idx)
         }
     }
@@ -57,15 +53,7 @@ class TrackShow extends React.Component {
         this.props.openModal({modal: 'add-annotation', annotProps: {ref, start, end}});
     }
 
-    temporarySelection(ref){
-        const range = ref.getRangeAt(0).cloneRange();
-        let span = document.createElement("span");
-        span.classList.add("annotated");
-        range.surroundContents(span); 
-    }
-
     renderSelections() {
-        debugger
         
         this.props.track.annotations.forEach(
             (annotation, idx) => {
@@ -96,7 +84,6 @@ class TrackShow extends React.Component {
 
 
     render (){
-        debugger
         if (Object.keys(this.props.track).length === 0 ||
             this.props.track.album === undefined ||
             typeof Object.values(this.props.artist)[0] === 'object') {

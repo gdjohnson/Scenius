@@ -20,16 +20,6 @@ export class ArtistShow extends React.Component {
     }
   }
 
-
-  // wikiParse(url){
-  //   return rp(url)
-  //     .then(function(html){
-  //       return ($('p', html).first);
-  //     })
-  //     .catch(function(err){
-  //     });
-  // }
-
   render() {
     const { artist } = this.props;
 

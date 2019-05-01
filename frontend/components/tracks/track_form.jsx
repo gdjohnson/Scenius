@@ -43,7 +43,7 @@ class TrackForm extends React.Component {
   handleSubmit(event) {
       event.preventDefault();
       this.setState({ submitted: true }, () =>{
-        const track = Object.assign({}, this.state);
+        const track = {... this.state};
         this.props.createTrack(track).then((action) => {
           return this.navigateToTrack(action);
         });

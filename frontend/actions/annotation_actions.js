@@ -6,6 +6,7 @@ export const RECEIVE_ERRORS = 'RECEIVE ERRORS';
 
 
 export const createAnnotation = (annotation) => dispatch => {
+    debugger
     return APIUtil.createAnnotation(annotation).then(
       annotation => dispatch({ type: RECEIVE_ANNOTATION, annotation }),
       errors => dispatch({ type: RECEIVE_ERRORS, errors: errors.responseJSON })

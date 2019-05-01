@@ -22,7 +22,7 @@ class SignUp extends React.Component {
   handleSubmit() {
     return (event) => {
       event.preventDefault();
-      const user = Object.assign({}, this.state);
+      const user = {... this.state};
       this.props.signUp(user);
       this.props.closeModal();
     };

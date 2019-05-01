@@ -7,7 +7,6 @@ import SignIn from '../session/sign_in';
 import SignUp from '../session/sign_up';
 import AddArt from '../tracks/album_form';
 import AddBackground from '../tracks/background_img_form';
-import AddAnnotation from '../tracks/annotation_form';
 
 function AuthModal({ modal, closeModal }) {
   if (!modal) {

@@ -28,7 +28,7 @@ class AlbumForm extends React.Component {
   handleSubmit() {
     return (event) => {
       event.preventDefault();
-      const album = Object.assign({}, this.state);
+      const album = {... this.state};
       this.props.alterAlbum(album);
       this.props.closeModal();
     };

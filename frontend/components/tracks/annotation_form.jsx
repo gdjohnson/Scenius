@@ -13,9 +13,42 @@ class AnnotationForm extends React.Component {
       user_id: currentUser.id,
       content: '',
       start_idx: annotProps.start,
-      end_idx: annotProps.end
+      end_idx: annotProps.end,
+      ref: annotProps.ref
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.cancelAnnotation = this.cancelAnnotation.bind(this);
+  }
+
+  componentDidMount() {
+    debugger
+    this.temporarySelection(this.state.ref);
+
+    //Tracks for click-off cancellation of annotation
+    setTimeout(() => {
+      document.getElementsByClassName('annotation-form')[0].addEventListener('click', 
+        (e) => { e.stopPropagation();}, true);
+      document.getElementById('root').addEventListener('click', this.cancelAnnotation, false);
+    }, 1000)
+  }
+
+  temporarySelection(ref){
+    const range = ref.getRangeAt(0).cloneRange();
+    let span = document.createElement("span");
+    span.id = "temp-annotated";
+    range.surroundContents(span); 
+  }
+
+  cancelAnnotation() {
+    debugger
+    document.getElementById('root').removeEventListener('click', this.cancelAnnotation, false);
+    debugger
+    const el = document.getElementById('temp-annotated');
+    const parent = el.parentNode;
+    while (el.firstChild) parent.insertBefore(el.firstChild, el);
+    parent.removeChild(el);
+    debugger
+    this.props.closeModal();
   }
 
   handleUpdate() {
@@ -27,7 +60,7 @@ class AnnotationForm extends React.Component {
   handleSubmit(event) {
       debugger
       event.preventDefault();
-      const annotation = Object.assign({}, this.state);
+      const annotation = {... this.state};
       this.props.createAnnotation(annotation);
       this.props.closeModal();
     };
@@ -41,10 +74,11 @@ class AnnotationForm extends React.Component {
                   className="annotation-form-input-field"
                   placeholder="Don't just put the lyric in your own words... drop some knowledge!"
                   onChange={this.handleUpdate()}
+                  style={{cursor: "text"}}
                 ></textarea>
                 <div className="annotation-form-sub-buttons">
-                  <input type="submit" value="Save" />
-                  <button onClick={this.props.closeModal}>Cancel</button>
+                  <input id="save-anno" type="submit" value="Save"/>
+                  {/* <input id="cancel-anno" type="button" value="Cancel" onClick={this.cancelAnnotation}/> */}
                 </div>
               </div>
         </form>
@@ -60,6 +94,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+  debugger
   return {
     createAnnotation: (annot) => dispatch(createAnnotation(annot)),
     closeModal: () => dispatch(closeModal()),
