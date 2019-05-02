@@ -8,7 +8,6 @@ class Api::AnnotationsController < ApplicationController
     end
   
     def create
-      debugger
       @annotation = Annotation.new(annotation_params)
   
       if @annotation.save

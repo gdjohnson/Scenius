@@ -12,6 +12,7 @@ Album.destroy_all
 User.destroy_all
 Artist.destroy_all
 Track.destroy_all
+Annotation.destroy_all
 
 
 #Users

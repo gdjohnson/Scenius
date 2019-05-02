@@ -3,6 +3,17 @@ import Player from 'react-player';
 import { Link } from 'react-router-dom';
 import AnnoModal from './anno_modal';
 
+// Selection objects' start and end nodes are determined by direction user selects (left to right or right to left) which caused 
+// problems for the kind of conditional logic and math I needed to properly index in to the lyrics accounting for the linked span eles
+// Solved it by researching the Range and Selection docs, realizing that their offSet and Container properties varied slightly, and that
+// range gave me the lower idx number in the lyrics html as start and highest index as end, regardless
+
+// Started by accounting for every one in a scenario and then refactoring the possibility tree to a compressed logic
+// reducing nested conditionals by a factor of 3
+
+// Was incredibly explicit writing out an explanation for all non-obvious code
+// Diligent about testing modularly, holding variables constant
+
 
 class TrackShow extends React.Component {
 
@@ -10,12 +21,13 @@ class TrackShow extends React.Component {
         super(props);
         this.state = { track: '' };
         this.pullSelection = this.pullSelection.bind(this);
-        this.addAnnotation = this.addAnnotation.bind(this);
         this.renderSelections = this.renderSelections.bind(this);
+        this.findPrecedent = this.findPrecedent.bind(this);
+        this.newRange = this.newRange.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchTrack(this.props.match.params.id)
+        this.props.fetchTrack(this.props.match.params.id);
     }
 
     componentDidUpdate(prevProps) {
@@ -23,65 +35,142 @@ class TrackShow extends React.Component {
             this.props.fetchTrack(this.props.match.params.id);
         }
 
-        if (document.getElementsByClassName('lyrics-body') &&
-            document.getElementsByClassName('annotated').length === 0){
-            this.renderSelections()
+        if (this.props.track.annotations.length > document.getElementsByClassName("annotated").length) {
+            this.renderSelections();
         }
     }
-
 
     // ANNOTATIONS
     pullSelection(event) {
         event.preventDefault();
-        if (this.props.currentUser && 
-            window.getSelection().toString().length > 0) {
-            const ref = window.getSelection();
-            
-            //Creating and defining selection indices
-            let range
-            if (ref.rangeCount) {
-                range = ref.getRangeAt(0).cloneRange();
+        if (this.props.currentUser && window.getSelection().toString().length > 0) {
+            let ref = window.getSelection();            
+            let range = ref.getRangeAt(0).cloneRange();
+
+            let startParent = range.startContainer.parentElement;
+            let endParent = range.endContainer.parentElement;
+            let priorAnnotation = range.startContainer.previousElementSibling;
+
+            //If a selection ends and starts in an existing anno, reject selection
+            if (startParent.className == "annotated" && endParent.className == "annotated") { return; }
+
+            let tempRange;
+            let precedent = 0;
+            let start = 0;
+            let end = 0;
+
+            if (startParent === endParent) {
+                if (priorAnnotation) { 
+                    precedent = this.findPrecedent(priorAnnotation.id).end_idx;
+                    tempRange = range; }
+            } else {
+                debugger
+                //...and the selection begins in an existing anno, truncate beginning to exclude that anno's bounds
+                if (startParent.className == "annotated") { 
+                    start = this.findPrecedent(startParent.id).end_idx;
+                    tempRange = this.newRange(range, 0, range.endOffset); }
+
+                //...and the selection ends in an existing anno, truncate end to exclude that anno's bounds
+                if (endParent.className == "annotated") { 
+                    end = this.findPrecedent(endParent.id).start_idx - 1;
+                    precedent = this.findPrecedent(range.startContainer.previousElementSibling.id).end_idx;
+                    //for while precedent and endBound will be used for the abs idx locations, endOffset/startOffset
+                    //allow temporary CSS annotation of the range
+                    let endOffset = range.startContainer.wholeText.length-1;
+                    tempRange = this.newRange(range, range.startOffset, endOffset) } 
+                    //set absStart to precedent + startOffset, absEnd to endBound
             }
-            let start_idx = range.startOffset
-            let end_idx = range.endOffset  
-                        
-            this.addAnnotation(ref, start_idx, end_idx)
+            
+            end = end || range.endOffset + precedent + start;
+            start = start || range.startOffset + precedent;
+            debugger
+            this.styleTempSelection(tempRange);
+            this.props.openModal({modal: 'add-annotation', annotProps: {start, end}});
         }
     }
 
-    addAnnotation(ref, start, end){
-        this.props.openModal({modal: 'add-annotation', annotProps: {ref, start, end}});
+    newRange(range, startOffset, endOffset) {
+        let newRange = document.createRange();
+        debugger
+        const startNode = range.startContainer.parentElement.nextSibling || range.endContainer.parentElement.previousSibling;
+        const endNode = startNode;
+        newRange.setStart(startNode, startOffset);
+        newRange.setEnd(endNode, endOffset);
+        return newRange;   
+    }
+
+    styleTempSelection(range){
+        let span = document.createElement("span");
+        span.id = "temp-annotated";
+        debugger
+        range.surroundContents(span); 
+    }
+
+    findPrecedent(id) {
+        return this.props.track.annotations.find(anno => anno.id == id)
     }
 
     renderSelections() {
+        let { annotations } = this.props.track;
+        annotations = this.sortAnnotations(annotations);
         
-        this.props.track.annotations.forEach(
-            (annotation, idx) => {
-                let lyrics = document.getElementsByClassName("lyrics-body-lyrics")[0];
-                console.log(lyrics)
-                console.log(lyrics.childNodes)
-                lyrics = lyrics.childNodes[1].childNodes[idx*2];
+        annotations.forEach((annotation, idx) => {
 
-                let span = document.createElement("span")
-                span.classList.add("annotated")
-                span.id = annotation.id
+            let lyricSection = document.getElementById("lyrics").childNodes[idx*2];
 
-                const annoLink = () => {
-                    this.props.openModal({modal: 'show-annotation', annotProps: {id: event.target.id}});}
-                span.addEventListener('click', annoLink);
+            // Prepare span element for wrapping
+            let span = document.createElement("span")
+            span.classList.add("annotated")
+            span.id = annotation.id
 
-                let range = document.createRange();
-                console.log(annotation)
+            // Add eventListener to span element to show annotation
+            span.addEventListener('click', () => {
+                this.props.openModal({   
+                    modal: 'show-annotation', 
+                    annotProps: {id: event.target.id}});
+            });
 
-                range.setStart(lyrics, annotation.start_idx);
-                range.setEnd(lyrics, annotation.end_idx);
-                console.log(range)
-                
-                range.surroundContents(span); 
-            })
+            // Create range from annotation props
+            let range = document.createRange();
+
+            // Determine relative pos of anno in lyricSection given its absolute pos in lyrics
+            let precedent;
+            debugger
+            if (annotations[idx-1]) {precedent = annotations[idx-1].end_idx} 
+            else { precedent = 0 };
+            const relativeStart = annotation.start_idx - precedent;
+            const relativeEnd = annotation.end_idx - precedent;
+
+            range.setStart(lyricSection, relativeStart);
+            range.setEnd(lyricSection, relativeEnd);
+            
+            // Put it all together
+            range.surroundContents(span); 
+        })
     }
 
+    sortAnnotations(annotations) {
+        if (Array.isArray(annotations) === false){
+            annotations = Array.from(annotations);
+        }
 
+        if (annotations.length === 1) return annotations;
+        if (annotations.length < 1) return [];
+
+        const pivot = annotations[0];
+        let left = [];
+        let right = [];
+
+        annotations.slice(1).forEach(anno => {
+            if (anno.start_idx < pivot.start_idx) {
+                left.push(anno);
+            } else {
+                right.push(anno)
+            }
+        })
+        
+        return this.sortAnnotations(left).concat(pivot).concat(this.sortAnnotations(right));
+    }
 
     render (){
         if (Object.keys(this.props.track).length === 0 ||
@@ -170,18 +259,17 @@ class TrackShow extends React.Component {
                     </div>
                 </div>
 
-                <div className="track-lyrics-and-annot">
-                    <div className="lyrics-body">
-                        <div className="lyrics-body-lyrics">
+                <div id="lyrics-wrapper-1">
+                    <div id="lyrics-wrapper-2">
+                        <div id="lyrics-wrapper-3">
                             <p className="xsmall-track-title">{track.title} lyrics</p>
-                            <p onMouseUp={this.pullSelection}>{track.lyrics}</p>
+                            <p id="lyrics" onMouseUp={this.pullSelection}>{track.lyrics}</p>
                         </div>
-                        <div className="lyrics-body-annotations">
+                        <div id="annotations">
                             {audioLink()}
                             <AnnoModal />
                         </div>
                     </div>
-                    
                 </div>
             </div>
         );

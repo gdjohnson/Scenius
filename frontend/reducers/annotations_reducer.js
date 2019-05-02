@@ -8,7 +8,6 @@ const annotationsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ANNOTATION:
-      debugger
       return {... action.annotation};
     case RECEIVE_ANNOTATIONS:
       return action.annotations;

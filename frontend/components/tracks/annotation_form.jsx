@@ -14,16 +14,13 @@ class AnnotationForm extends React.Component {
       content: '',
       start_idx: annotProps.start,
       end_idx: annotProps.end,
-      ref: annotProps.ref
+      range: annotProps.range
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.cancelAnnotation = this.cancelAnnotation.bind(this);
   }
 
   componentDidMount() {
-    debugger
-    this.temporarySelection(this.state.ref);
-
     //Tracks for click-off cancellation of annotation
     setTimeout(() => {
       document.getElementsByClassName('annotation-form')[0].addEventListener('click', 
@@ -32,22 +29,19 @@ class AnnotationForm extends React.Component {
     }, 1000)
   }
 
-  temporarySelection(ref){
-    const range = ref.getRangeAt(0).cloneRange();
-    let span = document.createElement("span");
-    span.id = "temp-annotated";
-    range.surroundContents(span); 
-  }
+  
 
   cancelAnnotation() {
-    debugger
-    document.getElementById('root').removeEventListener('click', this.cancelAnnotation, false);
-    debugger
     const el = document.getElementById('temp-annotated');
     const parent = el.parentNode;
     while (el.firstChild) parent.insertBefore(el.firstChild, el);
     parent.removeChild(el);
-    debugger
+    
+    this.closeModal();
+  }
+
+  closeModal() {
+    document.getElementById('root').removeEventListener('click', this.cancelAnnotation, false);
     this.props.closeModal();
   }
 
@@ -58,12 +52,12 @@ class AnnotationForm extends React.Component {
   }
 
   handleSubmit(event) {
-      debugger
       event.preventDefault();
+      delete this.state.range;
       const annotation = {... this.state};
-      this.props.createAnnotation(annotation);
-      this.props.closeModal();
-    };
+      this.props.createAnnotation(annotation); 
+      this.closeModal();     
+  };
   
 
   render() {
@@ -94,7 +88,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  debugger
   return {
     createAnnotation: (annot) => dispatch(createAnnotation(annot)),
     closeModal: () => dispatch(closeModal()),
