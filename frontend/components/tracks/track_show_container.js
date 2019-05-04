@@ -5,15 +5,15 @@ import { fetchAlbum } from '../../actions/album_actions';
 import { fetchArtist } from '../../actions/artist_actions';
 import TrackShow from './track_show';
 
-
 const mapStateToProps = (state, { match }) => {
     const id = parseInt(match.params.id);
-    const { tracks, albums, artists } = state.entities;
+    const { tracks, albums, artists, annotations } = state.entities;
     return ({
       id, 
       track: tracks,
       album: albums,
       artist: artists,
+      annotations: annotations,
       currentUser: state.entities.session.currentUser
     });
   };

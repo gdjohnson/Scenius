@@ -1,4 +1,4 @@
-import { RECEIVE_ANNOTATION, RECEIVE_ANNOTATIONS } from '../actions/annotation_actions';
+import { RECEIVE_ANNOTATION, RECEIVE_ANNOTATIONS, DESTROY_ANNOTATION } from '../actions/annotation_actions';
 import { RECEIVE_TRACK } from '../actions/track_actions';
 import { RECEIVE_USER } from '../actions/session_actions';
 
@@ -8,7 +8,7 @@ const annotationsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ANNOTATION:
-      return {... action.annotation};
+      return state.concat(action.annotation);
     case RECEIVE_ANNOTATIONS:
       return action.annotations;
     case RECEIVE_TRACK:
@@ -19,6 +19,8 @@ const annotationsReducer = (state = {}, action) => {
       if (action.user.annotations){
         return action.user.annotations;
       }
+    case DESTROY_ANNOTATION:
+      return state.filter(anno => anno.id !== action.annotation.id);
     default:
       return state;
   }

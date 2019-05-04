@@ -25,7 +25,6 @@ export const fetchTracks = () => dispatch => {
   );
 };
 
-
 export const alterTrack = (track) => dispatch => {
   return APIUtil.alterTrack(track).then(
     track => dispatch({ type: RECEIVE_TRACK, track }),

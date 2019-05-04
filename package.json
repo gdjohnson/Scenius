@@ -51,5 +51,8 @@
   "bugs": {
     "url": "https://github.com/gdjohnson/Scenius/issues"
   },
-  "homepage": "https://github.com/gdjohnson/Scenius#readme"
+  "homepage": "https://github.com/gdjohnson/Scenius#readme",
+  "devDependencies": {
+    "sass-lint": "^1.13.1"
+  }
 }

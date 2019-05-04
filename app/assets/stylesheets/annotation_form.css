@@ -1,15 +1,15 @@
-.annotation-form {
+.anno-modal-child > form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
 }
 
-.annotation-form-annotation{
+#new-anno-wrapper {
     width: 100%
 }
 
-.annotation-form-input-field{
+#anno-input {
     height: 90%;
     width: 100%;
     overflow-x: hidden;
@@ -17,27 +17,23 @@
     background-color: rgba(204,204,204,.2);
     color: black;
     font-size: 16px;
+    
     padding: 7px;
-    margin-bottom: 8px;
-}
-
-.annotation-form-input-field{
     margin: 0px 0px 7px 10px;
     outline: none;
     border: 1px solid transparent;
-    background-color: rgba(204, 204, 204, 0.2);
 }
 
-.annotation-form-input-field:focus{
+#anno-input:focus {
     border: 1px solid #99a7ee;
 }
 
-.annotation-form-sub-buttons{
+#anno-submit {
     display: flex;
     padding-left: 10px;
 }
 
-#save-anno{
+#save-anno {
     border: 2px solid forestgreen;
     text-align: left;
     font-size: 16px;
@@ -45,11 +41,11 @@
     margin-right: 3px;
 }
 
-#save-anno:hover{
+#save-anno:hover {
     background-color: rgb(108, 163, 108);
 }
 
-#cancel-anno{
+#cancel-anno {
     background: 0 0;
     border-color: transparent;
     padding-left: .25rem;
@@ -60,7 +56,7 @@
     cursor: pointer;
 }
 
-#cancel-anno:hover{
+#cancel-anno:hover {
     background: #9a9a9a;
     color: rgb(112, 112, 112);
     cursor: pointer;

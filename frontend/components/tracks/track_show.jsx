@@ -19,10 +19,12 @@ class TrackShow extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = { track: '' };
+        this.state = {  track: '' };
+
         this.pullSelection = this.pullSelection.bind(this);
-        this.renderSelections = this.renderSelections.bind(this);
-        this.findPrecedent = this.findPrecedent.bind(this);
+        this.createAnnoSpan = this.createAnnoSpan.bind(this);
+        this.renderAnnotations = this.renderAnnotations.bind(this);
+        this.searchAnnotations = this.searchAnnotations.bind(this);
         this.newRange = this.newRange.bind(this);
     }
 
@@ -31,49 +33,115 @@ class TrackShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.match.params.id !== this.props.match.params.id) {
-            this.props.fetchTrack(this.props.match.params.id);
-        }
+        const { track, annotations } = this.props;
+        const prevParams = prevProps.match.params;
+        const params = this.props.match.params;
+        const annoSpans = document.getElementsByClassName("annotated");
+        const tempSpan = document.getElementById('temp-annotated');
 
-        if (this.props.track.annotations.length > document.getElementsByClassName("annotated").length) {
-            this.renderSelections();
+        debugger
+        let stableState = () => { return annotations.length === track.annotations.length };
+        stableState = stableState.bind(this);
+
+        if (prevParams.id === params.id && stableState() ) {
+            if (annoSpans.length === 0) this.renderAnnotations(track.annotations);
+            if (tempSpan) this.getNewAnno(tempSpan, track);
+        } else {
+            this.props.fetchTrack(this.props.match.params.id);
         }
     }
 
-    // ANNOTATIONS
+    //// Rendering Annotations
+
+    // If fresh page...
+    renderAnnotations(annotations) {        
+        const sortedAnnos = this.sortAnnotations(annotations);
+
+        sortedAnnos.forEach((annotation, idx) => {
+            this.createAnnoSpan(annotation, idx, sortedAnnos);   
+        })
+    }
+
+    sortAnnotations(annotations) {
+        if (annotations.length === 1) return annotations;
+        if (annotations.length < 1) return [];
+
+        const pivot = annotations[0];
+        let left = [];
+        let right = [];
+
+        annotations.slice(1).forEach(anno => {
+            if (anno.start_idx < pivot.start_idx) left.push(anno);
+            else right.push(anno);
+        })
+        
+        return this.sortAnnotations(left).concat(pivot).concat(this.sortAnnotations(right));
+    }
+
+    createAnnoSpan(annotation, idx, sortedAnnos) { //helper method to create DOM span eles for each anno
+        let lyricSection = document.getElementById("lyrics").childNodes[idx*2];
+
+        let span = document.createElement("span")
+        span.classList.add("annotated")
+        span.id = annotation.id
+        this.linkSpanToAnno(span);
+
+        // Determine relative pos of anno in lyricSection given its absolute pos in lyrics
+        
+        let prevAnno = sortedAnnos[idx-1];
+        let precedent;
+        if (prevAnno) precedent = prevAnno.end_idx;
+        else precedent = 0;
+        
+        const relativeStart = annotation.start_idx - precedent;
+        const relativeEnd = annotation.end_idx - precedent;
+        
+        let range = document.createRange();
+        range.setStart(lyricSection, relativeStart);
+        range.setEnd(lyricSection, relativeEnd);
+        range.surroundContents(span); 
+    }
+
+    linkSpanToAnno(annoSpan) {
+        annoSpan.addEventListener('click', (event) => {
+            this.props.openModal({   
+                modal: 'show-annotation', 
+                annotProps: {id: event.target.id}});
+        })
+    }
+
+    // Adding a new annotation...
+
     pullSelection(event) {
         event.preventDefault();
         if (this.props.currentUser && window.getSelection().toString().length > 0) {
-            let ref = window.getSelection();            
-            let range = ref.getRangeAt(0).cloneRange();
+            const ref = window.getSelection();            
+            const range = ref.getRangeAt(0).cloneRange();
 
-            let startParent = range.startContainer.parentElement;
-            let endParent = range.endContainer.parentElement;
-            let priorAnnotation = range.startContainer.previousElementSibling;
+            const startParent = range.startContainer.parentElement;
+            const endParent = range.endContainer.parentElement;
+            const priorAnnotation = range.startContainer.previousElementSibling;
 
-            //If a selection ends and starts in an existing anno, reject selection
+            //If a selection ends & starts in an existing anno, or encompasses an anno, reject selection
             if (startParent.className == "annotated" && endParent.className == "annotated") { return; }
 
             let tempRange;
             let precedent = 0;
             let start = 0;
             let end = 0;
-
             if (startParent === endParent) {
-                if (priorAnnotation) { 
-                    precedent = this.findPrecedent(priorAnnotation.id).end_idx;
-                    tempRange = range; }
+                if (priorAnnotation) precedent = this.searchAnnotations(priorAnnotation.id).end_idx;
+                tempRange = range;
             } else {
-                debugger
                 //...and the selection begins in an existing anno, truncate beginning to exclude that anno's bounds
                 if (startParent.className == "annotated") { 
-                    start = this.findPrecedent(startParent.id).end_idx;
+                    start = this.searchAnnotations(startParent.id).end_idx;
                     tempRange = this.newRange(range, 0, range.endOffset); }
 
                 //...and the selection ends in an existing anno, truncate end to exclude that anno's bounds
                 if (endParent.className == "annotated") { 
-                    end = this.findPrecedent(endParent.id).start_idx - 1;
-                    precedent = this.findPrecedent(range.startContainer.previousElementSibling.id).end_idx;
+                    end = this.searchAnnotations(endParent.id).start_idx - 1;
+                    precedent = this.searchAnnotations(range.startContainer.previousElementSibling.id).end_idx;
                     //for while precedent and endBound will be used for the abs idx locations, endOffset/startOffset
                     //allow temporary CSS annotation of the range
                     let endOffset = range.startContainer.wholeText.length-1;
@@ -83,15 +151,19 @@ class TrackShow extends React.Component {
             
             end = end || range.endOffset + precedent + start;
             start = start || range.startOffset + precedent;
-            debugger
-            this.styleTempSelection(tempRange);
+
+            // If new anno straddles an existing anno, reject it
+            const straddled = this.searchAnnotations(null, start, end);
+            if (straddled.length > 0) end = straddled[0].start_idx;
+            
+            // Style temporary annotation
+            this.styleTempSpan(tempRange);
             this.props.openModal({modal: 'add-annotation', annotProps: {start, end}});
         }
     }
 
     newRange(range, startOffset, endOffset) {
         let newRange = document.createRange();
-        debugger
         const startNode = range.startContainer.parentElement.nextSibling || range.endContainer.parentElement.previousSibling;
         const endNode = startNode;
         newRange.setStart(startNode, startOffset);
@@ -99,123 +171,74 @@ class TrackShow extends React.Component {
         return newRange;   
     }
 
-    styleTempSelection(range){
+    searchAnnotations(id, start, end) {
+        const { annotations } = this.props.track;
+        if (id) return annotations.find(
+            anno => anno.id == id);
+        if (start && end) return annotations.filter(
+            anno => anno.start_idx > 69 && anno.end_idx < 85)
+    }
+
+    // After adding an annotation...
+    getNewAnno(tempSpan, track) {
+        const anno = track.annotations[track.annotations.length - 1];
+        if (anno.id) {
+            tempSpan.id = anno.id;
+            this.linkSpanToAnno(tempSpan);
+        }
+    }
+
+    styleTempSpan(range){
         let span = document.createElement("span");
+        span.className = "annotated";
         span.id = "temp-annotated";
-        debugger
         range.surroundContents(span); 
     }
 
-    findPrecedent(id) {
-        return this.props.track.annotations.find(anno => anno.id == id)
-    }
-
-    renderSelections() {
-        let { annotations } = this.props.track;
-        annotations = this.sortAnnotations(annotations);
-        
-        annotations.forEach((annotation, idx) => {
-
-            let lyricSection = document.getElementById("lyrics").childNodes[idx*2];
-
-            // Prepare span element for wrapping
-            let span = document.createElement("span")
-            span.classList.add("annotated")
-            span.id = annotation.id
-
-            // Add eventListener to span element to show annotation
-            span.addEventListener('click', () => {
-                this.props.openModal({   
-                    modal: 'show-annotation', 
-                    annotProps: {id: event.target.id}});
-            });
-
-            // Create range from annotation props
-            let range = document.createRange();
-
-            // Determine relative pos of anno in lyricSection given its absolute pos in lyrics
-            let precedent;
-            debugger
-            if (annotations[idx-1]) {precedent = annotations[idx-1].end_idx} 
-            else { precedent = 0 };
-            const relativeStart = annotation.start_idx - precedent;
-            const relativeEnd = annotation.end_idx - precedent;
-
-            range.setStart(lyricSection, relativeStart);
-            range.setEnd(lyricSection, relativeEnd);
-            
-            // Put it all together
-            range.surroundContents(span); 
-        })
-    }
-
-    sortAnnotations(annotations) {
-        if (Array.isArray(annotations) === false){
-            annotations = Array.from(annotations);
-        }
-
-        if (annotations.length === 1) return annotations;
-        if (annotations.length < 1) return [];
-
-        const pivot = annotations[0];
-        let left = [];
-        let right = [];
-
-        annotations.slice(1).forEach(anno => {
-            if (anno.start_idx < pivot.start_idx) {
-                left.push(anno);
-            } else {
-                right.push(anno)
-            }
-        })
-        
-        return this.sortAnnotations(left).concat(pivot).concat(this.sortAnnotations(right));
-    }
-
     render (){
-        if (Object.keys(this.props.track).length === 0 ||
-            this.props.track.album === undefined ||
-            typeof Object.values(this.props.artist)[0] === 'object') {
-            return null;
-        } 
-
         const { artist, album, track } = this.props;
+        if (!track.id || !album.id || typeof Object.values(artist)[0] === 'object') return null;
 
-        const artwork = () => {
-            if (album.artwork_url){
-                return <img className="track-show-track-art" src={album.artwork_url} />
+        const { year } = album;
+        const { lyrics, audio_link } = track;
+        const { name } = artist;
+        const artwork = album.artwork_url;
+        const bground = album.background_photo;
+
+        const artworkEle = () => {
+            if (artwork){
+                return <img className="track-show-track-art" src={artwork} />
             } else {
                 return (
                     <span className="track-show-no-art">
                         <button type="submit" 
                                 className="track-show-art-upload" 
-                                onClick={() => this.props.openModal({modal: 'add-art'})}>Add Artwork</button>
+                                onClick={() => this.props.openModal({modal: 'add-art'})}>
+                                Add Artwork</button>
                     </span>
-                )
-            }
+            )}
         }
 
         const bgroundStyle = () => {
-            if (album.background_photo){
-                return {backgroundImage: 'url(' + album.background_photo + ')'}
-            }}
+            if (bground) return {backgroundImage: 'url(' + bground + ')'}
+        }
 
         const bgroundButton = () => {
-            if (!album.background_photo){
-                return (
-                        <button type="submit"
+            if (!bground){
+                return (<button type="submit"
                                 className="track-show-bground-upload"
-                                onClick={() => this.props.openModal({modal: 'add-bground'})}>Add Background</button>
+                                onClick={() => this.props.openModal({modal: 'add-bground'})}>
+                                Add Background</button>
                 )
             }
         }
 
         const yearContainer = ()  => {
-            if (album.year){
+            if (year){
                 return (
                     <div className="track-show-year-container">
                         <p className="meta-tag">Year</p>
-                        <p className="track-show-track-year">{album.year}</p>
+                        <p className="track-show-track-year">{year}</p>
                     </div>
                 )
             } else {
@@ -224,20 +247,16 @@ class TrackShow extends React.Component {
         }
 
         const audioLink = () => {
-            if (track.audio_link){
-                return <Player  url={track.audio_link} 
-                                playing={false}
-                                width="300px" height="200px"
-                                config={{ attributes: { autoPlay: false } }}/>
+            if (audio_link){
+                return (
+                <div id="player">
+                    <Player  url={audio_link} 
+                                    playing={false}
+                                    width="100%" height="100%" 
+                                    config={{ attributes: { autoPlay: false } }}/>
+                </div>)
             }
         }
-
-        // document.addEventListener('click', function (event) {
-        //     event.preventDefault();
-        //     if (event.target.matches('.click-me')) return;
-        //             console.log(event.target);
-        
-        // }, false);
 
         return (
             <div className="track-show">
@@ -245,11 +264,11 @@ class TrackShow extends React.Component {
                     {bgroundButton()}
                     <div className="track-header">
                         <div className="track-show-track-art-container">
-                            {artwork()}
+                            {artworkEle()}
                         </div>
                         <div className="track-show-meta-container">
                             <p className="track-show-track-title">{track.title}</p>
-                            <Link to={`/artists/${artist.name.slice(0, 1).toUpperCase()}/${artist.id}`}><p className="track-show-track-artist">{artist.name}</p></Link>
+                            <Link to={`/artists/${name.slice(0, 1).toUpperCase()}/${artist.id}`}><p className="track-show-track-artist">{name}</p></Link>
                             <div className="track-show-album-container">
                                 <p className="meta-tag">Album</p>
                                 <Link to={`/albums/${album.id}`}><p className="track-show-track-album">{album.title}</p></Link>
@@ -263,7 +282,7 @@ class TrackShow extends React.Component {
                     <div id="lyrics-wrapper-2">
                         <div id="lyrics-wrapper-3">
                             <p className="xsmall-track-title">{track.title} lyrics</p>
-                            <p id="lyrics" onMouseUp={this.pullSelection}>{track.lyrics}</p>
+                            <p id="lyrics" onMouseUp={this.pullSelection}>{lyrics}</p>
                         </div>
                         <div id="annotations">
                             {audioLink()}

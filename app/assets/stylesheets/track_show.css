@@ -128,7 +128,7 @@
 #lyrics-wrapper-2{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 
   width: 75%;
   
@@ -157,9 +157,9 @@
   margin-bottom: 30px;
 }
 
-.annotations{
-  padding-left: 25px;
-  padding-top: 20px;
+#annotations{
+  margin-left: 35px;
+  margin-top: 20px;
   width: 50%;
 }
 
@@ -177,4 +177,12 @@
 #temp-annotated{
   background: #ffff64;
   cursor: pointer;
+}
+
+
+/* Audio Player */
+
+#player {
+  max-width: 400px;
+  max-height: 250px;
 }

@@ -5,6 +5,7 @@ class Api::AnnotationsController < ApplicationController
   
     def index
       @annotations = Annotation.all
+      render :index
     end
   
     def create
@@ -24,6 +25,12 @@ class Api::AnnotationsController < ApplicationController
       else
         render json: @annotation.errors.full_messages, status: 422
       end
+    end
+
+    def destroy
+      @annotation = Annotation.find(params[:id])
+      @annotation.destroy
+      render :show
     end
   
     def annotation_params

@@ -68,13 +68,6 @@
   background: #dddddd;
 }
 
-/* .sign-in-form-create-button{
-  color:rgb(171, 136, 171);
-  text-transform: uppercase;
-  border: 2px solid darkslategray;
-  background: none;
-} */
-
 .addtl-sign-in-opts{
   display: flex;
   flex-direction: row;

@@ -1,6 +1,7 @@
 .anno-modal-child {
-  width: 271px;
-  height: 150px;;
+  width: 100%;
+  max-width: 400px;
+  min-height: 100px;;
   position: relative;
   background: white;
   border-left: 3px solid #99a7ee;

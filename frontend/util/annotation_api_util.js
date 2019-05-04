@@ -31,6 +31,6 @@ export const alterAnnotation = (annotation) => {
 export const deleteAnnotation = (id) => {
     return $.ajax({
         method: 'DELETE',
-        url: `api/annotations/${annotation.id}`
+        url: `api/annotations/${id}`
     })
 }

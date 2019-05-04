@@ -1,0 +1,33 @@
+#anno-show-wrapper { 
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: inherit;
+    margin: 5px;
+    padding: 10px;
+    background-color: #E9E9E9;
+    color: black;
+}
+
+#anno-show-wrapper > p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+}
+
+#anno-show-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 3px 0px 12px 10px;
+}
+
+#anno-show-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.hydrated {
+    padding: 5px;
+    cursor: pointer;
+}

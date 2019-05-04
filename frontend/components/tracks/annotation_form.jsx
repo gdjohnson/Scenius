@@ -17,31 +17,34 @@ class AnnotationForm extends React.Component {
       range: annotProps.range
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.cancelAnnotation = this.cancelAnnotation.bind(this);
+    this.cancelForm = this.cancelForm.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
-    //Tracks for click-off cancellation of annotation
     setTimeout(() => {
-      document.getElementsByClassName('annotation-form')[0].addEventListener('click', 
-        (e) => { e.stopPropagation();}, true);
-      document.getElementById('root').addEventListener('click', this.cancelAnnotation, false);
+      document.getElementById('anno-form').addEventListener('click', 
+        (e) => { 
+          const { id } = e.srcElement;
+          if (id === 'cancel-anno') { this.cancelForm() }
+          if (id === 'save-anno') { 
+            e.stopPropagation();
+            this.handleSubmit(); }
+          else { e.stopPropagation(); } }, true) 
+      document.getElementById('root').addEventListener('click', this.cancelForm, false);
     }, 1000)
   }
 
-  
-
-  cancelAnnotation() {
+  cancelForm() {
     const el = document.getElementById('temp-annotated');
     const parent = el.parentNode;
     while (el.firstChild) parent.insertBefore(el.firstChild, el);
     parent.removeChild(el);
-    
     this.closeModal();
   }
 
   closeModal() {
-    document.getElementById('root').removeEventListener('click', this.cancelAnnotation, false);
+    document.getElementById('root').removeEventListener('click', this.cancelForm, false);
     this.props.closeModal();
   }
 
@@ -51,28 +54,26 @@ class AnnotationForm extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-      event.preventDefault();
+  handleSubmit() {
       delete this.state.range;
       const annotation = {... this.state};
-      this.props.createAnnotation(annotation); 
-      this.closeModal();     
+      this.props.createAnnotation(annotation).then(
+      this.closeModal)
   };
   
-
   render() {
     return (
-        <form className="annotation-form" onSubmit={this.handleSubmit}>
-              <div className="annotation-form-annotation">
+        <form id="anno-form">
+              <div id="new-anno-wrapper">
                 <textarea
-                  className="annotation-form-input-field"
+                  id="anno-input"
                   placeholder="Don't just put the lyric in your own words... drop some knowledge!"
                   onChange={this.handleUpdate()}
                   style={{cursor: "text"}}
                 ></textarea>
-                <div className="annotation-form-sub-buttons">
+                <div id="anno-submit">
                   <input id="save-anno" type="submit" value="Save"/>
-                  {/* <input id="cancel-anno" type="button" value="Cancel" onClick={this.cancelAnnotation}/> */}
+                  <input id="cancel-anno" type="button" value="Cancel"/>
                 </div>
               </div>
         </form>
@@ -83,6 +84,7 @@ class AnnotationForm extends React.Component {
 const mapStateToProps = state => {
   return {
     track_id: state.entities.tracks.id,
+    annotations: state.entities.annotations,
     currentUser: state.entities.session.currentUser
   };
 };
