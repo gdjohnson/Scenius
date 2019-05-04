@@ -15,6 +15,9 @@
 }
 
 #anno-show-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 10px;
     text-transform: uppercase;
     font-weight: bold;
@@ -27,7 +30,12 @@
     justify-content: flex-end;
 }
 
-.hydrated {
+ion-icon {
+    font-size: 19px;
     padding: 5px;
     cursor: pointer;
+}
+
+ion-icon:hover {
+    color: red;
 }

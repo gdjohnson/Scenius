@@ -15,11 +15,13 @@ class AnnotationShow extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchTrack, track } = this.props;
+    const { fetchTrack, track, closeModal } = this.props;
 
     fetchTrack(track.id).then(() => {
       if (this.state.mounted === false) { this.setState({ mounted: true }); }
     });
+
+    document.getElementsByName('close')[0].addEventListener('click', () => closeModal() )
   }
 
   deleteAnno(id) {
@@ -57,7 +59,10 @@ class AnnotationShow extends React.Component {
 
     return (
       <div id="anno-show-wrapper">
-        <h3  id="anno-show-header">Scenius Annotation</h3>
+        <div id="anno-show-header">
+          <h3>Scenius Annotation</h3>
+          <ion-icon name="close"></ion-icon>
+        </div>
         <p>{annotation(annoId)}</p>
         <div id="anno-show-footer">
           <ion-icon name="trash"></ion-icon>
