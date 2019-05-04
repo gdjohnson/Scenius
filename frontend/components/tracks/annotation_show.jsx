@@ -9,6 +9,9 @@ class AnnotationShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { mounted: false };
+
+    this.unwrap = this.unwrap.bind(this);
+    this.deleteAnno = this.deleteAnno.bind(this);
   }
 
   componentDidMount() {
@@ -19,15 +22,23 @@ class AnnotationShow extends React.Component {
     });
   }
 
-  unwrap(span) {
-    const text = span.innerHTML;
+  deleteAnno(id) {
+    const { closeModal, deleteAnnotation } = this.props;
+    this.unwrap(id);
+    deleteAnnotation(id).then(
+    closeModal());
+  }
+
+  unwrap(id) {
+    const span = document.getElementById(id);
+    const text = span.firstChild;
     const parent = span.parentElement;
     parent.insertBefore(text, span)
     parent.removeChild(span);
   }
 
   render() {
-    const { annotations, annotProps, deleteAnnotation, closeModal } = this.props;
+    const { annotations, annotProps, closeModal } = this.props;
     let annoId = annotProps.id;
 
     if (this.state.mounted == true) {
@@ -35,10 +46,7 @@ class AnnotationShow extends React.Component {
         annoId = annotations[annotations.length-1].id;
       }
       else {
-        document.getElementsByName('trash')[0].addEventListener('click', () => {
-          deleteAnnotation(annoId).then(closeModal())
-          }
-        )
+        document.getElementsByName('trash')[0].addEventListener('click', () => this.deleteAnno(annoId))
       }
     }
 
