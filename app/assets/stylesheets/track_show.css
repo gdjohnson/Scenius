@@ -179,10 +179,41 @@
   cursor: pointer;
 }
 
+#require-login > p {
+  margin-top: 25px;
+  font-family: serif;
+  font-style: italic;
+  background-color: #7D8FE8;
+  max-width: 380px;
+  color: white;
+  padding: 10px;
+  border-bottom: 1px transparent;
+}
+
+#require-login b {
+  cursor: pointer;
+  color: white;
+  font-family: serif;
+  font-style: italic;
+  border-bottom: 1px transparent;
+}
+
+#require-login b:hover{
+  text-decoration: underline;
+}
 
 /* Audio Player */
 
 #player {
   max-width: 400px;
   max-height: 250px;
+  height: 100%;
+  width: 100%;
+}
+
+#widget2 {
+  max-height: 250px;
+  max-width: 400px;
+  height: 100%;
+  width: 100%;
 }

@@ -33,7 +33,7 @@ class TrackShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { track, annotations } = this.props;
+        const { track, annotations, openModal } = this.props;
         const prevParams = prevProps.match.params;
         const params = this.props.match.params;
         const annoSpans = document.getElementsByClassName("annotated");
@@ -48,6 +48,15 @@ class TrackShow extends React.Component {
             if (tempSpan) this.getNewAnno(tempSpan, track);
         } else {
             this.props.fetchTrack(this.props.match.params.id);
+        }
+
+        if (document.getElementById('require-login')){
+            document.getElementById('anno-signin').addEventListener('click', () => {
+                openModal({modal: 'signin'})
+            })
+            document.getElementById('anno-signup').addEventListener('click', () => {
+                openModal({modal: 'signup'})
+            })
         }
     }
 
@@ -262,7 +271,7 @@ class TrackShow extends React.Component {
             if (!currentUser) {
                 return (
                     <div id="require-login">
-                        <p>Please log in or create an account to add annotations.</p>
+                        <p>Please <b id="anno-signin">log in</b> or <b id="anno-signup">create an account</b> to add annotations.</p>
                     </div>
                 )
             }
