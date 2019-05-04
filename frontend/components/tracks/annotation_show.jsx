@@ -19,6 +19,13 @@ class AnnotationShow extends React.Component {
     });
   }
 
+  unwrap(span) {
+    const text = span.innerHTML;
+    const parent = span.parentElement;
+    parent.insertBefore(text, span)
+    parent.removeChild(span);
+  }
+
   render() {
     const { annotations, annotProps, deleteAnnotation, closeModal } = this.props;
     let annoId = annotProps.id;
@@ -29,7 +36,6 @@ class AnnotationShow extends React.Component {
       }
       else {
         document.getElementsByName('trash')[0].addEventListener('click', () => {
-          document.getElementById(annoId).classList.remove('annotated');
           deleteAnnotation(annoId).then(closeModal())
           }
         )
