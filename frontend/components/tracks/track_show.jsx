@@ -196,7 +196,7 @@ class TrackShow extends React.Component {
     }
 
     render (){
-        const { artist, album, track } = this.props;
+        const { artist, album, track, currentUser } = this.props;
         if (!track.id || !album.id || typeof Object.values(artist)[0] === 'object') return null;
 
         const { year } = album;
@@ -258,6 +258,16 @@ class TrackShow extends React.Component {
             }
         }
 
+        const requireLogin = () => {
+            if (!currentUser) {
+                return (
+                    <div id="require-login">
+                        <p>Please log in or create an account to add annotations.</p>
+                    </div>
+                )
+            }
+        }
+
         return (
             <div className="track-show">
                 <div className="track-header-container" style={bgroundStyle()}>
@@ -286,6 +296,7 @@ class TrackShow extends React.Component {
                         </div>
                         <div id="annotations">
                             {audioLink()}
+                            {requireLogin()}
                             <AnnoModal />
                         </div>
                     </div>
