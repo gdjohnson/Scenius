@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAlbum } from '../actions/album_actions';
+import { openModal } from '../actions/modal_actions';
 
 export class AlbumShow extends React.Component {
   constructor(props) {
@@ -52,11 +53,12 @@ export class AlbumShow extends React.Component {
         }}
 
     const bgroundButton = () => {
+      const { openModal } = this.props;
         if (!album.background_photo){
             return (
                     <button type="submit"
-                            className="track-show-bground-upload"
-                            onClick={() => this.props.openModal({modal: 'add-bground'})}>Add Background</button>
+                            className="album-show-bground-button"
+                            onClick={() => openModal({modal: 'add-bground'})}>Add Background</button>
             )
         }
     }
@@ -102,6 +104,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return ({
     fetchAlbum: (id) => dispatch(fetchAlbum(id)),
+    openModal: (type) => dispatch(openModal(type))
   });
 };
 

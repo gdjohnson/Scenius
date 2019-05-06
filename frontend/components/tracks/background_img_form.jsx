@@ -6,9 +6,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 class BackgroundImgForm extends React.Component {
   constructor(props) {
     super(props);
-    const { title, year, artwork_url } = this.props.album;
-    const artist_id = this.props.artist_id;
-    const id = this.props.id;
+    const { id, title, year, artist_id, artwork_url } = this.props.album;
     this.state = {
       id,
       title,
@@ -28,6 +26,7 @@ class BackgroundImgForm extends React.Component {
 
   handleSubmit(event) {
       event.preventDefault();
+      debugger
       const album = {... this.state};
       this.props.alterAlbum(album).then(this.props.closeModal());
     };
@@ -54,10 +53,9 @@ class BackgroundImgForm extends React.Component {
 }
 
 const mapStateToProps = state => {
+  debugger
   return {
     album: state.entities.albums,
-    id: state.entities.tracks.album_id,
-    artist_id: state.entities.tracks.artist_id
   };
 };
 

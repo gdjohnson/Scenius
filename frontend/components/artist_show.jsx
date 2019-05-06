@@ -42,7 +42,7 @@ export class ArtistShow extends React.Component {
             <Link to={`/albums/${album.id}`}>
               <img src={album.artwork_url} />
               <p>{album.title}</p> 
-              <p>{yearContainer(album)}</p>
+              {yearContainer(album)}
             </Link>
           </li>
         )
@@ -67,7 +67,6 @@ export class ArtistShow extends React.Component {
 
     return (
       <div className="artist-show-container">
-         {/* {rp(url)} */}
         <div className="artist-show-image-div">
          {artistImage()}
          <h3>{artist.name}</h3>

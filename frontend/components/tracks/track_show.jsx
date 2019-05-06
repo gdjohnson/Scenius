@@ -163,7 +163,9 @@ class TrackShow extends React.Component {
 
             // If new anno straddles an existing anno, reject it
             const straddled = this.searchAnnotations(null, start, end);
-            if (straddled.length > 0) end = straddled[0].start_idx;
+            if (straddled) {
+                if (straddled.length > 0) end = straddled[0].start_idx; 
+            } 
             
             // Style temporary annotation
             this.styleTempSpan(tempRange);

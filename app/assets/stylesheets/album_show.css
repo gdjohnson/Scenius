@@ -29,6 +29,20 @@
   z-index: 1;
 }
 
+.album-show-bground-button{
+  min-width: 90px;
+  width: 90px;
+  border-radius: 50%;
+  height: 90px;
+  min-height: 90px;
+  margin: 8px;
+  color: red;
+  border: 2px solid red;
+  position: relative;
+  left: 50px;
+  cursor: pointer;
+}
+
 .album-show-album-art-container{
   width: 220px;
   margin-top: 40px;
@@ -147,4 +161,3 @@
 .album-show-track-list ul{
     padding-left: 20px;
 }
-
