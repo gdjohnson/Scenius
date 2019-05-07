@@ -26,7 +26,6 @@ class BackgroundImgForm extends React.Component {
 
   handleSubmit(event) {
       event.preventDefault();
-      debugger
       const album = {... this.state};
       this.props.alterAlbum(album).then(this.props.closeModal());
     };
@@ -53,7 +52,6 @@ class BackgroundImgForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  debugger
   return {
     album: state.entities.albums,
   };

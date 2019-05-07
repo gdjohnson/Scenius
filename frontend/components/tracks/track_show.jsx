@@ -39,7 +39,6 @@ class TrackShow extends React.Component {
         const annoSpans = document.getElementsByClassName("annotated");
         const tempSpan = document.getElementById('temp-annotated');
 
-        debugger
         let stableState = () => { return annotations.length === track.annotations.length };
         stableState = stableState.bind(this);
 

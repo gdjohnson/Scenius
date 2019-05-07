@@ -55,13 +55,11 @@ export class AlbumShow extends React.Component {
   }
     
   albumCover() {
-    debugger
     const { album } = this.props;
     return album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""
   }
 
   bgroundStyle() {
-    debugger
     const { album } = this.props;
     return album.background_photo ? { backgroundImage: 'url(' + album.background_photo + ')' } : ""
   }

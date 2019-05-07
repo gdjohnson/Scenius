@@ -15,7 +15,6 @@ export class AlphIndex extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     if (this.state.fetched === false) { this.setState({fetched: true}) };
     this.props.fetchArtistsByLetter(this.props.char);
   }
