@@ -20,13 +20,13 @@ html, body, #root {
 }
 
 #root{
-  font-family: sans-serif;
+  font-family: Helvetica, sans-serif;
   background-color: white;
   color: white;
 }
 
 #root > div {
-  background: #222;
+  background: white;
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -39,7 +39,7 @@ html, body, #root {
   border: 0px;
   list-style: none;
 
-  font-family: 'Raleway', sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 a {

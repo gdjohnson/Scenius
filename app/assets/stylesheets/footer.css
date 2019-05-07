@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #ffff64;
-    background-color: black;
+    color: black;
+    background-color: white;
 }
 
 #footer-alph-index {
@@ -12,12 +12,13 @@
     flex-wrap: wrap;
     justify-content: center;
     
+    border: 1px solid darkred;
     padding: 10px;
 }
 
 #footer-alph-index > li{
     padding: 0px 5px 0px 5px;
-    color: #99a7ee;
+    color: darkred;
 }
 
 #footer-alph-index a {
@@ -34,10 +35,14 @@
 #footer-external-links {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: nowrap;
 
     white-space: nowrap;
+    text-align: center;
     overflow: hidden;
+
+    color: black;
 
     padding: 10px 0px 10px 0px;
 }
@@ -47,7 +52,7 @@
 }
 
 #copyright {
-    color: white;
+    color: black;
     font-size: 12px;
     padding: 10px 0px 25px 0px;
 }

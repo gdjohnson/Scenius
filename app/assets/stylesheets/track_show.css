@@ -14,7 +14,7 @@
   background: rgb(80, 78, 78);
   z-index: 3;
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .track-header-container button{
@@ -132,7 +132,7 @@
 
   width: 75%;
   
-  font-family: 'Raleway';
+  font-family: Helvetica, sans-serif;
   font-size: 17px;
   letter-spacing: 1px;
   white-space: pre-wrap;
@@ -171,11 +171,11 @@
 }
 
 .annotated:hover{
-  background: #ffff64;
+  background: rosybrown;
 }
 
 #temp-annotated{
-  background: #ffff64;
+  background: rosybrown;
   cursor: pointer;
 }
 
@@ -183,7 +183,7 @@
   margin-top: 25px;
   font-family: serif;
   font-style: italic;
-  background-color: #7D8FE8;
+  background-color: lightgrey;
   max-width: 380px;
   color: white;
   padding: 10px;
@@ -195,11 +195,10 @@
   color: white;
   font-family: serif;
   font-style: italic;
-  border-bottom: 1px transparent;
 }
 
 #require-login b:hover{
-  text-decoration: underline;
+  color: darkred;
 }
 
 /* Audio Player */
