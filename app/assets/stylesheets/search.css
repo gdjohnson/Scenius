@@ -21,7 +21,7 @@ ion-icon {
 }
 
 #search-input:focus { 
-    outline: 1px solid #99a7ee;
+    outline: 1px solid darkgrey;
 }
 
 #search-results {
@@ -47,7 +47,7 @@ ion-icon {
 }
 
 .search-result:hover {
-    background: #99a7ee;
+    background: darkgrey;
 }
 
 .search-result > a {

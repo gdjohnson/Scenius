@@ -4,7 +4,7 @@
   min-height: 100px;;
   position: relative;
   background: white;
-  border-left: 3px solid #99a7ee;
+  border-left: 3px solid darkgrey;
   display: flex;
   margin-top: 20px;
 }
