@@ -12,6 +12,8 @@ export class AlphIndex extends React.Component {
     this.artistList = this.artistList.bind(this);
     this.albumList = this.albumList.bind(this);
     this.trackList = this.trackList.bind(this);
+    this.coverImg = this.coverImg.bind(this);
+    this.randomImg = this.randomImg.bind(this);
   }
 
   componentDidMount(){
@@ -26,6 +28,9 @@ export class AlphIndex extends React.Component {
 
   artistList() {
     const { artists } = this.props;
+    const coverImg = this.coverImg;
+
+    debugger
 
     if (!Object.keys(artists).length || typeof Object.values(artists)[1] === 'string') {
       return ( 
@@ -37,7 +42,7 @@ export class AlphIndex extends React.Component {
         </span> 
       )}
     else {
-      return Object.values(this.props.artists).map(
+      const artistsPresent = Object.values(this.props.artists).map(
         (artist, idx) => {
           return (
             <div key={idx}>
@@ -50,8 +55,20 @@ export class AlphIndex extends React.Component {
               {this.albumList(artist.albums)}
             </div>
         )}
-    )}
+      )
+
+    return (
+      <div>
+        <div className="alph-index">
+          <h3>Artists beginning with {this.props.char}</h3>
+          { artistsPresent }
+        </div>
+        { coverImg() } 
+      </div>)
+    }
+
   }
+    
 
   albumList(albums) {
     return albums.map(
@@ -80,14 +97,34 @@ export class AlphIndex extends React.Component {
       )}
   )}
 
+  coverImg() {
+    debugger
+    const artists = this.props;
+    if (Object.values(artists)) { 
+      const img = this.randomImg();
+      return <img id="alph-index-art" src={img}/> 
+    } 
+  }
+
+  randomImg() {
+    debugger
+    const { artists } = this.props;
+    let albums = [];
+    Object.values(artists).forEach(artist => {
+      albums = albums.concat(artist.albums);
+    })
+
+    const num = Math.floor(Math.random() * albums.length);
+    debugger
+    return albums[num].artwork_url;
+  }
+
   render() {
     if (this.state.fetched === false) { return null; }
+    const index = this.artistList();
     return (
         <div className="alph-index-container">
-            <div className="alph-index">
-                <h3>Artists beginning with {this.props.char}:</h3>
-                {this.artistList()}
-            </div>
+            {index}
         </div>
     );
   }

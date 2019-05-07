@@ -5,6 +5,17 @@
   justify-content: center;
 }
 
+.alph-index-container > div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.alph-index-container img {
+  height: 52%;
+  width: 52%;
+  padding: 50px;
+}
+
 .alph-index{
   display: flex;
   flex-direction: column;
@@ -20,7 +31,6 @@
   font-weight: 700;
   font-size: 34px;
 
-  margin-top: 15px;
   margin-bottom: 15px;
 }
 
