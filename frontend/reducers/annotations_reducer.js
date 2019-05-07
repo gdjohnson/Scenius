@@ -20,7 +20,8 @@ const annotationsReducer = (state = {}, action) => {
         return action.user.annotations;
       }
     case DESTROY_ANNOTATION:
-      return state.filter(anno => anno.id !== action.annotation.id);
+      const newState = {...state};
+      if (newState.values) { return newState.filter(anno => anno.id !== action.annotation.id) };
     default:
       return state;
   }

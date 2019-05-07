@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchArtistsByLetter } from '../../actions/artist_actions';
+import { openModal } from '../../actions/modal_actions';
 
 export class AlphIndex extends React.Component {
   constructor (props){
@@ -14,6 +15,7 @@ export class AlphIndex extends React.Component {
     this.trackList = this.trackList.bind(this);
     this.coverImg = this.coverImg.bind(this);
     this.randomImg = this.randomImg.bind(this);
+    this.modalLink = this.modalLink.bind(this);
   }
 
   componentDidMount(){
@@ -26,18 +28,33 @@ export class AlphIndex extends React.Component {
     if (prevProps.char !== char) { fetchArtistsByLetter(char); }
   }
 
+  modalLink() {
+    if (this.props.currentUser) {
+      return (
+        <Link id="alph-index-missing-artists-link" to="/add">
+            Add some!
+         </Link>
+      )
+    }
+
+    const { openModal } = this.props;
+    return (
+      <a id="alph-index-missing-artists-link" onClick={() => openModal({modal: 'signin'})}>
+            Sign in to add some!
+      </a>
+    )
+  }
+
   artistList() {
     const { artists } = this.props;
-    const coverImg = this.coverImg;
+    const { coverImg, modalLink } = this;
 
 
     if (!Object.keys(artists).length || typeof Object.values(artists)[1] === 'string') {
       return ( 
         <span>
-          There are no tracks or albums associated with this artist yet.  
-          <Link id="album-show-add-track" to="/add">
-            Add some!
-          </Link>
+          There are no tracks or albums associated with this artist yet.&nbsp;
+          {modalLink()}
         </span> 
       )}
     else {
@@ -131,11 +148,14 @@ export class AlphIndex extends React.Component {
 const mapStateToProps = (state, { match }) => {
   const { char } = match.params;
   const { artists } = state.entities;
-  return { artists, char };
+  const { currentUser } = state.session;
+  return { artists, char, currentUser };
 };
 
 const mapDispatchToProps = dispatch => {
-  return { fetchArtistsByLetter: (char) => dispatch(fetchArtistsByLetter(char)) };
+  return ({ 
+    fetchArtistsByLetter: (char) => dispatch(fetchArtistsByLetter(char)),
+    openModal: (modal) => dispatch(openModal(modal)) });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlphIndex);

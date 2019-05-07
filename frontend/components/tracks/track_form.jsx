@@ -117,6 +117,7 @@ class TrackForm extends React.Component {
       <div className="track-form"><h1>Add Song</h1>
 
         <form onSubmit={this.handleSubmit}>
+        <div id="track-form-data">
         <div className="primary-info">
             <h3>Primary Info</h3>
             <div className="form-inputs">
@@ -160,7 +161,14 @@ class TrackForm extends React.Component {
                 </ul>
               </div>
 
-              <div id="new-track-genre">
+                <br />
+            </div>
+          </div>
+
+          <div className="additional-metadata">
+            <h3>Additional Metadata</h3>
+
+            <div id="new-track-genre">
                 <label className="track-field-label">Primary tag</label>
                 <div className="genre-selector">
                   <input  type="radio" name="genre" className="genre_radio" 
@@ -189,37 +197,33 @@ class TrackForm extends React.Component {
 
                 <p className="tag-note">Note: If you're not sure which tag to use
                       please select “Pop”— you can add secondary tags later.</p>
-              </div>
                 <br />
-              <div id="new-track-lyrics">
+
+                <div className="form-inputs">
+                  <div id="new-track-audio">
+                    <label className="track-field-label">Video URL:</label>
+                    <br />
+                    <input
+                      type="text"
+                      onChange={this.handleUpdate('audio_link')}
+                      value={this.state.audio_link}
+                      className="track-string-input"
+                    />
+                    <br />
+                  </div>
+                </div>
+              </div>
+          </div>
+          <input className="track-submit" type="submit" value="Add track"></input>
+          </div>
+          <div id="new-track-lyrics">
                 <label className="track-field-label">Lyrics*</label>
                 <br />
                 <textarea
                   value={this.state.lyrics}
                   onChange={this.handleUpdate('lyrics')}
                 ></textarea>
-              </div>
-            </div>
           </div>
-
-          <div className="additional-metadata">
-            <h3>Additional Metadata</h3>
-            <div className="form-inputs">
-              <div id="new-track-audio">
-                <label className="track-field-label">Audio URL:</label>
-                <br />
-                <input
-                  type="text"
-                  onChange={this.handleUpdate('audio_link')}
-                  value={this.state.audio_link}
-                  className="track-string-input"
-                />
-                <br />
-              </div>
-            </div>
-          </div>
-
-          <input className="track-submit" type="submit" value="Add track"></input>
           </form>
         </div>
           

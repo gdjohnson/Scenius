@@ -62,14 +62,15 @@
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: white;
 
   white-space: nowrap;
   overflow: hidden;
 
   border: 0;
   border-bottom: 9px solid transparent;
-  padding: 19px 12px 10px 0px;
+  min-width: max-content;
+  padding: 20px 6px 10px 6px;
 }
 
 .user-control-button:hover{

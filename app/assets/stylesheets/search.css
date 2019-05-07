@@ -11,13 +11,19 @@
 }
 
 ion-icon {
-    color: black;
+    color: white;
     cursor: auto;
 }
 
 #search-input {
     padding: 5px;
     width: 80%;
+    background: #d3d3d34f;
+    color: white;
+}
+
+#search-input::placeholder {
+    color: white;
 }
 
 #search-input:focus { 

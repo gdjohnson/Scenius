@@ -62,3 +62,21 @@
 .alph-index-track{
   margin-left: 25px;
 }
+
+/* In case of no artists for a given char... */
+
+.alph-index-container > span {
+  color: black;
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 30%;
+  border: 3px dotted darkred;
+  text-align: center;
+  font-size: 26px;
+  padding: 70px;
+}
+
+#alph-index-missing-artists-link {
+  color: darkred;
+}

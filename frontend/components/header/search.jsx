@@ -68,12 +68,12 @@ class Search extends React.Component {
     return (
       <div id="search">
         <form id="search-form">
-        <ion-icon name="search"></ion-icon>
         <input  id="search-input"
-                placeholder="Search Scenius"
+                placeholder="Search Scenius..."
                 onClick={this.openSearch}
                 onChange={this.handleUpdate}>
         </input>
+        <ion-icon name="search"></ion-icon>
         </form>
         <ul id="search-results">
           { results }

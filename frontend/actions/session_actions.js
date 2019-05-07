@@ -14,7 +14,9 @@ export const signUp = (user) => dispatch => {
 
 export const signIn = (user) => dispatch => {
     return APIUtil.signIn(user).then(
-        user => dispatch({type: RECEIVE_USER, user}), 
+        user => {
+            debugger
+            dispatch({type: RECEIVE_USER, user})}, 
         errors => dispatch({type: RECEIVE_ERRORS, errors: errors.responseJSON})
     );
 };
