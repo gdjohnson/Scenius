@@ -20,22 +20,19 @@ class Footer extends React.Component {
         const alphIndex = this.alphIndex();
 
         return (
-            <div className="footer">
-                <ul className="footer-alph-index">
+            <div id="footer">
+                <ul id="footer-alph-index">
                     <li>ARTISTS:</li>
                     {alphIndex}
                 </ul>
-
-                <li className="copyright">© 2019 Graham Johnson.</li>
-
-                <ul className="footer-links-1">
+                <ul id="footer-external-links">
                     <li><a href="https://gdjohnson.github.io">About Scenius</a></li>     
                     <li><a href="https://gdjohnson.github.io">Contributor Guidelines</a></li>
                     <li><a href="https://gdjohnson.github.io">Press</a></li>
                     <li><a href="https://gdjohnson.github.io">Advertise</a></li>
                     <li><a href="https://gdjohnson.github.io">Event Space</a></li>
                 </ul> 
-                
+                <li id="copyright">© 2019 Graham Johnson.</li>
             </div>
             
         );
