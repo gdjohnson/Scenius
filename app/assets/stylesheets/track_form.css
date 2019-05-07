@@ -1,11 +1,11 @@
 .track-form{
-  background-color: black;
-  color: white;
-  padding: 3px;
+  background-color: white;
+  color: black;
+  padding: 5%;
   min-width: 200px;
-  width: 100%;
+  width: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .form-inputs{

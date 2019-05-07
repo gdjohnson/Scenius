@@ -30,7 +30,6 @@ export class AlphIndex extends React.Component {
     const { artists } = this.props;
     const coverImg = this.coverImg;
 
-    debugger
 
     if (!Object.keys(artists).length || typeof Object.values(artists)[1] === 'string') {
       return ( 
@@ -60,8 +59,10 @@ export class AlphIndex extends React.Component {
     return (
       <div>
         <div className="alph-index">
-          <h3>Artists beginning with {this.props.char}</h3>
-          { artistsPresent }
+        <h3>Artists beginning with {this.props.char}</h3>
+          <div id="alph-index-artists-container">
+            { artistsPresent }
+          </div>
         </div>
         { coverImg() } 
       </div>)
@@ -98,7 +99,6 @@ export class AlphIndex extends React.Component {
   )}
 
   coverImg() {
-    debugger
     const artists = this.props;
     if (Object.values(artists)) { 
       const img = this.randomImg();
@@ -107,7 +107,6 @@ export class AlphIndex extends React.Component {
   }
 
   randomImg() {
-    debugger
     const { artists } = this.props;
     let albums = [];
     Object.values(artists).forEach(artist => {
@@ -115,7 +114,6 @@ export class AlphIndex extends React.Component {
     })
 
     const num = Math.floor(Math.random() * albums.length);
-    debugger
     return albums[num].artwork_url;
   }
 

@@ -23,7 +23,7 @@ export class HomePage extends React.Component {
           return (
               <li className="home-track-container" key={idx}>
                 <Link to={`/tracks/${track.id}`}>
-                  <span>{idx}</span>
+                  <span>{idx + 1}</span>
                   <img src={track.album.artwork_url}/>
                   <div className="home-track-info">
                     <p className="home-track-title">{track.title}</p>
