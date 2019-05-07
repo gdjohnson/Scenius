@@ -30,7 +30,7 @@
 }
 
 #anno-input:focus {
-    border: 1px solid #99a7ee;
+    border: 1px solid darkgrey;
 }
 
 #anno-submit {

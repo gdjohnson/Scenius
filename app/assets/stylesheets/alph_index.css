@@ -20,6 +20,8 @@
   display: flex;
   flex-direction: column;
   align-items: left;
+
+  color: darkgrey;
   
   width: 50%;
   background: black;
@@ -27,32 +29,27 @@
 }
 
 .alph-index h3{
-  font-family: 'Open Sans', sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 700;
   font-size: 34px;
 
   margin-bottom: 15px;
 }
 
-.alph-index li, .alph-index a {
-  color: #99A7EE;
-  margin-bottom: 3px;
-  text-decoration: none;
-}
-
 .alph-index a:hover {
-  color: #c1cbff;
+  color: #808080;
 }
 
-.alph-index-artist a{
+.alph-index-artist {
   font-size: 19px;
   font-weight: bolder;
+  margin-top: 10px;
 }
 
 .alph-index-album{
-  margin-left: 25px;
+  margin-top: 3px;
 }
 
 .alph-index-track{
-  margin-left: 50px;
+  margin-left: 25px;
 }

@@ -4,9 +4,10 @@
   flex-wrap: nowrap;
   justify-content: space-between;
 
-  height: 52px;
-  background-color: #ffff64;
+  height: 54px;
+  background-color: darkred;
   text-transform: uppercase;
+  border-bottom: 5px solid white;
 }
 
 .search{
@@ -31,9 +32,8 @@
   text-align: center;
   text-decoration: none;
   font-weight: bolder;
-  text-shadow: -2px 2px 0px #000000;
   letter-spacing: 3px;
-  color: #ffff64;
+  color: white;
 
   margin: auto;
   padding-left: 3px;
@@ -84,18 +84,18 @@
   justify-content: center;
   align-items: center;
 
-  color: white;
-  background: black;
-  height: 34px;
+  color: darkred;
+  background: white;
+  height: 36px;
 }
 
 .subheader a{
   font-size: 14px;
-  font-family: 'Raleway';
+  font-family: Helvetica, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
-  color: white;
+  color: darkred;
 
   text-align: center;
   width: 125px;
@@ -105,5 +105,5 @@
 }
 
 .subheader a:hover{
-  color: #ffff64
+  color: black;
 }
