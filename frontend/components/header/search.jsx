@@ -4,15 +4,37 @@ import { Link } from 'react-router-dom';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    const { searchTerm } = this.props
-    this.state = { searchTerm }
-    this.handleUpdate = this.handleUpdate.bind(this)
+    
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.closeSearch = this.closeSearch.bind(this);
+    this.openSearch = this.openSearch.bind(this);
+  }
+
+  closeSearch() {
+    const page = document.getElementById('main');
+    const searchInput = document.getElementById('search-input');
+    const resultsList = document.getElementById('search-results');
+
+    searchInput.value = "";
+    resultsList.className = "hidden-search";
+    page.removeEventListener('click', this.closeSearch);
+    searchInput.addEventListener('click', this.openSearch);
+  }
+
+  openSearch() {
+    const page = document.getElementById('main');
+    const searchInput = document.getElementById('search-input');
+    const resultsList = document.getElementById('search-results');
+
+    resultsList.className = "";
+    searchInput.removeEventListener('click', this.openSearch);
+    resultsList.addEventListener('click', this.closeSearch);
+    page.addEventListener('click', this.closeSearch);
   }
 
   handleUpdate(e) {
-    const { searchTracks } = this.props;
-
     event.preventDefault();
+    const { searchTracks } = this.props;
     const searchTerm = e.currentTarget.value;
     searchTracks(searchTerm);
   }
@@ -24,7 +46,8 @@ class Search extends React.Component {
 
     tracks = Object.values(tracks)
     return tracks.map((track, idx) => {
-      return (<li key={idx} className="search-result">
+      return (
+      <li key={idx} className="search-result">
         <Link to={`/tracks/${track.id}`}>
           <img src={track.album.artwork_url}/>
         </Link>
@@ -41,7 +64,6 @@ class Search extends React.Component {
 
   render() {
     const results = this.searchResults();
-    
 
     return (
       <div id="search">
@@ -49,6 +71,7 @@ class Search extends React.Component {
         <ion-icon name="search"></ion-icon>
         <input  id="search-input"
                 placeholder="Search Scenius"
+                onClick={this.openSearch}
                 onChange={this.handleUpdate}>
         </input>
         </form>

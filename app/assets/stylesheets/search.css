@@ -32,6 +32,10 @@ ion-icon {
     width: 80%
 }
 
+.hidden-search {
+    display: none;
+}
+
 .search-result {
 	display: flex;
     flex-direction: row;
