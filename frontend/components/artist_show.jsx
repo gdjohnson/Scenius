@@ -66,16 +66,18 @@ export class ArtistShow extends React.Component {
     // const url = 'https://en.wikipedia.org/wiki/Roxy_Music';
 
     return (
-      <div className="artist-show-container">
-        <div className="artist-show-image-div">
-         {artistImage()}
-         <h3>{artist.name}</h3>
-        </div>
-        <div className="artist-show-album-list">
-          <ul>
-            {albumList()}
-          </ul>
-          <h4>{artist.name} Albums</h4>
+      <div id="artist-show-flex">
+        <div className="artist-show-container">
+          <div className="artist-show-image-div">
+          {artistImage()}
+          <h3>{artist.name}</h3>
+          </div>
+          <div className="artist-show-album-list">
+            <ul>
+              {albumList()}
+            </ul>
+            <h4>{artist.name} Albums</h4>
+          </div>
         </div>
       </div>
     );

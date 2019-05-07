@@ -1,9 +1,14 @@
-.artist-show-container{
+#artist-show-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.artist-show-container {
   display: flex;
   flex-direction: row;
 
   background: white;
-  width: fit-content;
+  max-width: 1350px;
   color: #222;
   padding: 30px;
 }
@@ -71,12 +76,14 @@
   width: auto;
   margin-bottom: 3px;
   border: 2px solid transparent;
-  filter: none;
+  filter: grayscale(100%);
+  outline: none;
+}
 }
 
 .artist-show-album img:hover{
-  border: 2px solid transparent;
-  filter: grayscale(100%);
+  outline: none;
+  filter: none;
 }
 
 /* .artist-show-album-list ul::after {

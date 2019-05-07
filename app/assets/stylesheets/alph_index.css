@@ -1,6 +1,6 @@
 .alph-index-container{
   width: 100%;
-  background: black;
+  background: white;
   display: flex;
   justify-content: left;
 }
@@ -25,7 +25,7 @@
   color: darkgrey;
   
   width: 70%;
-  background: black;
+  background: white;
   padding: 50px 30px 50px 30px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .alph-index a:hover {
-  color: #808080;
+  color: yellow;
 }
 
 .alph-index-artist {
