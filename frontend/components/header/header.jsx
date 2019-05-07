@@ -7,8 +7,8 @@ class SubHeader extends React.Component {
     render (){
         return (
             <div className="subheader">
-                <Link to="/">Songs</Link>
-                <a href="https://github.com/gdjohnson/Scenius" target="_blank">Repo Link</a>
+                <Link to="/">Recent Tracks</Link>
+                <a href="https://github.com/gdjohnson/Scenius" target="_blank">Github Repo</a>
             </div>
         )
     }

@@ -8,6 +8,12 @@ import { openModal } from '../actions/modal_actions';
 export class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.yearContainer = this.yearContainer.bind(this);
+    this.trackList = this.trackList.bind(this);
+    this.albumCover = this.albumCover.bind(this);
+    this.bgroundStyle = this.bgroundStyle.bind(this);
+    this.bgroundButton = this.bgroundButton.bind(this);
   }
 
   componentDidMount() {
@@ -20,25 +26,23 @@ export class AlbumShow extends React.Component {
     }
   }
 
-  render() {
+  yearContainer() {
     const { album } = this.props;
+    return album.year ? <h5 className="album-show-track-year">Released in {album.year}.</h5> : null
+  }
 
-    if (Object.keys(album).length === 0 ||
-        album.tracks === undefined) {
-      return null;
+  trackList() {
+    const { album } = this.props;
+    if (!album.tracks.length) {
+      return ( <span className="album-show-no-tracks">
+                  There are no tracks yet for this album. 
+                  <Link id="album-show-add-track" to="/add">
+                    Add some!
+                  </Link>
+                </span> )
     }
-
-    const yearContainer = () => (
-        album.year ? <h5 className="album-show-track-year">Released in {album.year}.</h5> : null
-    )
-
-    const trackList = () => {
-      debugger
-      if (!album.tracks.length) {
-        return <span className="album-show-no-tracks">There are no tracks yet for this album. <Link id="album-show-add-track" to="/add">Add some!</Link></span>
-      }
-      
-      Object.values(album.tracks).map(
+    
+    return Object.values(album.tracks).map(
       (track, idx) => {
         return (
           <li className="album-show-track" key={idx}>
@@ -47,27 +51,39 @@ export class AlbumShow extends React.Component {
             </Link>
           </li>
         )
-      }
-    )};
+    })
+  }
     
-    const albumCover = () => (
-            album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""
-    )
+  albumCover() {
+    debugger
+    const { album } = this.props;
+    return album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""
+  }
 
-    const bgroundStyle = () => {
-        if (album.background_photo){
-            return {backgroundImage: 'url(' + album.background_photo + ')'}
-        }}
+  bgroundStyle() {
+    debugger
+    const { album } = this.props;
+    return album.background_photo ? { backgroundImage: 'url(' + album.background_photo + ')' } : ""
+  }
 
-    const bgroundButton = () => {
-      const { openModal } = this.props;
-        if (!album.background_photo){
-            return (
-                    <button type="submit"
-                            className="album-show-bground-button"
-                            onClick={() => openModal({modal: 'add-bground'})}>Add Background</button>
-            )
-        }
+  // In the case of no background photo, allow user upload
+  bgroundButton() {
+    const { album, openModal } = this.props;
+      if (!album.background_photo){
+          return (
+                  <button type="submit"
+                          className="album-show-bground-button"
+                          onClick={() => openModal({modal: 'add-bground'})}>Add Background</button>
+          )
+      }
+  }
+
+  render() {
+    const { album } = this.props;
+    const { yearContainer, trackList, albumCover, bgroundStyle, bgroundButton } = this;
+
+    if (Object.keys(album).length === 0 || album.tracks === undefined) {
+      return null;
     }
 
     return (

@@ -156,6 +156,7 @@
 
 .album-show-track-list ul, .album-show-track-list li{
     list-style-type: disc;
+    padding-left: 22px;
 }
 
 #album-show-add-track{

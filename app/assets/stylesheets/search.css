@@ -39,14 +39,11 @@ ion-icon {
     background: white;
     padding: 5px;
 
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
-    border-left: 2px solid #dddddd;
-    border-right: 2px solid #dddddd;
+    border-bottom: 2px solid #dddddd;
 }
 
 .search-result:hover {
-    background: #dddddd;
+    background: #99a7ee;
 }
 
 .search-result > a {
