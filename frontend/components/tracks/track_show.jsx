@@ -168,7 +168,7 @@ class TrackShow extends React.Component {
             } 
             
             // Style temporary annotation
-            this.styleTempSpan(tempRange);
+            this.styleTempSpan(tempRange);c
             this.props.openModal({modal: 'add-annotation', annotProps: {start, end}});
         }
     }

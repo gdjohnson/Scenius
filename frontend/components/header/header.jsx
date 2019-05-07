@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from './search';
+import SearchContainer from './search_container';
 import UserControlContainer from './user_control_container';
 import { Link } from 'react-router-dom';
 
@@ -7,12 +7,8 @@ class SubHeader extends React.Component {
     render (){
         return (
             <div className="subheader">
-                <p>Featured</p>
-                <p>Stories</p>
-                <p>Top</p> 
-                <p>Songs</p>
-                <p>Videos</p>
-                <p>Community Shop</p>
+                <Link to="/">Songs</Link>
+                <a href="https://github.com/gdjohnson/Scenius" target="_blank">Repo Link</a>
             </div>
         )
     }
@@ -25,14 +21,14 @@ class Header extends React.Component {
         return (
             <div>
             <div className="header">
-                <Search  />
+                <SearchContainer  />
                 <Link to="/" className="header-title">Scenius</Link>
                 <UserControlContainer />
             </div>
             <SubHeader />
             </div>
             
-        );
+        );c
     }
 };
 

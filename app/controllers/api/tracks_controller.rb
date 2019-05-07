@@ -6,7 +6,11 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    @tracks = Track.all
+    if params[:searchTerm]
+      @tracks = Track.where("lower(title) LIKE ?", "%#{params[:searchTerm].downcase}%").limit(10)
+    else
+      @tracks = Track.all
+    end
   end
 
   
@@ -55,6 +59,7 @@ class Api::TracksController < ApplicationController
                                   :album_id, 
                                   :artist_id, 
                                   :genre_tag, 
-                                  :audio_link)
+                                  :audio_link,
+                                  :searchTerm)
   end
 end

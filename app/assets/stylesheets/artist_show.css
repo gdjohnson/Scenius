@@ -3,7 +3,7 @@
   flex-direction: row;
 
   background: white;
-  width: 70%;
+  width: fit-content;
   color: #222;
   padding: 30px;
 }
@@ -70,11 +70,13 @@
   height: 180px;
   width: auto;
   margin-bottom: 3px;
-  border: 2px solid transparent
+  border: 2px solid transparent;
+  filter: none;
 }
 
 .artist-show-album img:hover{
-  border: 2px solid red;
+  border: 2px solid transparent;
+  filter: grayscale(100%);
 }
 
 /* .artist-show-album-list ul::after {

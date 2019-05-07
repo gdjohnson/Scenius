@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchAlbum } from '../actions/album_actions';
 import { openModal } from '../actions/modal_actions';
 
+
 export class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +32,13 @@ export class AlbumShow extends React.Component {
         album.year ? <h5 className="album-show-track-year">Released in {album.year}.</h5> : null
     )
 
-    const trackList = () => Object.values(album.tracks).map(
+    const trackList = () => {
+      debugger
+      if (!album.tracks.length) {
+        return <span className="album-show-no-tracks">There are no tracks yet for this album. <Link id="album-show-add-track" to="/add">Add some!</Link></span>
+      }
+      
+      Object.values(album.tracks).map(
       (track, idx) => {
         return (
           <li className="album-show-track" key={idx}>
@@ -41,7 +48,7 @@ export class AlbumShow extends React.Component {
           </li>
         )
       }
-    )
+    )};
     
     const albumCover = () => (
             album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""

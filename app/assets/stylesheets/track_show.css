@@ -20,7 +20,7 @@
 .track-header-container button{
   width: 110px;
   height: 20px;
-  z-index: 5;
+  z-index: 4;
   position: relative;
   right: 100px;
   border-radius: 5px;

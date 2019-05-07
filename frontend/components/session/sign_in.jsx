@@ -14,14 +14,14 @@ class SignIn extends React.Component {
   }
 
   handleUpdate(field) {
-    return (event) => this.setState({
-      [field]: event.currentTarget.value
+    return (e) => this.setState({
+      [field]: e.currentTarget.value
     });
   }
 
   handleSubmit() {
-    return (event) => {
-      event.preventDefault();
+    return (e) => {
+      e.preventDefault();
       const user = {... this.state};
       this.props.signIn(user);
       if (this.props.errors.length < 1) {

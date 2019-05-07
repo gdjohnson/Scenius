@@ -1,17 +1,3 @@
-export const fetchTrack = (id) => {
-  return $.ajax({
-    method: 'GET',
-    url: `api/tracks/${id}`,
-  });
-};
-
-export const fetchTracks = () => {
-  return $.ajax({
-    method: 'GET',
-    url: `api/tracks`,
-  });
-};
-
 export const createTrack = (track) => {
   return $.ajax({
     method: 'POST',
@@ -19,6 +5,28 @@ export const createTrack = (track) => {
     data: { track }
   });
 };
+
+export const fetchTrack = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/tracks/${id}`
+  });
+};
+
+export const fetchTracks = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/tracks`
+  });
+};
+
+export const searchTracks = (searchTerm) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/tracks`,
+    data: { searchTerm }
+  })
+}
 
 export const alterTrack = (track) => {
   return $.ajax({

@@ -25,14 +25,13 @@
 }
 
 .alph-index li, .alph-index a {
-  color:#99a7ee;
+  color: #99A7EE;
   margin-bottom: 3px;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
 }
 
 .alph-index a:hover {
-  border-bottom: 2px solid white;
+  color: #c1cbff;
 }
 
 .alph-index-artist a{

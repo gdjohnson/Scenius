@@ -8,7 +8,6 @@ const UserControl = ({currentUser, openModal, signOut}) => {
             <div className="user-control">
                 <Link to="/add" className="user-control-button">Add Track</Link>
                 <h3 className="user-control-button">{currentUser.username}</h3>
-                {/* <UserDrop /> */}
                 <button className="user-control-button" onClick={signOut}>Sign Out</button>
             </div>
         )

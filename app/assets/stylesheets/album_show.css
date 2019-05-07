@@ -158,6 +158,6 @@
     list-style-type: disc;
 }
 
-.album-show-track-list ul{
-    padding-left: 20px;
+#album-show-add-track{
+  color: red;
 }

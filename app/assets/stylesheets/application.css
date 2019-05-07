@@ -25,7 +25,7 @@ html, body, #root {
   color: white;
 }
 
-#main{
+#root > div {
   background: #222;
   min-height: 100%;
   display: grid;
@@ -40,6 +40,12 @@ html, body, #root {
   list-style: none;
 
   font-family: 'Raleway', sans-serif;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 ul, li{
