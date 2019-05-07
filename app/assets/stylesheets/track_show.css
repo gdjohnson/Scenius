@@ -171,11 +171,11 @@
 }
 
 .annotated:hover{
-  background: rosybrown;
+  background: #8b000026;
 }
 
 #temp-annotated{
-  background: rosybrown;
+  background: #8b000026;
   cursor: pointer;
 }
 
