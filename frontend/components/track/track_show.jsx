@@ -1,19 +1,7 @@
 import React from 'react';
 import Player from 'react-player';
 import { Link } from 'react-router-dom';
-import AnnoModal from './anno_modal';
-
-// Selection objects' start and end nodes are determined by direction user selects (left to right or right to left) which caused 
-// problems for the kind of conditional logic and math I needed to properly index in to the lyrics accounting for the linked span eles
-// Solved it by researching the Range and Selection docs, realizing that their offSet and Container properties varied slightly, and that
-// range gave me the lower idx number in the lyrics html as start and highest index as end, regardless
-
-// Started by accounting for every one in a scenario and then refactoring the possibility tree to a compressed logic
-// reducing nested conditionals by a factor of 3
-
-// Was incredibly explicit writing out an explanation for all non-obvious code
-// Diligent about testing modularly, holding variables constant
-
+import AnnoModal from '../annotation/anno_modal';
 
 class TrackShow extends React.Component {
 
@@ -209,15 +197,14 @@ class TrackShow extends React.Component {
         const { artist, album, track, currentUser } = this.props;
         if (!track.id || !album.id || typeof Object.values(artist)[0] === 'object') return null;
 
-        const { year } = album;
+        const { year, artwork_url } = album;
         const { lyrics, audio_link } = track;
         const { name } = artist;
-        const artwork = album.artwork_url;
         const bground = album.background_photo;
 
         const artworkEle = () => {
-            if (artwork){
-                return <img className="track-show-track-art" src={artwork} />
+            if (artwork_url){
+                return <img className="track-show-track-art" src={artwork_url} />
             } else {
                 return (
                     <span className="track-show-no-art">

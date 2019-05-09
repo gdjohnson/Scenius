@@ -1,5 +1,4 @@
 import React from 'react';
-import UserDrop from './user_drop';
 import { Link } from 'react-router-dom';
 
 const UserControl = ({currentUser, openModal, signOut}) => {
@@ -16,8 +15,14 @@ const UserControl = ({currentUser, openModal, signOut}) => {
     const signedOut = () => {
         return (
             <div className="user-control">
-                <button className="user-control-button" onClick={() => openModal({modal: 'signin'})}>Sign In</button>
-                <button className="user-control-button" onClick={() => openModal({modal: 'signup'})}>Sign Up</button>
+                <button className="user-control-button" 
+                        onClick={() => openModal({modal: 'signin'})}>
+                        Sign In
+                </button>
+                <button className="user-control-button" 
+                        onClick={() => openModal({modal: 'signup'})}>
+                        Sign Up
+                </button>
             </div>
         )
     }

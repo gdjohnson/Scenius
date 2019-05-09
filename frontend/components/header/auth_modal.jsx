@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 
 import SignIn from '../session/sign_in';
 import SignUp from '../session/sign_up';
-import AddArt from '../tracks/album_form';
-import AddBackground from '../tracks/background_img_form';
+import AddArt from '../album/album_form';
+import AddBackground from '../track/background_img_form';
 
 function AuthModal({ modal, closeModal }) {
   if (!modal) {

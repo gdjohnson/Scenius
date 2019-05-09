@@ -3,10 +3,10 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
-import AnnotationForm from '../tracks/annotation_form';
-import AnnotationShow from '../tracks/annotation_show';
+import AnnotationForm from './annotation_form';
+import AnnotationShow from './annotation_show';
 
-function AnnoModal({ modal, closeModal }) {
+function AnnoModal({ modal }) {
   if (!modal) {
     return null;
   }
@@ -30,15 +30,11 @@ function AnnoModal({ modal, closeModal }) {
 }
 
 const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
-  };
+  return { modal: state.ui.modal };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
+  return { closeModal: () => dispatch(closeModal()) };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AnnoModal);

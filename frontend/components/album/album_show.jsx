@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { fetchAlbum } from '../actions/album_actions';
-import { openModal } from '../actions/modal_actions';
 
 
 export class AlbumShow extends React.Component {
@@ -26,11 +23,37 @@ export class AlbumShow extends React.Component {
     }
   }
 
+  // Returns album year if present in DB
   yearContainer() {
     const { album } = this.props;
     return album.year ? <h5 className="album-show-track-year">Released in {album.year}.</h5> : null
   }
 
+  // Returns album cover if present in DB
+  albumCover() {
+    const { album } = this.props;
+    return album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""
+  }
+
+  // Returns album background image as a CSS style if present in DB
+  bgroundStyle() {
+    const { album } = this.props;
+    return album.background_photo ? { backgroundImage: 'url(' + album.background_photo + ')' } : ""
+  }
+
+   // In the case of no background photo, allow user upload
+   bgroundButton() {
+    const { album, openModal } = this.props;
+      if (!album.background_photo){
+          return (
+                  <button type="submit"
+                          className="album-show-bground-button"
+                          onClick={() => openModal({modal: 'add-bground'})}>Add Background</button>
+          )
+      }
+  }
+
+  // Returns album tracklist
   trackList() {
     const { album } = this.props;
     if (!album.tracks.length) {
@@ -52,28 +75,6 @@ export class AlbumShow extends React.Component {
           </li>
         )
     })
-  }
-    
-  albumCover() {
-    const { album } = this.props;
-    return album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""
-  }
-
-  bgroundStyle() {
-    const { album } = this.props;
-    return album.background_photo ? { backgroundImage: 'url(' + album.background_photo + ')' } : ""
-  }
-
-  // In the case of no background photo, allow user upload
-  bgroundButton() {
-    const { album, openModal } = this.props;
-      if (!album.background_photo){
-          return (
-                  <button type="submit"
-                          className="album-show-bground-button"
-                          onClick={() => openModal({modal: 'add-bground'})}>Add Background</button>
-          )
-      }
   }
 
   render() {
@@ -116,18 +117,4 @@ export class AlbumShow extends React.Component {
   }
 };
 
-const mapStateToProps = (state) => {
-  return ({
-    album: state.entities.albums
-  });
-};
-
-const mapDispatchToProps = dispatch => {
-  return ({
-    fetchAlbum: (id) => dispatch(fetchAlbum(id)),
-    openModal: (type) => dispatch(openModal(type))
-  });
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AlbumShow);
-
+export default AlbumShow;
