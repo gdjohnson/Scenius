@@ -74,20 +74,21 @@ class TrackShow extends React.Component {
         return this.sortAnnotations(left).concat(pivot).concat(this.sortAnnotations(right));
     }
 
-    createAnnoSpan(annotation, idx, sortedAnnos) { //helper method to create DOM span eles for each anno
+    // Helper method to create DOM span eles for each annotation
+    createAnnoSpan(annotation, idx, sortedAnnos) { 
+        // Skip span elements to determine text ele to insert into
         let lyricSection = document.getElementById("lyrics").childNodes[idx*2];
 
+        // Create span
         let span = document.createElement("span")
         span.classList.add("annotated")
         span.id = annotation.id
         this.linkSpanToAnno(span);
 
         // Determine relative pos of anno in lyricSection given its absolute pos in lyrics
-        
         let prevAnno = sortedAnnos[idx-1];
-        let precedent;
+        let precedent = 0;
         if (prevAnno) precedent = prevAnno.end_idx;
-        else precedent = 0;
         
         const relativeStart = annotation.start_idx - precedent;
         const relativeEnd = annotation.end_idx - precedent;
@@ -128,7 +129,7 @@ class TrackShow extends React.Component {
             if (startParent === endParent) {
                 if (priorAnnotation) precedent = this.searchAnnotations(priorAnnotation.id).end_idx;
                 tempRange = range;
-            } else {
+            } else { // If start and end nodes differ...
                 //...and the selection begins in an existing anno, truncate beginning to exclude that anno's bounds
                 if (startParent.className == "annotated") { 
                     start = this.searchAnnotations(startParent.id).end_idx;
@@ -138,11 +139,9 @@ class TrackShow extends React.Component {
                 if (endParent.className == "annotated") { 
                     end = this.searchAnnotations(endParent.id).start_idx - 1;
                     precedent = this.searchAnnotations(range.startContainer.previousElementSibling.id).end_idx;
-                    //for while precedent and endBound will be used for the abs idx locations, endOffset/startOffset
                     //allow temporary CSS annotation of the range
                     let endOffset = range.startContainer.wholeText.length-1;
                     tempRange = this.newRange(range, range.startOffset, endOffset) } 
-                    //set absStart to precedent + startOffset, absEnd to endBound
             }
             
             end = end || range.endOffset + precedent + start;
