@@ -1,11 +1,11 @@
 # README
 
-[OverYou]: './ReadMe_Assets/OverYou.png'
-[createAnno]: './ReadMe_Assets/createAnno.png'
-[createAnnoSpan]: './ReadMe_Assets/createAnnoSpan.png'
-[linkSpanToAnno]: './ReadMe_Assets/linkSpanToAnno.png'
-[renderAnnotations]: './ReadMe_Assets/renderAnnotations'
-[sortAnnotations]: './ReadMe_Assets/sortAnnotations'
+[OverYou]: /ReadMe%20Assets/OverYou.png
+[createAnno]: /ReadMe%20Assets/createAnno.png
+[createAnnoSpan]: /ReadMe%20Assets/createAnnoSpan.png
+[linkSpanToAnno]: /ReadMe%20Assets/linkSpanToAnno.png
+[renderAnnotations]: /ReadMe%20Assets/renderAnnotations
+[sortAnnotations]: /ReadMe%20Assets/sortAnnotations
 
 [Track Show Page][OverYou]
 
