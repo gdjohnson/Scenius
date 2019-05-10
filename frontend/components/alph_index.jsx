@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class AlphIndex extends React.Component {
+export class AlphIndex extends React.Component {
   constructor (props){
     super(props);
 
@@ -10,6 +10,9 @@ class AlphIndex extends React.Component {
     this.artistList = this.artistList.bind(this);
     this.albumList = this.albumList.bind(this);
     this.trackList = this.trackList.bind(this);
+    this.coverImg = this.coverImg.bind(this);
+    this.randomImg = this.randomImg.bind(this);
+    this.modalLink = this.modalLink.bind(this);
   }
 
   componentDidMount(){
@@ -22,20 +25,37 @@ class AlphIndex extends React.Component {
     if (prevProps.char !== char) { fetchArtistsByLetter(char); }
   }
 
+  modalLink() {
+    if (this.props.currentUser) {
+      return (
+        <Link id="alph-index-missing-artists-link" to="/add">
+            Add some!
+         </Link>
+      )
+    }
+
+    const { openModal } = this.props;
+    return (
+      <a id="alph-index-missing-artists-link" onClick={() => openModal({modal: 'signin'})}>
+            Sign in to add some!
+      </a>
+    )
+  }
+
   artistList() {
     const { artists } = this.props;
+    const { coverImg, modalLink } = this;
+
 
     if (!Object.keys(artists).length || typeof Object.values(artists)[1] === 'string') {
       return ( 
         <span>
-          There are no tracks or albums associated with this artist yet.  
-          <Link id="album-show-add-track" to="/add">
-            Add some!
-          </Link>
+          There are no tracks or albums associated with this artist yet.&nbsp;
+          {modalLink()}
         </span> 
       )}
     else {
-      return Object.values(this.props.artists).map(
+      const artistsPresent = Object.values(this.props.artists).map(
         (artist, idx) => {
           return (
             <div key={idx}>
@@ -48,8 +68,22 @@ class AlphIndex extends React.Component {
               {this.albumList(artist.albums)}
             </div>
         )}
-    )}
+      )
+
+    return (
+      <div>
+        <div className="alph-index">
+        <h3>Artists beginning with {this.props.char}</h3>
+          <div id="alph-index-artists-container">
+            { artistsPresent }
+          </div>
+        </div>
+        { coverImg() } 
+      </div>)
+    }
+
   }
+    
 
   albumList(albums) {
     return albums.map(
@@ -78,14 +112,31 @@ class AlphIndex extends React.Component {
       )}
   )}
 
+  coverImg() {
+    const artists = this.props;
+    if (Object.values(artists)) { 
+      const img = this.randomImg();
+      return <img id="alph-index-art" src={img}/> 
+    } 
+  }
+
+  randomImg() {
+    const { artists } = this.props;
+    let albums = [];
+    Object.values(artists).forEach(artist => {
+      albums = albums.concat(artist.albums);
+    })
+
+    const num = Math.floor(Math.random() * albums.length);
+    return albums[num].artwork_url;
+  }
+
   render() {
     if (this.state.fetched === false) { return null; }
+    const index = this.artistList();
     return (
         <div className="alph-index-container">
-            <div className="alph-index">
-                <h3>Artists beginning with {this.props.char}:</h3>
-                {this.artistList()}
-            </div>
+            {index}
         </div>
     );
   }

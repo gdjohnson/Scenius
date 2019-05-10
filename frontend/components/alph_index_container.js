@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchArtistsByLetter } from '../actions/artist_actions';
+import { openModal } from '../actions/modal_actions';
 import AlphIndex from './alph_index';
 
 const mapStateToProps = (state, { match }) => {
@@ -9,7 +10,10 @@ const mapStateToProps = (state, { match }) => {
 };
   
 const mapDispatchToProps = dispatch => {
-    return { fetchArtistsByLetter: (char) => dispatch(fetchArtistsByLetter(char)) };
+    return { 
+        fetchArtistsByLetter: (char) => dispatch(fetchArtistsByLetter(char)),
+        openModal: (modal) => dispatch(openModal(modal))
+    };
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(AlphIndex);

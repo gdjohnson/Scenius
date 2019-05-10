@@ -3,8 +3,8 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
-import AnnotationForm from './annotation_form';
-import AnnotationShow from './annotation_show';
+import AnnotationFormContainer from './annotation_form_container';
+import AnnotationShowContainer from './annotation_show_container';
 
 function AnnoModal({ modal }) {
   if (!modal) {
@@ -13,10 +13,10 @@ function AnnoModal({ modal }) {
   let component;
   switch (modal.modal) {
     case 'add-annotation':
-      component = <AnnotationForm annotProps={modal.annotProps}/>;
+      component = <AnnotationFormContainer annotProps={modal.annotProps}/>;
       break;
     case 'show-annotation':
-      component = <AnnotationShow annotProps={modal.annotProps}/>;
+      component = <AnnotationShowContainer annotProps={modal.annotProps}/>;
       break;
     default:
       return null;

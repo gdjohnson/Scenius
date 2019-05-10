@@ -104,125 +104,132 @@ class TrackForm extends React.Component {
     let artistResults;
     let albumResults;
     if (this.state.submitted === false){
-      artistResults = this.searchArtists().map((artist, idx) => {
-        return <li className="queried-artist" key={idx} onClick={this.selectArtist}>{artist.name}</li>;
-      });
+      artistResults = () => { 
+        return (
+        <ul className="queried-artists">
+          {this.searchArtists().map((artist) => {
+          return <li className="queried-artist" key={artist.id} onClick={this.selectArtist}>{artist.name}</li>
+          })}
+        </ul> )
+      }
 
-      albumResults = this.searchAlbums().map((album, idx) => {
-        return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album.title}</li>;
-      });
+      albumResults = () => {
+        return (
+        <ul className="queried-albums">
+          {this.searchAlbums().map((album, idx) => {
+          return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album.title}</li>
+          })}
+        </ul> )
+      }
     }
 
     return (
-      <div className="track-form"><h1>Add Song</h1>
+      <div className="center-flex">
+      <div id="track-form-wrapper">
+        <h1>Add Song</h1>
+        <form id="track-form" onSubmit={this.handleSubmit}>
+          <div id="track-form-data">
+            <div className="primary-info">
+                <h3>Primary Info</h3>
+                <div>
+                  <div className="form-inputs" id="track-form-title">
+                    <label className="track-field-label">Title*</label>
+                    <input
+                      type="text"
+                      value={this.state.description}
+                      onChange={this.handleUpdate('title')}
+                      className="track-string-input"
+                    />
+                  </div>
 
-        <form onSubmit={this.handleSubmit}>
-        <div className="primary-info">
-            <h3>Primary Info</h3>
-            <div className="form-inputs">
-              <div id="new-track-artist">
-                <label className="track-field-label">By*</label>
-                <br />
-                <input
-                  type="text"
-                  onChange={this.handleUpdate('artist')}
-                  value={this.state.artist}
-                  className="track-string-input"
-                />
-                <ul className="queried-artists">
-                  {artistResults}
-                </ul>
+                  <div className="form-inputs" id="track-form-artist">
+                    <label className="track-field-label">By*</label>
+                    <input
+                      type="text"
+                      onChange={this.handleUpdate('artist')}
+                      value={this.state.artist}
+                      className="track-string-input"
+                    />
+
+                      {artistResults()}
+
+                  </div>
+
+                  <div className="form-inputs" id="track-form-album">
+                    <label className="track-field-label">Album*</label>
+                    <input
+                      type="text"
+                      onChange={this.handleUpdate('album')}
+                      value={this.state.album}
+                      className="track-string-input"
+                    />
+                    
+                    {albumResults()}
+
+                  </div>
+
+                </div>
               </div>
 
-              <div id="new-track-title">
-                <label className="track-field-label">Title*</label>
-                <br />
-                <input
-                  type="text"
-                  value={this.state.description}
-                  onChange={this.handleUpdate('title')}
-                  className="track-string-input"
-                />
-                <br />
-              </div>
-
-              <div id="new-track-album">
-                <label className="track-field-label">Album*</label>
-                <br />
-                <input
-                  type="text"
-                  onChange={this.handleUpdate('album')}
-                  value={this.state.album}
-                  className="track-string-input"
-                />
-                <ul className="queried-albums">
-                    {albumResults}
-                </ul>
-              </div>
+            <div className="additional-metadata">
+              <h3>Additional Metadata</h3>
 
               <div id="new-track-genre">
-                <label className="track-field-label">Primary tag</label>
-                <div className="genre-selector">
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Pop" onChange={this.handleUpdate('genre_tag')}/> 
-                          Pop  
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Rock" onChange={this.handleUpdate('genre_tag')}/> 
-                          Rock  
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Rap" onChange={this.handleUpdate('genre_tag')}/> 
-                          Rap  
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Electronic" onChange={this.handleUpdate('genre_tag')}/> 
-                          Electronic  
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Jazz" onChange={this.handleUpdate('genre_tag')}/> 
-                          Jazz  
-                  <br />
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Classical" onChange={this.handleUpdate('genre_tag')}/> 
-                          Classical  
-                  <input  type="radio" name="genre" className="genre_radio" 
-                          value="Experimental" onChange={this.handleUpdate('genre_tag')}/> 
-                          Experimental  
-                </div>
+                  <label className="track-field-label">Primary tag</label>
+                  <div className="genre-selector">
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Pop" onChange={this.handleUpdate('genre_tag')}/> 
+                            Pop  
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Rock" onChange={this.handleUpdate('genre_tag')}/> 
+                            Rock  
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Rap" onChange={this.handleUpdate('genre_tag')}/> 
+                            Rap  
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Electronic" onChange={this.handleUpdate('genre_tag')}/> 
+                            Electronic  
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Jazz" onChange={this.handleUpdate('genre_tag')}/> 
+                            Jazz  
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Classical" onChange={this.handleUpdate('genre_tag')}/> 
+                            Classical  
+                    <input  type="radio" name="genre" className="genre_radio" 
+                            value="Experimental" onChange={this.handleUpdate('genre_tag')}/> 
+                            Experimental  
+                  </div>
 
-                <p className="tag-note">Note: If you're not sure which tag to use
-                      please select “Pop”— you can add secondary tags later.</p>
-              </div>
-                <br />
-              <div id="new-track-lyrics">
-                <label className="track-field-label">Lyrics*</label>
+                  <p className="tag-note">Note: If you're not sure which tag to use
+                        please select “Pop”— you can add secondary tags later.</p>
+                  <br />
+
+                  </div>
+                  <div className="form-inputs" id="track-form-video">
+                      <label className="track-field-label">Video URL:</label>
+                      <input
+                        type="text"
+                        onChange={this.handleUpdate('audio_link')}
+                        value={this.state.audio_link}
+                        className="track-string-input"
+                      />
+                </div>
+            </div>
+          </div>
+          <div id="new-track-lyrics">
+                <h3>Lyrics</h3>
                 <br />
                 <textarea
                   value={this.state.lyrics}
-                  onChange={this.handleUpdate('lyrics')}
-                ></textarea>
-              </div>
-            </div>
-          </div>
-
-          <div className="additional-metadata">
-            <h3>Additional Metadata</h3>
-            <div className="form-inputs">
-              <div id="new-track-audio">
-                <label className="track-field-label">Audio URL:</label>
+                  onChange={this.handleUpdate('lyrics')}  ></textarea>
                 <br />
-                <input
-                  type="text"
-                  onChange={this.handleUpdate('audio_link')}
-                  value={this.state.audio_link}
-                  className="track-string-input"
-                />
-                <br />
-              </div>
-            </div>
+                <div id="track-submit-wrapper">
+                  <input className="track-submit" type="submit" value="Add track"></input>
+                </div>
           </div>
-
-          <input className="track-submit" type="submit" value="Add track"></input>
           </form>
         </div>
-          
+    </div>      
 
     );
   }
