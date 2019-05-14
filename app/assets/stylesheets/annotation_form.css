@@ -39,7 +39,7 @@
 }
 
 #save-anno {
-    border: 2px solid forestgreen;
+    border: 2px solid #7D8FE8;
     text-align: left;
     font-size: 16px;
     padding: 5px;
@@ -47,7 +47,7 @@
 }
 
 #save-anno:hover {
-    background-color: rgb(108, 163, 108);
+    background-color: #7D8FE8;
 }
 
 #cancel-anno {

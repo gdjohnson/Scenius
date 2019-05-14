@@ -4,7 +4,7 @@ import { searchTracks } from '../../actions/track_actions';
 
 export const mapStateToProps = state => {
     return ({
-        tracks: state.search
+        tracks: state.search.tracks
     });
 };
 

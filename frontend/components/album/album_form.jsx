@@ -3,11 +3,14 @@ import React from 'react';
 class AlbumForm extends React.Component {
   constructor(props) {
     super(props);
-    const { id, album, artist_id} = this.props;
-    const { title } = album;
+    const { album } = this.props;
+    const { id, artist_id, title } = album;
+    const year = album.year || ''; 
+    debugger
     this.state = {
       id, title, artist_id, year: '', artwork_url: ''
     };
+    this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -18,6 +21,7 @@ class AlbumForm extends React.Component {
   }
 
   handleSubmit() {
+    debugger
     return (event) => {
       event.preventDefault();
       const { alterAlbum, closeModal } = this.props;

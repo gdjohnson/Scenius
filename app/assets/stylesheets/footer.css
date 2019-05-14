@@ -13,25 +13,23 @@
     justify-content: center;
     
     border: 1px solid darkred;
-    padding: 10px;
+    padding: 5px 10px 5px 10px;
     margin: 10px;
     max-width: 645px;
 }
 
 #footer-alph-index > li{
-    padding: 0px 5px 0px 5px;
+    padding: 5px;
     color: darkred;
+}
+
+#footer-alph-index >li:hover {
+    background-color: #8b000057;
 }
 
 #footer-alph-index a {
     color: #808080;
     text-decoration: none;
-    border-bottom: 2px solid transparent;
-}
-
-#footer-alph-index a:hover {
-    border-bottom: 2px solid white;
-    font-weight: bolder;
 }
 
 #footer-external-links {

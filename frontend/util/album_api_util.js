@@ -20,6 +20,14 @@ export const createAlbum = (album) => {
   });
 };
 
+export const searchAlbums = (searchTerm) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/albums`,
+    data: { searchTerm }
+  })
+}
+
 export const alterAlbum = (album) => {
   return $.ajax({
     method: 'PATCH',

@@ -32,13 +32,19 @@ export class AlbumShow extends React.Component {
   // Returns album cover if present in DB
   albumCover() {
     const { album } = this.props;
-    return album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : ""
+    const noArt = (<span className="track-show-no-art">
+                        <button type="submit" 
+                                className="track-show-art-upload" 
+                                onClick={() => this.props.openModal({modal: 'add-art'})}>
+                                Add Artwork</button>
+                    </span>)
+    return album.artwork_url ? <img className="album-show-album-art" src={album.artwork_url}/> : noArt;
   }
 
   // Returns album background image as a CSS style if present in DB
   bgroundStyle() {
     const { album } = this.props;
-    return album.background_photo ? { backgroundImage: 'url(' + album.background_photo + ')' } : ""
+    return album.background_photo ? { backgroundImage: 'url(' + album.background_photo + ')' } : null
   }
 
    // In the case of no background photo, allow user upload

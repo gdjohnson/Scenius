@@ -3,7 +3,7 @@ import * as APIUtil from "../util/track_api_util";
 export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const RECEIVE_SEARCH = 'RECEIVE_SEARCH';
+export const RECEIVE_SEARCHED_TRACKS = 'RECEIVE_SEARCHED_TRACKS';
 
 export const createTrack = (track) => dispatch => {
   return APIUtil.createTrack(track).then(
@@ -28,8 +28,8 @@ export const fetchTracks = () => dispatch => {
 
 export const searchTracks = (searchTerm) => dispatch => {
   return APIUtil.searchTracks(searchTerm).then(
-    results => dispatch({ type: RECEIVE_SEARCH, results }),
-    errors => dispatch({ type: RECEIVE_SEARCH, errors: errors.responseJSON })
+    results => dispatch({ type: RECEIVE_SEARCHED_TRACKS, results }),
+    errors => dispatch({ type: RECEIVE_SEARCHED_TRACKS, errors: errors.responseJSON })
   )
 }
 

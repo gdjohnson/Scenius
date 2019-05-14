@@ -4,8 +4,11 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.where("name like '#{params[:char]}%'")
-    render :index
+    if params[:searchTerm]
+      @artists = Artist.where("lower(name) LIKE ?", "#{params[:searchTerm].downcase}%").limit(3)
+    else
+      @artists = Artist.where("name like '#{params[:char]}%'")
+    end
   end
 
   def create

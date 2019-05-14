@@ -51,9 +51,10 @@
   height: 220px;
   width: 220px;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.track-show-no-art:focus{
+.track-show-no-art button:focus{
   outline: none;
 }
 

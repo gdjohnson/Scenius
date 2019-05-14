@@ -1,10 +1,23 @@
-import { RECEIVE_SEARCH } from '../actions/track_actions';
+import { RECEIVE_SEARCHED_TRACKS } from '../actions/track_actions';
+import { RECEIVE_SEARCHED_ALBUMS } from '../actions/album_actions';
+import { RECEIVE_SEARCHED_ARTISTS } from '../actions/artist_actions';
+
 
 const searchReducer = (state = {}, action) => {
   Object.freeze(state);
+  let stateClone = {...state};
   switch (action.type) {
-    case RECEIVE_SEARCH:
-      return {... action.results};
+    case RECEIVE_SEARCHED_TRACKS:
+      let tracks =  {tracks: action.results};
+      return Object.assign(stateClone, tracks);
+    case RECEIVE_SEARCHED_ALBUMS:
+      debugger
+      let albums = {albums: action.results};
+      return Object.assign(stateClone, albums);
+    case RECEIVE_SEARCHED_ARTISTS:
+      debugger
+      let artists = {artists: action.results};
+      return Object.assign(stateClone, artists);
     default:
       return state;
   }

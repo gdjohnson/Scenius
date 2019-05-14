@@ -4,7 +4,11 @@ class Api::AlbumsController < ApplicationController
   end
 
   def index
-    @albums = Album.all
+    if params[:searchTerm]
+      @albums = Album.where("lower(title) LIKE ?", "#{params[:searchTerm].downcase}%").limit(3)
+    else
+      @albums = Album.all
+    end
   end
 
   def create

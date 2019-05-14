@@ -28,6 +28,14 @@ export const createArtist = (artist) => {
   });
 };
 
+export const searchArtists = (searchTerm) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/artists`,
+    data: { searchTerm }
+  })
+}
+
 export const alterArtist = (artist) => {
   return $.ajax({
     method: 'PATCH',

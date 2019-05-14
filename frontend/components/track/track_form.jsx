@@ -14,56 +14,55 @@ class TrackForm extends React.Component {
       album: '',
       album_id: '',
       genre_tag: '',
-      audio_link: '',
-      submitted: false
+      audio_link: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.searchArtists = this.searchArtists.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
     this.selectArtist = this.selectArtist.bind(this);
-    this.searchAlbums = this.searchAlbums.bind(this);
     this.selectAlbum = this.selectAlbum.bind(this);
-  }
-
-  componentDidMount(){
-    this.props.fetchArtists();
-    this.props.fetchAlbums();
+    this.artistResults = this.artistResults.bind(this);
+    this.albumResults = this.albumResults.bind(this);
   }
 
   navigateToTrack(action) {
+    debugger
     this.props.history.push(`/tracks/${action.track.id}`);
   }
 
   handleUpdate(field) {
-    return (event) => this.setState({
-      [field]: event.currentTarget.value
-    });
+    const { searchArtists, searchAlbums } = this.props;
+    return (e) => {
+      const term = e.currentTarget.value;
+      if (field == "artist") searchArtists(term);
+      if (field == "album") searchAlbums(term);
+      this.setState({[field]: e.currentTarget.value});
+    }
   }
 
   handleSubmit(event) {
+    debugger
       event.preventDefault();
-      this.setState({ submitted: true }, () =>{
-        const track = {... this.state};
-        this.props.createTrack(track).then((action) => {
-          return this.navigateToTrack(action);
-        });
+      const track = {... this.state};
+      this.props.createTrack(track).then((action) => {
+        this.navigateToTrack(action);
       });
-    }
-
-  searchArtists(){
-    const artistMatches = [];
-    if (this.state.artist.length < 1) {
-      return [];
-    } else {
-    Object.values(this.props.artists).forEach(artist => {
-      let subslice = artist.name.slice(0, this.state.artist.length); //if the first X letter of an artist match query, 
-      if (subslice.toLowerCase() === this.state.artist.toLowerCase()) { //then push them into artistMatches
-        artistMatches.push(artist);
-      }
-    });}
-
-    return artistMatches;
   }
+
+  // searchArtists(){
+  //   const artistMatches = [];
+  //   if (this.state.artist.length < 1) {
+  //     return [];
+  //   } else {
+  //   Object.values(this.props.artists).forEach(artist => {
+  //     let subslice = artist.name.slice(0, this.state.artist.length); //if the first X letter of an artist match query, 
+  //     if (subslice.toLowerCase() === this.state.artist.toLowerCase()) { //then push them into artistMatches
+  //       artistMatches.push(artist);
+  //     }
+  //   });}
+
+  //   return artistMatches;
+  // }
 
   selectArtist(event) {
     const selectedArtist = event.currentTarget;
@@ -72,20 +71,20 @@ class TrackForm extends React.Component {
     this.setState({artist: name});
   }
 
-  searchAlbums() {
-    const albumMatches = [];
-    if (this.state.album.length < 1) {
-      return [];
-    } else {
-    Object.values(this.props.albums).forEach(album => {
-      let subslice = album.title.slice(0, this.state.album.length); //if the first X letter of an album match query, 
-      if (subslice.toLowerCase() === this.state.album.toLowerCase()) { //then push them into albumMatches
-        albumMatches.push(album);
-      }
-    });}
+  // searchAlbums() {
+  //   const albumMatches = [];
+  //   if (this.state.album.length < 1) {
+  //     return [];
+  //   } else {
+  //   Object.values(this.props.albums).forEach(album => {
+  //     let subslice = album.title.slice(0, this.state.album.length); //if the first X letter of an album match query, 
+  //     if (subslice.toLowerCase() === this.state.album.toLowerCase()) { //then push them into albumMatches
+  //       albumMatches.push(album);
+  //     }
+  //   });}
 
-    return albumMatches;
-  }
+  //   return albumMatches;
+  // }
 
   selectAlbum(event) {
     const selectedAlbum = event.currentTarget;
@@ -94,40 +93,48 @@ class TrackForm extends React.Component {
     this.setState({album: title});
   }
 
+  artistResults() {
+    debugger
+    let { artists } = this.props;
+    if (artists) artists = Object.values(artists)
+    else { return null; }
+  
+    const results = artists.map((artist) => {
+      debugger
+      return <li className="queried-artist" key={artist.id} onClick={this.selectArtist}>{artist.name}</li>
+    })
 
-  render() {
-    if (Object.values(this.props.artists).length === 0 ||
-        Object.values(this.props.albums).length === 0){
-          return null;
-        }
-    
-    let artistResults;
-    let albumResults;
-    if (this.state.submitted === false){
-      artistResults = () => { 
-        return (
-        <ul className="queried-artists">
-          {this.searchArtists().map((artist) => {
-          return <li className="queried-artist" key={artist.id} onClick={this.selectArtist}>{artist.name}</li>
-          })}
-        </ul> )
-      }
-
-      albumResults = () => {
-        return (
-        <ul className="queried-albums">
-          {this.searchAlbums().map((album, idx) => {
-          return <li className="queried-album" key={idx} onClick={this.selectAlbum}>{album.title}</li>
-          })}
-        </ul> )
-      }
+    return (
+      <ul className="queried-artists">
+        {results}
+      </ul> )
     }
 
+  albumResults() {
+    debugger
+    let { albums } = this.props;
+    if (albums) albums = Object.values(albums)
+    else { return null; }
+
+    const results = albums.map((album) => {
+      debugger
+      return <li className="queried-album" key={album.id} onClick={this.selectAlbum}>{album.title}</li>
+    })
+
+    return (
+      <ul className="queried-albums">
+        {results}
+      </ul> )
+    }
+
+
+  render() {
+    const { state, handleSubmit, handleUpdate, artistResults, albumResults } = this;
     return (
       <div className="center-flex">
       <div id="track-form-wrapper">
         <h1>Add Song</h1>
-        <form id="track-form" onSubmit={this.handleSubmit}>
+        <form id="track-form" onSubmit={handleSubmit}>
           <div id="track-form-data">
             <div className="primary-info">
                 <h3>Primary Info</h3>
@@ -136,8 +143,8 @@ class TrackForm extends React.Component {
                     <label className="track-field-label">Title*</label>
                     <input
                       type="text"
-                      value={this.state.description}
-                      onChange={this.handleUpdate('title')}
+                      value={state.description}
+                      onChange={handleUpdate('title')}
                       className="track-string-input"
                     />
                   </div>
@@ -146,8 +153,8 @@ class TrackForm extends React.Component {
                     <label className="track-field-label">By*</label>
                     <input
                       type="text"
-                      onChange={this.handleUpdate('artist')}
-                      value={this.state.artist}
+                      onChange={handleUpdate('artist')}
+                      value={state.artist}
                       className="track-string-input"
                     />
 
@@ -159,8 +166,8 @@ class TrackForm extends React.Component {
                     <label className="track-field-label">Album*</label>
                     <input
                       type="text"
-                      onChange={this.handleUpdate('album')}
-                      value={this.state.album}
+                      onChange={handleUpdate('album')}
+                      value={state.album}
                       className="track-string-input"
                     />
                     
@@ -178,25 +185,25 @@ class TrackForm extends React.Component {
                   <label className="track-field-label">Primary tag</label>
                   <div className="genre-selector">
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Pop" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Pop" onChange={handleUpdate('genre_tag')}/> 
                             Pop  
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Rock" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Rock" onChange={handleUpdate('genre_tag')}/> 
                             Rock  
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Rap" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Rap" onChange={handleUpdate('genre_tag')}/> 
                             Rap  
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Electronic" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Electronic" onChange={handleUpdate('genre_tag')}/> 
                             Electronic  
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Jazz" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Jazz" onChange={handleUpdate('genre_tag')}/> 
                             Jazz  
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Classical" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Classical" onChange={handleUpdate('genre_tag')}/> 
                             Classical  
                     <input  type="radio" name="genre" className="genre_radio" 
-                            value="Experimental" onChange={this.handleUpdate('genre_tag')}/> 
+                            value="Experimental" onChange={handleUpdate('genre_tag')}/> 
                             Experimental  
                   </div>
 
@@ -209,8 +216,8 @@ class TrackForm extends React.Component {
                       <label className="track-field-label">Video URL:</label>
                       <input
                         type="text"
-                        onChange={this.handleUpdate('audio_link')}
-                        value={this.state.audio_link}
+                        onChange={handleUpdate('audio_link')}
+                        value={state.audio_link}
                         className="track-string-input"
                       />
                 </div>
@@ -220,8 +227,8 @@ class TrackForm extends React.Component {
                 <h3>Lyrics</h3>
                 <br />
                 <textarea
-                  value={this.state.lyrics}
-                  onChange={this.handleUpdate('lyrics')}  ></textarea>
+                  value={state.lyrics}
+                  onChange={handleUpdate('lyrics')}  ></textarea>
                 <br />
                 <div id="track-submit-wrapper">
                   <input className="track-submit" type="submit" value="Add track"></input>

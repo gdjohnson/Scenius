@@ -3,6 +3,7 @@ import * as APIUtil from "../util/artist_api_util";
 export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_SEARCHED_ARTISTS = 'RECEIVE_SEARCHED_ARTISTS'
 
 export const createArtist = (artist) => dispatch => {
   return APIUtil.createArtist(artist).then(
@@ -34,6 +35,12 @@ export const fetchArtistsByLetter = (char) => dispatch => {
   );
 };
 
+export const searchArtists = (searchTerm) => dispatch => {
+  return APIUtil.searchArtists(searchTerm).then(
+    results => dispatch({ type: RECEIVE_SEARCHED_ARTISTS, results }),
+    errors => dispatch({ type: RECEIVE_SEARCHED_ARTISTS, errors: errors.responseJSON })
+  )
+}
 
 export const alterArtist = (artist) => dispatch => {
   return APIUtil.alterArtist(artist).then(

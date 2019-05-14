@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 export class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
+    this.albumList = this.albumList.bind(this);
+    this.yearContainer = this.yearContainer.bind(this);
+    this.artistImage = this.artistImage.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +29,7 @@ export class ArtistShow extends React.Component {
           <Link to={`/albums/${id}`}>
             <img src={artwork_url} />
             <p>{title}</p> 
-            {yearContainer(album)}
+            {this.yearContainer(album)}
           </Link>
         </li>
       )
@@ -53,8 +56,10 @@ export class ArtistShow extends React.Component {
           <div className="artist-show-empty-artist-image">
             <button type="submit"
                     className="artist-show-photo-upload"
-                    onClick={() => openModal({modal: 'add-photo'})}>
-                    Add Background Photo
+                    onClick={() => {
+                      debugger
+                      openModal({modal: 'add-photo'})}}>
+                    Add Artist Photo
             </button>
           </div>
         )
@@ -69,18 +74,20 @@ export class ArtistShow extends React.Component {
     }
 
     return (
+      <div className="center-flex">
       <div className="artist-show-container">
         <div className="artist-show-image-div">
-         {artistImage()}
+         {this.artistImage()}
          <h3>{name}</h3>
         </div>
         <div className="artist-show-album-list">
           <ul>
-            {albumList()}
+            {this.albumList()}
           </ul>
           <h4>{name} Albums</h4>
         </div>
       </div>
+    </div>
     );
   }
 };
