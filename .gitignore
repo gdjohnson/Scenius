@@ -21,6 +21,9 @@
 /node_modules
 /yarn-error.log
 
+/vendor/bundle
+.bundle/config
+
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
