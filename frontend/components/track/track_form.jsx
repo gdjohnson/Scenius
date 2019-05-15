@@ -26,7 +26,6 @@ class TrackForm extends React.Component {
   }
 
   navigateToTrack(action) {
-    debugger
     this.props.history.push(`/tracks/${action.track.id}`);
   }
 
@@ -41,7 +40,7 @@ class TrackForm extends React.Component {
   }
 
   handleSubmit(event) {
-    debugger
+    
       event.preventDefault();
       const track = {... this.state};
       this.props.createTrack(track).then((action) => {
@@ -94,13 +93,13 @@ class TrackForm extends React.Component {
   }
 
   artistResults() {
-    debugger
+    
     let { artists } = this.props;
     if (artists) artists = Object.values(artists)
     else { return null; }
   
     const results = artists.map((artist) => {
-      debugger
+      
       return <li className="queried-artist" key={artist.id} onClick={this.selectArtist}>{artist.name}</li>
     })
 
@@ -111,13 +110,13 @@ class TrackForm extends React.Component {
     }
 
   albumResults() {
-    debugger
+    
     let { albums } = this.props;
     if (albums) albums = Object.values(albums)
     else { return null; }
 
     const results = albums.map((album) => {
-      debugger
+      
       return <li className="queried-album" key={album.id} onClick={this.selectAlbum}>{album.title}</li>
     })
 

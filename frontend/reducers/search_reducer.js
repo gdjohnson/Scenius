@@ -11,11 +11,9 @@ const searchReducer = (state = {}, action) => {
       let tracks =  {tracks: action.results};
       return Object.assign(stateClone, tracks);
     case RECEIVE_SEARCHED_ALBUMS:
-      debugger
       let albums = {albums: action.results};
       return Object.assign(stateClone, albums);
     case RECEIVE_SEARCHED_ARTISTS:
-      debugger
       let artists = {artists: action.results};
       return Object.assign(stateClone, artists);
     default:
