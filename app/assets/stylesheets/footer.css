@@ -20,15 +20,20 @@
 
 #footer-alph-index > li{
     padding: 5px;
+    color: #808080;
+}
+
+#footer-alph-index span {
     color: darkred;
 }
 
 #footer-alph-index >li:hover {
-    background-color: #8b000057;
+    background-color: #8b000098;
+    color: rgb(37, 37, 37);
 }
 
 #footer-alph-index a {
-    color: #808080;
+    color: inherit;
     text-decoration: none;
 }
 

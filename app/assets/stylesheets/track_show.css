@@ -17,13 +17,16 @@
   font-family: Helvetica, sans-serif;
 }
 
-.track-header-container button{
-  width: 110px;
+.track-header-container > button{
+  width: 130px;
   height: 20px;
   z-index: 4;
   position: relative;
-  right: 100px;
-  border-radius: 5px;
+  top: 10px;
+  right: -30px;
+  color: #7d8fe8;
+  background: white;
+  cursor: pointer;
 }
 
 .track-header{
@@ -47,11 +50,21 @@
 }
 
 .track-show-no-art button{
-  background: #7d8fe8;
+  color: white;
+  background: repeating-linear-gradient( 
+    135deg, 
+    #932828, 
+    #932828 40px, 
+    darkred 40px, 
+    darkred 80px 
+  );
   height: 220px;
   width: 220px;
   font-size: 16px;
   cursor: pointer;
+  z-index: 4;
+  position: relative;
+  right: 100px;
 }
 
 .track-show-no-art button:focus{
@@ -68,7 +81,7 @@
 
   margin-right: 12px;
   outline: .15rem solid #9a9a9a;
-}  
+}
 
 .track-show-meta-container{
   display: flex;
@@ -168,22 +181,22 @@
   width: 50%;
 }
 
-#lyrics
-
 /* ANNOTATIONS */
 
 .annotated{
   background: #e9e9e9;
   cursor: pointer;
+  padding: 2px 0px 1px 0px;
 }
 
 .annotated:hover{
-  background: #8b000026;
+  background: #8b000098;
 }
 
 #temp-annotated{
-  background: #8b000026;
+  background: #8b000098;
   cursor: pointer;
+  padding: 2px 0px 1px 0px;
 }
 
 #require-login > p {

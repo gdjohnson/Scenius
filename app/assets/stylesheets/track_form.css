@@ -177,9 +177,9 @@
 }
 
 .queried-artist:hover, .queried-album:hover {
-  background: #8b000078;
+  background: #8b000098;
 }
 
 .selected-artist-from-query, .selected-album-from-query {
-  background: #8b000078;
+  background: #8b000098;
 }

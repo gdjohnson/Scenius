@@ -42,3 +42,7 @@ html, body, #root {
   font-family: sans-serif;
 }
 
+*::selection{
+  background-color:#8b000098;
+}
+

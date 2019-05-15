@@ -1,0 +1,45 @@
+.album-form{
+    width: 100%
+  }
+  
+  .add-album-art, .add-album-year{
+    color:#8c8f9b;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  
+  .album-form-head{
+    color:darkgrey;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid darkgrey;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 25px 0px;
+  }
+  
+  .album-form-input-field{
+    background: #fff;
+    border: 2px solid #ccc;
+    margin: 9px 0px;
+    padding: 4px;
+    color: #000; 
+    width: 96%;
+    font-size: 14px;
+  }
+  
+  .album-form-input-field:focus{
+    outline: none;
+    border: 2px solid rgb(172, 172, 172);
+  }
+  
+  .album-form-submit{
+    background: darkred;
+    padding: 7px;
+    color: white;
+    position: relative;
+    left: 243px;
+    top: 20px;
+    cursor: pointer;
+  }

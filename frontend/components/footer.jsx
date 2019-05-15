@@ -22,7 +22,7 @@ class Footer extends React.Component {
         return (
             <div id="footer">
                 <ul id="footer-alph-index">
-                    <li>ARTISTS:</li>
+                    <li><span>ARTISTS:</span></li>
                     {alphIndex}
                 </ul>
                 <ul id="footer-external-links">
