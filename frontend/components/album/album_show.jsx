@@ -34,7 +34,6 @@ export class AlbumShow extends React.Component {
     const { album } = this.props;
     const noArt = (<span className="track-show-no-art">
                         <button type="submit" 
-                                className="track-show-art-upload" 
                                 onClick={() => this.props.openModal({modal: 'add-art'})}>
                                 Add Artwork</button>
                     </span>)
@@ -53,7 +52,7 @@ export class AlbumShow extends React.Component {
       if (!album.background_photo){
           return (
                   <button type="submit"
-                          className="album-show-bground-button"
+                          className="bground-upload-button"
                           onClick={() => openModal({modal: 'add-bground'})}>Add Background</button>
           )
       }

@@ -222,7 +222,7 @@ class TrackShow extends React.Component {
         const bgroundButton = () => {
             if (!bground){
                 return (<button type="submit"
-                                className="track-show-bground-upload"
+                                className="bground-upload-button"
                                 onClick={() => this.props.openModal({modal: 'add-bground'})}>
                                 Add Background</button>
                 )
