@@ -79,7 +79,6 @@
   filter: grayscale(100%);
   outline: none;
 }
-}
 
 .artist-show-album img:hover{
   outline: none;
