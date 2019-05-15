@@ -10,6 +10,4 @@ class Artist < ApplicationRecord
     class_name: :Track,
     foreign_key: :artist_id
 
-  has_one_attached :photo
-
 end
