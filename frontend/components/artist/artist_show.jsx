@@ -57,7 +57,6 @@ export class ArtistShow extends React.Component {
             <button type="submit"
                     className="artist-show-photo-upload"
                     onClick={() => {
-                      debugger
                       openModal({modal: 'add-photo'})}}>
                     Add Artist Photo
             </button>

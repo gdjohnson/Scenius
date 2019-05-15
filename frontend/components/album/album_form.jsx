@@ -6,7 +6,6 @@ class AlbumForm extends React.Component {
     const { album } = this.props;
     const { id, artist_id, title } = album;
     const year = album.year || ''; 
-    debugger
     this.state = {
       id, title, artist_id, year: '', artwork_url: ''
     };
@@ -21,7 +20,6 @@ class AlbumForm extends React.Component {
   }
 
   handleSubmit() {
-    debugger
     return (event) => {
       event.preventDefault();
       const { alterAlbum, closeModal } = this.props;

@@ -6,7 +6,6 @@ import { createAlbum, fetchAlbums, searchAlbums } from '../../actions/album_acti
 import TrackForm from './track_form';
 
 const mapStateToProps = state => {
-  debugger
   return ({
     artists: state.search.artists,
     albums: state.search.albums,

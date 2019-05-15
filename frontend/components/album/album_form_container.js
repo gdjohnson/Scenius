@@ -5,7 +5,6 @@ import AlbumForm from './album_form'
 
 
 const mapStateToProps = state => {
-  debugger
     return {
       album: state.entities.albums,
       id: state.entities.tracks.album_id,
