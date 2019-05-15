@@ -126,6 +126,10 @@
   background-color: #f7f7f7;
 }
 
+#lyrics-wrapper-1 p, #lyrics-wrapper-2 p {
+  font-family: 'Gothic A1', sans-serif;
+}
+
 #lyrics-wrapper-2{
   display: flex;
   flex-direction: row;
@@ -164,6 +168,8 @@
   width: 50%;
 }
 
+#lyrics
+
 /* ANNOTATIONS */
 
 .annotated{
@@ -181,25 +187,23 @@
 }
 
 #require-login > p {
+  font-family: 'Gothic A1', sans-serif;
   margin-top: 25px;
-  font-family: serif;
-  font-style: italic;
   background-color: lightgrey;
   max-width: 380px;
-  color: white;
+  color: #3c3c3c;
   padding: 10px;
   border-bottom: 1px transparent;
 }
 
 #require-login b {
+  font-family: 'Gothic A1', sans-serif;
   cursor: pointer;
-  color: white;
-  font-family: serif;
-  font-style: italic;
+  color: darkred;
 }
 
 #require-login b:hover{
-  color: darkred;
+  color: white;
 }
 
 /* Audio Player */

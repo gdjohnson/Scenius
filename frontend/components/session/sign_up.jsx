@@ -24,7 +24,11 @@ class SignUp extends React.Component {
       event.preventDefault();
       const user = {... this.state};
       this.props.signUp(user);
-      this.props.closeModal();
+      if (this.props.errors.length < 1) {
+        this.props.closeModal();
+      } else {
+        this.renderErrors();
+      }
     };
   }
 

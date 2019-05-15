@@ -69,7 +69,7 @@ class Search extends React.Component {
       <div id="search">
         <form id="search-form">
         <input  id="search-input"
-                placeholder="Search Scenius..."
+                placeholder="Search Tracks..."
                 onClick={this.openSearch}
                 onChange={this.handleUpdate}>
         </input>

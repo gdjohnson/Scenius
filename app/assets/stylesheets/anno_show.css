@@ -34,8 +34,9 @@ ion-icon {
     font-size: 19px;
     padding: 5px;
     cursor: pointer;
+    color: black;
 }
 
 ion-icon:hover {
-    color: red;
+    color: darkred;
 }
