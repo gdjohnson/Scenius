@@ -35,11 +35,13 @@ export class HomePage extends React.Component {
         }
     )
     return (
-      <div className="home-track-list-container" id="home-track-list-container">
-          <h3>Recent Tracks:</h3>
-        <ul>
-          {trackList()}
-        </ul>
+      <div id="homepage-wrap">
+        <div className="home-track-list-container" id="home-track-list-container">
+            <h3>Recent Tracks:</h3>
+          <ul>
+            {trackList()}
+          </ul>
+        </div>
       </div>
     );
   }
