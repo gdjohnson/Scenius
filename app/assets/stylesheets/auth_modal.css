@@ -29,6 +29,7 @@
   flex-direction: column;
   align-items: left;
 }
+
 .sign-in-form-head{
   color:darkgrey;
   font-size: 14px;
@@ -51,8 +52,8 @@
 }
 
 .sign-in-input:focus{
-    outline: none;
-    border: 3px solid rgb(172, 172, 172);
+  outline: none;
+  border: 3px solid rgb(172, 172, 172);
 }
 
 .sign-in-form-submit{
@@ -127,8 +128,8 @@
 }
 
 .album-form-input-field:focus{
-    outline: none;
-    border: 2px solid rgb(172, 172, 172);
+  outline: none;
+  border: 2px solid rgb(172, 172, 172);
 }
 
 .album-form-submit{
@@ -175,8 +176,8 @@
 }
 
 .bground-img-form-input-field:focus{
-    outline: none;
-    border: 2px solid rgb(172, 172, 172);
+  outline: none;
+  border: 2px solid rgb(172, 172, 172);
 }
 
 .bground-img-form-submit{

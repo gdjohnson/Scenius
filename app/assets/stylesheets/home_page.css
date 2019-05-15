@@ -12,11 +12,11 @@
 }
 
 .home-track-list-container h3{
-    color: black;
-    font-size: 34px;
-    border-bottom: 3px solid #222;
-    padding-top: 9px;
-    padding-bottom: 25px;
+  color: black;
+  font-size: 34px;
+  border-bottom: 3px solid #222;
+  padding-top: 9px;
+  padding-bottom: 25px;
 }
 
 .home-track-container a{
@@ -54,7 +54,6 @@
 
   margin-left: 10px;
   margin-right: 10px;
-  /* border: 2px solid black; */
 }
 
 .home-track-info{
