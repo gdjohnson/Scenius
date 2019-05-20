@@ -246,10 +246,11 @@ class TrackShow extends React.Component {
             if (audio_link){
                 return (
                 <div id="player">
-                    <Player  url={audio_link} 
-                                    playing={false}
-                                    width="100%" height="100%" 
-                                    config={{ attributes: { autoPlay: false } }}/>
+                    <Player url={audio_link} 
+                            playing={false}
+                            width="100%" height="100%" 
+                            controls={true}
+                            config={{ attributes: { autoPlay: false } }}/>
                 </div>)
             }
         }

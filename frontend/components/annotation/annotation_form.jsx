@@ -27,7 +27,7 @@ class AnnotationForm extends React.Component {
             e.stopPropagation();
             this.handleSubmit(); }
           else { e.stopPropagation(); } }, true) 
-      document.getElementById('root').addEventListener('click', this.cancelForm, false);
+      document.getElementById('root').addEventListener('mousedown', this.cancelForm, false);
     }, 1000)
   }
 
