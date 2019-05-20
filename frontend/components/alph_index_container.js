@@ -6,7 +6,8 @@ import AlphIndex from './alph_index';
 const mapStateToProps = (state, { match }) => {
     const { char } = match.params;
     const { artists } = state.entities;
-    return { artists, char };
+    const { currentUser } = state.entities.session;
+    return { artists, char, currentUser };
 };
   
 const mapDispatchToProps = dispatch => {

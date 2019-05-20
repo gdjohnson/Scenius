@@ -27,7 +27,7 @@
     color: darkred;
 }
 
-#footer-alph-index >li:hover {
+.alphabet-soup:hover {
     background-color: #8b000098;
     color: rgb(37, 37, 37);
 }

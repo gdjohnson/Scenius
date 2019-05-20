@@ -6,7 +6,7 @@ class Footer extends React.Component {
         const alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         return alph.split("").map((char, idx) => {
             return (
-                <li key={`${idx}`}>
+                <li className="alphabet-soup" key={`${idx}`}>
                     <Link to={`/artists/${char}`}>
                         {char}
                     </Link>

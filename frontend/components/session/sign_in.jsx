@@ -20,12 +20,14 @@ class SignIn extends React.Component {
   }
 
   handleSubmit() {
+    const {signIn, closeModal, errors} = this.props;
     return (e) => {
       e.preventDefault();
       const user = {... this.state};
-      this.props.signIn(user);
-      if (this.props.errors.length < 1) {
-        this.props.closeModal();
+      signIn(user);
+      debugger
+      if (Object.values(errors).length < 1) {
+        closeModal();
       } else {
         this.renderErrors();
       }

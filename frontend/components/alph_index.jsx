@@ -26,6 +26,7 @@ export class AlphIndex extends React.Component {
   }
 
   modalLink() {
+    debugger
     if (this.props.currentUser) {
       return (
         <Link id="alph-index-missing-artists-link" to="/add">
@@ -50,7 +51,7 @@ export class AlphIndex extends React.Component {
     if (!Object.keys(artists).length || typeof Object.values(artists)[1] === 'string') {
       return ( 
         <span>
-          There are no tracks or albums associated with this artist yet.&nbsp;
+          There are no tracks or albums associated with this letter yet.&nbsp;
           {modalLink()}
         </span> 
       )}
