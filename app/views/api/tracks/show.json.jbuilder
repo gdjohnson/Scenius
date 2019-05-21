@@ -9,6 +9,6 @@ json.album do
 end
 
 json.annotations(@track.annotations) do |annot|
-    json.extract! annot, :id, :start_idx, :end_idx, :content
+    json.extract! annot, :id, :start_idx, :end_idx, :content, :user_id
 end
 

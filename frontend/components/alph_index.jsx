@@ -26,7 +26,6 @@ export class AlphIndex extends React.Component {
   }
 
   modalLink() {
-    debugger
     if (this.props.currentUser) {
       return (
         <Link id="alph-index-missing-artists-link" to="/add">

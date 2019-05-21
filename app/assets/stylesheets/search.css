@@ -46,14 +46,14 @@
 	display: flex;
     flex-direction: row;
     justify-content: left;
-    background: white;
+    background: #fff6e4f5;
     padding: 5px;
 
     border-bottom: 2px solid #dddddd;
 }
 
 .search-result:hover {
-    background: darkgrey;
+    background: #dddddd;
 }
 
 .search-result > a {
@@ -69,6 +69,7 @@
 
 .search-metadata {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     text-transform: none;
 }

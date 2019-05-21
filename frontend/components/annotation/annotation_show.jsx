@@ -16,7 +16,8 @@ class AnnotationShow extends React.Component {
       if (this.state.mounted === false) { this.setState({ mounted: true }); }
     });
 
-    document.getElementsByName('close')[0].addEventListener('click', () => closeModal() )
+    document.getElementsByName('close')[0].addEventListener('click', closeModal );
+    Array.from(document.getElementsByTagName('a')).forEach(el => el.addEventListener('click', closeModal));
   }
 
   deleteAnno(id) {
@@ -34,23 +35,24 @@ class AnnotationShow extends React.Component {
     parent.removeChild(span);
   }
 
-  render() {
-    const { annotations, annotProps, closeModal } = this.props;
-    let annoId = annotProps.id;
-
-    if (this.state.mounted == true) {
-      if (annoId === undefined){
-        annoId = annotations[annotations.length-1].id;
-      }
-      else {
-        document.getElementsByName('trash')[0].addEventListener('click', () => this.deleteAnno(annoId))
+  trash(id) {
+    const {annotations, currentUser} = this.props;
+    if (currentUser && annotations.length){ 
+      const anno = annotations.filter(anno => anno.id == id)[0];
+      if (currentUser.id == anno.user_id){
+        return <ion-icon name="trash" onClick={() => this.deleteAnno(id)}></ion-icon>
       }
     }
+  }
 
-    const annotation = (id) => {
-        return annotations.map(anno => {
-            if (anno.id == id){ 
-                return anno.content;} })}
+  annotation(id) {
+    const { annotations } = this.props;
+    if (annotations.length) return annotations.filter(anno => anno.id == id)[0].content
+  }
+
+  render() {
+    const { annotProps } = this.props;
+    const annoId = annotProps.id;
 
     return (
       <div id="anno-show-wrapper">
@@ -58,9 +60,9 @@ class AnnotationShow extends React.Component {
           <h3>Scenius Annotation</h3>
           <ion-icon name="close"></ion-icon>
         </div>
-        <p>{annotation(annoId)}</p>
+        <p>{this.annotation(annoId)}</p>
         <div id="anno-show-footer">
-          <ion-icon name="trash"></ion-icon>
+          {this.trash(annoId)}
         </div>
       </div>
     );

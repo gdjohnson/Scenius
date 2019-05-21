@@ -7,7 +7,33 @@ class Api::TracksController < ApplicationController
 
   def index
     if params[:searchTerm]
-      @tracks = Track.where("lower(title) LIKE ?", "%#{params[:searchTerm].downcase}%").limit(10)
+      trackHits = Track.where("lower(title) LIKE ?", "%#{params[:searchTerm].downcase}%").limit(10)
+      
+      albumHits = []
+      Album.where("lower(title) LIKE ?", "%#{params[:searchTerm].downcase}%").limit(10).each do |album|
+        if album.tracks.length > 0
+          album.tracks.each do |track|
+            albumHits.push(track)
+          end
+        end
+      end
+
+      artistHits = [] 
+      Artist.where("lower(name) LIKE ?", "%#{params[:searchTerm].downcase}%").limit(10).each do |artist|
+        if artist.albums.length > 0
+          artist.albums.each do |album|
+            if album.tracks.length > 0
+              album.tracks.each do |track|
+                albumHits.push(track)
+              end
+            end
+          end
+        end
+      end
+      
+      allTracks = trackHits + albumHits + artistHits
+
+      @tracks = allTracks[0, 10]
     else
       @tracks = Track.all
     end

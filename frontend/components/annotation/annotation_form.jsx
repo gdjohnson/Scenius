@@ -19,19 +19,21 @@ class AnnotationForm extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      document.getElementById('anno-form').addEventListener('click', 
+      const {handleSubmit, cancelForm} = this;
+      document.getElementById('anno-form').addEventListener('mousedown', 
         (e) => { 
           const { id } = e.srcElement;
-          if (id === 'cancel-anno') { this.cancelForm() }
-          if (id === 'save-anno') { 
+          if (id == 'cancel-anno') { this.cancelForm() }
+          if (id == 'save-anno') { 
             e.stopPropagation();
-            this.handleSubmit(); }
-          else { e.stopPropagation(); } }, true) 
-      document.getElementById('root').addEventListener('mousedown', this.cancelForm, false);
+            handleSubmit(); }
+          else { e.stopPropagation(); } }, true)
+      document.getElementById('root').addEventListener('mousedown', cancelForm, false);
     }, 1000)
   }
 
   cancelForm() {
+    debugger
     const el = document.getElementById('temp-annotated');
     const parent = el.parentNode;
     while (el.firstChild) parent.insertBefore(el.firstChild, el);
@@ -40,7 +42,8 @@ class AnnotationForm extends React.Component {
   }
 
   closeModal() {
-    document.getElementById('root').removeEventListener('click', this.cancelForm, false);
+    const {cancelForm} = this;
+    document.getElementById('root').removeEventListener('mousedown', cancelForm, false);
     this.props.closeModal();
   }
 
@@ -51,10 +54,10 @@ class AnnotationForm extends React.Component {
   }
 
   handleSubmit() {
-      delete this.state.range;
-      const annotation = {... this.state};
-      this.props.createAnnotation(annotation).then(
-      this.closeModal)
+    delete this.state.range;
+    const annotation = {... this.state};
+    this.props.createAnnotation(annotation).then(
+    this.closeModal)
   };
   
   render() {

@@ -4,11 +4,13 @@ import { fetchTrack } from '../../actions/track_actions';
 import { deleteAnnotation } from '../../actions/annotation_actions';
 import AnnotationShow from './annotation_show';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const { tracks } = state.entities;
+    const { currentUser } = state.entities.session;
     return {
       annotations: tracks.annotations,
-      track: tracks
+      track: tracks,
+      currentUser
     };
   };
   

@@ -37,6 +37,8 @@
   text-shadow: -1px 0px white;
   color: white;
 
+  cursor: pointer;
+
   margin: auto;
   padding-left: 3px;
 }

@@ -14,9 +14,8 @@ Artist.destroy_all
 Track.destroy_all
 Annotation.destroy_all
 
-
 #Users
-graham = User.create(username: "graham", password: "123456")
+graham = User.create(username: "graham", password: "password")
 guest = User.create(username: "temerity", password: "123456")
 
 #Artists
@@ -25,8 +24,6 @@ robertaflack = Artist.create(name: "Roberta Flack", image_url: "https://upload.w
 brianeno = Artist.create(name: "Brian Eno", image_url: "https://i1.wp.com/www.classicrockhistory.com/wp-content/uploads/2018/04/Brian_Eno_-_TopPop_1974_09.png?resize=680%2C407&ssl=1")
 bryanferry = Artist.create(name: "Bryan Ferry", image_url: "https://cdn.shopify.com/s/files/1/2508/8586/t/6/assets/description_image_bryan-ferry.jpg?4903922262114959621")
 johncale = Artist.create(name: "John Cale", image_url: "https://media.ntslive.co.uk/crop/670x670/ea62d443-9f73-45d2-b49d-96e736126806_1510617600.png")
-fela = Artist.create(name: "Fela Kuti / Africa '70", image_url: "https://bocavasionski.files.wordpress.com/2013/05/fela-1-900x594.jpg")
-
 
 # # ALBUMS # #
 
@@ -125,14 +122,6 @@ helen = Album.create(   title: "Helen of Troy",
 
 
 # # TRACKS # #
-morethanthis = Track.create(title: "More Than This", 
-                            poster_id: guest.id, 
-                            album_id: avalon.id, 
-                            artist_id: roxymusic.id, 
-                            genre_tag: "Pop", 
-                            lyrics: File.read(Rails.root + 'db/lyrics/morethanthis.txt'), 
-                            audio_link: "https://www.youtube.com/watch?v=kOnde5c7OG8")
-
 overyou = Track.create(     title: "Over You", 
                             poster_id: guest.id, 
                             album_id: fleshnblood.id, 
@@ -149,6 +138,14 @@ avalon = Track.create(      title: "Avalon",
                             lyrics: File.read(Rails.root + 'db/lyrics/avalon.txt'),
                             audio_link: "https://www.youtube.com/watch?v=bpA_5a0miWk")
 
+softly = Track.create(      title: "Killing Me Softly",
+                            poster_id: guest.id,
+                            album_id: killing.id,
+                            artist_id: robertaflack.id,
+                            genre_tag: "Jazz",
+                            lyrics: File.read(Rails.root + 'db/lyrics/softly.txt'),
+                            audio_link: "https://www.youtube.com/watch?v=5OyM0R5uRPQ")
+
 midnight = Track.create(    title: "Midnight Hour",  
                             poster_id: guest.id, 
                             album_id: fleshnblood.id, 
@@ -157,6 +154,14 @@ midnight = Track.create(    title: "Midnight Hour",
                             lyrics: File.read(Rails.root + 'db/lyrics/midnight.txt'),
                             audio_link: "https://www.youtube.com/watch?v=Gp7UlPMIgQc")
 
+paris1919 = Track.create(   title: "Paris 1919",
+                            poster_id: guest.id,
+                            album_id: paris.id,
+                            artist_id: johncale.id,
+                            genre_tag: "Rock",
+                            lyrics: File.read(Rails.root + 'db/lyrics/paris.txt'),
+                            audio_link: "https://www.youtube.com/watch?v=q5YHqWqhFkU")
+
 backwater = Track.create(   title: "Backwater", 
                             poster_id: guest.id, 
                             album_id: aftersci.id, 
@@ -164,6 +169,30 @@ backwater = Track.create(   title: "Backwater",
                             genre_tag: "Experimental", 
                             lyrics: File.read(Rails.root + 'db/lyrics/backwater.txt'), 
                             audio_link: "https://www.youtube.com/watch?v=YitVQuOBuLc")
+                        
+andalucia = Track.create(   title: "Andalucia",
+                            poster_id: guest.id,
+                            album_id: paris.id,
+                            artist_id: johncale.id,
+                            genre_tag: "Rock",
+                            lyrics: File.read(Rails.root + 'db/lyrics/andalucia.txt'),
+                            audio_link: "https://www.youtube.com/watch?v=r7iLFuapeY8")
+
+face = Track.create(      title: "The First Time Ever I Saw Your Face",
+                            poster_id: guest.id,
+                            album_id: firsttake.id,
+                            artist_id: robertaflack.id,
+                            genre_tag: "Jazz",
+                            lyrics: File.read(Rails.root + 'db/lyrics/face.txt'),
+                            audio_link: "https://www.youtube.com/watch?v=r9jmusgMgro")                         
+
+morethanthis = Track.create(title: "More Than This", 
+                            poster_id: guest.id, 
+                            album_id: avalon.id, 
+                            artist_id: roxymusic.id, 
+                            genre_tag: "Pop", 
+                            lyrics: File.read(Rails.root + 'db/lyrics/morethanthis.txt'), 
+                            audio_link: "https://www.youtube.com/watch?v=kOnde5c7OG8")
 
 greylagoons = Track.create( title: "Grey Lagoons",
                             poster_id: guest.id, 

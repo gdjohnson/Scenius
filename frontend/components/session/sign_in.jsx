@@ -25,7 +25,6 @@ class SignIn extends React.Component {
       e.preventDefault();
       const user = {... this.state};
       signIn(user);
-      debugger
       if (Object.values(errors).length < 1) {
         closeModal();
       } else {
