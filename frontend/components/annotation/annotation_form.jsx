@@ -33,7 +33,6 @@ class AnnotationForm extends React.Component {
   }
 
   cancelForm() {
-    debugger
     const el = document.getElementById('temp-annotated');
     const parent = el.parentNode;
     while (el.firstChild) parent.insertBefore(el.firstChild, el);
