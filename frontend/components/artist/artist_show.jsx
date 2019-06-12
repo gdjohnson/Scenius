@@ -66,27 +66,29 @@ export class ArtistShow extends React.Component {
 
   render() {
     const { artist } = this.props;
-    const { name, albums } = artist;
-
+    const { name, albums, bio } = artist;
+    
     if (Object.keys(artist).length === 0 || albums === undefined) {
       return null;
     }
 
     return (
       <div className="center-flex">
-      <div className="artist-show-container">
-        <div className="artist-show-image-div">
-         {this.artistImage()}
-         <h3>{name}</h3>
-        </div>
-        <div className="artist-show-album-list">
-          <ul>
-            {this.albumList()}
-          </ul>
-          <h4>{name} Albums</h4>
+        <div className="artist-show-container">
+          <div className="artist-show-image-div">
+            {this.artistImage()}
+            <div className="artist-bio-wrap">
+              <h3>{name}</h3>
+              <p className="artist-bio">{bio}</p>
+              <div className="artist-show-album-list">
+                <ul>
+                  {this.albumList()}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     );
   }
 };

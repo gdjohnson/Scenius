@@ -45,6 +45,9 @@ class Api::TracksController < ApplicationController
     artist = Artist.find_by(name: params[:track][:artist])
     if artist.nil?
       artist = Artist.new(name: params[:track][:artist])
+      debugger
+      artist.bio = get_bio(params[:track][:artist])
+      debugger
       artist.save
     end
 
@@ -53,7 +56,7 @@ class Api::TracksController < ApplicationController
       album = Album.new(title: params[:track][:album], artist_id: artist.id)
       album.save
     end
-    
+
     params[:track].delete("album")
     params[:track].delete("artist")
     params[:track].delete("submitted")
@@ -86,6 +89,7 @@ class Api::TracksController < ApplicationController
                                   :artist_id, 
                                   :genre_tag, 
                                   :audio_link,
+                                  :bio,
                                   :searchTerm)
   end
 end

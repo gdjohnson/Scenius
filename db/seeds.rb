@@ -19,11 +19,21 @@ graham = User.create(username: "graham", password: "password")
 guest = User.create(username: "temerity", password: "123456")
 
 #Artists
-roxymusic = Artist.create(name: "Roxy Music", image_url: "https://pixel.nymag.com/imgs/daily/vulture/2019/03/20/20-roxy-music.w700.h700.jpg")         
-robertaflack = Artist.create(name: "Roberta Flack", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Roberta_Flack_1971.jpg/640px-Roberta_Flack_1971.jpg")
-brianeno = Artist.create(name: "Brian Eno", image_url: "https://i1.wp.com/www.classicrockhistory.com/wp-content/uploads/2018/04/Brian_Eno_-_TopPop_1974_09.png?resize=680%2C407&ssl=1")
-bryanferry = Artist.create(name: "Bryan Ferry", image_url: "https://cdn.shopify.com/s/files/1/2508/8586/t/6/assets/description_image_bryan-ferry.jpg?4903922262114959621")
-johncale = Artist.create(name: "John Cale", image_url: "https://media.ntslive.co.uk/crop/670x670/ea62d443-9f73-45d2-b49d-96e736126806_1510617600.png")
+roxymusic = Artist.create(  name: "Roxy Music", 
+                            image_url: "https://pixel.nymag.com/imgs/daily/vulture/2019/03/20/20-roxy-music.w700.h700.jpg", 
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roxy_Music")).css("table.infobox")[0].next_element.text)         
+robertaflack = Artist.create(name: "Roberta Flack", 
+                            image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Roberta_Flack_1971.jpg/640px-Roberta_Flack_1971.jpg",
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roberta_Flack")).css("table.infobox")[0].next_element.text)
+brianeno = Artist.create(   name: "Brian Eno", 
+                            image_url: "https://i1.wp.com/www.classicrockhistory.com/wp-content/uploads/2018/04/Brian_Eno_-_TopPop_1974_09.png?resize=680%2C407&ssl=1",
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Brian_Eno")).css("table.infobox")[0].next_element.text)
+bryanferry = Artist.create( name: "Bryan Ferry", 
+                            image_url: "https://cdn.shopify.com/s/files/1/2508/8586/t/6/assets/description_image_bryan-ferry.jpg?4903922262114959621",
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Bryan_Ferry")).css("table.infobox")[0].next_element.text)
+johncale = Artist.create(   name: "John Cale", 
+                            image_url: "https://media.ntslive.co.uk/crop/670x670/ea62d443-9f73-45d2-b49d-96e736126806_1510617600.png",
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/John_Cale")).css("table.infobox")[0].next_element.text)
 
 # # ALBUMS # #
 
@@ -80,11 +90,6 @@ aftersci = Album.create(title: "Before and After Science",
                         year: "1977",  
                         background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2F35fb0bd273879a4c51bdd1fc7d0d9690.1000x1000x1.jpg",
                         artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Beforeandafterscience.jpg/220px-Beforeandafterscience.jpg")
-thursnoon = Album.create(title: "Thursday Afternoon", 
-                        artist_id: brianeno.id, 
-                        year: "1985", 
-                        background_photo: "https://t2.genius.com/unsafe/1170x280/https%3A%2F%2Fimages.genius.com%2Fde3527826925af98f07c54bf22bce9c8.600x592x1.jpg", 
-                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Thursday_Afternoon.jpg/220px-Thursday_Afternoon.jpg1985")
 
 # Bryan Ferry
 boysngirls = Album.create(title: "Boys and Girls", 

@@ -5,10 +5,11 @@
 
 .artist-show-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   background: white;
   max-width: 1350px;
+  width: 75%;
   color: #222;
   padding: 30px;
 }
@@ -35,9 +36,9 @@
 
 .artist-show-image-div{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-right: 30px;
+  flex-direction: row;
+  justify-content: left;
+  margin-bottom: 30px;
 }
 
 .artist-show-image{
@@ -56,14 +57,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   width: auto;
+  margin-top: 35px;
 }
 
 .artist-show-album-list li{
-  margin: 0px 15px 15px 15px;
-}
-
-.artist-show-album-list h4{
-  margin-left: 15px;
+  margin: 0px 15px 15px 0px;
 }
 
 .artist-show-album a{
@@ -83,4 +81,15 @@
 .artist-show-album img:hover{
   outline: none;
   filter: none;
+}
+
+.artist-bio-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.artist-bio{
+  margin-top: 15px;
+  text-align: justify;
 }
