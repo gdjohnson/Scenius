@@ -45,9 +45,7 @@ class Api::TracksController < ApplicationController
     artist = Artist.find_by(name: params[:track][:artist])
     if artist.nil?
       artist = Artist.new(name: params[:track][:artist])
-      debugger
       artist.bio = get_bio(params[:track][:artist])
-      debugger
       artist.save
     end
 

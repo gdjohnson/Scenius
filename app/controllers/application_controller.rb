@@ -14,10 +14,26 @@ class ApplicationController < ActionController::Base
           i+=1
         end
         url = artist.gsub(' ', '_')
-        debugger
-        page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{url}")) || Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{url}_(band)")) || Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{url}_(artist)"))
-        debugger
-        bio_text = page.css("table.infobox")[0].next_element.text
+
+        begin
+            page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{url}"))
+        rescue
+            begin
+                page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{url}_(band)"))
+            rescue
+                begin
+                    page = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{url}_(artist)"))
+                rescue
+                    page = nil
+                end
+            end
+        end
+                 
+        if page.nil?
+            bio_text = "No biography available."
+        else
+            bio_text = page.css("table.infobox")[0].next_element.text
+        end
     
         return bio_text
     end
