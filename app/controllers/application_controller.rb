@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
             bio_text = page.css("table.infobox")[0].next_element.text
         end
     
-        return bio_text
+        return bio_text + ' (courtesy of Wikipedia)'
     end
 
     def current_user

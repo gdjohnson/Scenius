@@ -140,7 +140,8 @@
 }
 
 #lyrics-wrapper-1 p, #lyrics-wrapper-2 p {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 #lyrics-wrapper-2{
@@ -150,7 +151,8 @@
 
   width: 75%;
   
-  font-family: Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 17px;
   letter-spacing: 1px;
   white-space: pre-wrap;
@@ -190,17 +192,18 @@
 }
 
 .annotated:hover{
-  background: #8b000098;
+  background: #8b00001f;
 }
 
 #temp-annotated{
-  background: #8b000098;
+  background: #8b00001f;
   cursor: pointer;
   padding: 2px 0px 1px 0px;
 }
 
 #require-login > p {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   margin-top: 25px;
   background-color: lightgrey;
   max-width: 380px;
@@ -210,7 +213,8 @@
 }
 
 #require-login b {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   cursor: pointer;
   color: darkred;
 }

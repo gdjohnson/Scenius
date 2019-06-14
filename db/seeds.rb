@@ -21,19 +21,19 @@ guest = User.create(username: "temerity", password: "123456")
 #Artists
 roxymusic = Artist.create(  name: "Roxy Music", 
                             image_url: "https://pixel.nymag.com/imgs/daily/vulture/2019/03/20/20-roxy-music.w700.h700.jpg", 
-                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roxy_Music")).css("table.infobox")[0].next_element.text)         
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roxy_Music")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)')          
 robertaflack = Artist.create(name: "Roberta Flack", 
                             image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Roberta_Flack_1971.jpg/640px-Roberta_Flack_1971.jpg",
-                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roberta_Flack")).css("table.infobox")[0].next_element.text)
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roberta_Flack")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)') 
 brianeno = Artist.create(   name: "Brian Eno", 
                             image_url: "https://i1.wp.com/www.classicrockhistory.com/wp-content/uploads/2018/04/Brian_Eno_-_TopPop_1974_09.png?resize=680%2C407&ssl=1",
-                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Brian_Eno")).css("table.infobox")[0].next_element.text)
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Brian_Eno")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)')  
 bryanferry = Artist.create( name: "Bryan Ferry", 
                             image_url: "https://cdn.shopify.com/s/files/1/2508/8586/t/6/assets/description_image_bryan-ferry.jpg?4903922262114959621",
-                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Bryan_Ferry")).css("table.infobox")[0].next_element.text)
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Bryan_Ferry")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)') 
 johncale = Artist.create(   name: "John Cale", 
                             image_url: "https://media.ntslive.co.uk/crop/670x670/ea62d443-9f73-45d2-b49d-96e736126806_1510617600.png",
-                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/John_Cale")).css("table.infobox")[0].next_element.text)
+                            bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/John_Cale")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)') 
 
 # # ALBUMS # #
 
