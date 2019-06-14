@@ -22,18 +22,30 @@ export class ArtistShow extends React.Component {
   // Returns all albums associated with given artist
   albumList() {
     const { albums } = this.props.artist;
+    const { albumArtPresent, albumArtAbsent } = this;
+    let artwork
+    
     return Object.values(albums).map(album => {
       const { id, artwork_url, title } = album;
+      artwork_url ? artwork = albumArtPresent : artwork = albumArtAbsent;
       return (
         <li className="artist-show-album" key={id}>
           <Link to={`/albums/${id}`}>
-            <img src={artwork_url} />
+            {artwork(artwork_url)}
             <p>{title}</p> 
             {this.yearContainer(album)}
           </Link>
         </li>
       )
   })}
+
+  albumArtPresent(url){
+    return <img src={url} />
+  }
+
+  albumArtAbsent(){
+    return <button className="artist-show-album-art-missing"></button>
+  }
 
   // Helper method returns album year if present
   yearContainer(album) {
@@ -48,21 +60,28 @@ export class ArtistShow extends React.Component {
   // Helper method returns artist photo if present
   artistImage() {
     const { image_url } = this.props.artist;
+    let img
+    image_url ? img = this.artistImagePresent(image_url) : img = this.artistImageAbsent();
+    return img
+  }
+
+  artistImageAbsent() {
     const { openModal } = this.props;
-    if (image_url){
-        return <img className="artist-show-image" src={image_url}/>
-    } else {
-        return (
-          <div className="artist-show-empty-artist-image">
-            <button type="submit"
-                    className="artist-show-photo-upload"
-                    onClick={() => {
-                      openModal({modal: 'add-photo'})}}>
-                    Add Artist Photo
-            </button>
-          </div>
-        )
-  }}
+    return (
+      <div className="artist-show-empty-artist-image">
+        <button type="submit"
+                className="artist-show-photo-upload"
+                onClick={() => {
+                  openModal({modal: 'add-photo'})}}>
+                Add Artist Photo
+        </button>
+      </div>
+    )
+  }
+
+  artistImagePresent(url) {
+    return <img className="artist-show-image" src={url}/>
+  }
 
   render() {
     const { artist } = this.props;

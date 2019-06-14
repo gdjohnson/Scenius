@@ -72,7 +72,7 @@
 .artist-show-album img{
   height: 180px;
   width: auto;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   border: 2px solid transparent;
   filter: grayscale(100%);
   outline: none;
@@ -92,4 +92,22 @@
 .artist-bio{
   margin-top: 15px;
   text-align: justify;
+}
+
+.artist-show-album-art-missing {
+  color: white;
+  background: repeating-linear-gradient( 
+    135deg, 
+    #932828, 
+    #932828 40px, 
+    darkred 40px, 
+    darkred 80px 
+  );
+  height: 180px;
+  width: 180px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 4;
+  position: relative;
+  margin-bottom: 5px;
 }

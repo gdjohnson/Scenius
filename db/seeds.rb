@@ -75,11 +75,6 @@ warmjets = Album.create(title: "Here Come the Warm Jets",
                         year: "1974", 
                         background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2Fbbfbbd9d02af2c1f36c436a831e3fda8.1000x1000x1.jpg",
                         artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Warmjetsvinyl.jpg/220px-Warmjetsvinyl.jpg")
-tigermntn = Album.create(title: "Taking Tiger Mountain (By Strategy)", 
-                        artist_id: brianeno.id, 
-                        year: "1974", 
-                        background_photo: "https://t2.genius.com/unsafe/1170x360/https%3A%2F%2Fimages.genius.com%2Fa2a9cf0f077c3210a533ce42827a468e.1000x1000x1.jpg", 
-                        artwork_url: "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Tigermountaineno.jpg/220px-Tigermountaineno.jpg")
 agw = Album.create(     title: "Another Green World", 
                         artist_id: brianeno.id, 
                         year: "1975",  
