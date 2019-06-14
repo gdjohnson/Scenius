@@ -62,7 +62,7 @@ export class AlbumShow extends React.Component {
     const { album } = this.props;
     if (!album.tracks.length) {
       return ( <span className="album-show-no-tracks">
-                  There are no tracks yet for this album. 
+                  There are no tracks yet for this album. &nbsp; 
                   <Link id="album-show-add-track" to="/add">
                     Add some!
                   </Link>
