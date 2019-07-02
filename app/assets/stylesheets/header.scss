@@ -22,7 +22,7 @@ $perry: #6e1fff;
     margin-top: auto;
     order: 4;
     text-align: right;
-    width: 20%;
+    width: 16%;
   }
 
   .search {
@@ -30,7 +30,7 @@ $perry: #6e1fff;
     border: 1px solid grey;
     color: black;
     font-size: 10.5px;
-    margin: 8px 0 auto 8px;
+    margin: 15px 3px;
     order: 1;
     text-align: left;
     text-transform: uppercase;
@@ -41,13 +41,13 @@ $perry: #6e1fff;
       align-items: center;
       display: flex;
       height: 100%;
-      margin-left: 16px;
-      width: 80%;
+      margin: 0 5%;
+      width: 90%;
     }
 
     .search__input {
       background: transparent;
-      color: white;
+      color: grey;
       padding: 5px;
       width: 80%;
     }
@@ -66,8 +66,10 @@ $perry: #6e1fff;
     }
 
     #search-results {
+      border-color: black;
+      border-width: 0 1px 1px 1px;
+      border-style: solid;
       cursor: pointer;
-      margin-left: 16px;
       position: relative;
       width: auto;
       z-index: 5;
@@ -126,7 +128,7 @@ $perry: #6e1fff;
   }
 }
 
-.nav-button {
+.button {
   background: none;
   color: black;
   cursor: pointer;
@@ -135,7 +137,7 @@ $perry: #6e1fff;
   text-transform: uppercase;
 }
 
-.nav-button--home {
+.button--home {
   font-size: 24px;
   font-weight: bolder;
   letter-spacing: 8px;
@@ -147,7 +149,7 @@ $perry: #6e1fff;
   text-shadow: -1px 0 white;
 }
 
-.nav-button--user {
+.box-button {
   border: 3px solid black;
   font-size: 13px;
   margin-right: 10px;
@@ -159,17 +161,17 @@ $perry: #6e1fff;
   white-space: nowrap;
 }
 
-.nav-button--user:hover {
+.box-button:hover {
   background: black;
   color: white;
 }
 
-.nav-button--git {
+.button--git {
   display: flex;
   align-items: center;
   order: 3;
 }
 
-.nav-button--git:hover {
+.button--git:hover {
   color: $perry;
 }

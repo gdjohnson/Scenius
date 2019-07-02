@@ -54,33 +54,34 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
-        <form className="modal-form modal-form--sign-in" onSubmit={this.handleSubmit()}>
-          <p className="modal-form--header">Sign in to Scenius.</p>
+      <div className="modal__form-wrap">
+        <p className="modal__form__header button">S c e n i u s</p>
+        <form className="modal__form modal__form__sign-in" onSubmit={this.handleSubmit()}>
+          <p className="modal__form__type">Sign in.</p>
           {this.renderErrors()}
           <div>
             <br />
               <input type="text"
-                className="sign-in-input"
+                className="modal__form__input"
                 value={this.state.username}
                 placeholder="Username"
                 onChange={this.handleUpdate('username')}
               />
             <br />
               <input type="password"
-                className="sign-in-input"
+                className="modal__form__input"
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.handleUpdate('password')}
               />
             <br />
-              <input className="sign-in-form-submit" type="submit" value="Sign in" />
-              <div className="addtl-sign-in-opts">
-                <input className="addtl-sign-in-opt" type="submit" value="Create an account" onClick={() => this.props.openModal({modal: 'signup'})}/>
-                <input className="addtl-sign-in-opt" type="submit" value="Demo Sign-in" onClick={() => this.signInGuest()}/>
-              </div>
+              <input className="button box-button box-button--modal" type="submit" value="Sign in" />
           </div>
         </form>
+        <div className="addtl-sign-in-opts">
+                <input className="addtl-sign-in-opt" type="submit" value="Create an account" onClick={() => this.props.openModal({modal: 'signup'})}/>
+                <input className="addtl-sign-in-opt" type="submit" value="Demo Sign-in" onClick={() => this.signInGuest()}/>
+        </div>
       </div>
     );
   }

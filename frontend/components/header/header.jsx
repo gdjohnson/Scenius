@@ -8,8 +8,8 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <SearchContainer  />
-                <div className="nav-button nav-button--git"><a href="https://github.com/gdjohnson/Scenius" target="_blank"><i className="fab fa-github">&nbsp;&nbsp;</i>GH Repo</a></div>
-                <Link to="/" className="nav-button--home">Scenius</Link>
+                <div className="button button--git"><a href="https://github.com/gdjohnson/Scenius" target="_blank"><i className="fab fa-github">&nbsp;&nbsp;</i>GH Repo</a></div>
+                <Link to="/" className="button--home">Scenius</Link>
                 <UserControlContainer />
             </div>            
         );

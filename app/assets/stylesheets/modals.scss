@@ -23,21 +23,81 @@
     display: flex;
 }
 
-.modal-form {
+.modal__form-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.modal__form {
     color: inherit;
     font-size: 12px;
     display: flex;
     flex-direction: column;
-    align-items: left;
 }
 
-.modal-form--header {
+.modal__form__header {
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal__form__type {
     color: inherit;
+    margin-bottom: 7px;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 1px solid black;
     width: 100%;
-    padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.modal__form__input {
+    background: white;
+    border: 1px solid #ccc;
+    margin: 12px 0;
+    padding: 8px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.modal__form__input:focus{
+    outline: none;
+    border: 3px solid rgb(172, 172, 172);
+  }
+
+.box-button--modal {
+    background: transparent;
+    margin-top: 12px;
+}
+
+.addtl-sign-in-opts{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: 25px;
+}
+
+.addtl-sign-in-opt{
+    color: #949494;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #a1a1a1;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0;
+    margin-right: 7px;
+}
+
+.addtl-sign-in-opt:hover{
+    border-bottom: 2px solid white;
+}
+  
+  
+  
+  
+  
