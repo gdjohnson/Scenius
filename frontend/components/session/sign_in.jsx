@@ -55,8 +55,8 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-        <form className="sign-in-form" onSubmit={this.handleSubmit()}>
-          <p className="sign-in-form-head">Sign in to Scenius.</p>
+        <form className="modal-form modal-form--sign-in" onSubmit={this.handleSubmit()}>
+          <p className="modal-form--header">Sign in to Scenius.</p>
           {this.renderErrors()}
           <div>
             <br />

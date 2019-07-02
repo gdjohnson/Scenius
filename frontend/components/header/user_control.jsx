@@ -5,9 +5,9 @@ const UserControl = ({currentUser, openModal, signOut}) => {
     const signedIn = () => {
         return (
             <div className="user-control">
-                <button className="user-control-button"><Link to="/add">Add Track</Link></button>
-                {/* <h3 className="user-control-button">{currentUser.username}</h3> */}
-                <button className="user-control-button" onClick={signOut}>Sign Out</button>
+                <button className="nav-button nav-button--user"><Link to="/add">Add Track</Link></button>
+                {/* <h3 className="nav-button nav-button--user">{currentUser.username}</h3> */}
+                <button className="nav-button nav-button--user" onClick={signOut}>Sign Out</button>
             </div>
         )
     }
@@ -15,11 +15,11 @@ const UserControl = ({currentUser, openModal, signOut}) => {
     const signedOut = () => {
         return (
             <div className="user-control">
-                <button className="user-control-button" 
+                <button className="nav-button nav-button--user" 
                         onClick={() => openModal({modal: 'signin'})}>
                         Sign In
                 </button>
-                <button className="user-control-button" 
+                <button className="nav-button nav-button--user" 
                         onClick={() => openModal({modal: 'signup'})}>
                         Sign Up
                 </button>

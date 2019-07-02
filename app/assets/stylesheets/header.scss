@@ -1,0 +1,175 @@
+// HEADER
+
+$perry: #6e1fff;
+
+.header {
+  background-color: transparent;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 65px;;
+  justify-content: space-between;
+  padding: 0 10px;
+  text-transform: uppercase;
+
+  .user-control {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin-bottom: auto;
+    margin-top: auto;
+    order: 4;
+    text-align: right;
+    width: 20%;
+  }
+
+  .search {
+    background: transparent;
+    border: 1px solid grey;
+    color: black;
+    font-size: 10.5px;
+    margin: 8px 0 auto 8px;
+    order: 1;
+    text-align: left;
+    text-transform: uppercase;
+    width: 20%;
+    z-index: 5;
+
+    .search__form {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      margin-left: 16px;
+      width: 80%;
+    }
+
+    .search__input {
+      background: transparent;
+      color: white;
+      padding: 5px;
+      width: 80%;
+    }
+
+    .search__input::placeholder {
+      color: grey;
+    }
+
+    #search__input:focus { 
+      outline: 1px solid darkgrey;
+    }
+
+    #search ion-icon {
+      color: white;
+      cursor: auto;
+    }
+
+    #search-results {
+      cursor: pointer;
+      margin-left: 16px;
+      position: relative;
+      width: auto;
+      z-index: 5;
+    }
+
+    .hidden-search {
+      display: none;
+    }
+    
+    .search-result {
+      background: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      padding: 5px;
+    }
+
+    .search-result:hover {
+      background: #dddddd;
+  }
+    
+    .search-result > a {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .search-result img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .search-metadata {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-transform: none;
+    }
+    
+    .search-metadata a {
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+        padding: 0px;
+    }
+    
+    .search-metadata b {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    .search-metadata p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+  }
+}
+
+.nav-button {
+  background: none;
+  color: black;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-button--home {
+  font-size: 24px;
+  font-weight: bolder;
+  letter-spacing: 8px;
+  margin: auto;
+  order: 2;
+  padding-left: 3px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: -1px 0 white;
+}
+
+.nav-button--user {
+  border: 3px solid black;
+  font-size: 13px;
+  margin-right: 10px;
+  min-width: max-content;
+  overflow: hidden;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-button--user:hover {
+  background: black;
+  color: white;
+}
+
+.nav-button--git {
+  display: flex;
+  align-items: center;
+  order: 3;
+}
+
+.nav-button--git:hover {
+  color: $perry;
+}

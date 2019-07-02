@@ -1,34 +1,6 @@
-.auth-modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
 
-.auth-modal-child {
-  width: 300px;
-  height: 275px;;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #e9e9e9;
-  padding: 22px;
-  border: 3px solid darkgrey;
-  animation: expand_in .15s cubic-bezier(.25,.46,.45,.94);
-  display: flex;
-}
 
-.sign-in-form {
-  color: black;
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-}
+
 
 .sign-in-form-head{
   color:darkgrey;

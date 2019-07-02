@@ -47,8 +47,8 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
-        <form className="sign-in-form" onSubmit={this.handleSubmit()}>
-          <p className="sign-in-form-head">Sign up for Scenius.</p>
+        <form className="modal-form modal-form--sign-up" onSubmit={this.handleSubmit()}>
+          <p className="modal-form--header">Sign up for Scenius.</p>
           {this.renderErrors()}
           <div>
             <br />

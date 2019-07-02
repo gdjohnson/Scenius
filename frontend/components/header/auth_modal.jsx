@@ -31,8 +31,8 @@ function AuthModal({ modal, closeModal }) {
   }
   
   return (
-    <div className="auth-modal-background" onClick={closeModal}>
-      <div className="auth-modal-child" onClick={event => event.stopPropagation()}>
+    <div className="modal-background modal-background--auth" onClick={closeModal}>
+      <div className="modal-child modal-child--auth" onClick={event => event.stopPropagation()}>
         {component}
       </div>
     </div>

@@ -66,9 +66,9 @@ class Search extends React.Component {
     const results = this.searchResults();
 
     return (
-      <div id="search">
-        <form id="search-form">
-        <input  id="search-input"
+      <div className="search">
+        <form className="search__form">
+        <input  className="search__input"
                 placeholder="Search Tracks..."
                 onClick={this.openSearch}
                 onChange={this.handleUpdate}>
