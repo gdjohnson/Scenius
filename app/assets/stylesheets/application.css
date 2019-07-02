@@ -33,6 +33,11 @@ html, body, #root {
   grid-template-columns: 100%;
 }
 
+#main {
+  display: flex;
+  justify-content: center;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -43,6 +48,7 @@ html, body, #root {
 }
 
 *::selection{
-  background-color: #8b00001f;
+  background-color: #6e1fff;
+  color: white;
 }
 

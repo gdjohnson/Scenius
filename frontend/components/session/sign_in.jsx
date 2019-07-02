@@ -60,21 +60,18 @@ class SignIn extends React.Component {
           <p className="modal__form__type">Sign in.</p>
           {this.renderErrors()}
           <div>
-            <br />
               <input type="text"
                 className="modal__form__input"
                 value={this.state.username}
                 placeholder="Username"
                 onChange={this.handleUpdate('username')}
               />
-            <br />
               <input type="password"
                 className="modal__form__input"
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.handleUpdate('password')}
               />
-            <br />
               <input className="button box-button box-button--modal" type="submit" value="Sign in" />
           </div>
         </form>

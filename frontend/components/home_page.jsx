@@ -42,6 +42,19 @@ export class HomePage extends React.Component {
             {trackList()}
           </ul>
         </div>
+        <div id="app-info">
+          <h3>Info</h3>
+          <p class="body-text">Brian Eno:
+          <br />
+          <br />
+          <div id="app-info-quote">When I was an art student, I was encouraged to believe that there were a few great figures like Picasso and Kandinsky, Rembrandt and Giotto and so on who sort-of appeared out of nowhere and produced artistic revolution. As I looked at art more and more, I discovered that that wasn’t really a true picture.
+          </div>
+          <br />
+          <div id="app-info-quote">What really happened was that there were sometimes very fertile scenes involving lots and lots of people – some of them artists, some of them collectors, some of them curators, thinkers, theorists, people who were fashionable and knew what the hip things were – all sorts of people who created a kind of ecology of talent. And out of that ecology arose some wonderful work... So I came up with this word SCENIUS – and scenius is the intelligence of a whole… operation or group of people.</div>
+          <br />
+          Scenius is a fullstack app inspired by the lyrics & annotation site Genius. Built with React/Redux and Rails,, Scenius allows users to add song lyrics (+ associated album, artist, and track data). Artist biographies and album art is automatically populated from Wikipedia with a Nokogiri webscraper, though it can be added or altered manually if missing. Much of the GUI design is inspired by Artsy.net.
+          </p>
+        </div>
       </div>
     );
   }

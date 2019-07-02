@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signUp } from '../../actions/session_actions';
-import { closeModal } from '../../actions/modal_actions';
+import { signUp, signIn } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -32,6 +32,11 @@ class SignUp extends React.Component {
     };
   }
 
+  signInGuest(){
+    this.props.signIn({ username: 'temerity', password: '123456' });
+    this.props.closeModal();
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -52,24 +57,25 @@ class SignUp extends React.Component {
           <p className="modal__form__type">Sign up.</p>
           {this.renderErrors()}
           <div>
-            <br />
               <input type="text"
                 className="modal__form__input"
                 value={this.state.username}
                 placeholder="Username"
                 onChange={this.handleUpdate('username')}
               />
-            <br />
               <input type="password"
                 className="modal__form__input"
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.handleUpdate('password')}
               />
-            <br />
             <input className="button box-button box-button--modal" type="submit" value="Sign up" />
           </div>
         </form>
+        <div className="addtl-sign-in-opts">
+          <input className="addtl-sign-in-opt" type="submit" value="Sign in" onClick={() => this.props.openModal({modal: 'signin'})}/>
+          <input className="addtl-sign-in-opt" type="submit" value="Demo Sign-in" onClick={() => this.signInGuest()}/>
+        </div>
       </div>
     );
   }
@@ -83,7 +89,9 @@ const mapStateToProps = ({ errors }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    signIn: (user) => dispatch(signIn(user)),
     signUp: (user) => dispatch(signUp(user)),
+    openModal: (modal) => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal())
   };
 };

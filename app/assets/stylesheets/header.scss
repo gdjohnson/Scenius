@@ -3,15 +3,19 @@
 $perry: #6e1fff;
 
 .header {
-  background-color: transparent;
+  background-color: #fffffff4;
   color: black;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 65px;;
+  height: 78px;;
   justify-content: space-between;
   padding: 0 10px;
   text-transform: uppercase;
+  
+  position: sticky;
+  top: 0;
+  z-index: 6;
 
   .user-control {
     display: flex;
@@ -30,7 +34,7 @@ $perry: #6e1fff;
     border: 1px solid grey;
     color: black;
     font-size: 10.5px;
-    margin: 15px 3px;
+    margin: 21px 3px;
     order: 1;
     text-align: left;
     text-transform: uppercase;
@@ -138,7 +142,7 @@ $perry: #6e1fff;
 }
 
 .button--home {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bolder;
   letter-spacing: 8px;
   margin: auto;

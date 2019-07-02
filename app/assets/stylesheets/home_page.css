@@ -1,28 +1,52 @@
 #homepage-wrap {
   display: flex;
   justify-content: center;
+  width: 92%
+}
+
+#app-info {
+  color: black;
+  width: 30%;
+  margin: 37px;
 }
 
 .home-track-list-container{
   display: flex;
   flex-direction: column;
   background: white;
-  min-width: 80%;
-  padding: 25px 10px 40px 10px;
-  margin: 0px 50px 16px 50px;
+  width: 70%;
+  margin: 37px;
 }
 
 .home-track-container{
   color: black;
 }
 
-.home-track-list-container h3{
-  color: black;
+.home-track-list-container > h3, #app-info > h3 {
   font-size: 24px;
   font-weight: bold;
   border-bottom: 2px solid #222;
   padding-top: 9px;
   padding-bottom: 24px;
+}
+
+#app-info > h3 {
+  color: red;
+}
+
+.home-track-list-container > h3 {
+  color: black;
+}
+
+#app-info > .body-text {
+  padding-top: 15px;
+  text-align: justify;
+}
+
+#app-info-quote {
+  font-style: italic; 
+  padding-left: 15px;
+  text-align: justify;
 }
 
 .home-track-container a{
@@ -31,8 +55,9 @@
   align-items: center;
   width: 100%;
   border-bottom: 1px solid #222;
-  height: 57px;
+  height: 72px;
   text-decoration: none;
+  padding: 2px;
 }
 
 .home-track-container a:hover{
@@ -41,8 +66,8 @@
 }
 
 .home-track-container img{
-  height: 57px;
-  width: 57px;
+  height: 72px;
+  width: 72px;
   margin-right: 10px;
 }
 

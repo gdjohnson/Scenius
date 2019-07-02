@@ -1,103 +1,98 @@
+$perry: #6e1fff;
+
 .modal-background {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
-  
+ 
 .modal-child {
-    border-radius: 8px;
-    color: black;
-    width: 300px;
-    height: 375px;;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 22px;
-    animation: expand_in .15s cubic-bezier(.25,.46,.45,.94);
-    display: flex;
+  border-radius: 8px;
+  color: black;
+  width: 300px;
+  height: 375px;;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 22px;
+  animation: expand_in .15s cubic-bezier(.25,.46,.45,.94);
+  display: flex;
 }
 
 .modal__form-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .modal__form {
-    color: inherit;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
+  color: inherit;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__form__header {
-    font-size: 24px;
-    text-align: center;
+  font-size: 24px;
+  text-align: center;
 }
 
 .modal__form__type {
-    color: inherit;
-    margin-bottom: 7px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 1px solid black;
-    width: 100%;
-    padding-bottom: 10px;
+  color: inherit;
+  margin-bottom: 12px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-bottom: 10px;
 }
 
 .modal__form__input {
-    background: white;
-    border: 1px solid #ccc;
-    margin: 12px 0;
-    padding: 8px;
-    width: 100%;
-    font-size: 15px;
+  background: white;
+  font-size: 15px;
+  margin-top: 22px;
+  padding: 3%;
+  width: 94%;
+
+  :focus {
+    border: 1px solid red;
+    outline: none;
+  }
 }
 
-.modal__form__input:focus{
-    outline: none;
-    border: 3px solid rgb(172, 172, 172);
-  }
-
 .box-button--modal {
-    background: transparent;
-    margin-top: 12px;
+  background: transparent;
+  margin-top: 22px;
 }
 
 .addtl-sign-in-opts{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
 }
 
-.addtl-sign-in-opt{
-    color: #949494;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 2px solid #a1a1a1;
-    background: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    padding: 0;
-    margin-right: 7px;
-}
+.addtl-sign-in-opt {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  color: #949494;
+  display: block;
+  font-size: 13px;
+  margin: 2px;
+  padding: 2px;
+  text-transform: uppercase;
+  width: min-content;
 
-.addtl-sign-in-opt:hover{
-    border-bottom: 2px solid white;
+  :hover {
+    border-bottom: 1px solid $perry;
+  }
 }
-  
-  
-  
-  
-  

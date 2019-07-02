@@ -1,3 +1,5 @@
+$perry: #6e1fff;
+
 #footer {
     display: flex;
     flex-direction: column;
@@ -12,7 +14,7 @@
     flex-wrap: wrap;
     justify-content: center;
     
-    border: 1px solid darkred;
+    border: 1px solid $perry;
     padding: 5px 10px 5px 10px;
     margin: 10px;
     max-width: 645px;
@@ -20,11 +22,11 @@
 
 #footer-alph-index > li{
     padding: 5px;
-    color: #808080;
+    color: $perry;
 }
 
 #footer-alph-index span {
-    color: darkred;
+    color: $perry;
 }
 
 .alphabet-soup:hover {
@@ -47,7 +49,7 @@
     text-align: center;
     overflow: hidden;
 
-    color: darkred;
+    color: $perry;
 
     padding: 10px 0px 10px 0px;
 }
