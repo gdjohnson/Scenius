@@ -1,56 +1,49 @@
 $perry: #6e1fff;
+$offblack: #3c3c3c;
+$offwhite: #f7f6f6;
 
-#homepage-wrap {
+.homepage-wrap {
   display: flex;
   justify-content: center;
-  width: 92%;
   padding-left: 25px;
+  width: 92%;
+
+  h3 {
+    border-bottom: 2px solid $offblack;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 24px;
+    padding-top: 9px;
+  }
 }
 
 .app-info {
   color: black;
-  margin: 15px 25px 25px 25px;
+  margin: 15px 25px 25px;
   width: 35%;
 
-  >p {
-    line-height: 19px;
-  }
-
-  > h3 {
-    color: $perry;
-  }
+  h3 { color: $perry; }
+  p { line-height: 19px; }
 }
 
-.home-track-list-container {
+.homepage-track-list-container {
+  background: white;
   display: flex;
   flex-direction: column;
-  background: white;
-  width: 65%;
   margin: 15px 25px 25px 25px;
+  width: 65%;
+
+  h3 { color: black; }
 }
 
-.home-track-list-container > h3,
-.app-info > h3 {
-  font-size: 24px;
-  font-weight: bold;
-  border-bottom: 2px solid #222;
-  padding-top: 9px;
-  padding-bottom: 24px;
-}
 
-.home-track-list-container > h3 {
-  color: black;
-}
-
-.app-info-quote {
+.app-info__quote {
   color: #818082;
 
-  > i {
-    color: $perry;
-  }
+  i { color: $perry; }
 }
 
-.home-track-container {
+.homepage-track {
   color: black;
 
   a {
@@ -58,10 +51,12 @@ $perry: #6e1fff;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid $offblack;
     height: 72px;
     text-decoration: none;
     padding: 2px;
+
+    &:hover { color: $perry; }
   }
 
   img {
@@ -77,7 +72,7 @@ $perry: #6e1fff;
   
     font-size: 20px;
     font-weight: 700;
-    color: #222;
+    color: $offblack;
   
     width: 37px;
     height: 37px;
@@ -85,26 +80,27 @@ $perry: #6e1fff;
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  .homepage-track__info {
+    color: inherit;
+    width: 80%;
+  }
+  
+  .homepage-track__title {
+    color: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 4px;
+  }
+  
+  .homepage-track__artist {
+    color: inherit;
+    font-size: 14px;
+    font-weight: 600;
+  }
   
   &:hover {
-    background: #dddddd;
+    background: #e4e4e4;
     cursor: pointer;
   }
-}
-
-.home-track-info{
-  width: 80%;
-  color: #222;
-}
-
-.home-track-title{
-  font-size: 20px;
-  font-weight: 700;
-
-  padding-bottom: 4px;
-}
-
-.home-track-artist{
-  font-size: 14px;
-  font-weight: 600;
 }

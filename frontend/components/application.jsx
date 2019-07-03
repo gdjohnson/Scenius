@@ -11,24 +11,22 @@ import HomePage from './home_page';
 import Footer from './footer';
 
 
-const Application = () => {
-    return(
-        <div>
-            <AuthModal />
-            <Route path="/" component={Header}/>
-            <div id="main">
-                <Route exact path="/" component={HomePage} />
+const Application = () => (
+    <div>
+        <AuthModal />
+        <Route path="/" component={Header}/>
 
-                <Route exact path="/add" component={TrackFormContainer} />
-                <Route exact path="/tracks/:id" component={TrackShowContainer}/>
-
-                <Route exact path="/artists/:char" component={AlphIndexContainer}/>
-                <Route exact path="/artists/:char/:id" component={ArtistShowContainer}/>
-                <Route exact path="/albums/:id" component={AlbumShowContainer}/>
-            </div>
-            <Route path="/" component={Footer}/>
-            </div>
-            );
-}
+        <div id="main">
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/add" component={TrackFormContainer} />
+            <Route exact path="/tracks/:id" component={TrackShowContainer}/>
+            <Route exact path="/artists/:char" component={AlphIndexContainer}/>
+            <Route exact path="/artists/:char/:id" component={ArtistShowContainer}/>
+            <Route exact path="/albums/:id" component={AlbumShowContainer}/>
+        </div>
+        
+        <Route path="/" component={Footer}/>
+    </div>
+);
 
 export default Application;

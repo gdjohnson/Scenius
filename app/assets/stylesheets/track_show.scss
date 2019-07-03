@@ -1,6 +1,7 @@
 $offblack: #3c3c3c;
 $perry: #6e1fff;
 $lightperry: #7d8fe8;
+$cement: #ccc;
     
 .track-show {
   width: 100%;
@@ -105,13 +106,13 @@ $lightperry: #7d8fe8;
 .track-show-track-title{
   font-size: 36px;
   font-weight: bold;
-  color: lightpink;
+  color: white;
 
   padding-bottom: 5px;
 }
 
 .track-show-track-artist{
-  color: white;
+  color: $cement;
   font-weight: bold;
   font-size: 24px;
   padding-bottom: 10px;
