@@ -250,6 +250,7 @@ class TrackShow extends React.Component {
                             playing={false}
                             width="100%" height="100%" 
                             controls={true}
+                            light={true} 
                             config={{ attributes: { autoPlay: false } }}/>
                 </div>)
             }

@@ -1,0 +1,1582 @@
+.album-form{
+    width: 100%
+  }
+  
+  .add-album-art, .add-album-year{
+    color:#8c8f9b;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  
+  .album-form-head{
+    color:darkgrey;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid darkgrey;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 25px 0px;
+  }
+  
+  .album-form-input-field{
+    background: #fff;
+    border: 2px solid #ccc;
+    margin: 9px 0px;
+    padding: 4px;
+    color: #000; 
+    width: 96%;
+    font-size: 14px;
+  }
+  
+  .album-form-input-field:focus{
+    outline: none;
+    border: 2px solid rgb(172, 172, 172);
+  }
+  
+  .album-form-submit{
+    background: darkred;
+    padding: 7px;
+    color: white;
+    position: relative;
+    left: 243px;
+    top: 20px;
+    cursor: pointer;
+  }
+.album-show{
+    width: 100%;
+}
+
+.album-header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  height: 280px;
+  width: 100%;
+  background: rgb(80, 78, 78);
+  z-index: 3;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+.album-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+
+  background: rgba(0,0,0,.6);
+  
+  width: 70%
+}
+
+.album-show-bground-photo{
+  z-index: 1;
+}
+
+.album-show-bground-button{
+  z-index: 3;
+  min-width: 90px;
+  width: 90px;
+  border-radius: 50%;
+  height: 90px;
+  min-height: 90px;
+  margin: 8px;
+  color: red;
+  border: 2px solid darkred;
+  position: relative;
+  left: 50px;
+  cursor: pointer;
+}
+
+.album-show-album-art-container{
+  width: 220px;
+  margin-top: 40px;
+  z-index: 2;
+}
+
+.album-show-album-art{
+  display: block;
+  width: 100%;
+  height: auto;
+
+  position: relative;
+  left: -20px;
+
+  margin-right: 12px;
+  outline: .15rem solid #9a9a9a;
+}  
+
+.album-show-meta-container{
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  position: relative;
+
+  margin-left: 15px;
+  margin-top: 40px;
+}
+
+.album-show-meta-container a{
+  text-decoration: none;
+  color: white;
+}
+
+.album-show-meta-container h3{
+    font-size: 36px;
+    color: white;
+    padding-bottom: 7px;
+}
+
+.album-show-meta-container h4{
+    font-size: 24px;
+    color: white;
+    padding-bottom: 7px;
+}
+
+.album-show-meta-container h5{
+    font-size: 14px;
+    color: gray;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.album-show-album-title{
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffff64;
+
+  padding-bottom: 5px;
+}
+
+.album-show-no-art button{
+  background: #7d8fe8;
+  height: 220px;
+  width: 220px;
+  font-size: 16px;
+}
+
+.album-show-track-list-container{
+    display: flex;
+    justify-content: center;
+
+    padding: 25px 0px 25px 0px;
+    background: white;
+}
+
+
+.album-show-track-list a{
+    text-decoration: none;
+    color: white;
+}
+
+.album-show-track-list a:hover{
+    color: red;
+}
+
+.album-show-track-list h3{
+    font-size: 24px;
+}
+
+.album-show-track-list h4{
+    font-size: 20px;
+}
+
+.album-show-track-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    background: white;
+    color: black;
+    
+    width: 70%;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.album-show-track-list li, .album-show-track-list a{
+    color: black;
+}
+
+.album-show-track-list ul, .album-show-track-list li{
+    padding-left: 22px;
+}
+
+#album-show-add-track{
+  color: darkred;
+}
+.alph-index-container{
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: left;
+}
+
+.alph-index-container > div {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 5%;
+}
+
+.alph-index-container img {
+  padding: 50px 30px 50px 30px;
+  height: max-content;
+  width: max-content;
+}
+
+.alph-index {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  color: darkgrey;
+  
+  width: 70%;
+  background: white;
+  padding: 50px 30px 50px 30px;
+}
+
+#alph-index-artists-container {
+  display: flex;
+}
+
+#alph-index-artists-container > div {
+  padding-right: 18px;
+}
+
+.alph-index h3{
+  font-family: Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+
+  margin-bottom: 15px;
+}
+
+.alph-index a:hover {
+  color: #808080;
+}
+
+.alph-index-artist {
+  font-size: 19px;
+  font-weight: bolder;
+  margin: 10px 0px 5px 0px;
+}
+
+.alph-index-album{
+  margin-top: 3px;
+}
+
+.alph-index-track{
+  margin-left: 25px;
+}
+
+/* In case of no artists for a given char... */
+
+.alph-index-container > span {
+  color: black;
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 30%;
+  border: 3px dotted darkred;
+  text-align: center;
+  font-size: 26px;
+  padding: 70px;
+}
+
+#alph-index-missing-artists-link {
+  color: darkred;
+}
+.anno-modal-child > form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#new-anno-wrapper {
+    width: 100%
+}
+
+#anno-input {
+    height: 90%;
+    width: 95%;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    background-color: rgba(204,204,204,.2);
+    color: black;
+    font-size: 16px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    padding: 7px;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+#anno-input:focus {
+    border: 1px solid darkgrey;
+}
+
+#anno-submit {
+    display: flex;
+    margin-left: 5%;
+}
+
+#save-anno {
+    border: 2px solid #7D8FE8;
+    text-align: left;
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 3px;
+}
+
+#save-anno:hover {
+    background-color: #7D8FE8;
+}
+
+#cancel-anno {
+    background: 0 0;
+    border-color: transparent;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    color: #9a9a9a;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#cancel-anno:hover {
+    background: #9a9a9a;
+    color: rgb(112, 112, 112);
+    cursor: pointer;
+}
+.anno-modal-child {
+  width: 100%;
+  max-width: 400px;
+  min-height: 100px;;
+  position: relative;
+  background: white;
+  border-left: 3px solid darkgrey;
+  display: flex;
+  margin-top: 20px;
+}
+
+.anno-modal-child p{
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+#anno-show-wrapper { 
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: inherit;
+    margin: 5px;
+    padding: 10px;
+    background-color: #E9E9E9;
+    color: black;
+}
+
+#anno-show-wrapper > p {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+#anno-show-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 3px 0px 12px 10px;
+}
+
+#anno-show-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+ion-icon {
+    font-size: 19px;
+    padding: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+ion-icon:hover {
+    color: darkred;
+}
+#artist-show-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.artist-show-container {
+  display: flex;
+  flex-direction: column;
+
+  background: white;
+  max-width: 1350px;
+  width: 75%;
+  color: #222;
+  padding: 30px;
+}
+
+.artist-show-container h3{
+  font-size: 34px;
+  border-bottom: 3px solid red;
+  padding-top: 9px;
+  padding-bottom: 5px;
+}
+
+.artist-show-container h3{
+  font-size: 22px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222;
+  padding-top: 9px;
+  padding-bottom: 5px;
+}
+
+.artist-show-container a, .artist-show-container p{
+  color: darkgrey;
+  text-decoration: none;
+}
+
+.artist-show-image-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-bottom: 30px;
+}
+
+.artist-show-image{
+  height: 350px;
+  width: auto;
+}
+
+.artist-show-album-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-show-album-list ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: auto;
+  margin-top: 35px;
+}
+
+.artist-show-album-list li{
+  margin: 0px 15px 15px 0px;
+}
+
+.artist-show-album a{
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-show-album img{
+  height: 180px;
+  width: auto;
+  margin-bottom: 5px;
+  border: 2px solid transparent;
+  filter: grayscale(100%);
+  outline: none;
+}
+
+.artist-show-album img:hover{
+  outline: none;
+  filter: none;
+}
+
+.artist-bio-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.artist-bio{
+  margin-top: 15px;
+  text-align: justify;
+}
+
+.artist-show-album-art-missing {
+  color: white;
+  background: repeating-linear-gradient( 
+    135deg, 
+    #932828, 
+    #932828 40px, 
+    darkred 40px, 
+    darkred 80px 
+  );
+  height: 180px;
+  width: 180px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 4;
+  position: relative;
+  margin-bottom: 5px;
+}
+.bground-img-form{
+    width: 100%
+}
+
+.bground-img-form-head{
+    color:darkgrey;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid darkgrey;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 25px 0px;
+}
+
+.add-bground-img{
+    color:#8c8f9b;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.bground-img-form-input-field{
+    background: #fff;
+    border: 2px solid #ccc;
+    margin: 9px 0px;
+    padding: 4px;
+    color: #000; 
+    width: 96%;
+    font-size: 14px;
+}
+
+.bground-img-form-input-field:focus{
+    outline: none;
+    border: 2px solid rgb(172, 172, 172);
+}
+
+.bground-form-submit{
+    background: darkred;
+    padding: 7px;
+    color: white;
+    position: relative;
+    top: 90px;
+    left: 243px;
+    cursor: pointer;
+}
+/* line 3, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: white;
+}
+/* line 10, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer .footer__alph-index {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px dashed gray;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
+  width: auto;
+}
+/* line 22, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer .footer__alph-index > li {
+  padding: 10px;
+  color: black;
+}
+/* line 26, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer .footer__alph-index > li:hover {
+  color: #6e1fff;
+}
+/* line 31, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer #footer__alph-index__head {
+  color: #6e1fff;
+}
+
+/* line 36, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.alphabet-soup a {
+  color: inherit;
+}
+
+/* line 40, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer__external-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  color: black;
+  padding: 10px 0;
+}
+/* line 54, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer__external-links:hover {
+  color: #6e1fff;
+}
+/* line 58, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+.footer__external-links > li {
+  padding: 0 10px;
+}
+
+/* line 63, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/footer.scss */
+#copyright {
+  color: inherit;
+  font-size: 12px;
+  padding: 10px 0 25px;
+}
+/* line 5, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header {
+  background-color: #fffffff4;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 78px;
+  justify-content: space-between;
+  padding: 0 10px;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 6;
+}
+/* line 20, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .user-control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  margin-bottom: auto;
+  margin-top: auto;
+  order: 4;
+  text-align: right;
+  width: 16%;
+}
+/* line 32, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search {
+  background: transparent;
+  border: 1px solid #3c3c3c;
+  color: black;
+  font-size: 10.5px;
+  margin: 21px 3px;
+  order: 1;
+  text-align: left;
+  text-transform: uppercase;
+  width: 20%;
+  z-index: 5;
+}
+/* line 44, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search__form {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0 5%;
+  width: 90%;
+}
+/* line 52, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search__input {
+  background: transparent;
+  color: grey;
+  padding: 5px;
+  width: 80%;
+}
+/* line 59, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search__input::placeholder {
+  color: grey;
+}
+/* line 63, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search ion-icon {
+  color: white;
+  cursor: auto;
+}
+/* line 68, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search #search-results {
+  border-color: #3c3c3c;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  cursor: pointer;
+  position: relative;
+  right: 1px;
+  width: 100%;
+  z-index: 5;
+}
+/* line 79, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .hidden-search {
+  display: none;
+}
+/* line 83, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding: 5px;
+}
+/* line 89, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-result:nth-child(even) {
+  background: #f7f6f6;
+}
+/* line 90, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-result:nth-child(odd) {
+  background: white;
+}
+/* line 93, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-result > a {
+  color: inherit;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+/* line 100, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-result img {
+  width: 40px;
+  height: 40px;
+}
+/* line 105, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-metadata {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-transform: none;
+}
+/* line 112, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-metadata a {
+  color: black;
+  text-transform: none;
+  text-decoration: none;
+  padding: 0px;
+}
+/* line 118, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-metadata a:hover {
+  color: #6e1fff;
+}
+/* line 121, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-metadata b {
+  font-size: 18px;
+  font-weight: 600;
+}
+/* line 126, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.header .search .search-metadata p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* line 133, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.button {
+  background: none;
+  color: black;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* line 142, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.button--home {
+  font-size: 28px;
+  font-weight: bolder;
+  letter-spacing: 8px;
+  margin: auto;
+  order: 2;
+  padding-left: 3px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: -1px 0 white;
+}
+
+/* line 154, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.box-button {
+  border: 3px solid black;
+  font-size: 13px;
+  margin-right: 10px;
+  min-width: max-content;
+  overflow: hidden;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* line 164, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.box-button:hover {
+  background: black;
+  color: white;
+}
+
+/* line 170, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.button--git {
+  display: flex;
+  align-items: center;
+  order: 3;
+}
+/* line 175, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/header.scss */
+.button--git:hover {
+  color: #6e1fff;
+}
+/* line 3, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+#homepage-wrap {
+  display: flex;
+  justify-content: center;
+  width: 92%;
+}
+
+/* line 9, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+#app-info {
+  color: black;
+  width: 30%;
+  margin: 37px;
+}
+
+/* line 15, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-list-container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 70%;
+  margin: 37px;
+}
+
+/* line 23, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-container {
+  color: black;
+}
+
+/* line 27, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-list-container > h3, #app-info > h3 {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 2px solid #222;
+  padding-top: 9px;
+  padding-bottom: 24px;
+}
+
+/* line 35, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+#app-info > h3 {
+  color: #6e1fff;
+}
+
+/* line 39, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-list-container > h3 {
+  color: black;
+}
+
+/* line 43, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+#app-info > .body-text {
+  padding-top: 15px;
+  text-align: justify;
+}
+
+/* line 48, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+#app-info-quote {
+  font-style: italic;
+  padding-left: 15px;
+  text-align: justify;
+}
+
+/* line 54, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-container a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #222;
+  height: 72px;
+  text-decoration: none;
+  padding: 2px;
+}
+/* line 64, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-container a:hover {
+  background: #dddddd;
+  cursor: pointer;
+}
+
+/* line 70, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-container img {
+  height: 72px;
+  width: 72px;
+  margin-right: 10px;
+}
+
+/* line 76, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-container span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  width: 37px;
+  height: 37px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* line 92, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-info {
+  width: 80%;
+  color: #222;
+}
+
+/* line 97, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-title {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 4px;
+}
+
+/* line 104, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/home_page.scss */
+.home-track-artist {
+  font-size: 14px;
+  font-weight: 600;
+}
+/* line 3, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+/* line 13, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal-child {
+  border-radius: 8px;
+  color: black;
+  width: 300px;
+  height: 375px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 22px;
+  animation: expand_in 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+}
+
+/* line 28, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal__form-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* line 35, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal__form {
+  color: inherit;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 42, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal__form__header {
+  font-size: 24px;
+  text-align: center;
+}
+
+/* line 47, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal__form__type {
+  color: inherit;
+  margin-bottom: 12px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+/* line 58, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal__form__input {
+  background: white;
+  font-size: 15px;
+  margin-top: 22px;
+  padding: 3%;
+  width: 94%;
+}
+/* line 65, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.modal__form__input :focus {
+  border: 1px solid red;
+  outline: none;
+}
+
+/* line 71, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.box-button--modal {
+  background: transparent;
+  margin-top: 22px;
+}
+
+/* line 76, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.addtl-sign-in-opts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* line 84, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.addtl-sign-in-opt {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  color: #949494;
+  display: block;
+  font-size: 13px;
+  margin: 2px;
+  padding: 2px;
+  text-transform: uppercase;
+  width: min-content;
+}
+/* line 95, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/modals.scss */
+.addtl-sign-in-opt:hover {
+  border-bottom: 1px solid #6e1fff;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul, li {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+a:focus, button:focus, input:focus {
+    outline: none;
+}
+  
+.center-flex {
+  display: flex;
+  justify-content: center;
+}
+
+#track-form-wrapper{
+  background-color: white;
+  color: black;
+  padding: 5%;
+  width: 70%;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#track-form {
+  display: flex;
+  max-width: 1050px;
+}
+
+#track-form-data {
+  width: 50%;
+  max-width: 500px;
+  margin-right: 25px;
+}
+
+.primary-info {
+  height: 330px;
+}
+
+#track-form-title input, 
+#track-form-artist input, 
+#track-form-album input {
+  margin-bottom: 10px;
+}
+
+#track-form-wrapper h1{
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 100%;
+  padding: 0px 0px 17px 0px;
+  position: relative;
+}
+
+#track-form-wrapper h3{
+  font-size: 18px;
+  line-height: 140%;
+  margin-bottom: 20px;
+  font-weight: 700; 
+  border-bottom: 1px solid #626262;
+}
+
+.form-inputs{
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+
+.form-inputs > label {
+  margin-bottom: 5px;
+}
+
+.primary-info, .additional-metadata{
+  display: flex;
+  flex-direction: column;
+}
+
+#track-form-video {
+  margin-bottom: 0px;
+}
+
+/* lyrics */
+
+#new-track-lyrics {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  margin-left: 25px;
+  width: 50%;
+  max-width: 500px;
+  min-width: 200px;
+}
+
+#new-track-lyrics textarea {
+  height: 100%;
+  font-size: 12px;
+  display: block;
+  margin-bottom: .85rem;
+  box-sizing: border-box;
+  border: 1px solid #BBB;
+  border-radius: 2px;
+  max-width: 500px;
+  white-space: pre-wrap;
+}
+
+.track-field-label{
+  text-transform: uppercase;
+  color: #626262;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* input boxes for artist, title, etc */
+.track-string-input{
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 15px;
+  display: block;
+  border: 1px solid #BBB;
+  width: 100%;
+
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+
+.track-string-input:focus, .track-form textarea:focus{
+  outline: none;
+}
+
+.genre_selector{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.genre_radio{
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* "note: If you're not sure which tag..." */
+.tag-note{
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: .5rem;
+  font-weight: 100;
+}
+
+#track-submit-wrapper {
+  display: flex;
+  justify-content: right;
+}
+
+.track-submit{
+  background-color: black;
+  color: #ccc;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid #444;
+  height: 60px;
+  width: 40%;
+  min-width: 150px;
+  padding: 5px 9px;
+}
+
+.queried-artists, .queried-albums{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+  margin: 0px 10px 0px 0px;
+}
+
+.queried-artist, .queried-album {
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: inline-block;
+  padding: 3px;
+  margin-right: 9px;
+  background: lightgrey;
+}
+
+.queried-artist:hover, .queried-album:hover {
+  background: #8b000098;
+}
+
+.selected-artist-from-query, .selected-album-from-query {
+  background: #8b000098;
+}
+/* line 4, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show {
+  width: 100%;
+}
+
+/* TRACK HEADER */
+/* line 10, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 280px;
+  width: 100%;
+  background: #504e4e;
+  z-index: 3;
+  font-family: Helvetica, sans-serif;
+}
+
+/* line 23, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.bground-upload-button {
+  width: 130px;
+  height: 20px;
+  z-index: 4;
+  position: relative;
+  top: 10px;
+  right: -30px;
+  color: #7d8fe8;
+  background: white;
+  cursor: pointer;
+}
+
+/* line 35, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  background: rgba(0, 0, 0, 0.6);
+  width: 70%;
+}
+
+/* line 45, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-bground-photo {
+  z-index: 1;
+}
+
+/* line 49, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-track-art-container {
+  width: 220px;
+  margin-top: 40px;
+  z-index: 2;
+}
+
+/* line 55, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-no-art button {
+  color: white;
+  background: repeating-linear-gradient(135deg, #932828, #932828 40px, darkred 40px, darkred 80px);
+  height: 220px;
+  width: 220px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 4;
+  position: relative;
+  right: 100px;
+}
+
+/* line 73, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-no-art button:focus {
+  outline: none;
+}
+
+/* line 77, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-track-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  left: -20px;
+  margin-right: 12px;
+  outline: .15rem solid #9a9a9a;
+}
+
+/* line 89, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-meta-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: relative;
+  margin-left: 15px;
+  margin-top: 40px;
+}
+
+/* line 100, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-meta-container a {
+  text-decoration: none;
+}
+
+/* line 104, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-track-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffff64;
+  padding-bottom: 5px;
+}
+
+/* line 112, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-track-artist {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+/* line 119, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-year-container, .track-show-album-container {
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+}
+
+/* line 125, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.track-show-track-year, .track-show-track-album {
+  font-size: 16px;
+  color: #7d8fe8;
+}
+
+/* line 130, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.meta-tag {
+  color: #9a9a9a;
+  padding-right: 10px;
+}
+
+/* TRACK BODY */
+/* line 137, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#lyrics-wrapper-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  background-color: #f7f7f7;
+}
+
+/* line 145, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#lyrics-wrapper-1 p, #lyrics-wrapper-2 p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* line 150, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#lyrics-wrapper-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  letter-spacing: 1px;
+  white-space: pre-wrap;
+  color: black;
+  background: white;
+  padding: 30px;
+}
+
+/* line 168, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#lyrics-wrapper-3 {
+  padding-right: 25px;
+  padding-top: 30px;
+  width: 50%;
+  line-height: 1.4em;
+}
+
+/* line 175, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.xsmall-track-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+/* line 183, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#annotations {
+  margin-left: 35px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+/* ANNOTATIONS */
+/* line 191, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.annotated {
+  background: #e9e9e9;
+  cursor: pointer;
+  padding: 2px 0px 1px 0px;
+}
+
+/* line 197, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+.annotated:hover {
+  background: #8b00001f;
+}
+
+/* line 201, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#temp-annotated {
+  background: #8b00001f;
+  cursor: pointer;
+  padding: 2px 0px 1px 0px;
+}
+
+/* line 207, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#require-login > p {
+  font-family: sans-serif;
+  font-weight: 300;
+  margin-top: 25px;
+  max-width: 380px;
+  color: #3c3c3c;
+  padding: 12px;
+  border: 1px dashed #3c3c3c;
+}
+
+/* line 217, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#require-login b {
+  font-family: sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+  color: #6e1fff;
+}
+
+/* Audio Player */
+/* line 226, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#player {
+  max-width: 400px;
+  max-height: 250px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+/* line 234, /home/suspendedreason/Desktop/Scenius/app/assets/stylesheets/track_show.scss */
+#widget2 {
+  max-height: 250px;
+  max-width: 400px;
+  height: 100%;
+  width: 100%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+#root{
+  font-family: Helvetica, sans-serif;
+  background-color: white;
+  color: white;
+}
+
+#root > div {
+  background: white;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  list-style: none;
+
+  font-family: sans-serif;
+}
+
+*::selection{
+  background-color: #6e1fff;
+  color: white;
+}
+
