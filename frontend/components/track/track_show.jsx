@@ -260,7 +260,7 @@ class TrackShow extends React.Component {
             if (!currentUser) {
                 return (
                     <div id="require-login">
-                        <p>Please <b id="anno-signin">log in</b> or <b id="anno-signup">create an account</b> to add annotations.</p>
+                        <p><b id="anno-signin">Log in</b> or <b id="anno-signup">create an account</b> to add annotations.</p>
                     </div>
                 )
             }

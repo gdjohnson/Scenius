@@ -1,3 +1,5 @@
+$perry: #6e1fff;
+
 .center-flex {
   display: flex;
   justify-content: center;
@@ -178,9 +180,9 @@
 }
 
 .queried-artist:hover, .queried-album:hover {
-  background: #8b000098;
+  background: $perry;
 }
 
 .selected-artist-from-query, .selected-album-from-query {
-  background: #8b000098;
+  background: $perry;
 }

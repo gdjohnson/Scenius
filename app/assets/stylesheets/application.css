@@ -36,7 +36,6 @@ html, body, #root {
 #main {
   display: flex;
   justify-content: left;
-  padding-left: 25px;
 }
 
 * {

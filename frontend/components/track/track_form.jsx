@@ -230,7 +230,7 @@ class TrackForm extends React.Component {
                   onChange={handleUpdate('lyrics')}  ></textarea>
                 <br />
                 <div id="track-submit-wrapper">
-                  <input className="track-submit" type="submit" value="Add track"></input>
+                  <input className="button box-button" type="submit" value="Add track"></input>
                 </div>
           </div>
           </form>

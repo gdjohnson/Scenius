@@ -1,5 +1,6 @@
 $offblack: #3c3c3c;
 $perry: #6e1fff;
+$lightperry: #7d8fe8;
     
 .track-show {
   width: 100%;
@@ -27,7 +28,7 @@ $perry: #6e1fff;
   position: relative;
   top: 10px;
   right: -30px;
-  color: #7d8fe8;
+  color: $lightperry;
   background: white;
   cursor: pointer;
 }
@@ -104,7 +105,7 @@ $perry: #6e1fff;
 .track-show-track-title{
   font-size: 36px;
   font-weight: bold;
-  color: #ffff64;
+  color: lightpink;
 
   padding-bottom: 5px;
 }
@@ -124,7 +125,7 @@ $perry: #6e1fff;
 
 .track-show-track-year, .track-show-track-album{
   font-size: 16px;
-  color: #7d8fe8;
+  color: $lightperry;
 }
 
 .meta-tag{
@@ -143,8 +144,9 @@ $perry: #6e1fff;
 }
 
 #lyrics-wrapper-1 p, #lyrics-wrapper-2 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: arial;
   font-weight: 300;
+  color: $offblack;
 }
 
 #lyrics-wrapper-2{
@@ -154,12 +156,12 @@ $perry: #6e1fff;
 
   width: 75%;
   
-  font-family: 'Roboto', sans-serif;
+  font-family: arial;
   font-weight: 300;
   font-size: 17px;
   letter-spacing: 1px;
   white-space: pre-wrap;
-  color: black;
+  color: $offblack;
 
   background: white;
   padding: 30px;
@@ -189,17 +191,17 @@ $perry: #6e1fff;
 /* ANNOTATIONS */
 
 .annotated{
-  background: #e9e9e9;
+  background: #8c9fffa6;
   cursor: pointer;
-  padding: 2px 0px 1px 0px;
+  padding: 2px;
 }
 
 .annotated:hover{
-  background: #8b00001f;
+  background: $lightperry;
 }
 
 #temp-annotated{
-  background: #8b00001f;
+  background: $lightperry;
   cursor: pointer;
   padding: 2px 0px 1px 0px;
 }
@@ -232,7 +234,7 @@ $perry: #6e1fff;
 }
 
 .react-player__preview {
-  border-radius: 3%;
+  border-radius: 0;
 }
 
 #widget2 {
