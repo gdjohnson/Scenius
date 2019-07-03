@@ -54,6 +54,8 @@ $perry: #6e1fff;
     min-width: 65px;
     z-index: 5;
 
+    &:hover {  border: 1px solid $perry; }
+
     .search__form {
       align-items: center;
       display: flex;
@@ -162,6 +164,8 @@ $perry: #6e1fff;
   text-align: center;
   text-decoration: none;
   text-shadow: -1px 0 white;
+
+  &:hover { color: $perry; }
 }
 
 .box-button {
@@ -174,17 +178,16 @@ $perry: #6e1fff;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-    &:hover {
-      background: black;
-      color: white;
-    }
+  
+  &:hover {
+    background: black;
+    color: white;
+  }
 }
 
 .button--git {
-  display: flex;
   align-items: center;
+  display: flex;
 
-  &:hover {
-    color: $perry;
-  }
+  &:hover { color: $perry; }
 }

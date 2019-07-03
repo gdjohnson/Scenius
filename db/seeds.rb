@@ -26,7 +26,7 @@ robertaflack = Artist.create(name: "Roberta Flack",
                             image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Roberta_Flack_1971.jpg/640px-Roberta_Flack_1971.jpg",
                             bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Roberta_Flack")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)') 
 brianeno = Artist.create(   name: "Brian Eno", 
-                            image_url: "https://i1.wp.com/www.classicrockhistory.com/wp-content/uploads/2018/04/Brian_Eno_-_TopPop_1974_09.png?resize=680%2C407&ssl=1",
+                            image_url: "https://video-images.vice.com/articles/5bd88c8f0f03a20006494c19/lede/1540919068402-GettyImages-742512695.jpeg?crop=0.6657104608911838xw%3A1xh%3Bcenter%2Ccenter&resize=650",
                             bio: Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Brian_Eno")).css("table.infobox")[0].next_element.text + ' (courtesy of Wikipedia)')  
 bryanferry = Artist.create( name: "Bryan Ferry", 
                             image_url: "https://cdn.shopify.com/s/files/1/2508/8586/t/6/assets/description_image_bryan-ferry.jpg?4903922262114959621",

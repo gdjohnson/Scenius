@@ -1,3 +1,7 @@
+$offblack: #3c3c3c;
+$offwhite: #f7f6f6;
+$perry: #6e1fff;
+
 .album-show{
     width: 100%;
 }
@@ -37,8 +41,8 @@
   height: 90px;
   min-height: 90px;
   margin: 8px;
-  color: red;
-  border: 2px solid darkred;
+  color:$perry;
+  border: 2px solid darkgray;
   position: relative;
   left: 50px;
   cursor: pointer;
@@ -126,10 +130,6 @@
     color: white;
 }
 
-.album-show-track-list a:hover{
-    color: red;
-}
-
 .album-show-track-list h3{
     font-size: 24px;
 }
@@ -149,16 +149,24 @@
     width: 70%;
     text-align: left;
     align-items: flex-start;
+
+    > ul {
+      width: 22%;
+    } 
 }
 
-.album-show-track-list li, .album-show-track-list a{
-    color: black;
+.album-show-track{
+  background: $offblack;
+  color: white;
+  margin: 6px 0;
+  padding: 2px;
+  &:hover { background: $perry; }
 }
 
 .album-show-track-list ul, .album-show-track-list li{
-    padding-left: 22px;
+  padding-left: 22px;
 }
 
 #album-show-add-track{
-  color: darkred;
+  color: $perry;
 }

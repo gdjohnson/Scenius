@@ -74,13 +74,13 @@
   width: auto;
   margin-bottom: 5px;
   border: 2px solid transparent;
-  filter: grayscale(100%);
+  filter: none;
   outline: none;
 }
 
 .artist-show-album img:hover{
   outline: none;
-  filter: none;
+  filter: grayscale(100%);
 }
 
 .artist-bio-wrap {

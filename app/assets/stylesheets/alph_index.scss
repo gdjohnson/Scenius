@@ -1,0 +1,91 @@
+$offblack: #3c3c3c;
+$offwhite: #f7f6f6;
+$perry: #6e1fff;
+
+.alph-index-container {
+  background: white;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+
+  > div {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-left: 5%;
+  }
+
+  img {
+    height: max-content;
+    padding: 50px 30px;
+    width: max-content;
+  }
+}
+
+#alph-index-artists-container {
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    padding: 20px 0;
+  }
+}
+
+.alph-index {
+  align-items: left;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  width: 70%;
+
+  h3 {
+    color: black;
+    font-family: Arial;
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
+}
+
+.alph-index-artist {
+  color: $offblack;
+  font-size: 19px;
+  font-weight: bolder;
+  margin: 10px 0;
+  &:hover { color: $perry; }
+}
+
+.alph-index-album {
+  background: $offblack;
+  color: $offwhite;
+  margin: 11px 0 6px;
+  padding: 2px;
+
+  &:hover {
+    color: $offwhite;
+    background: $perry;
+  }
+}
+
+.alph-index-track {
+  color: rgb(119, 119, 119);
+  margin: 6px 0 0 15px;
+  &:hover { color: $perry; }
+}
+
+/* In case of no artists for a given char... */
+
+.alph-index-container > span {
+  border: 3px dotted $offblack;
+  color: black;
+  font-size: 26px;
+  left: 30%;
+  padding: 70px;
+  position: absolute;
+  right: 30%;
+  text-align: center;
+  top: 30%;
+}
+
+#alph-index-missing-artists-link {
+  color: $perry;
+}
