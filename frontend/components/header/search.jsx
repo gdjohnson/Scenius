@@ -16,7 +16,7 @@ class Search extends React.Component {
     const resultsList = document.getElementById('search-results');
 
     searchInput.value = "";
-    resultsList.className = "hidden-search";
+    resultsList.id = "hidden-search";
     page.removeEventListener('click', this.closeSearch);
     searchInput.addEventListener('click', this.openSearch);
   }
@@ -24,9 +24,9 @@ class Search extends React.Component {
   openSearch() {
     const page = document.getElementById('main');
     const searchInput = document.getElementsByClassName('search__input')[0];
-    const resultsList = document.getElementById('search-results');
+    const resultsList = document.getElementById('hidden-search');
 
-    resultsList.className = "";
+    resultsList.id = "search-results";
     searchInput.removeEventListener('click', this.openSearch);
     resultsList.addEventListener('click', this.closeSearch);
     page.addEventListener('click', this.closeSearch);
@@ -75,7 +75,7 @@ class Search extends React.Component {
         </input>
         <ion-icon name="search"></ion-icon>
         </form>
-        <ul id="search-results">
+        <ul id="hidden-search">
           { results }
         </ul>
       </div>

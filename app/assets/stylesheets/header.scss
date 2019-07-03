@@ -7,26 +7,39 @@ $perry: #6e1fff;
   color: black;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: nowrap;
-  height: 78px;;
-  justify-content: space-between;
-  padding: 0 10px;
+  height: 78px;
+  padding: 8px 10px 0;
   text-transform: uppercase;
   
   position: sticky;
   top: 0;
   z-index: 6;
 
+  .header__left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 50%;
+    padding-left: 15px;
+  }
+
+  .header__right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: 15px;
+  }
+
   .user-control {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    margin-bottom: auto;
-    margin-top: auto;
-    order: 4;
+    margin: auto 0 auto 25px;
     text-align: right;
-    width: 16%;
   }
 
   .search {
@@ -35,17 +48,17 @@ $perry: #6e1fff;
     color: black;
     font-size: 10.5px;
     margin: 21px 3px;
-    order: 1;
     text-align: left;
     text-transform: uppercase;
-    width: 20%;
+    width: 40%;
+    min-width: 65px;
     z-index: 5;
 
     .search__form {
       align-items: center;
       display: flex;
       height: 100%;
-      margin: 0 5%;
+      margin: 0 10%;
       width: 90%;
     }
 
@@ -69,6 +82,7 @@ $perry: #6e1fff;
       border-color: $offblack;
       border-width: 0 1px 1px 1px;
       border-style: solid;
+      box-shadow: 11px 11px $offblack;
       cursor: pointer;
       position: relative;
       right: 1px;
@@ -76,7 +90,7 @@ $perry: #6e1fff;
       z-index: 5;
     }
 
-    .hidden-search {
+    #hidden-search {
       display: none;
     }
     
@@ -143,8 +157,7 @@ $perry: #6e1fff;
   font-size: 28px;
   font-weight: bolder;
   letter-spacing: 8px;
-  margin: auto;
-  order: 2;
+  margin: auto auto auto 6%;
   padding-left: 3px;
   text-align: center;
   text-decoration: none;
@@ -170,7 +183,6 @@ $perry: #6e1fff;
 .button--git {
   display: flex;
   align-items: center;
-  order: 3;
 
   &:hover {
     color: $perry;
