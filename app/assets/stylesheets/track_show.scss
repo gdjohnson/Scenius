@@ -1,4 +1,7 @@
-.track-show{
+$offblack: #3c3c3c;
+$perry: #6e1fff;
+    
+.track-show {
   width: 100%;
 }
 
@@ -202,25 +205,20 @@
 }
 
 #require-login > p {
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
   margin-top: 25px;
-  background-color: lightgrey;
   max-width: 380px;
-  color: #3c3c3c;
-  padding: 10px;
-  border-bottom: 1px transparent;
+  color: $offblack;
+  padding: 12px;
+  border: 1px dashed #3c3c3c;
 }
 
 #require-login b {
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
   cursor: pointer;
-  color: darkred;
-}
-
-#require-login b:hover{
-  color: white;
+  color: $perry;
 }
 
 /* Audio Player */

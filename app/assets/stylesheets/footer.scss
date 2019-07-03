@@ -1,66 +1,68 @@
 $perry: #6e1fff;
 
-#footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    background-color: white;
-}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: white;
 
-#footer-alph-index {
+  .footer__alph-index {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     
-    border: 1px solid $perry;
+    border: 1px dashed gray;
     padding: 5px 10px 5px 10px;
     margin: 10px;
-    max-width: 645px;
-}
+    width: auto;
+  }
 
-#footer-alph-index > li{
-    padding: 5px;
+  .footer__alph-index > li {
+    padding: 10px;
+    color: black;
+
+    &:hover {
+      color: $perry;
+    }
+  }
+
+  #footer__alph-index__head {
     color: $perry;
+  }
 }
 
-#footer-alph-index span {
+.alphabet-soup a {
+    color: inherit; 
+}
+
+.footer__external-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+
+  color: black;
+
+  padding: 10px 0;
+
+  &:hover {
     color: $perry;
-}
+  }
 
-.alphabet-soup:hover {
-    background-color: #8b000098;
-    color: rgb(37, 37, 37);
-}
-
-#footer-alph-index a {
-    color: inherit;
-    text-decoration: none;
-}
-
-#footer-external-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: nowrap;
-
-    white-space: nowrap;
-    text-align: center;
-    overflow: hidden;
-
-    color: $perry;
-
-    padding: 10px 0px 10px 0px;
-}
-
-#footer-external-links > li {
-    padding: 0px 10px 0px 10px;
+  & > li {
+    padding: 0 10px;
+  }
 }
 
 #copyright {
-    color: black;
-    font-size: 12px;
-    padding: 10px 0px 25px 0px;
+  color: inherit;
+  font-size: 12px;
+  padding: 10px 0 25px;
 }
 

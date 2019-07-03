@@ -1,5 +1,5 @@
-// HEADER
-
+$offblack: #3c3c3c;
+$offwhite: #f7f6f6;
 $perry: #6e1fff;
 
 .header {
@@ -31,7 +31,7 @@ $perry: #6e1fff;
 
   .search {
     background: transparent;
-    border: 1px solid grey;
+    border: 1px solid $offblack;
     color: black;
     font-size: 10.5px;
     margin: 21px 3px;
@@ -60,22 +60,19 @@ $perry: #6e1fff;
       color: grey;
     }
 
-    #search__input:focus { 
-      outline: 1px solid darkgrey;
-    }
-
-    #search ion-icon {
+    .search ion-icon {
       color: white;
       cursor: auto;
     }
 
     #search-results {
-      border-color: black;
+      border-color: $offblack;
       border-width: 0 1px 1px 1px;
       border-style: solid;
       cursor: pointer;
       position: relative;
-      width: auto;
+      right: 1px;
+      width: 100%;
       z-index: 5;
     }
 
@@ -84,50 +81,51 @@ $perry: #6e1fff;
     }
     
     .search-result {
-      background: white;
       display: flex;
       flex-direction: row;
       justify-content: left;
       padding: 5px;
-    }
 
-    .search-result:hover {
-      background: #dddddd;
-  }
+      &:nth-child(even) { background: $offwhite; }
+      &:nth-child(odd) { background: white; }
+    }
     
     .search-result > a {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
+      color: inherit;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
     }
     
     .search-result img {
-        width: 40px;
-        height: 40px;
+      width: 40px;
+      height: 40px;
     }
     
     .search-metadata {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-transform: none;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-transform: none;
     }
     
     .search-metadata a {
-        color: black;
-        text-transform: none;
-        text-decoration: none;
-        padding: 0px;
+      color: black;
+      text-transform: none;
+      text-decoration: none;
+      padding: 0px;
+
+      &:hover { color: $perry; }
     }
     
     .search-metadata b {
-        font-size: 18px;
-        font-weight: 600;
+      font-size: 18px;
+      font-weight: 600;
     }
     
     .search-metadata p {
-        font-size: 14px;
-        font-weight: 500;
+      font-size: 14px;
+      font-weight: 500;
     }
   }
 }
@@ -163,19 +161,18 @@ $perry: #6e1fff;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-}
-
-.box-button:hover {
-  background: black;
-  color: white;
+    &:hover {
+      background: black;
+      color: white;
+    }
 }
 
 .button--git {
   display: flex;
   align-items: center;
   order: 3;
-}
 
-.button--git:hover {
-  color: $perry;
+  &:hover {
+    color: $perry;
+  }
 }

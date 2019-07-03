@@ -12,7 +12,7 @@ class Search extends React.Component {
 
   closeSearch() {
     const page = document.getElementById('main');
-    const searchInput = document.getElementById('search-input');
+    const searchInput = document.getElementsByClassName('search__input')[0];
     const resultsList = document.getElementById('search-results');
 
     searchInput.value = "";
@@ -23,7 +23,7 @@ class Search extends React.Component {
 
   openSearch() {
     const page = document.getElementById('main');
-    const searchInput = document.getElementById('search-input');
+    const searchInput = document.getElementsByClassName('search__input')[0];
     const resultsList = document.getElementById('search-results');
 
     resultsList.className = "";
@@ -69,7 +69,7 @@ class Search extends React.Component {
       <div className="search">
         <form className="search__form">
         <input  className="search__input"
-                placeholder="Search Tracks..."
+                placeholder="Search Scenius..."
                 onClick={this.openSearch}
                 onChange={this.handleUpdate}>
         </input>

@@ -1,3 +1,5 @@
+$perry: #6e1fff;
+
 #homepage-wrap {
   display: flex;
   justify-content: center;
@@ -31,7 +33,7 @@
 }
 
 #app-info > h3 {
-  color: red;
+  color: $perry;
 }
 
 .home-track-list-container > h3 {
@@ -58,11 +60,11 @@
   height: 72px;
   text-decoration: none;
   padding: 2px;
-}
-
-.home-track-container a:hover{
-  background: #dddddd;
-  cursor: pointer;
+  
+  &:hover{
+    background: #dddddd;
+    cursor: pointer;
+  }
 }
 
 .home-track-container img{

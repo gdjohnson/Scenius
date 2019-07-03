@@ -92,7 +92,7 @@ $perry: #6e1fff;
   text-transform: uppercase;
   width: min-content;
 
-  :hover {
+  &:hover {
     border-bottom: 1px solid $perry;
   }
 }
