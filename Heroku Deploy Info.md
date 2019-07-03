@@ -17,4 +17,5 @@ _Commit changes in Git to add newly compiled assets, then push to Heroku._
 
 _To re-seed the DB:_
 * `heroku pg:reset DATABASE` (only drops; does not migrate or reseed)
-* `heroku pg:setup DATABASE` (migration + seeding)
+* `heroku run rails db:migrate`
+* `heroku run rails db:seed`

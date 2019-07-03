@@ -170,7 +170,6 @@ $cement: #ccc;
 
 #lyrics-wrapper-3{
   padding-right: 25px;
-  padding-top: 30px;
   width: 50%;
   line-height: 1.4em;
 }
@@ -208,18 +207,14 @@ $cement: #ccc;
 }
 
 #require-login > p {
-  font-family: sans-serif;
-  font-weight: 300;
-  margin-top: 25px;
-  max-width: 380px;
   color: $offblack;
-  padding: 12px;
-  border: 1px dashed #3c3c3c;
+  font-family: sans-serif;
+  margin: 25px 0;
+  max-width: 380px;
 }
 
 #require-login b {
   font-family: sans-serif;
-  font-weight: 300;
   cursor: pointer;
   color: $perry;
 }
@@ -227,11 +222,12 @@ $cement: #ccc;
 /* Audio Player */
 
 #player {
-  max-width: 400px;
-  max-height: 250px;
-  height: 100%;
-  width: 100%;
   box-shadow: 12px 12px #ccc;
+  height: 100%;
+  margin-bottom: 48px;
+  max-height: 250px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .react-player__preview {

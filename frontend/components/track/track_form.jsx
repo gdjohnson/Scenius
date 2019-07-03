@@ -206,8 +206,7 @@ class TrackForm extends React.Component {
                             Experimental  
                   </div>
 
-                  <p className="tag-note">Note: If you're not sure which tag to use
-                        please select “Pop”— you can add secondary tags later.</p>
+                  <p className="tag-note">Note: If you're not sure which tag to use, select “Pop”— you can change tags later.</p>
                   <br />
 
                   </div>

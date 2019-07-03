@@ -289,12 +289,12 @@ class TrackShow extends React.Component {
                 <div id="lyrics-wrapper-1">
                     <div id="lyrics-wrapper-2">
                         <div id="lyrics-wrapper-3">
+                            {requireLogin()}
                             <p className="xsmall-track-title">{track.title} lyrics</p>
                             <p id="lyrics" onMouseUp={this.pullSelection}>{lyrics}</p>
                         </div>
                         <div id="annotations">
                             {audioLink()}
-                            {requireLogin()}
                             <AnnoModal />
                         </div>
                     </div>
