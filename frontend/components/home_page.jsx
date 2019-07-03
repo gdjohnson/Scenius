@@ -53,7 +53,7 @@ export class HomePage extends React.Component {
           <p className="app-info-quote">What really happened was that there were sometimes very fertile scenes involving lots and lots of people – some of them artists, some of them collectors, some of them curators, thinkers, theorists, people who were fashionable and knew what the hip things were – all sorts of people who created a kind of ecology of talent. And out of that ecology arose some wonderful work... So I came up with this word <i>Scenius</i> – and scenius is the intelligence of a whole… operation or group of people.</p>
           <br />
           <br />
-          <p>Scenius is a fullstack app inspired by the lyrics & annotation site Genius. Built with React/Redux and Rails,, Scenius allows users to add song lyrics (+ associated album, artist, and track data). Artist biographies and album art is automatically populated from Wikipedia with a Nokogiri webscraper, though it can be added or altered manually if missing. Much of the GUI design is inspired by Artsy Magazine.
+          <p>Scenius is a fullstack app inspired by the lyrics & annotation site Genius. Built with React/Redux and Rails, Scenius allows users to add song lyrics (+ associated album, artist, and track data). Artist biographies and album art is automatically populated from Wikipedia by way of a webscraper (Nokogiri/WebURI), though it can be added or altered manually if missing. Much of the GUI design is inspired by Artsy Magazine.
           </p>
 
         </div>
