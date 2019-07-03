@@ -20,17 +20,17 @@ html, body, #root {
 }
 
 #root{
-  font-family: Helvetica, sans-serif;
   background-color: white;
   color: white;
-}
-
-#root > div {
-  background: white;
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
+  font-family: Helvetica, sans-serif;
+  
+  > div {
+    background: white;
+    min-height: 1040px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+  }
 }
 
 #main {

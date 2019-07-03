@@ -2,6 +2,8 @@ $offblack: #3c3c3c;
 $offwhite: #f7f6f6;
 $perry: #6e1fff;
 
+// If artists are present...
+
 .alph-index-container {
   background: white;
   display: flex;
@@ -14,19 +16,10 @@ $perry: #6e1fff;
     padding-left: 5%;
   }
 
-  img {
+  .alph-index__art {
     height: max-content;
     padding: 50px 30px;
     width: max-content;
-  }
-}
-
-#alph-index-artists-container {
-  display: flex;
-  flex-direction: column;
-
-  > div {
-    padding: 20px 0;
   }
 }
 
@@ -46,35 +39,44 @@ $perry: #6e1fff;
   }
 }
 
-.alph-index-artist {
-  color: $offblack;
-  font-size: 19px;
-  font-weight: bolder;
-  margin: 10px 0;
-  &:hover { color: $perry; }
-}
+.alph-index__artists-container {
+  display: flex;
+  flex-direction: column;
 
-.alph-index-album {
-  background: $offblack;
-  color: $offwhite;
-  margin: 11px 0 6px;
-  padding: 2px;
+  > div {
+    padding: 20px 0;
+  }
 
-  &:hover {
+  .alph-index__artists-container__artist {
+    color: $offblack;
+    font-size: 19px;
+    font-weight: bolder;
+    margin: 10px 0;
+    &:hover { color: $perry; }
+  }
+
+  .alph-index__artists-container__album {
+    background: $offblack;
     color: $offwhite;
-    background: $perry;
+    margin: 11px 0 6px;
+    padding: 2px;
+  
+    &:hover {
+      background: $perry;
+      color: $offwhite;
+    }
+  }
+
+  .alph-index__artists-container__track {
+    color: rgb(119, 119, 119);
+    margin: 6px 0 0 15px;
+    &:hover { color: $perry; }
   }
 }
 
-.alph-index-track {
-  color: rgb(119, 119, 119);
-  margin: 6px 0 0 15px;
-  &:hover { color: $perry; }
-}
+// In case of no artists for a given letter...
 
-/* In case of no artists for a given char... */
-
-.alph-index-container > span {
+.alph-index--missing {
   border: 3px dotted $offblack;
   color: black;
   font-size: 26px;
@@ -86,6 +88,6 @@ $perry: #6e1fff;
   top: 30%;
 }
 
-#alph-index-missing-artists-link {
+.alph-index--missing__link {
   color: $perry;
 }

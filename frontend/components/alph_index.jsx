@@ -28,7 +28,7 @@ export class AlphIndex extends React.Component {
   modalLink() {
     if (this.props.currentUser) {
       return (
-        <Link id="alph-index-missing-artists-link" to="/add">
+        <Link className="alph-index--missing__link" to="/add">
             Add some!
          </Link>
       )
@@ -36,7 +36,7 @@ export class AlphIndex extends React.Component {
 
     const { openModal } = this.props;
     return (
-      <a id="alph-index-missing-artists-link" onClick={() => openModal({modal: 'signin'})}>
+      <a className="alph-index--missing__link" onClick={() => openModal({modal: 'signin'})}>
             Sign in to add some!
       </a>
     )
@@ -49,7 +49,7 @@ export class AlphIndex extends React.Component {
 
     if (!Object.keys(artists).length || typeof Object.values(artists)[1] === 'string') {
       return ( 
-        <span>
+        <span className="alph-index--missing">
           There are no tracks or albums associated with this letter yet.&nbsp;
           {modalLink()}
         </span> 
@@ -60,7 +60,7 @@ export class AlphIndex extends React.Component {
           return (
             <div key={idx}>
               <li key={artist.id} 
-                  className="alph-index-artist">
+                  className="alph-index__artists-container__artist">
                   <Link to={`/artists/${this.props.char}/${artist.id}`}>
                       {artist.name}
                   </Link>
@@ -73,8 +73,8 @@ export class AlphIndex extends React.Component {
     return (
       <div>
         <div className="alph-index">
-        <h3>Artists beginning with {this.props.char}</h3>
-          <div id="alph-index-artists-container">
+          <h3>Artists beginning with {this.props.char}</h3>
+          <div className="alph-index__artists-container">
             { artistsPresent }
           </div>
         </div>
@@ -90,7 +90,7 @@ export class AlphIndex extends React.Component {
       (album, idx) => {
         return (
             <div key={idx}>
-                <li key={album.id} className="alph-index-album">
+                <li key={album.id} className="alph-index__artists-container__album">
                     <Link to={`/albums/${album.id}`}>
                       {album.title} ({album.year})
                     </Link>
@@ -104,7 +104,7 @@ export class AlphIndex extends React.Component {
     return tracks.map(
       (track) => {
         return (
-          <li key={track.id} className="alph-index-track">
+          <li key={track.id} className="alph-index__artists-container__track">
               <Link to={`/tracks/${track.id}`}>
                 {track.title}
               </Link>
@@ -116,7 +116,7 @@ export class AlphIndex extends React.Component {
     const artists = this.props;
     if (Object.values(artists)) { 
       const img = this.randomImg();
-      return <img id="alph-index-art" src={img}/> 
+      return <img className="alph-index__art" src={img}/> 
     } 
   }
 
