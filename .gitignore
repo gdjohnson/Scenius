@@ -6,7 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/app/assets/javascripts/bundle.js
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -22,7 +21,6 @@
 /yarn-error.log
 
 /vendor/bundle
-.bundle/config
 
 .byebug_history
 
