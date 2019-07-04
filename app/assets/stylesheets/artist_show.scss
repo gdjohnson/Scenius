@@ -69,7 +69,7 @@
   flex-direction: column;
 }
 
-.artist-show-album img{
+.artist-show-album img {
   height: 180px;
   width: auto;
   margin-bottom: 5px;
@@ -78,7 +78,7 @@
   outline: none;
 }
 
-.artist-show-album img:hover{
+.artist-show-album img:hover {
   outline: none;
   filter: grayscale(100%);
 }
@@ -89,9 +89,8 @@
   margin-left: 50px;
 }
 
-.artist-bio{
+.artist-bio {
   margin-top: 15px;
-  text-align: justify;
 }
 
 .artist-show-album-art-missing {
