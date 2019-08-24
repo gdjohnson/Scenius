@@ -1,5 +1,9 @@
 # README
 
+[Live Link](https://sceniusapp.herokuapp.com)
+
+Technologies: Rails/Postgres backend + a Nokogiri/WebURI webscraper. React/Redux ES6 frontend + Web API,   
+
 ![Track Show Page](/ReadMe%20Assets/OverYou.png)
 
 Brian Eno:
