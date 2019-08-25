@@ -1,10 +1,10 @@
 # README
 
-[Live Link](https://sceniusapp.herokuapp.com)
+[**Live Link**](https://sceniusapp.herokuapp.com)
 
-Technologies: Rails/Postgres backend + a Nokogiri/WebURI webscraper. React/Redux ES6 frontend + Web API,   
+**Technologies**: Rails/Postgres backend + Nokogiri/WebURI webscraper. React/Redux ES6 frontend + Web API.   
 
-![Track Show Page](/ReadMe%20Assets/OverYou.png)
+![Track Show Page](/ReadMe%20Assets/Selection_005.png)
 
 Brian Eno:
 
@@ -12,9 +12,9 @@ Brian Eno:
 > 
 >What really happened was that there were sometimes very fertile scenes involving lots and lots of people – some of them artists, some of them collectors, some of them curators, thinkers, theorists, people who were fashionable and knew what the hip things were – all sorts of people who created a kind of ecology of talent. And out of that ecology arose some wonderful work... So I came up with this word SCENIUS – and scenius is the intelligence of a whole… operation or group of people.
 
-Scenius is a fullstack app clone of the lyrics & annotation site [Genius](https://genius.com) (formerly RapGenius). Built with React/Redux, Ruby on Rails, and the Web API, Scenius allows users to add song lyrics (+ associated album, artist, and track data) to its PostgreSQL database. Much of the GUI design is based on Genius—the two-column layout of lyrics and annotations, the varied opacity of track page headers (requiring CSS z-indices and variable background styles). Other aspects of the UI,  where there seemed room for design improvement or where the Genius design style proved a mismatch for my own purposes, I deviated, harnessing the full power of CSS flex to build a more elegant New Track form, or cutting down on unnecessary text clutter in the UI.
+Scenius is a **fullstack app clone of the lyrics & annotation site** [**Genius**](https://genius.com) (formerly RapGenius). **Built with React/Redux, Ruby on Rails, and the Web API, Scenius allows users to add and annotate song lyrics (+ their associated album, artist, & track data) to its PostgreSQL database.** Some of the GUI design is based on Genius—the two-column layout of lyrics and annotations, the varied opacity of track page headers (CSS z-indexing + variable background styles). Other aspects of the UI,  where there seemed room for improvement or where the Genius design style proved a mismatch to my own purposes, I deviated, using flex to build a more elegant New Track form, and cutting down on unnecessary text clutter throughout the UI.
 
-The text annotation system itself, built entirely from scratch with Web API and vanilla Javascript, proved one of the most difficult features to build in the application. Doing research on past strategies for tackling text annotation, I found that one of the most common involved breaking up a text body into a series of `<div>` elements by line. From there, sets of lines could be "annotated" by attached a database object to its corresponding `<div>` element in the DOM. While this approach is elegant and relatively simple to implement, it lacks insofar as annotators often prefer to mark up either a word or phrase (i.e. a sub-section of a `<div>` element) or some fractional combination of lines (e.g. one-and-a-half `<div>` elements). This seriously limited usage flexibility.
+**The text annotation system is built entirely from scratch with Web API and vanilla Javascript** and proved to be one of the more difficult features to implement. Doing research on past strategies for tackling text annotation, I found that one of the most common involved breaking up a text body into a series of `<div>` elements by line. From there, sets of lines could be "annotated" by attached a database object to its corresponding `<div>` element in the DOM. While this approach is elegant and relatively simple to implement, it lacks insofar as annotators often prefer to mark up either a word or phrase (i.e. a sub-section of a `<div>` element) or some fractional combination of lines (e.g. one-and-a-half `<div>` elements). This seriously limited usage flexibility.
 
 An early solution, involving the text body being divided into `<div>` elements at the word or character level, was decided against since it raised potential problems dealing with annotation overlap and had been explicitly decided against by the Genius team's original design. Instead, I settled on treating the entire text body as a parent element indexed into at precise locations. At its most basic this involved pulling the start and end index of a user's text selection (the location in the text they wish to annotate) and saving it in the backend as an Annotation object. When a new track's lyrics page is rendered, a function works through the parent text body and, when a given index location matches the Start and End indices of a stored annotation, wraps the given index range in a `<span>` element containing an id corresponding to the id of the backend object. When the `<span>` element is clicked, the id in the DOM allows a separate set of JS functions to locate, pull, and render the saved annotation itself on the page.
 
