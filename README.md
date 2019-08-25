@@ -4,7 +4,7 @@
 
 **Technologies**: Rails/Postgres backend + Nokogiri/WebURI webscraper. React/Redux ES6 frontend + Web API.   
 
-![Track Show Page](/ReadMe%20Assets/Selection_005.png)
+![Track Show Page](/ReadMe%20Assets/index.png)
 
 Brian Eno:
 
@@ -15,6 +15,11 @@ Brian Eno:
 Scenius is a **fullstack app clone of the lyrics & annotation site** [**Genius**](https://genius.com) (formerly RapGenius). **Built with React/Redux, Ruby on Rails, and the Web API, Scenius allows users to add and annotate song lyrics (+ their associated album, artist, & track data) to its PostgreSQL database.** Some of the GUI design is based on Genius—the two-column layout of lyrics and annotations, the varied opacity of track page headers (CSS z-indexing + variable background styles). Other aspects of the UI,  where there seemed room for improvement or where the Genius design style proved a mismatch to my own purposes, I deviated, using flex to build a more elegant New Track form, and cutting down on unnecessary text clutter throughout the UI.
 
 **The text annotation system is built entirely from scratch with Web API and vanilla Javascript** and proved to be one of the more difficult features to implement. Doing research on past strategies for tackling text annotation, I found that one of the most common involved breaking up a text body into a series of `<div>` elements by line. From there, sets of lines could be "annotated" by attached a database object to its corresponding `<div>` element in the DOM. While this approach is elegant and relatively simple to implement, it lacks insofar as annotators often prefer to mark up either a word or phrase (i.e. a sub-section of a `<div>` element) or some fractional combination of lines (e.g. one-and-a-half `<div>` elements). This seriously limited usage flexibility.
+
+
+![Track Show page](/ReadMe%20Assets/track.png)
+*Individual track page, showing lyrics, metadata, and a sample annotation.*
+
 
 An early solution, involving the text body being divided into `<div>` elements at the word or character level, was decided against since it raised potential problems dealing with annotation overlap and had been explicitly decided against by the Genius team's original design. Instead, I settled on treating the entire text body as a parent element indexed into at precise locations. At its most basic this involved pulling the start and end index of a user's text selection (the location in the text they wish to annotate) and saving it in the backend as an Annotation object. When a new track's lyrics page is rendered, a function works through the parent text body and, when a given index location matches the Start and End indices of a stored annotation, wraps the given index range in a `<span>` element containing an id corresponding to the id of the backend object. When the `<span>` element is clicked, the id in the DOM allows a separate set of JS functions to locate, pull, and render the saved annotation itself on the page.
 
@@ -124,5 +129,8 @@ createAnnoSpan(annotation, idx, sortedAnnos) {
 ```
 
 _Creating annotations: A partial look at the conditional logic needed for processing different types of annotations, depending on precedent, directionality of selection, and start or end overlap with pre-existing annotations._
+
+![Artists 'B'](/ReadMe%20Assets/eno.png)
+*Artists, alphabet index*
 
 Similar issues, all stemming from a huge variety in possible usage patterns, presented themselves through the feature implementation. My approach was always the same: 1/ Carefully reading the relevant sections of the Web API docs, searching for object properties and methods which might be relevant towards my problem, 2/ Explicitly writing out the usage conditions which each piece of code logic addressed (helping me navigate nested logics), and 3/ Breaking down the underlying patterns of usage and code behavior in order to refactor the possibility tree (helping me eliminate a number of time and space-heavy nested functions). But I also learned the value of recognizing more challenging problems and blueprinting out solutions to them in advance: the architectural clarity which arrived by the annotation feature's completion would've been a valuable guide over the murkiness I encountered.
